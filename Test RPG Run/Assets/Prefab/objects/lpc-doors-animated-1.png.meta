@@ -13,10 +13,10 @@ TextureImporter:
     second: lpc-doors-animated-1_2
   - first:
       213: 6696984438858190226
-    second: lpc-doors-animated-1_3
+    second: bedroomdooropenout3
   - first:
       213: -6809750346509318146
-    second: lpc-doors-animated-1_4
+    second: frontdooropenin3
   - first:
       213: -8460225478911660050
     second: lpc-doors-animated-1_5
@@ -31,10 +31,10 @@ TextureImporter:
     second: lpc-doors-animated-1_8
   - first:
       213: 2177949831286910944
-    second: lpc-doors-animated-1_9
+    second: bedroomdooropenout2
   - first:
       213: -9000428577562063810
-    second: lpc-doors-animated-1_10
+    second: frontdooropenin2
   - first:
       213: -4930705732997191071
     second: lpc-doors-animated-1_11
@@ -49,10 +49,10 @@ TextureImporter:
     second: lpc-doors-animated-1_14
   - first:
       213: 1123107978466288359
-    second: lpc-doors-animated-1_15
+    second: bedroomdooropenout1
   - first:
       213: 8113849706485800459
-    second: lpc-doors-animated-1_16
+    second: frontdooropenin1
   - first:
       213: 1951075736667564295
     second: lpc-doors-animated-1_17
@@ -67,10 +67,10 @@ TextureImporter:
     second: lpc-doors-animated-1_20
   - first:
       213: 1283007536048906096
-    second: lpc-doors-animated-1_21
+    second: bedroomdoor
   - first:
       213: 1746307950853692042
-    second: lpc-doors-animated-1_22
+    second: frontdoor
   - first:
       213: -8633593354858958621
     second: lpc-doors-animated-1_23
@@ -85,10 +85,10 @@ TextureImporter:
     second: lpc-doors-animated-1_26
   - first:
       213: -1339617031712824789
-    second: lpc-doors-animated-1_27
+    second: bedroomdooropenin1
   - first:
       213: 5972809210135095778
-    second: lpc-doors-animated-1_28
+    second: frontdooropenout1
   - first:
       213: 1898936455833986068
     second: lpc-doors-animated-1_29
@@ -103,10 +103,10 @@ TextureImporter:
     second: lpc-doors-animated-1_32
   - first:
       213: 7138372598062062481
-    second: lpc-doors-animated-1_33
+    second: bedroomdooropenin2
   - first:
       213: -6483871727124550808
-    second: lpc-doors-animated-1_34
+    second: frontdooropenout2
   - first:
       213: -5676494704761925737
     second: lpc-doors-animated-1_35
@@ -121,10 +121,10 @@ TextureImporter:
     second: lpc-doors-animated-1_38
   - first:
       213: 8464626194435726024
-    second: lpc-doors-animated-1_39
+    second: bedroomdooropenin3
   - first:
       213: 4821174369877461154
-    second: lpc-doors-animated-1_40
+    second: frontdooropenout3
   - first:
       213: -7438351478147040699
     second: lpc-doors-animated-1_41
@@ -150,6 +150,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -225,7 +226,7 @@ TextureImporter:
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -246,7 +247,7 @@ TextureImporter:
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -263,11 +264,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 158
-        y: 464
-        width: 6
+        y: 463
+        width: 34
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -280,15 +281,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lpc-doors-animated-1_3
+      name: bedroomdooropenout3
       rect:
         serializedVersion: 2
         x: 220
         y: 464
-        width: 8
+        width: 30
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -301,15 +302,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lpc-doors-animated-1_4
+      name: frontdooropenin3
       rect:
         serializedVersion: 2
         x: 284
         y: 464
-        width: 8
+        width: 37
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -330,7 +331,7 @@ TextureImporter:
         width: 6
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -351,7 +352,7 @@ TextureImporter:
         width: 19
         height: 61
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -372,7 +373,7 @@ TextureImporter:
         width: 19
         height: 61
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -390,10 +391,10 @@ TextureImporter:
         serializedVersion: 2
         x: 158
         y: 368
-        width: 19
+        width: 34
         height: 61
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -406,15 +407,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lpc-doors-animated-1_9
+      name: bedroomdooropenout2
       rect:
         serializedVersion: 2
         x: 222
         y: 368
-        width: 19
+        width: 36
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -427,15 +428,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lpc-doors-animated-1_10
+      name: frontdooropenin2
       rect:
         serializedVersion: 2
         x: 286
         y: 368
-        width: 19
+        width: 34
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -456,7 +457,7 @@ TextureImporter:
         width: 19
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -477,7 +478,7 @@ TextureImporter:
         width: 29
         height: 56
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -496,9 +497,9 @@ TextureImporter:
         x: 95
         y: 272
         width: 29
-        height: 56
+        height: 54
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -515,11 +516,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 159
-        y: 272
-        width: 29
-        height: 56
+        y: 267
+        width: 33
+        height: 61
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -532,15 +533,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lpc-doors-animated-1_15
+      name: bedroomdooropenout1
       rect:
         serializedVersion: 2
         x: 223
         y: 272
-        width: 29
+        width: 34
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -553,15 +554,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lpc-doors-animated-1_16
+      name: frontdooropenin1
       rect:
         serializedVersion: 2
         x: 287
         y: 272
-        width: 29
+        width: 34
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -582,7 +583,7 @@ TextureImporter:
         width: 29
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -603,7 +604,7 @@ TextureImporter:
         width: 32
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -620,11 +621,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 208
+        y: 197
         width: 32
-        height: 48
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -640,12 +641,12 @@ TextureImporter:
       name: lpc-doors-animated-1_20
       rect:
         serializedVersion: 2
-        x: 160
-        y: 208
+        x: 161
+        y: 196
         width: 32
-        height: 48
+        height: 61
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -658,7 +659,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lpc-doors-animated-1_21
+      name: bedroomdoor
       rect:
         serializedVersion: 2
         x: 224
@@ -666,7 +667,7 @@ TextureImporter:
         width: 32
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -679,7 +680,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lpc-doors-animated-1_22
+      name: frontdoor
       rect:
         serializedVersion: 2
         x: 288
@@ -687,7 +688,7 @@ TextureImporter:
         width: 32
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -708,7 +709,7 @@ TextureImporter:
         width: 32
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -729,7 +730,7 @@ TextureImporter:
         width: 29
         height: 56
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -746,11 +747,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 95
-        y: 136
-        width: 29
-        height: 56
+        y: 131
+        width: 33
+        height: 65
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -767,11 +768,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 159
-        y: 136
-        width: 29
-        height: 56
+        y: 133
+        width: 33
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -784,15 +785,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lpc-doors-animated-1_27
+      name: bedroomdooropenin1
       rect:
         serializedVersion: 2
         x: 223
         y: 144
-        width: 29
+        width: 32
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -805,15 +806,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lpc-doors-animated-1_28
+      name: frontdooropenout1
       rect:
         serializedVersion: 2
         x: 287
         y: 144
-        width: 29
+        width: 34
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -834,7 +835,7 @@ TextureImporter:
         width: 29
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -855,7 +856,7 @@ TextureImporter:
         width: 18
         height: 61
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -873,10 +874,10 @@ TextureImporter:
         serializedVersion: 2
         x: 94
         y: 67
-        width: 18
-        height: 61
+        width: 33
+        height: 65
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -894,10 +895,10 @@ TextureImporter:
         serializedVersion: 2
         x: 158
         y: 67
-        width: 18
+        width: 33
         height: 61
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -910,15 +911,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lpc-doors-animated-1_33
+      name: bedroomdooropenin2
       rect:
         serializedVersion: 2
-        x: 222
+        x: 220
         y: 80
-        width: 18
+        width: 35
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -931,15 +932,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lpc-doors-animated-1_34
+      name: frontdooropenout2
       rect:
         serializedVersion: 2
         x: 286
         y: 80
-        width: 18
+        width: 34
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -960,7 +961,7 @@ TextureImporter:
         width: 18
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -981,7 +982,7 @@ TextureImporter:
         width: 8
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -999,10 +1000,10 @@ TextureImporter:
         serializedVersion: 2
         x: 92
         y: 0
-        width: 8
+        width: 35
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1018,12 +1019,12 @@ TextureImporter:
       name: lpc-doors-animated-1_38
       rect:
         serializedVersion: 2
-        x: 156
+        x: 157
         y: 0
-        width: 6
-        height: 64
+        width: 36
+        height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1036,15 +1037,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lpc-doors-animated-1_39
+      name: bedroomdooropenin3
       rect:
         serializedVersion: 2
         x: 220
         y: 16
-        width: 8
+        width: 34
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1057,15 +1058,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lpc-doors-animated-1_40
+      name: frontdooropenout3
       rect:
         serializedVersion: 2
         x: 284
         y: 16
-        width: 8
+        width: 37
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1086,7 +1087,7 @@ TextureImporter:
         width: 6
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1108,6 +1109,49 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      lpc-doors-animated-1_31: 3054204568350473753
+      lpc-doors-animated-1_35: -5676494704761925737
+      lpc-doors-animated-1_2: -7597362645265335666
+      lpc-doors-animated-1_1: -1606265551875823519
+      lpc-doors-animated-1_12: -2732759373539169433
+      lpc-doors-animated-1_8: 8723790859431038651
+      lpc-doors-animated-1_20: 3424149156119331759
+      lpc-doors-animated-1_37: -1936285256191273801
+      frontdooropenout3: 4821174369877461154
+      lpc-doors-animated-1_18: -5525909854020787252
+      bedroomdoor: 1283007536048906096
+      lpc-doors-animated-1_5: -8460225478911660050
+      bedroomdooropenout2: 2177949831286910944
+      lpc-doors-animated-1_14: 2388997141240580577
+      lpc-doors-animated-1_38: -3803584836453341087
+      lpc-doors-animated-1_7: -5487087375897789471
+      bedroomdooropenin3: 8464626194435726024
+      lpc-doors-animated-1_24: 2201742733074902799
+      frontdooropenin1: 8113849706485800459
+      lpc-doors-animated-1_6: -1327965099899691964
+      bedroomdooropenin1: -1339617031712824789
+      lpc-doors-animated-1_23: -8633593354858958621
+      lpc-doors-animated-1_41: -7438351478147040699
+      bedroomdooropenout1: 1123107978466288359
+      frontdoor: 1746307950853692042
+      lpc-doors-animated-1_25: 5800125766026611451
+      lpc-doors-animated-1_26: 1006986418540223995
+      lpc-doors-animated-1_0: -2428104710651422492
+      lpc-doors-animated-1_32: 9094357851654580995
+      frontdooropenout2: -6483871727124550808
+      lpc-doors-animated-1_36: 8903260860956595487
+      bedroomdooropenin2: 7138372598062062481
+      lpc-doors-animated-1_29: 1898936455833986068
+      frontdooropenin3: -6809750346509318146
+      lpc-doors-animated-1_13: -1466901117591092782
+      frontdooropenin2: -9000428577562063810
+      lpc-doors-animated-1_19: 8209704433680860070
+      lpc-doors-animated-1_30: 6749972375511670746
+      bedroomdooropenout3: 6696984438858190226
+      lpc-doors-animated-1_17: 1951075736667564295
+      lpc-doors-animated-1_11: -4930705732997191071
+      frontdooropenout1: 5972809210135095778
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

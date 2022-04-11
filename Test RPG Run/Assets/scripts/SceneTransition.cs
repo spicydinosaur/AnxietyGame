@@ -8,58 +8,43 @@ public class SceneTransition : MonoBehaviour
 
     public SceneTransition destination;
     public Collider2D collidingObject;
-    public CinemachineTransposer vcam;
-    public CinemachineVirtualCamera camObject;
+    public GameObject cameraOffLocal;
+    public GameObject cameraOnLocal;
+    public CameraSwitch cameraSwitch;
+    
 
 
-    public void Start()
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        vcam = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineTransposer>();
+        if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<Player>().transitioningToScene == false)
+           {
+
+                collision.gameObject.GetComponent<Player>().transitioningToScene = true;
+                GameManager.gameManagerObject.GetComponent<UIFade>().callingTransition = destination;
+                GameManager.gameManagerObject.GetComponent<UIFade>().fadingIn = false;
+                GameManager.gameManagerObject.GetComponent<UIFade>().fadingOut = true;
+                cameraSwitch.changeCamera(this);
+                    //Debug.Log("transition occured from: " + name + "?");
+                    //wait for UIFade to say it is done then move target!!!
+            }
 
     }
 
-    public void OnTriggerEnter2D(Collider2D collider)
-    {
 
 
-
-        if (collidingObject.gameObject.GetComponent<Player>().transitioningToScene == false)
-        {
-
-
-            collidingObject.gameObject.GetComponent<Player>().transitioningToScene = true;
-            GameManager.gameManagerObject.GetComponent<UIFade>().callingTransition = destination;
-            GameManager.gameManagerObject.GetComponent<UIFade>().fadingIn = false;
-            GameManager.gameManagerObject.GetComponent<UIFade>().fadingOut = true;
-            Debug.Log("transition occured from: " + name + "?");
-            //wait for UIFade to say it is done then move target!!!
-
-
-        }
-
-    }
-
-    public void OnTriggerExit2D(Collider2D collider)
-    {
-        vcam.m_XDamping = 0f;
-        vcam.m_YDamping = 0f;
-    }
-
-    public void fadeOutFinished()
+    public virtual void fadeOutFinished()
     {
         collidingObject.gameObject.transform.position = GameManager.gameManagerObject.GetComponent<UIFade>().callingTransition.transform.position;
         GameManager.gameManagerObject.GetComponent<UIFade>().fadingOut = false;
         GameManager.gameManagerObject.GetComponent<UIFade>().fadingIn = true;
         GameManager.gameManagerObject.GetComponent<UIFade>().lerpTime = 0f;
-        vcam.m_XDamping = .5f;
-        vcam.m_YDamping = .5f;
 
-        Debug.Log("transition occured to: " + destination);
+        //Debug.Log("transition occured to: " + destination);
                
     }
 
 
-    public void fadeInFinished()
+    public virtual void fadeInFinished()
     {
 
         GameManager.gameManagerObject.GetComponent<UIFade>().fadingOut = false;
@@ -68,5 +53,7 @@ public class SceneTransition : MonoBehaviour
         collidingObject.gameObject.GetComponent<Player>().transitioningToScene = false;
 
     }
+
+    
 
 }

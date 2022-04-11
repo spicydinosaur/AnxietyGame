@@ -63,6 +63,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -145,12 +146,12 @@ TextureImporter:
       name: magic_effect_2_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 289
-        width: 10
-        height: 9
+        x: 0
+        y: 288
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -166,12 +167,12 @@ TextureImporter:
       name: magic_effect_2_1
       rect:
         serializedVersion: 2
-        x: 7
+        x: 0
         y: 256
-        width: 16
-        height: 21
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -187,12 +188,12 @@ TextureImporter:
       name: magic_effect_2_2
       rect:
         serializedVersion: 2
-        x: 3
-        y: 225
-        width: 27
-        height: 27
+        x: 0
+        y: 224
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -208,12 +209,12 @@ TextureImporter:
       name: magic_effect_2_3
       rect:
         serializedVersion: 2
-        x: 9
-        y: 244
-        width: 9
-        height: 10
+        x: 0
+        y: 192
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -229,12 +230,12 @@ TextureImporter:
       name: magic_effect_2_4
       rect:
         serializedVersion: 2
-        x: 20
-        y: 242
-        width: 7
-        height: 9
+        x: 0
+        y: 160
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -250,12 +251,12 @@ TextureImporter:
       name: magic_effect_2_5
       rect:
         serializedVersion: 2
-        x: 5
-        y: 193
-        width: 26
-        height: 31
+        x: 0
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -271,12 +272,12 @@ TextureImporter:
       name: magic_effect_2_6
       rect:
         serializedVersion: 2
-        x: 5
-        y: 161
-        width: 20
-        height: 31
+        x: 0
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -292,12 +293,12 @@ TextureImporter:
       name: magic_effect_2_7
       rect:
         serializedVersion: 2
-        x: 24
-        y: 184
-        width: 4
-        height: 7
+        x: 0
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -313,12 +314,12 @@ TextureImporter:
       name: magic_effect_2_8
       rect:
         serializedVersion: 2
-        x: 5
-        y: 129
-        width: 21
-        height: 31
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -334,12 +335,12 @@ TextureImporter:
       name: magic_effect_2_9
       rect:
         serializedVersion: 2
-        x: 1
-        y: 101
-        width: 28
-        height: 27
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -347,69 +348,6 @@ TextureImporter:
       bones: []
       spriteID: dc28af11f5e9fa380800000000000000
       internalID: -8957767002655915315
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: magic_effect_2_10
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 38
-        width: 28
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa87ff9099d5acfb0800000000000000
-      internalID: -4626782755290646353
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: magic_effect_2_11
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 69
-        width: 27
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 103afc4cb50fb7050800000000000000
-      internalID: 5799493222104277761
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: magic_effect_2_12
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 1
-        width: 28
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 065fcca669ad03930800000000000000
-      internalID: 4121033998615770464
       vertices: []
       indices: 
       edges: []
@@ -424,6 +362,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      magic_effect_2_6: 7543113390498016117
+      magic_effect_2_0: -7303824029682571101
+      magic_effect_2_1: 5616799317934928713
+      magic_effect_2_7: 3014255303433989478
+      magic_effect_2_3: -4839218274510164129
+      magic_effect_2_2: -6102145110675301264
+      magic_effect_2_4: 2891792877649237960
+      magic_effect_2_8: -7556457946919412375
+      magic_effect_2_9: -8957767002655915315
+      magic_effect_2_5: -1186534869042731346
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

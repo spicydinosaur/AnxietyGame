@@ -59,6 +59,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -67,9 +69,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -90,9 +92,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -396,6 +401,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      slime_monster_spritesheet_1: -9218235218508482219
+      slime_monster_spritesheet_0: 8391045598216448771
+      slime_monster_spritesheet_2: 4119363036776714052
+      slime_monster_spritesheet_3: 5136900542768720431
+      slime_monster_spritesheet_6: -3822885514074376305
+      slime_monster_spritesheet_10: 8105122588053928358
+      slime_monster_spritesheet_7: -5261526942344475357
+      slime_monster_spritesheet_8: -3135925983597676570
+      slime_monster_spritesheet_9: 1942430931345528934
+      slime_monster_spritesheet_4: -6230091269136446390
+      slime_monster_spritesheet_5: 1307589079421013916
+      slime_monster_spritesheet_11: 4414840042326258659
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -16,6 +16,8 @@ TagManager:
   - NPC
   - Non-Collider Scenery
   - Roofs
+  - passive scenery
+  - copingmechanisms
   layers:
   - Default
   - TransparentFX
@@ -30,8 +32,8 @@ TagManager:
   - NPC
   - Scenery
   - HUD
-  - 
-  - 
+  - TextOverHUD
+  - HUDButtons
   - 
   - 
   - 
@@ -71,17 +73,17 @@ TagManager:
   - name: Enemy
     uniqueID: 1231766705
     locked: 0
-  - name: Primary
+  - name: Hero
     uniqueID: 3135844647
     locked: 0
   - name: foreground accessories
     uniqueID: 2086349163
     locked: 0
-  - name: special effects
-    uniqueID: 3969260847
-    locked: 0
   - name: Roofs
     uniqueID: 756746245
+    locked: 0
+  - name: special effects
+    uniqueID: 3969260847
     locked: 0
   - name: Text
     uniqueID: 2466392877

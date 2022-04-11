@@ -14,7 +14,7 @@ public class NPCPatrolRoute : MonoBehaviour
 
     public Vector2 GetNextCoord()
     {
-        Debug.Log("calls of coord");
+        //Debug.Log("calls of coord");
 
 
         if (patrollingBool == true)

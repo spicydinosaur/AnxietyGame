@@ -894,6 +894,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -947,6 +948,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -7060,6 +7073,297 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Outside Objects_81: 8086182183606744233
+      Outside Objects_246: -532271527272590848
+      Outside Objects_98: -2879534600812038083
+      Outside Objects_242: -3346092580735287729
+      Outside Objects_33: 4373052842758340093
+      Outside Objects_167: -6827525920730826376
+      Outside Objects_278: -2722710280121970545
+      Outside Objects_290: -4258869899728488944
+      Outside Objects_168: 5280972952607134055
+      Outside Objects_279: -1239119273307596266
+      Outside Objects_131: -2485038211505028347
+      Outside Objects_180: -1121541572054571888
+      Outside Objects_140: 5798973234937861218
+      Outside Objects_263: 5310500236918804833
+      Outside Objects_64: -4783046261982022736
+      Outside Objects_65: 73210386337638235
+      Outside Objects_268: -1982480989559657830
+      Outside Objects_147: 8436984490067000244
+      Outside Objects_221: 5113068363028000102
+      Outside Objects_136: 5181618098775844057
+      Outside Objects_63: 2543417489338279041
+      Outside Objects_181: 9025436612917841622
+      Outside Objects_80: 5328848317993530643
+      Outside Objects_225: 7115516391421304337
+      Outside Objects_42: 6570495186794741804
+      Outside Objects_5: 1629787330909569386
+      Outside Objects_195: 5267678652445998102
+      Outside Objects_164: -6872843291280987838
+      Outside Objects_23: 6507922272673412636
+      Outside Objects_82: -3229490158744902599
+      Outside Objects_193: 7102826838048573274
+      Outside Objects_39: 8007848176328958040
+      Outside Objects_162: 7989312077038735251
+      Outside Objects_129: -7383597459821082058
+      Outside Objects_158: 3870858973196637237
+      Outside Objects_214: -5370163797157705076
+      Outside Objects_108: -2819609459206675757
+      Outside Objects_141: 146713174728655653
+      Outside Objects_78: -675465743317852402
+      Outside Objects_32: -2767090484487056399
+      Outside Objects_217: 3631752078229518028
+      Outside Objects_269: 1080109266188572634
+      Outside Objects_4: -347121465005016604
+      Outside Objects_172: -1189029829742485888
+      Outside Objects_153: -8483237231949342613
+      Outside Objects_67: 5148393327643437770
+      Outside Objects_40: -6347766149126218601
+      Outside Objects_212: -920579952957922259
+      Outside Objects_93: 7774790814054995778
+      Outside Objects_260: -8719163318571611832
+      Outside Objects_245: 5443842280049517903
+      Outside Objects_76: -2986077933002044140
+      Outside Objects_135: -2887163120011259756
+      Outside Objects_287: 2777363428340504957
+      Outside Objects_68: 8156558924118359147
+      Outside Objects_247: -3116214774660831089
+      Outside Objects_92: -3624324011342054168
+      Outside Objects_121: -5492179747440902772
+      Outside Objects_186: 777434511664506949
+      Outside Objects_105: 8692916209813635742
+      Outside Objects_163: 4636954313185110257
+      Outside Objects_274: -563424934234159417
+      Outside Objects_124: 6902585737937084748
+      Outside Objects_7: -6367301323729176954
+      Outside Objects_72: 1551011135277138672
+      Outside Objects_119: 4517078353301196311
+      Outside Objects_284: -6252448282206879343
+      Outside Objects_276: -7074133672870789545
+      Outside Objects_267: 1765896588313946538
+      Outside Objects_239: 1892845980467592352
+      Outside Objects_223: 8239176658183395599
+      Outside Objects_127: -4786675763887817499
+      Outside Objects_209: -3123647972748993766
+      Outside Objects_36: -6892693235322521739
+      Outside Objects_187: 5158377456235968324
+      Outside Objects_286: -2855880318320190052
+      Outside Objects_96: 6586446857900496662
+      Outside Objects_228: -2493376585982432225
+      Outside Objects_291: -7686525309606667808
+      Outside Objects_281: 6639406095149780460
+      Outside Objects_60: -7027212456923257567
+      Outside Objects_259: -983121307130416572
+      Outside Objects_107: 1935665986113534693
+      Outside Objects_77: 1932068372516883262
+      Outside Objects_165: -6505500752736743594
+      Outside Objects_2: -441437453085252721
+      Outside Objects_249: 4654199207220040736
+      Outside Objects_169: 761893204618564183
+      Outside Objects_288: 9060718427741059864
+      Outside Objects_262: -2767899419960366196
+      Outside Objects_210: -488777880849645813
+      Outside Objects_99: -5541971004673158913
+      Outside Objects_240: 2604555499410159593
+      Outside Objects_116: 3569344764100819387
+      Outside Objects_272: -6367963020308578311
+      Outside Objects_211: 3448043966227266822
+      Outside Objects_54: -1112366890300627923
+      Outside Objects_75: -6442489772730145179
+      Outside Objects_123: 6162028200810407317
+      Outside Objects_285: 8254046887000727285
+      Outside Objects_29: 4737152936841925799
+      Outside Objects_283: -3238125952111287381
+      Outside Objects_266: -7771941008138132231
+      Outside Objects_117: -5354240661027602575
+      Outside Objects_137: -2046886128179025500
+      Outside Objects_207: -5610803376753460877
+      Outside Objects_238: -9039826335921117241
+      Outside Objects_206: 5675694176164010480
+      Outside Objects_257: -8055938584831177399
+      Outside Objects_201: -8201255049592230042
+      Outside Objects_18: -9134381165997066010
+      Outside Objects_220: 7717337767869247806
+      Outside Objects_61: -5160560094653038230
+      Outside Objects_150: 7948856580080338909
+      Outside Objects_50: 5606630947576453202
+      Outside Objects_175: 3706552378731989137
+      Outside Objects_154: -2266079632670505591
+      Outside Objects_184: -1351866291869181507
+      Outside Objects_227: -5358416779646204002
+      Outside Objects_203: 2954095964311577510
+      Outside Objects_111: 847360523099003868
+      Outside Objects_188: -5063829746143430974
+      Outside Objects_44: 6563163893017747285
+      Outside Objects_273: 3689024298844742821
+      Outside Objects_0: -3895251684308367454
+      Outside Objects_254: 7516746800129164544
+      Outside Objects_253: -6975758423749645061
+      Outside Objects_289: 5901446157677127918
+      Outside Objects_97: 7138356295479997810
+      Outside Objects_205: -8934912905093856622
+      Outside Objects_103: -910145182651773985
+      Outside Objects_84: 1726512380145591109
+      Outside Objects_229: -2115490940775224242
+      Outside Objects_133: 4869041298197315094
+      Outside Objects_89: 2706021564860099794
+      Outside Objects_219: -1181825225547058960
+      Outside Objects_51: -6239762633393957905
+      Outside Objects_20: -1126819760408946618
+      Outside Objects_230: 8227880861733290688
+      Outside Objects_233: 4843843349438438242
+      Outside Objects_189: -7756464157679462826
+      Outside Objects_265: 7170165594010815183
+      Outside Objects_35: -9043034517543483154
+      Outside Objects_197: 3612158820845753616
+      Outside Objects_166: -6989084961766844177
+      Outside Objects_258: -3155976879387499501
+      Outside Objects_171: -1555910687448017880
+      Outside Objects_128: 1054833903641789681
+      Outside Objects_22: 5028094955232815583
+      Outside Objects_192: -3129990236595054845
+      Outside Objects_10: -7687406505856824047
+      Outside Objects_27: -5620104936931209515
+      Outside Objects_174: 3930809215654639616
+      Outside Objects_28: -2798093374064143738
+      Outside Objects_157: -8413710434728064238
+      Outside Objects_1: 8183813395363802034
+      Outside Objects_21: 4719370728786775625
+      Outside Objects_12: -1246058732304437269
+      Outside Objects_59: 8481213396507616907
+      Outside Objects_110: 4727148233883278650
+      Outside Objects_198: 1337350577161847222
+      Outside Objects_176: -3495883643465274281
+      Outside Objects_191: 8795599141318235121
+      Outside Objects_237: -4666502569479337323
+      Outside Objects_248: 4682123821273414799
+      Outside Objects_275: 722206486875167654
+      Outside Objects_15: 6812920792148825827
+      Outside Objects_101: 3208234433954633207
+      Outside Objects_53: 6810826011430839099
+      Outside Objects_178: 108321822050705684
+      Outside Objects_70: -8649578705818043723
+      Outside Objects_156: -6171768128462301075
+      Outside Objects_102: -2074347365255325469
+      Outside Objects_243: 4292838258756355055
+      Outside Objects_11: 1288181536200733924
+      Outside Objects_16: -6858052244242040807
+      Outside Objects_34: -5873707713684821439
+      Outside Objects_155: -1657050064198548329
+      Outside Objects_143: 1053651873128290760
+      Outside Objects_55: 8484598030285136318
+      Outside Objects_125: -7017828509286565111
+      Outside Objects_160: 6055261064034156312
+      Outside Objects_114: 4222583405960643309
+      Outside Objects_251: -7084330834447513101
+      Outside Objects_216: -740701614115941880
+      Outside Objects_19: 1799687541465574319
+      Outside Objects_224: 2880609562059045261
+      Outside Objects_256: -1560361025266604140
+      Outside Objects_232: 7699394073017450222
+      Outside Objects_91: -7277514310861788301
+      Outside Objects_170: -719358194841673803
+      Outside Objects_218: -2306988728753650447
+      Outside Objects_94: 7234096213901620687
+      Outside Objects_122: -8584766648888241006
+      Outside Objects_120: -4346414429215455020
+      Outside Objects_159: 3603792503305006017
+      Outside Objects_31: 903446686179156270
+      Outside Objects_83: 6491696134485177064
+      Outside Objects_185: -4457335529736675881
+      Outside Objects_109: 366515980876974230
+      Outside Objects_112: -2366996606019229
+      Outside Objects_52: -5125350470572905032
+      Outside Objects_126: 4619376050503523877
+      Outside Objects_138: 3272794097115584560
+      Outside Objects_9: 4410259406926885234
+      Outside Objects_200: 5179383271430441292
+      Outside Objects_13: -7370754735482642591
+      Outside Objects_183: 220488044774850151
+      Outside Objects_6: -4675886885783422364
+      Outside Objects_145: 238319554787997900
+      Outside Objects_139: -3858999148648769663
+      Outside Objects_177: 8149451670883063670
+      Outside Objects_215: -858689028804525766
+      Outside Objects_142: -7864149810623250449
+      Outside Objects_115: -8959217295791921423
+      Outside Objects_151: -2828122933251525193
+      Outside Objects_56: 3279409881267593192
+      Outside Objects_48: -3970338796117986249
+      Outside Objects_255: -5902406656266459219
+      Outside Objects_252: 7846542344503126452
+      Outside Objects_100: 4612698750287495127
+      Outside Objects_95: -7156658811793302724
+      Outside Objects_37: 4635528558716661545
+      Outside Objects_208: -4903202746791017334
+      Outside Objects_49: -193004462716080405
+      Outside Objects_222: -7457352865920275197
+      Outside Objects_87: -3971387271077444024
+      Outside Objects_14: -7219810001996245397
+      Outside Objects_43: 3994155006855146838
+      Outside Objects_58: -2865652974155868580
+      Outside Objects_38: -9011313673782513463
+      Outside Objects_86: -4585383268454917796
+      Outside Objects_106: -6937275799285509775
+      Outside Objects_149: -5776949668454078744
+      Outside Objects_71: -7087963988891524705
+      Outside Objects_173: -4092747201661980242
+      Outside Objects_282: -4330737899489785318
+      Outside Objects_236: -4542217231789459322
+      Outside Objects_199: 5823133122812661143
+      Outside Objects_25: 5986994879678593592
+      Outside Objects_47: 1103436955946546109
+      Outside Objects_152: 8099993063085409752
+      Outside Objects_244: 349093907241967886
+      Outside Objects_62: 4623134641726398954
+      Outside Objects_46: -5122218440566665317
+      Outside Objects_90: 5479471904476321109
+      Outside Objects_41: -7253199006998607759
+      Outside Objects_146: -7558187766998238593
+      Outside Objects_271: -8862840883035942462
+      Outside Objects_231: -7303553820006433265
+      Outside Objects_3: -7119907771629165941
+      Outside Objects_45: -6216020345731010454
+      Outside Objects_73: 301412660144251722
+      Outside Objects_24: -3830059112145916854
+      Outside Objects_277: 9111781805392673324
+      Outside Objects_148: 2281023944137662093
+      Outside Objects_280: 2721573361693892827
+      Outside Objects_66: 757009953934272455
+      Outside Objects_85: 5287402536595157869
+      Outside Objects_226: -8459845303300233951
+      Outside Objects_134: -2161135899941977326
+      Outside Objects_26: 8468016169753236365
+      Outside Objects_57: -7558475598371402960
+      Outside Objects_113: -8890274514294970588
+      Outside Objects_213: 7345960643065876734
+      Outside Objects_234: 2926117457170404262
+      Outside Objects_241: 3131324464236532691
+      Outside Objects_264: 5379868856397822874
+      Outside Objects_69: -5414597170665099958
+      Outside Objects_88: -7970396153674146714
+      Outside Objects_104: 6446159642801381996
+      Outside Objects_30: -8206757721876017473
+      Outside Objects_261: 1954947341102143125
+      Outside Objects_196: 4905552681899523391
+      Outside Objects_194: -4931111079268419774
+      Outside Objects_74: 2411398184221472835
+      Outside Objects_250: 1750568926857327851
+      Outside Objects_182: 1223563451097867130
+      Outside Objects_118: -3180724335746728780
+      Outside Objects_161: -1846508225534145190
+      Outside Objects_235: 1001831910636725524
+      Outside Objects_202: -307880652598790968
+      Outside Objects_8: 1612729945664892803
+      Outside Objects_190: -4983913946612378076
+      Outside Objects_270: -7376523685196626834
+      Outside Objects_204: -3719638826143283674
+      Outside Objects_79: 1694362517872909330
+      Outside Objects_130: -9122355587043418986
+      Outside Objects_17: -6545295498567076653
+      Outside Objects_179: 2669833278064196752
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -204,7 +204,7 @@ public class NPCController : MonoBehaviour
 
     public void RevertState()
     {
-        Debug.Log("revert state triggered.");
+        //Debug.Log("revert state triggered.");
         currentMovementType = prevMovementType;
         prevMovementType = movementType.Stop;
         SetMovingState();

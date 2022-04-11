@@ -87,6 +87,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -109,7 +110,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -604,6 +605,28 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      lpc leaf recolors_48: -2485208465506540934
+      lpc leaf recolors_51: -8690055175613887199
+      lpc leaf recolors_1: -8434130089319793612
+      lpc leaf recolors_22: 4071672043119500608
+      lpc leaf recolors_35: 8750012858667064661
+      lpc leaf recolors_13: -4674833181322465391
+      lpc leaf recolors_61: 4586185892372881752
+      lpc leaf recolors_49: -5418548820850487265
+      lpc leaf recolors_62: -6095123028068163237
+      lpc leaf recolors_9: -3863743744536325097
+      lpc leaf recolors_60: 1738626334610676297
+      lpc leaf recolors_36: 2278927038888525193
+      lpc leaf recolors_16: -2869396628733178151
+      lpc leaf recolors_34: -5951907297860058221
+      lpc leaf recolors_24: -9072896959253674197
+      lpc leaf recolors_8: -7198465238700485619
+      lpc leaf recolors_47: 3243820198321089704
+      lpc leaf recolors_12: 5478256683583902359
+      lpc leaf recolors_64: 7146695821842341723
+      lpc leaf recolors_0: 4574702069329937016
+      lpc leaf recolors_38: 6891848878581974461
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

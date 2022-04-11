@@ -3,7 +3,26 @@ guid: 4de2e4e6c97652049b2980693086002e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - hero: {instanceID: 0}
+  - failSpell: {instanceID: 0}
+  - failSpellClip: {instanceID: 0}
+  - spellPrefab: {instanceID: 0}
+  - spellInstantiate: {instanceID: 0}
+  - spellInstantiateTemplate: {instanceID: 0}
+  - addedSpellPrefab: {instanceID: 0}
+  - addedSpellIcon: {instanceID: 0}
+  - spellIconImage: {instanceID: 0}
+  - breatheSpell: {instanceID: 0}
+  - brightSpellInstantiate: {instanceID: 0}
+  - flamesSpellInstantiate: {instanceID: 0}
+  - smiteSpellInstantiate: {instanceID: 0}
+  - spellIconMask: {instanceID: 0}
+  - currentSpellIcon: {instanceID: 0}
+  - fizzleSpell: {fileID: 3657621140662812206, guid: d9f53d2e8f726aa409dd23403a7086cf,
+      type: 3}
+  - fizzleSpellAnim: {instanceID: 0}
+  - player: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

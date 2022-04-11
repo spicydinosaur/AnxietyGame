@@ -59,6 +59,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -67,9 +69,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -90,9 +92,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -396,6 +401,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      pathway_diagonal_light_cobblestone_1: -5453615597103302768
+      pathway_diagonal_dark__1: -8320740173539236482
+      pathway_diagonal_dark_2: 5909896624766502754
+      pathway_diagonal_light__square: 5160396464226954760
+      pathway_diagonal_light_cobblestone_square: 7537338706894168060
+      pathway_diagonal_dark_cobblestone_2: 1065380490364356247
+      pathway_diagonal_dark_cobblestone_square: -862872237770080908
+      pathway_diagonal_dark_cobblestone_1: 5597746866298271475
+      pathway_diagonal_light__2: 3512798312203804669
+      pathway_diagonal_light__1: -1722215233948013556
+      pathway_diagonal_light_cobblestone_2: 2503877305617733119
+      pathway_diagonal_dark_square: -5303758240605287980
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
