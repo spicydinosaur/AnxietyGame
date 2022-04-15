@@ -86,7 +86,6 @@ public class SpellHolder : MonoBehaviour
     {
         playerControls.Enable();
         playerControls.PlayerActions.SpellSelectMouseScrollWheel.performed += x => spellSelectMouseScrollWheel = x.ReadValue<float>();
-        //playerControls.PlayerActions.SpellCast.performed += PrepCastSpell;
         leftMouseClick = new InputAction(binding: "<Mouse>/leftButton");
         leftMouseClick.Enable();
         leftMouseClick.performed += ctx => PrepCastSpell();
@@ -364,13 +363,13 @@ public class SpellHolder : MonoBehaviour
     }
 
 
-
     private void OnDisable()
     {
-        //playerControls.PlayerActions.SpellCast.performed -= PrepCastSpell;
+
         playerControls.Disable();
 
     }
+
 
 
 }

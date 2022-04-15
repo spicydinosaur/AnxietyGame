@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class EnemyController : NPCController
 {
@@ -12,16 +13,21 @@ public class EnemyController : NPCController
     public float textDisplayTime;
     public float currentTextDisplayTime = 0f;
 
+
     public Animator deathCloud;
     public GameObject objectDeathCloud;
     public float heartPickupChance;
     public DropTable dropTable;
+
 
     override public void Start()
     {
         base.Start();
         deathCloud = deathCloud.GetComponent<Animator>();
         dropTable = GetComponent<DropTable>();
+        lookDirection = new Vector2(0, 1);
+        gameObject.GetComponent<Animator>().SetFloat("Look Y", lookDirection.y);
+
 
     }
 
@@ -32,21 +38,21 @@ public class EnemyController : NPCController
         {
 
             currentTextDisplayTime += Time.deltaTime;
-            if (dialogBox.activeSelf == false
+            if (dialogBox.enabled == false
                 &&
                 currentTextDisplayTime <= (currentBlink + .5f) * textDisplayTime / numberOfBlinks
                 &&
                 currentTextDisplayTime >= (currentBlink) * textDisplayTime / numberOfBlinks)
             {
-                dialogBox.SetActive(true);
+                dialogBox.enabled = true;
             }
-            else if (dialogBox.activeSelf == true
+            else if (dialogBox.enabled == true
                 &&
                 currentTextDisplayTime >= (currentBlink + 0.5f) * textDisplayTime / numberOfBlinks
                 &&
                 currentTextDisplayTime <= (currentBlink + 1f) * textDisplayTime / numberOfBlinks)
             {
-                dialogBox.SetActive(false);
+                dialogBox.enabled = false;
                 currentBlink++;
             }
 
@@ -55,7 +61,7 @@ public class EnemyController : NPCController
                 textDisplayTime = 0f;
                 currentTextDisplayTime = 0f;
                 currentBlink = 0;
-                dialogBox.SetActive(false);
+                dialogBox.enabled = false;
                 dialogBox.GetComponent<TextMeshProUGUI>().SetText("");
             }
 
@@ -100,14 +106,14 @@ public class EnemyController : NPCController
             if (canSeeTarget)
             {
                 PauseMovement(.8f);
-                dialogBox.SetActive(true);
+                dialogBox.enabled = true;
                 dialogBox.GetComponent<TextMeshProUGUI>().SetText("!");
 
             }
             else
             {
                 PauseMovement(3f);
-                dialogBox.SetActive(true);
+                dialogBox.enabled = true;
                 dialogBox.GetComponent<TextMeshProUGUI>().SetText("?");
             }
         }

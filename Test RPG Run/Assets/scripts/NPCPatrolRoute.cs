@@ -20,7 +20,7 @@ public class NPCPatrolRoute : MonoBehaviour
         if (patrollingBool == true)
         {
             NextPatrolElement++;
-            if (NextPatrolElement == PatrolCoord.Length)
+            if (NextPatrolElement == PatrolCoord.Length && gameObject )
             {
 
                 NextPatrolElement = -1;

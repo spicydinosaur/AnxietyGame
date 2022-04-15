@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody2D rigidBody;
 
-    Vector2 lookDirection = new Vector2(0, -1);
+    public Vector2 lookDirection = new Vector2(0, -1);
 
     private InputAction move;
 

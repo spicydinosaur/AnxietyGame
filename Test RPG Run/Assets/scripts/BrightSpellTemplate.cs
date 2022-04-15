@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using System;
 using UnityEngine.Serialization;
 using UnityEngine.U2D;
+using UnityEditor.Experimental.SceneManagement;
 
 
 public class BrightSpellTemplate : SpellTemplate
@@ -71,7 +72,7 @@ public class BrightSpellTemplate : SpellTemplate
                 Debug.Log("hit tag  : " + hit.collider.tag);
             }
 
-            else
+           /* else
             {
 
                 for (int i = 0; i < numberOfPools; i++)
@@ -82,7 +83,7 @@ public class BrightSpellTemplate : SpellTemplate
                         Debug.Log("found inactive pool, recycling.");
                         spellHolderScript.instantiatedPools[i].SetActive(true);
                         activeLightPool = spellHolderScript.instantiatedPools[i];
-                        lastPoolInList = spellHolderScript.instantiatedPools[numberOfPools];
+                        lastPoolInList = spellHolderScript.instantiatedPools[numberOfPools-1];
                         //shuffle the order so that the oldest light gets used first
                         spellHolderScript.instantiatedPools.Insert(0, lastPoolInList);
                         spellHolderScript.instantiatedPools.Remove(activeLightPool);
@@ -96,7 +97,7 @@ public class BrightSpellTemplate : SpellTemplate
                     {
                         spellHolderScript.instantiatedPools[0].SetActive(true);
                         activeLightPool = spellHolderScript.instantiatedPools[0];
-                        lastPoolInList = spellHolderScript.instantiatedPools[numberOfPools];
+                        lastPoolInList = spellHolderScript.instantiatedPools[numberOfPools-1];
                         //shuffle the order so that the oldest light gets used first
                         spellHolderScript.instantiatedPools.Insert(0, lastPoolInList);
                         spellHolderScript.instantiatedPools.Remove(activeLightPool);
@@ -110,7 +111,7 @@ public class BrightSpellTemplate : SpellTemplate
 
                 Debug.Log("Nothing hit. pool of light should be at " + point);
 
-            }
+            }*/
 
             currentCastDownTime = castDownTime;
             spellHolderScript.currentCastDownTime = currentCastDownTime;
@@ -134,7 +135,7 @@ public class BrightSpellTemplate : SpellTemplate
                     activeLightPool = spellHolderScript.instantiatedPools[i];
                     spellHolderScript.instantiatedPools[i].SetActive(true);
                     activeLightPool = spellHolderScript.instantiatedPools[0];
-                    lastPoolInList = spellHolderScript.instantiatedPools[numberOfPools];
+                    lastPoolInList = spellHolderScript.instantiatedPools[numberOfPools-1];
                     //shuffle the order so that the oldest light gets used first
                     spellHolderScript.instantiatedPools.Insert(0, lastPoolInList);
                     spellHolderScript.instantiatedPools.Remove(activeLightPool);
@@ -148,7 +149,7 @@ public class BrightSpellTemplate : SpellTemplate
                     Debug.Log("Pool is not enabled.");
                     spellHolderScript.instantiatedPools[0].SetActive(true);
                     activeLightPool = spellHolderScript.instantiatedPools[0];
-                    lastPoolInList = spellHolderScript.instantiatedPools[numberOfPools];
+                    lastPoolInList = spellHolderScript.instantiatedPools[numberOfPools-1];
                     //shuffle the order so that the oldest light gets used first
                     spellHolderScript.instantiatedPools.Insert(0, lastPoolInList);
                     spellHolderScript.instantiatedPools.Remove(activeLightPool);
@@ -169,7 +170,6 @@ public class BrightSpellTemplate : SpellTemplate
 
             spellIconMask.fillAmount = 1f;
 
-            Debug.Log("Nothing hit. pool of light should be at " + point);
 
         }
     }
