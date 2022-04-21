@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 
 public class NPCController : MonoBehaviour
 {
@@ -17,7 +19,7 @@ public class NPCController : MonoBehaviour
     public bool isChasing = false;
     public bool canSeeTarget = false;
     public Transform targetToChase;
-    public GameObject dialogBox;
+    public Image dialogBox;
     public Animator animator;
     public Vector2 lookDirection = new Vector2(0, -1);
 
@@ -204,7 +206,7 @@ public class NPCController : MonoBehaviour
 
     public void RevertState()
     {
-        Debug.Log("revert state triggered.");
+        //Debug.Log("revert state triggered.");
         currentMovementType = prevMovementType;
         prevMovementType = movementType.Stop;
         SetMovingState();

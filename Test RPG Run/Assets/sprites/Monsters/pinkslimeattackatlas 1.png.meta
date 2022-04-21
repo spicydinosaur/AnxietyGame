@@ -59,6 +59,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -67,9 +69,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -90,9 +92,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -396,6 +401,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      pinkslimeattackatlas 1_3: 6853260183056302834
+      pinkslimeattackatlas 1_8: -3913013276922790313
+      pinkslimeattackatlas 1_10: 4708171675390801424
+      pinkslimeattackatlas 1_2: 6732022573637000267
+      pinkslimeattackatlas 1_0: 5052062039931567342
+      pinkslimeattackatlas 1_5: -6779220234746871417
+      pinkslimeattackatlas 1_4: -5290507822132347159
+      pinkslimeattackatlas 1_1: 2922126806664677430
+      pinkslimeattackatlas 1_6: 9181715944790778401
+      pinkslimeattackatlas 1_9: -7254441124113883468
+      pinkslimeattackatlas 1_7: -6161732182934060485
+      pinkslimeattackatlas 1_11: 8902330096720343378
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

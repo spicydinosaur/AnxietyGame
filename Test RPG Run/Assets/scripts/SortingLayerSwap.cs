@@ -7,6 +7,21 @@ public class SortingLayerSwap : MonoBehaviour
 {
 
     public SpriteRenderer[] childSortingLayer;
+    public GameObject hero;
+    public GameObject colliderScenery;
+    public string defaultSortingLayer;
+
+
+    //needs tweaking and testing. DON'T IGNORE ME!!!
+   // private void Start()
+   // {
+        //how else can this be done, I can't pull up multiple sorting layer names this way, but using gameobject checks the sortinglayerswap gameobject. 
+        //I wanted to do this through code but may have to use unity's editor. Hypothetically, this will grab the last sorting layer name and won't contain anything else.
+        //This works, but it is clunky. I'd like to improve on it.
+
+     //   foreach (SpriteRenderer sprites in childSortingLayer)
+     //       defaultSortingLayer = sprites.GetComponent<SortingLayer>().ToString();
+   // }
 
     //Player enters collision, put sign/doghouseroof/whevs in front of player in sorting layer name
     //NPC enters collision, put the actual NPC behind by changing -its- sorting layer name
@@ -15,17 +30,17 @@ public class SortingLayerSwap : MonoBehaviour
 
         if (collider.gameObject.CompareTag("Player"))
         {
-            //GetComponentInParent<SpriteRenderer>().sortingLayerName = "Roofs";
-            foreach (SpriteRenderer sprites in childSortingLayer)
-                sprites.sortingLayerName = "Roofs";
-        }
+            if (hero.transform.position.y < colliderScenery.transform.position.y)
+            {
 
-        else if (collider.gameObject.CompareTag("NPC"))
-        {
-            //collider.GetComponent<SpriteRenderer>().sortingLayerName = "behind accessories";
-            //Debug.Log("are these colliding y/n circle one");
-            foreach (SpriteRenderer sprites in childSortingLayer)
-                sprites.sortingLayerName = "behind accessories";
+                foreach (SpriteRenderer sprites in childSortingLayer)
+                    sprites.sortingLayerName = "foreground accessories";
+            }
+            else
+            {
+                foreach (SpriteRenderer sprites in childSortingLayer)
+                    sprites.sortingLayerName = "behind accessories";
+            }
 
         }
 
@@ -38,19 +53,19 @@ public class SortingLayerSwap : MonoBehaviour
         //NPC leaves collision, put the actual NPC at its appropriate sorting layer name
         if (collider.gameObject.CompareTag("Player"))
         {
-            //GetComponentInParent<SpriteRenderer>().sortingLayerName = "foreground accessories";
-            foreach (SpriteRenderer sprites in childSortingLayer)
-                sprites.sortingLayerName = "foreground accessories";
-
+            if (defaultSortingLayer != null)
+            {
+                foreach (SpriteRenderer sprites in childSortingLayer)
+                    sprites.sortingLayerName = defaultSortingLayer;
+            }
+            else
+            {
+                foreach (SpriteRenderer sprites in childSortingLayer)
+                    sprites.sortingLayerName = "foreground accessories";
+            }
         }
 
-        else if (collider.gameObject.CompareTag("NPC"))
-        {
-            //collider.GetComponent<SpriteRenderer>().sortingLayerName = "NPCs";
-            foreach (SpriteRenderer sprites in childSortingLayer)
-                sprites.sortingLayerName = "NPCs";
 
-        }
 
     }
 }

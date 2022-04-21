@@ -132,6 +132,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -154,7 +155,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 72
+  spritePixelsToUnits: 74
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -185,6 +186,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -964,6 +977,43 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      PBe89V_27: -1878075509461327621
+      PBe89V_4: 2645496263692243746
+      PBe89V_7: -9139865507059284782
+      PBe89V_22: -6220214454156821141
+      PBe89V_9: 2960560310324170711
+      PBe89V_24: 6257684876038878202
+      PBe89V_5: 472886229267637703
+      PBe89V_17: 5221942366862604892
+      PBe89V_32: 1067363417661796764
+      PBe89V_12: 6061131313671295752
+      PBe89V_3: -8005678630778305781
+      PBe89V_16: 1461188346713567606
+      PBe89V_15: 8379479539359968807
+      PBe89V_30: -5739408896062736843
+      PBe89V_23: -7051201145620120599
+      PBe89V_1: -4217719582491499631
+      PBe89V_6: -8749466993331895716
+      PBe89V_8: -4606538261071952049
+      PBe89V_33: -7785509025686315092
+      PBe89V_20: -7386135943298115147
+      PBe89V_2: 6589118328511361847
+      PBe89V_14: 6469627764229892880
+      PBe89V_10: 714203194196893320
+      PBe89V_11: 5183507000912007094
+      PBe89V_18: -6779017471293067273
+      PBe89V_35: 2342745735362171687
+      PBe89V_19: 5870774951089965593
+      PBe89V_0: 8591450919417796800
+      PBe89V_29: 8575979489495969366
+      PBe89V_25: 160141046079586124
+      PBe89V_13: -2817965685504699131
+      PBe89V_34: -5977971061384713480
+      PBe89V_26: -7944416990925200663
+      PBe89V_31: 5613612061243334076
+      PBe89V_21: 6474629227299828478
+      PBe89V_28: 6108852792411117079
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

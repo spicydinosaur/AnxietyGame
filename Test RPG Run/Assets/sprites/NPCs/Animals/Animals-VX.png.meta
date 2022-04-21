@@ -311,6 +311,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -319,9 +321,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -342,9 +344,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -2412,6 +2417,103 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Animals-VX_34: 3673197412081919917
+      Animals-VX_84: -9172470960830490482
+      Animals-VX_87: -2284485786310598788
+      Animals-VX_70: 7472747389086691729
+      Animals-VX_72: 5203467795517658729
+      Animals-VX_62: -8128947368002155555
+      Animals-VX_4: 3266307863369360254
+      Animals-VX_39: 2908500434931399482
+      Animals-VX_24: 7770417921297413076
+      Animals-VX_60: -14988674523166496
+      Animals-VX_27: 2068625853791901389
+      Animals-VX_94: -6813493666645577784
+      Animals-VX_63: -3793954681429779821
+      Animals-VX_92: 5769917409670280889
+      Animals-VX_44: 4572476577964677310
+      Animals-VX_73: -4527858578337006190
+      Animals-VX_91: 6051969381637057004
+      Animals-VX_32: -4008663347565291121
+      Animals-VX_66: -1809673320862060608
+      Animals-VX_75: -7064897466104278568
+      Animals-VX_3: 3401258172391299126
+      Animals-VX_85: -4612680427545776635
+      Animals-VX_95: -3950530551397930716
+      Animals-VX_22: -8967212962692053811
+      Animals-VX_37: -5412716131849524295
+      Animals-VX_90: -4464770274656250740
+      Animals-VX_31: 2903735388555343492
+      Animals-VX_30: 3676839493105197312
+      Animals-VX_40: -1640074324713220274
+      Animals-VX_9: -8215260759575020518
+      Animals-VX_69: 5960108460506678145
+      Animals-VX_2: -3001641688707298553
+      Animals-VX_71: 3674988545692918572
+      Animals-VX_61: 114028180728978742
+      Animals-VX_89: -8371127998477432804
+      Animals-VX_53: 4418355676200312819
+      Animals-VX_52: -5137301323160575952
+      Animals-VX_79: 1345224870805349240
+      Animals-VX_28: -4547388937185907341
+      Animals-VX_42: 4114932332287843465
+      Animals-VX_83: -7916729945483012806
+      Animals-VX_51: 908938918764518731
+      Animals-VX_57: 2156713300837721980
+      Animals-VX_47: 6828330011198559186
+      Animals-VX_67: -243192242959651329
+      Animals-VX_19: -4721003905623252138
+      Animals-VX_46: -7095648563976843570
+      Animals-VX_78: 8697117180256045352
+      Animals-VX_93: 3508474616201047961
+      Animals-VX_18: -1172994784929340203
+      Animals-VX_10: 4358448036704824060
+      Animals-VX_23: -7615459021147658390
+      Animals-VX_33: 396538142066296573
+      Animals-VX_36: -4762895825394650315
+      Animals-VX_86: 7491579304643722733
+      Animals-VX_45: 3079982353064666746
+      Animals-VX_59: 95889814396128871
+      Animals-VX_0: -4274054331296084765
+      Animals-VX_25: 589361957593377
+      Animals-VX_17: -1561393116693308252
+      Animals-VX_54: -6348502893929527146
+      Animals-VX_65: -7447804247476929817
+      Animals-VX_50: -8684532789132846987
+      Animals-VX_7: 6836187429082371569
+      Animals-VX_43: 273623785156828005
+      Animals-VX_76: -8372415989059032760
+      Animals-VX_5: 2507032286821799046
+      Animals-VX_12: 2549764962437002176
+      Animals-VX_38: -6737543126127272442
+      Animals-VX_68: 8942838428481319803
+      Animals-VX_82: -1825974091922633397
+      Animals-VX_29: -8099485596087842792
+      Animals-VX_6: 4605626822929933797
+      Animals-VX_64: -7633338295970967633
+      Animals-VX_21: -6641763987264253584
+      Animals-VX_14: 6017722472029881621
+      Animals-VX_20: 3389573348903170673
+      Animals-VX_15: -8464254719284055732
+      Animals-VX_26: -7414802116327987830
+      Animals-VX_49: -9054776893914044614
+      Animals-VX_8: -8469806667931998680
+      Animals-VX_56: 6496433860078127096
+      Animals-VX_11: 5066593249163557504
+      Animals-VX_74: 8067140524178240024
+      Animals-VX_13: -2510204553922099559
+      Animals-VX_80: -6604919814941791219
+      Animals-VX_77: -4431875208231316805
+      Animals-VX_81: 8859253422235922309
+      Animals-VX_35: 6643792630038629612
+      Animals-VX_88: -5168028094554736309
+      Animals-VX_48: 6735349407347080641
+      Animals-VX_1: 7810152918960420444
+      Animals-VX_16: -2654245208409110929
+      Animals-VX_41: 5432986262259597062
+      Animals-VX_58: -4219859654152543852
+      Animals-VX_55: 3873174879502889773
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

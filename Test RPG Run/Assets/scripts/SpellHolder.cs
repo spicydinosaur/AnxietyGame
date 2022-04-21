@@ -1,6 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using System;
+using UnityEngine.Serialization;
+using UnityEngine.U2D;
 
 
 public class SpellHolder : MonoBehaviour
@@ -8,162 +13,335 @@ public class SpellHolder : MonoBehaviour
 {
        
 
-    public enum spellCastTypes { raycast, projectile, other };
+    //public enum spellCastTypes { raycast, projectile, other };
 
-    public GameObject Hero;
-    public GameObject spellBook;
-    public Animator animSpellBook;
+    public GameObject hero;
+
     public AudioSource failSpell;
     public AudioClip failSpellClip;
 
-    public float rayCastDistance;
-    public float castDownTime;
-    public float currentCastDownTime;
-    private Color spellbookColor;
-
     //Spells
-    public GameObject spellPrefab;
-    public GameObject spellPrefabInstantiate;
-    public Animator animPrefab;
-    public Animator animPrefabInstantiate;
-
-    public SpellTemplate spellPrefabTemplate;
-
+    public GameObject currentSpell;
+    public SpellTemplate currentSpellTemplate;
+    
     //These are for when the spell gets added to the players "spellbook" and are used to add details to three of the four relevant hashtables.
-    public string addedSpellName;
-    public GameObject addedSpellPrefab;
-    public string addedSpellType;
-    public SpriteRenderer addedSpellIcon;
+    public GameObject addedSpell;
+    public Sprite addedSpellIcon;
 
-    //these are the lists that hold the details for all the spells the character currently has.
-    public string[] listOfSpellNames;
-    public GameObject[] listOfSpellPrefabs;
-    public string[] listOfSpellTypes;
-    public SpriteRenderer[] listOfSpellIcons;
+    public Image spellIconImage;
+    public Image spellIconMask;
+    public Sprite currentSpellIcon;
 
-    public GameObject defaultSpell;
+    //these are temporararily defined onawake until the player can save progress
+    public Sprite[] listOfSpellIcons;
+    public GameObject[] listOfSpells;
+
+    public GameObject breatheSpell;
+    public GameObject brightSpell;
+    public GameObject flamesSpell;
+    public GameObject smiteSpell;
+    
     public int selectedSpell;
+    public int selectedSpellMax;
 
+    public GameObject fizzleSpell;
+    public Animator fizzleSpellAnim;
+
+
+    public float globalCastDownTime;
+    public float currentCastDownTime;
 
     public Player player;
 
-    public bool tutorialComplete;
+    private PlayerControls playerControls;
+    private InputAction leftMouseClick;
 
-    public ContactFilter2D contactFilter;
+    public GameObject dialogueBox;
+    public GameObject thoughtBox;
 
-    //work needed on line 77 and here to allow for switching through spells!
+    public int numberOfPools = 4;
+    public List<GameObject> instantiatedPools = new List<GameObject>(4);
+    public BrightSpellTemplate brightSpellTemplate;
+    public GameObject poolToInstantiateFrom;
+    public Vector2 mousePosition;
 
-    //WTF does instantiate do again? Oh right make something that is prefab real. Work on this! Something is continuously making new instantiates!
+    public float spellSelectMouseScrollWheel;
+    //public float mouseScrolling;
 
 
-    // Start is called before the first frame update
-    void Start()
+    //this is temporary until the player can save progress
+    public bool tutorialComplete = false;
+
+
+
+    public void Awake()
+    {
+        playerControls = new PlayerControls();
+        leftMouseClick = new InputAction(binding: "<Mouse>/leftButton");
+        InstantiatePools();
+        Debug.Log("public void Awake gives us mousePosition at " + mousePosition);
+    }
+
+    private void OnEnable()
+    {
+        playerControls.Enable();
+        playerControls.PlayerActions.SpellSelectMouseScrollWheel.performed += x => spellSelectMouseScrollWheel = x.ReadValue<float>();
+        leftMouseClick = new InputAction(binding: "<Mouse>/leftButton");
+        leftMouseClick.Enable();
+        leftMouseClick.performed += ctx => PrepCastSpell();
+        mousePosition = playerControls.PlayerActions.MousePosition.ReadValue<Vector2>();
+
+    }
+
+    public void Start()
     {
 
-        var breatheSpellPrefab = Resources.Load<GameObject>("Assets/Prefabs/Spells/Breathe.prefab");
-        var brightSpellPrefab = Resources.Load<GameObject>("Assets/Prefabs/Spells/Bright.prefab");
-        var fireballSpellPrefab = Resources.Load<GameObject>("Assets/Prefabs/Spells/Fireball.prefab");
-        var smiteSpellPrefab = Resources.Load<GameObject>("Assets/Prefabs/Spells/Smite.prefab");
+        var breatheSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/breatheicon.png");
+        var brightSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/brighticon.png");
+        var flamesSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/flamesicon.png");
+        var smiteSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/smiteicon.png");
 
-        var breatheSpellIcon = Resources.Load<SpriteRenderer>("Assets/Prefabs/Spells/SpellIcons/BreatheIcon.prefab");
-        var brightSpellIcon = Resources.Load<SpriteRenderer>("Assets/Prefabs/Spells/SpellIcons/BrightIcon.prefab");
-        var fireballSpellIcon = Resources.Load<SpriteRenderer>("Assets/Prefabs/Spells/SpellIcons/FireballIcon.prefab");
-        var smiteSpellIcon = Resources.Load<SpriteRenderer>("Assets/Prefabs/Spells/SpellIcons/SmiteIcon.prefab");
 
-        if (tutorialComplete != true)
+
+        listOfSpells = new GameObject[4];
+        listOfSpells.SetValue(breatheSpell, 0);
+        listOfSpells.SetValue(brightSpell, 1);
+        listOfSpells.SetValue(flamesSpell, 2);
+        listOfSpells.SetValue(smiteSpell, 3);
+
+        currentSpell = breatheSpell;
+        currentSpellTemplate = currentSpell.GetComponent<SpellTemplate>();
+
+
+
+        selectedSpell = 0;
+
+        //Temporary cap for spells until we can get a persistent variable in place to track how many spells the player has with saves and such.
+
+        currentCastDownTime = 0f;
+        globalCastDownTime = 0f;
+        spellIconMask.fillAmount = 0f;
+        //mouseScrolling = 0f;
+
+
+
+    }
+
+
+
+
+
+    public void InstantiatePools()
+    {
+
+        for (int i = 0; i < numberOfPools; i++)
         {
 
-
-
-            listOfSpellNames = new string[2] { "Breathe", "Bright" };
-            listOfSpellPrefabs = new GameObject[2] { breatheSpellPrefab, brightSpellPrefab };
-            listOfSpellTypes = new string[2] {"raycast", "raycast" };
-            listOfSpellIcons = new SpriteRenderer[2] {breatheSpellIcon, brightSpellIcon};
-
+            GameObject instantiatedLightInProcessing = Instantiate(poolToInstantiateFrom, Camera.main.ScreenToWorldPoint(hero.transform.position), Quaternion.identity);
+            instantiatedPools.Add(instantiatedLightInProcessing);
+           
+            Debug.Log("For loop on start is firing");
 
         }
 
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void PrepCastSpell()
+    {
+        if (thoughtBox.activeSelf == false && dialogueBox.activeSelf == false)
+        { 
+            if (selectedSpell == 0)
+            {
+
+                if (currentCastDownTime != 0)
+                {
+                    Debug.Log("mouse click registered for spell casting. Spell on cooldown, attempt failed.");
+                    failSpell.PlayOneShot(failSpellClip, 1f);
+
+
+                }
+                else if (currentCastDownTime == 0f)
+                {
+
+                    //This spell has no range and requires no values other than being at 0 on currentCastDownTime.
+                    currentSpellTemplate.castSpell();
+
+                }
+            }
+            else
+            {
+                Debug.Log("Pre-conversion mousePosition coords are " + mousePosition + ".");
+
+                if (currentCastDownTime != 0)
+                {
+                    Debug.Log("mouse click registered for spell casting. Spell on cooldown, attempt failed.");
+                    failSpell.PlayOneShot(failSpellClip, 1f);
+
+
+                }
+                else if (currentCastDownTime == 0f)
+                {
+                    Debug.Log("pre camera conversion gives us playerControls.PlayerActions.MousePosition.ReadValue<Vector2>() at " + playerControls.PlayerActions.MousePosition.ReadValue<Vector2>());
+                    mousePosition = Camera.main.ScreenToWorldPoint(playerControls.PlayerActions.MousePosition.ReadValue<Vector2>());
+                    Debug.Log("Mouse click registered for spell casting. mousePosition registered at: " + mousePosition);
+                    currentSpellTemplate.mousePos3D = new Vector3(mousePosition.x, mousePosition.y, 0f);
+                    Debug.Log("Spell available to cast, no cooldown in place. MousePos registered at: " + currentSpellTemplate.mousePos);
+                    Debug.Log("mouse click registered for spell casting. Spell available to cast, no cooldown in place. " + currentSpellTemplate.name + " is the current instantiated template.");
+                    currentSpellTemplate.castSpell();
+
+                }
+            }
+
+        }
+    }
+
+
+
+    public void Update()
     {
 
-        if (currentCastDownTime > 0)
+        //if (mouseScrolling == 0f)
+        //{
+
+            if (spellSelectMouseScrollWheel > 0) //scroll wheel gets moved up, moving through the spell list in a positive direction.
+            {
+
+
+                if (selectedSpell >= selectedSpellMax)
+                {
+                    selectedSpell = 0;
+
+                }
+                else
+                {
+                    selectedSpell++;
+                }
+
+                currentSpell = listOfSpells[selectedSpell];
+                currentSpellIcon = listOfSpellIcons[selectedSpell];
+                currentSpellTemplate = currentSpell.GetComponent<SpellTemplate>();
+                Debug.Log("spell gameobject is " + currentSpell);
+                Debug.Log("spell instantiate template script is " + currentSpellTemplate);
+
+                if (globalCastDownTime > currentSpellTemplate.currentCastDownTime && selectedSpell != 0)
+                {
+                    currentSpellTemplate.currentCastDownTime = globalCastDownTime;
+                }
+
+                else
+                {
+                    //0 is breathe so not bothering to put in anything wrt global cast cooldowns
+                    currentCastDownTime = currentSpellTemplate.currentCastDownTime;
+                }
+
+
+
+                Debug.Log("mouse scroll wheel up. Spellholder.selectedSpell = " + selectedSpell);
+                spellIconImage.GetComponent<Image>().sprite = currentSpellIcon;
+
+
+            }
+            else if (spellSelectMouseScrollWheel < 0) //scroll wheel gets moved down, moving through the spell list in a negative direction.
+            {
+
+
+                if (selectedSpell <= 0)
+                {
+                    selectedSpell = selectedSpellMax;
+
+                }
+                else
+                {
+                    selectedSpell--;
+                }
+
+
+                currentSpell = listOfSpells[selectedSpell];
+                currentSpellIcon = listOfSpellIcons[selectedSpell];
+                currentSpellTemplate = currentSpell.GetComponent<SpellTemplate>();
+                Debug.Log("spell gameobject is " + currentSpell);
+                Debug.Log("spell instantiate template script is " + currentSpellTemplate);
+
+
+                if (globalCastDownTime > currentSpellTemplate.currentCastDownTime && selectedSpell != 0)
+                {
+                    currentCastDownTime = globalCastDownTime;
+                    currentSpellTemplate.currentCastDownTime = globalCastDownTime;
+                }
+                else
+                {
+                    //0 is breathe so not bothering to put in anything wrt global cast cooldowns
+                    currentCastDownTime = currentSpellTemplate.currentCastDownTime;
+                }
+
+
+                Debug.Log("mouse scroll wheel down Spellholder.selectedSpell = " + selectedSpell);
+                spellIconImage.GetComponent<Image>().sprite = currentSpellIcon;
+            }
+
+
+        if (currentCastDownTime > 0f)
         {
             currentCastDownTime -= Time.deltaTime;
-            if (Input.GetMouseButtonDown(0))
-            {
-                failSpell.PlayOneShot(failSpellClip, 1f);
-            }
+
+
         }
-        else if (currentCastDownTime <= 0f)
+        else if (currentCastDownTime < 0f)
         {
-            if (spellBook.GetComponent<SpriteRenderer>().color != Color.clear)
-            {
-                spellBook.GetComponent<SpriteRenderer>().color = Color.clear;
-                spellBook.GetComponent<Animator>().SetBool("isCasting", false);
-                spellPrefab.GetComponent<Animator>().SetBool("isCasting", false);
-            }
-
-            if (Input.GetMouseButtonDown(0))
-            {
-
-                spellPrefabTemplate.attemptSpell();
-
-            }
-
+            currentCastDownTime = 0f;
 
         }
 
-        //Below needs to be fully implemented, allows cycling through spells with mouse wheel
-
-        if ((Input.GetAxis("Mouse ScrollWheel") > 0f)) //scrollwheel goes forward
+        if (globalCastDownTime > 0f)
         {
-            if (selectedSpell == listOfSpellNames.Length -1)
-            {
-
-                selectedSpell = 0;
-                GetComponent<Animator>().SetInteger("currentSpell", 0);
-
-            }
-            else
-            {
-                selectedSpell++;
-                GetComponent<Animator>().SetInteger("currentSpell", selectedSpell);
-
-            }
-
-
+            globalCastDownTime -= Time.deltaTime;
         }
-        
-        else if ((Input.GetAxis("Mouse ScrollWheel") < 0f)) //scrollwheel goes backwards
+        else if (globalCastDownTime < 0f)
         {
-
-            if (selectedSpell > 0)
-            {
-                selectedSpell--;
-                GetComponent<Animator>().SetInteger("currentSpell", selectedSpell);
-                
-            }
-
-            else
-            {
-                selectedSpell = listOfSpellNames.Length - 1;
-                GetComponent<Animator>().SetInteger("currentSpell", listOfSpellNames.Length - 1);
-            }
-
+            globalCastDownTime = 0f;
         }
+
+        if (currentSpellTemplate.fizzleSpellCastDownTime > 0)
+        {
+            currentSpellTemplate.fizzleSpellCastDownTime -= Time.deltaTime;
+        }
+        else if (currentSpellTemplate.fizzleSpellCastDownTime < 0)
+        {
+            currentSpellTemplate.fizzleSpellCastDownTime = 0;
+        }
+        else
+        {
+            fizzleSpellAnim.SetBool("isCasting", false);
+        }
+
+        spellIconMask.fillAmount = Mathf.Clamp01(currentSpellTemplate.currentCastDownTime / currentSpellTemplate.castDownTime);
+
+        //Work on making this doable via gamepad!!!
     }
 
-    public virtual void addSpell()
+
+
+
+
+    public void addSpell(GameObject addedSpell, Sprite addedSpellIcon)
     {
 
-        var arrayLength = listOfSpellNames.Length - 1;
-        listOfSpellNames.SetValue(addedSpellName, arrayLength);
-        listOfSpellPrefabs.SetValue(addedSpellPrefab, arrayLength);
-        listOfSpellTypes.SetValue(addedSpellType, arrayLength);
-        listOfSpellIcons.SetValue(addedSpellIcon, arrayLength);
+        var breatheSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/breatheicon.png");
+        var brightSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/brighticon.png");
+        var flamesSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/flamesicon.png");
+        var smiteSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/smiteicon.png");
+
+        listOfSpells.SetValue(addedSpell, listOfSpells.Length);
+        listOfSpellIcons.SetValue(addedSpellIcon, listOfSpells.Length);
+
+    }
+
+
+    private void OnDisable()
+    {
+
+        playerControls.Disable();
 
     }
 

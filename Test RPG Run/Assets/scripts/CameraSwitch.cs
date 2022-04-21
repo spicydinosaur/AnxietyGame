@@ -14,7 +14,7 @@ public class CameraSwitch : MonoBehaviour
     {
         foreach (CinemachineVirtualCamera cameraTransElement in camerasTransList)
         {
-            if (cameraTransElement.isActiveAndEnabled)
+            if (cameraTransElement != null && cameraTransElement.isActiveAndEnabled)
             {
                 vcam = cameraTransElement.GetCinemachineComponent<CinemachineTransposer>();
                 return;
@@ -31,7 +31,7 @@ public class CameraSwitch : MonoBehaviour
         sceneDestination.cameraOffLocal.SetActive(false);
         foreach (CinemachineVirtualCamera cameraTransElement in camerasTransList)
         {
-           if (cameraTransElement.isActiveAndEnabled)
+           if (cameraTransElement != null && cameraTransElement.isActiveAndEnabled)
            {
                 vcam = cameraTransElement.GetCinemachineComponent<CinemachineTransposer>();
                 return;

@@ -2,88 +2,195 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+
 
 
 public class SpellTemplate : MonoBehaviour
 {
-    //The below shit is in SpellHolder
-    public GameObject spellBook;
-    public Animator animSpellBook;
-    protected Color spellbookColor;
-
-    public float currentCastDownTime;
 
     //what will this shit hit? Do we need this in template?
     public ContactFilter2D contactFilter;
     public float rayCastDistance;
 
     //Spells, can we work off of prefabs alone?
-    public GameObject spellPrefab;
-    protected GameObject spellPrefabInstantiate;
-    protected Animator animPrefab;
-    protected Animator animPrefabInstantiate;
+
     public float damageAmount;
     public float manaCost;
     public float castDownTime;
-    public GameObject Hero;
+    public float globalCastDownTime;
+    public float currentCastDownTime;
+    public int currentCastDowntimeRounded;
+    public float fizzleSpellCastDownTime;
+    public float fizzleSpellDownTimeMax;
+
+    public GameObject hero;
     public Player player;
-    public SpellHolder spellHolder;
+
+    public GameObject spellHolder;
+    public SpellHolder spellHolderScript;
+
+    public Vector2 mousePos;
+    public Vector2 direction2D;
+    public Vector3 heroTransform;
+    public Vector2 point;
+    public Vector3 mousePos3D;
+
+    public Animator fizzleSpellAnim;
+    public GameObject fizzleSpell;
+    public Image spellIconMask;
 
 
 
 
 
 
-    void Start()
+    public virtual void Awake()
     {
 
-        spellbookColor = spellBook.GetComponent<SpriteRenderer>().color;
-        spellBook.GetComponent<SpriteRenderer>().color = Color.clear;
-        animSpellBook = spellBook.GetComponent<Animator>();
-        //spellPrefabInstantiate = Instantiate(spellPrefab, new Vector3(0, 0, -50), Quaternion.identity);
-        spellPrefabInstantiate = Instantiate(spellPrefab, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
-        animPrefabInstantiate = spellPrefabInstantiate.GetComponent<Animator>();
 
         currentCastDownTime = 0f;
 
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
 
     }
 
-    public virtual void attemptSpell()
-    {
-        //this code is what all spells will do. (Unless overriden)
 
-        if (player.currentMana < manaCost)
+
+
+
+    public virtual void Update()
+    {
+ 
+        if (currentCastDownTime > 0f)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                spellHolder.failSpell.PlayOneShot(spellHolder.failSpellClip, 1f);
-                return;
-            }
+            currentCastDownTime -= Time.deltaTime;
+
+
+        }
+        else if (currentCastDownTime < 0f)
+        {
+            currentCastDownTime = 0f;
+
+        }
+        else
+        {
+            gameObject.GetComponent<Animator>().SetBool("isCasting", false);
 
         }
 
-        else if (player.currentMana >= manaCost)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                player.PlayerMana(manaCost);
-                castSpell();
 
-            }
-        }
 
 
     }
+
+
+
+
 
     public virtual void castSpell()
     {
 
+
+        int layerMask = LayerMask.GetMask("Scenery", "Enemy");
+
+        heroTransform = hero.transform.position;
+
+        Vector2 heroTransform2D = new Vector2(heroTransform.x, heroTransform.y);
+        Debug.Log("pre ScreenToWorldPoint location for heroTransform2D = " + heroTransform2D + ".");
+        mousePos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, Camera.main.farClipPlane));
+
+        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+        Debug.Log("pre ScreenToWorldPoint location for mousePos2D = " + mousePos2D + ".");
+
+        Vector3 direction3D = (mousePos3D - heroTransform).normalized;
+        direction2D = (mousePos2D - heroTransform2D).normalized;
+        Debug.Log("direction has coords " + direction2D + ".");
+
+        Debug.Log("heroTransform2D registered at " + heroTransform2D + ". mousePos registered at " + mousePos + ".");
+
+        Debug.Log("rayCastDistance set at " + rayCastDistance + ".");
+
+
+        RaycastHit2D hit = Physics2D.Raycast(heroTransform2D, direction2D, rayCastDistance, layerMask);
+
+        if (hit.collider != null)
+        {
+            Vector3 hit3D = new Vector3(hit.point.x, hit.point.y, 0f);
+            Debug.Log("pre camera hit3D value is " + hit3D + ", hit.point value is " + hit.point + ".");
+            hit3D = Camera.main.ScreenToWorldPoint(hit3D);
+            Debug.Log("post camera hit3D value is " + hit3D + ".");
+            gameObject.transform.position = hit3D;
+            gameObject.GetComponent<Animator>().SetBool("isCasting", true);
+
+
+            point = new Vector3(hit.point.x, hit.point.y, 0f);
+
+            if (hit.collider.CompareTag("Enemy") == true)
+            {
+
+                hit.collider.GetComponent<NPCHealth>().damageNPCHealth(damageAmount);
+                Debug.Log("hit enemy : " + hit.collider.name + ". Spell should be " + spellHolderScript.currentSpell + ". Collision occurred at " + hit.point);
+
+            }
+
+            else if (hit.collider.CompareTag("Scenery") == true)
+            {
+
+                Debug.Log("hit Something : " + hit.collider.name + " spell should be " + spellHolderScript.currentSpell + ". Collision occurred at " + hit.point);
+                Debug.Log("hit tag  : " + hit.collider.tag);
+            }
+
+            currentCastDownTime = castDownTime;
+            spellHolderScript.currentCastDownTime = currentCastDownTime;
+            spellHolderScript.globalCastDownTime = globalCastDownTime;
+
+            spellIconMask.fillAmount = 1f;
+
+        }
+
+        else 
+
+        {
+
+            point = heroTransform + direction3D * rayCastDistance;
+
+
+            spellHolderScript.fizzleSpellAnim.SetBool("isCasting", true);
+            fizzleSpell.transform.position = point;
+
+
+
+            spellHolderScript.globalCastDownTime = globalCastDownTime;
+            spellHolderScript.currentCastDownTime = castDownTime;
+            currentCastDownTime = castDownTime;
+
+            if (fizzleSpellCastDownTime == 0)
+            {
+                
+                fizzleSpellCastDownTime = fizzleSpellDownTimeMax;
+
+            }
+
+            spellIconMask.fillAmount = 1f;
+
+            Debug.Log("Nothing hit. Fizzlespell (" + fizzleSpell.transform.position + ") activating and moved to " + point + ", point calculated with heroTransform2D + direction2D * rayCastDistance.");
+
+        }
+
+
+
+
     }
 
+
+
+    //Work on Gamepad controls!!
+
+
+
+
 }
+
+
+

@@ -39,7 +39,6 @@ public class attack : MonoBehaviour
     public void OnTriggerStay2D(Collider2D collider)
     {
     
-        Debug.Log("player?" + player + "No answer? hero disabled!");
 
         
         if (tombstone.activeSelf == false && collider.gameObject.CompareTag("Player"))

@@ -9,7 +9,6 @@ public class EventBroadcaster : MonoBehaviour
     //public delegate void HeroDeath();
     public static UnityEvent HeroDeath = new UnityEvent();
 
-
     public static void onHeroDeath()
     {
         if (HeroDeath != null)
@@ -17,7 +16,5 @@ public class EventBroadcaster : MonoBehaviour
             HeroDeath.Invoke();
         }
     }
-
-
 
 }

@@ -83,6 +83,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -91,9 +93,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -114,9 +116,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -162,10 +167,10 @@ TextureImporter:
       name: elder_observer-48x64_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 0
         y: 192
-        width: 32
-        height: 36
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +188,10 @@ TextureImporter:
       name: elder_observer-48x64_1
       rect:
         serializedVersion: 2
-        x: 56
+        x: 48
         y: 192
-        width: 32
-        height: 40
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +209,10 @@ TextureImporter:
       name: elder_observer-48x64_2
       rect:
         serializedVersion: 2
-        x: 104
+        x: 96
         y: 192
-        width: 32
-        height: 44
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,10 +230,10 @@ TextureImporter:
       name: elder_observer-48x64_3
       rect:
         serializedVersion: 2
-        x: 62
-        y: 192
-        width: 20
-        height: 6
+        x: 0
+        y: 128
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,10 +251,10 @@ TextureImporter:
       name: elder_observer-48x64_4
       rect:
         serializedVersion: 2
-        x: 112
-        y: 192
-        width: 16
-        height: 6
+        x: 48
+        y: 128
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,10 +272,10 @@ TextureImporter:
       name: elder_observer-48x64_5
       rect:
         serializedVersion: 2
-        x: 8
+        x: 96
         y: 128
-        width: 32
-        height: 36
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,10 +293,10 @@ TextureImporter:
       name: elder_observer-48x64_6
       rect:
         serializedVersion: 2
-        x: 56
-        y: 128
-        width: 32
-        height: 40
+        x: 0
+        y: 64
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,10 +314,10 @@ TextureImporter:
       name: elder_observer-48x64_7
       rect:
         serializedVersion: 2
-        x: 104
-        y: 128
-        width: 32
-        height: 44
+        x: 48
+        y: 64
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -330,10 +335,10 @@ TextureImporter:
       name: elder_observer-48x64_8
       rect:
         serializedVersion: 2
-        x: 62
-        y: 128
-        width: 20
-        height: 6
+        x: 96
+        y: 64
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -351,10 +356,10 @@ TextureImporter:
       name: elder_observer-48x64_9
       rect:
         serializedVersion: 2
-        x: 112
-        y: 128
-        width: 16
-        height: 6
+        x: 0
+        y: 0
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -372,10 +377,10 @@ TextureImporter:
       name: elder_observer-48x64_10
       rect:
         serializedVersion: 2
-        x: 8
-        y: 64
-        width: 32
-        height: 36
+        x: 48
+        y: 0
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -393,10 +398,10 @@ TextureImporter:
       name: elder_observer-48x64_11
       rect:
         serializedVersion: 2
-        x: 56
-        y: 64
-        width: 32
-        height: 40
+        x: 96
+        y: 0
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -406,174 +411,6 @@ TextureImporter:
       bones: []
       spriteID: df7f95d38c06026c0800000000000000
       internalID: -4170226841806047235
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: elder_observer-48x64_12
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 64
-        width: 32
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3cc858866eee6a70800000000000000
-      internalID: 8822250844206976059
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: elder_observer-48x64_13
-      rect:
-        serializedVersion: 2
-        x: 62
-        y: 64
-        width: 20
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55b1d465daaa15d40800000000000000
-      internalID: 5571421875487972181
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: elder_observer-48x64_14
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 64
-        width: 16
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 947cdbd7dc77c9310800000000000000
-      internalID: 1413136107549083465
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: elder_observer-48x64_15
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 0
-        width: 32
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f5785749e884d330800000000000000
-      internalID: 3734760526502721015
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: elder_observer-48x64_16
-      rect:
-        serializedVersion: 2
-        x: 56
-        y: 0
-        width: 32
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c22bbe1ee5755840800000000000000
-      internalID: 5212201809329464003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: elder_observer-48x64_17
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 0
-        width: 32
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: af65726aaff2ca2e0800000000000000
-      internalID: -2113261371567679750
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: elder_observer-48x64_18
-      rect:
-        serializedVersion: 2
-        x: 62
-        y: 0
-        width: 20
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8731e64da368eb1d0800000000000000
-      internalID: -3333079086977379464
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: elder_observer-48x64_19
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 0
-        width: 16
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e5c95c716f24bbed0800000000000000
-      internalID: -2397248751916442530
       vertices: []
       indices: 
       edges: []
@@ -588,6 +425,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      elder_observer-48x64_0: -9164303561153803156
+      elder_observer-48x64_2: -4339698503572189368
+      elder_observer-48x64_9: -6441699666199321636
+      elder_observer-48x64_6: -1366361554519201675
+      elder_observer-48x64_11: -4170226841806047235
+      elder_observer-48x64_7: -5707908854908328895
+      elder_observer-48x64_1: -2342885890141339317
+      elder_observer-48x64_5: 6217954104840604073
+      elder_observer-48x64_10: 3677747503525577826
+      elder_observer-48x64_4: 3217689865195436503
+      elder_observer-48x64_3: 3394119194231747235
+      elder_observer-48x64_8: 7505222114340895628
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

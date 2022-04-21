@@ -36,6 +36,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -196,6 +197,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Stone-path-tileset-horizontal_2: 1009492890175997098
+      Stone-path-tileset-horizontal_1: -315681520158455359
+      Stone-path-tileset-horizontal_3: -6563072381280456430
+      Stone-path-tileset-horizontal_0: -7043961687202497317
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

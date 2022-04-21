@@ -14,13 +14,13 @@ public class NPCPatrolRoute : MonoBehaviour
 
     public Vector2 GetNextCoord()
     {
-        Debug.Log("calls of coord");
+        //Debug.Log("calls of coord");
 
 
         if (patrollingBool == true)
         {
             NextPatrolElement++;
-            if (NextPatrolElement == PatrolCoord.Length)
+            if (NextPatrolElement == PatrolCoord.Length && gameObject )
             {
 
                 NextPatrolElement = -1;

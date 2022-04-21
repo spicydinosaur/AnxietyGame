@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.10467625, y: -2.5491197, z: -11.077267}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3756124788196431317}
   m_Father: {fileID: 0}
@@ -101,7 +102,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 2000
-  m_LinearDrag: 0
+  m_LinearDrag: 25
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -111,7 +112,7 @@ Rigidbody2D:
   m_Constraints: 4
 --- !u!95 &7374438838236922462
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -124,6 +125,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -165,6 +167,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415118825545889935, guid: 5eb9f5627ba693447a38c0d0fec8a1f3,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.93539476
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415118825545889935, guid: 5eb9f5627ba693447a38c0d0fec8a1f3,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.1741583
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415118825545889935, guid: 5eb9f5627ba693447a38c0d0fec8a1f3,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0062201023
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415118825545889935, guid: 5eb9f5627ba693447a38c0d0fec8a1f3,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.00000011920929
       objectReference: {fileID: 0}
     - target: {fileID: 8918402557834332866, guid: 5eb9f5627ba693447a38c0d0fec8a1f3,
         type: 3}

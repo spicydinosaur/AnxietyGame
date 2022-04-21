@@ -71,6 +71,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -79,9 +81,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -102,9 +104,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -492,6 +497,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      32x32-bat-sprite_13: 6271158973965057659
+      32x32-bat-sprite_5: -8171521891790511028
+      32x32-bat-sprite_3: -4793160474956716491
+      32x32-bat-sprite_6: -1925630619182854655
+      32x32-bat-sprite_14: -4706592807964060099
+      32x32-bat-sprite_9: -8634523996082234219
+      32x32-bat-sprite_12: -8000955877753819243
+      32x32-bat-sprite_15: 6387139139568315218
+      32x32-bat-sprite_10: -7682912727362489845
+      32x32-bat-sprite_1: 2373175670222840925
+      32x32-bat-sprite_4: -1672500258659411933
+      32x32-bat-sprite_11: 1450909465609731881
+      32x32-bat-sprite_0: 4148932211056241817
+      32x32-bat-sprite_2: 5271031278664896106
+      32x32-bat-sprite_7: 2773701834437725087
+      32x32-bat-sprite_8: 4829599208237141881
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

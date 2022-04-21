@@ -6,16 +6,18 @@ public class Transparency : MonoBehaviour
 {
 
     public SpriteRenderer[] childTransparency;
+    public Color defaultColor;
 
 
     public void OnTriggerEnter2D (Collider2D collider)
     {
-        Debug.Log("transparency scrip activated.");
+    
      if (collider.gameObject.CompareTag ("Player"))
         {
+
             Debug.Log("transparency should happen now.");
             foreach (SpriteRenderer sprites in childTransparency)
-                sprites.color = new Color(255f, 255f, 255f, .5f);
+                sprites.color = new Color(defaultColor.r, defaultColor.g, defaultColor.b, .5f);
 
 
 
@@ -26,9 +28,8 @@ public class Transparency : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            Debug.Log("transparency should go away now.");
             foreach (SpriteRenderer sprites in childTransparency)
-                sprites.color = new Color(255f, 255f, 255f, 1f);
+                sprites.color = new Color(defaultColor.r, defaultColor.g, defaultColor.b, 1f);
 
         }
     }

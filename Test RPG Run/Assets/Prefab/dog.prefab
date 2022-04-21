@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8517397826603423850}
   - component: {fileID: 8517397826603423853}
   - component: {fileID: 3590681887113967849}
+  - component: {fileID: 8517397826627718988}
   m_Layer: 10
   m_Name: dog
   m_TagString: NPC
@@ -29,9 +30,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2836984222857501157}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.45, y: 5.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1368752210090354371}
   - {fileID: 3590681886092601569}
@@ -114,7 +116,7 @@ Rigidbody2D:
   m_Constraints: 4
 --- !u!95 &6827565866053255549
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -127,6 +129,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -170,9 +173,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PatrolCoord:
-  - {x: 2.45, y: 5.3}
-  - {x: 2.45, y: 3.5}
-  NextPatrolElement: 0
+  - {x: 0.04, y: 3.85}
+  - {x: 0.04, y: 6}
+  NextPatrolElement: 1
   patrollingBool: 1
 --- !u!70 &3590681887113967849
 CapsuleCollider2D:
@@ -187,9 +190,33 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0015246868, y: -0.08417678}
-  m_Size: {x: 0.3815403, y: 0.58764887}
+  m_Offset: {x: 0.013157606, y: -0.035235405}
+  m_Size: {x: 0.45005798, y: 0.842144}
   m_Direction: 0
+--- !u!114 &8517397826627718988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2836984222857501157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3302eebd68e60bc4581faeefb2aa9247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thoughtBox: {fileID: 0}
+  dialogueBox: {fileID: 0}
+  yesButton: {fileID: 0}
+  noButton: {fileID: 0}
+  dogPortraitCurious: {fileID: 21300000, guid: 58fb226e0f9354e4887c4a41358439f0, type: 3}
+  dogPortraitSad: {fileID: 21300000, guid: 4d10cd728aedadb4a9303823a9a16587, type: 3}
+  dogPortraitHappy: {fileID: 21300000, guid: 202de4ee08d06de4d9e729373b44a755, type: 3}
+  portraitTransparency: {fileID: 21300000, guid: 867b5c79e326f8e44b0330fa099767aa,
+    type: 3}
+  dialoguePortraitBox: {fileID: 0}
+  thoughtPortraitBox: {fileID: 0}
+  InteractingWithDog: 0
 --- !u!1 &3590681886092601502
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +245,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1526389090611734230}
   m_RootOrder: 1
@@ -235,8 +263,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.00093849417}
-  m_Size: {x: 0.15875624, y: 0.16216868}
+  m_Offset: {x: 0.019576669, y: -0.033320904}
+  m_Size: {x: 0.62859416, y: 1.0333252}
   m_Direction: 0
 --- !u!114 &3590681886092601568
 MonoBehaviour:
@@ -250,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93d67f48bcb8a394891baf09bfee31e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
+  controller: {fileID: 8517397826603423850}
   player: {fileID: 0}
 --- !u!1001 &7582460050142260225
 PrefabInstance:

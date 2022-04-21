@@ -212,6 +212,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -221,8 +223,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 1
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -243,9 +245,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -1620,6 +1625,70 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      halfsizeexplosions4_45: -1436710684841942843
+      halfsizeexplosions4_62: -1565463109217349097
+      halfsizeexplosions4_49: -6320866131814490256
+      halfsizeexplosions4_17: 8061859120105761264
+      halfsizeexplosions4_13: 2606105074168412391
+      halfsizeexplosions4_4: 8836609315063930771
+      halfsizeexplosions4_3: -7992849252940467598
+      halfsizeexplosions4_39: -386899526183002847
+      halfsizeexplosions4_37: 7406604663982864240
+      halfsizeexplosions4_53: -889120349661043357
+      halfsizeexplosions4_32: 1727313474662799956
+      halfsizeexplosions4_46: -6513110486663664260
+      halfsizeexplosions4_48: -4570031292027818675
+      halfsizeexplosions4_36: -7127353244191561697
+      halfsizeexplosions4_15: 4947357323453093463
+      halfsizeexplosions4_6: -3175414106171209297
+      halfsizeexplosions4_18: -30924841861999909
+      halfsizeexplosions4_29: -3623984169302367369
+      halfsizeexplosions4_8: 7568307424276152509
+      halfsizeexplosions4_34: 8127787674571245619
+      halfsizeexplosions4_2: -5266938945084467873
+      halfsizeexplosions4_52: 400910840657498979
+      halfsizeexplosions4_14: 2712009777114221674
+      halfsizeexplosions4_23: -7480031103515842207
+      halfsizeexplosions4_31: -6554589842627925902
+      halfsizeexplosions4_51: -7274011550757369554
+      halfsizeexplosions4_30: 7125040871773820499
+      halfsizeexplosions4_55: 2438960417377273075
+      halfsizeexplosions4_11: 3671762844018911717
+      halfsizeexplosions4_26: -7107027330790301036
+      halfsizeexplosions4_44: 3068945379513035780
+      halfsizeexplosions4_33: 7467299790680212667
+      halfsizeexplosions4_50: -6573061283815698218
+      halfsizeexplosions4_1: 3423494526295727473
+      halfsizeexplosions4_12: -5375932154730145207
+      halfsizeexplosions4_59: -6956926658496370412
+      halfsizeexplosions4_16: -676453087953199583
+      halfsizeexplosions4_60: -5842263888496710543
+      halfsizeexplosions4_24: -2285037070001239529
+      halfsizeexplosions4_54: -4963695779556652848
+      halfsizeexplosions4_61: -7811494751738071888
+      halfsizeexplosions4_41: -1657961241279772228
+      halfsizeexplosions4_56: -1345982547683902134
+      halfsizeexplosions4_7: -58593597322865471
+      halfsizeexplosions4_22: -4193795877872918712
+      halfsizeexplosions4_9: -7418661792898496715
+      halfsizeexplosions4_40: -4683220708623571007
+      halfsizeexplosions4_25: -7453024586878970639
+      halfsizeexplosions4_42: -2057864182560098620
+      halfsizeexplosions4_21: 845703689578626001
+      halfsizeexplosions4_43: -7454846641396952837
+      halfsizeexplosions4_47: 6123544637723694950
+      halfsizeexplosions4_57: 5518852901417270194
+      halfsizeexplosions4_0: 7088821823615970170
+      halfsizeexplosions4_27: -7519203440252863494
+      halfsizeexplosions4_38: 166676556426960916
+      halfsizeexplosions4_5: 8211144805999004390
+      halfsizeexplosions4_28: 6121351752731102947
+      halfsizeexplosions4_10: 6801608306151013071
+      halfsizeexplosions4_19: -7211728765659111212
+      halfsizeexplosions4_58: -2888930065202555583
+      halfsizeexplosions4_20: 6900246087671105186
+      halfsizeexplosions4_35: 3422222272240014382
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
