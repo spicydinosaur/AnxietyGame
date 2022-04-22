@@ -58,20 +58,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "MousePosition",
+                    "type": "Value",
+                    "id": "40ac495c-3e22-46a7-b302-48e96bcdc1d4",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
-                {
-                    "name": "Gamepad",
-                    "id": "14553b81-82e1-477f-9901-98c580812c5c",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SpellCastGamepad",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "Gamepad",
                     "id": "b0e99a00-b5ba-4b14-a983-b05b698d0571",
@@ -89,7 +87,7 @@
                     "path": "<Gamepad>/rightStick/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "SpellCastGamepad",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -100,7 +98,7 @@
                     "path": "<Gamepad>/rightStick/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "SpellCastGamepad",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -111,7 +109,7 @@
                     "path": "<Gamepad>/rightStick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "SpellCastGamepad",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -122,7 +120,7 @@
                     "path": "<Gamepad>/rightStick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "SpellCastGamepad",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -133,7 +131,7 @@
                     "path": "<Keyboard>/#(E)",
                     "interactions": "Press",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -144,7 +142,7 @@
                     "path": "<Keyboard>/enter",
                     "interactions": "Press",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -155,7 +153,7 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "Press",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -177,7 +175,7 @@
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -188,7 +186,7 @@
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -199,7 +197,7 @@
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -210,7 +208,7 @@
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -232,7 +230,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -243,7 +241,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -254,7 +252,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -265,7 +263,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -287,7 +285,7 @@
                     "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -298,7 +296,7 @@
                     "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -309,7 +307,7 @@
                     "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -320,7 +318,7 @@
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -331,7 +329,7 @@
                     "path": "<Mouse>/rightButton",
                     "interactions": "Press",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "SpellCast",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -342,7 +340,7 @@
                     "path": "<Mouse>/scroll/y",
                     "interactions": "Press",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "SpellSelectMouseScrollWheel",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -353,7 +351,7 @@
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "Press",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "SpellSelectGamepad",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -364,8 +362,19 @@
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "Press",
                     "processors": "",
-                    "groups": "AllControls",
+                    "groups": "Keyboard",
                     "action": "SpellSelectGamepad",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "89cace1d-bacc-49c7-b092-d96715687a25",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -374,22 +383,28 @@
     ],
     "controlSchemes": [
         {
-            "name": "AllControls",
-            "bindingGroup": "AllControls",
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
-                    "isOptional": true,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<Gamepad>",
-                    "isOptional": true,
+                    "isOptional": false,
                     "isOR": false
                 },
                 {
                     "devicePath": "<Mouse>",
-                    "isOptional": true,
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Gamepad",
+            "bindingGroup": "Gamepad",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
                     "isOR": false
                 }
             ]

@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.InputSystem;
 using TMPro;
-
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     public static Player instance { get; private set; }
     private PlayerControls playerControls;
-
+    
     public float maxHealth;
     public float maxMana;
 
@@ -30,7 +29,7 @@ public class Player : MonoBehaviour
 
     public GameObject tombstone;
 
-    public InputAction interact;
+
 
     
 
@@ -39,7 +38,7 @@ public class Player : MonoBehaviour
     {
         instance = this;
         playerControls = new PlayerControls();
-        interact = playerControls.PlayerActions.Interact;
+
     }
 
 
@@ -91,10 +90,7 @@ public class Player : MonoBehaviour
 
     }
 
-    public void Interact(InputAction.CallbackContext context)
-    {
 
-    }
 
     private void OnEnable()
     {
