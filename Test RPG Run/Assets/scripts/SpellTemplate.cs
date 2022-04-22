@@ -14,6 +14,7 @@ public class SpellTemplate : MonoBehaviour
     public float rayCastDistance;
 
     //Spells, can we work off of prefabs alone?
+    //protected GameObject spellPrefab;
 
     public float damageAmount;
     public float manaCost;
@@ -21,8 +22,10 @@ public class SpellTemplate : MonoBehaviour
     public float globalCastDownTime;
     public float currentCastDownTime;
     public int currentCastDowntimeRounded;
-    public float fizzleSpellCastDownTime;
-    public float fizzleSpellDownTimeMax;
+    public float fizzleCastDownTime;
+    public float fizzleDownTimeMax;
+
+    //public float fizzleGlobalCastDownTime;
 
     public GameObject hero;
     public Player player;
@@ -31,16 +34,19 @@ public class SpellTemplate : MonoBehaviour
     public SpellHolder spellHolderScript;
 
     public Vector2 mousePos;
-    public Vector2 direction2D;
-    public Vector3 heroTransform;
-    public Vector2 point;
-    public Vector3 mousePos3D;
+    public Vector2 worldPos;
+    public Vector2 direction;
+    public Vector2 heroTransform;
+    public Vector3 point;
+    public Vector3 rawDirection;
+
+    public float mouseDistance;
 
     public Animator fizzleSpellAnim;
     public GameObject fizzleSpell;
     public Image spellIconMask;
 
-
+    public Camera mainCam;
 
 
 
@@ -50,7 +56,6 @@ public class SpellTemplate : MonoBehaviour
 
 
         currentCastDownTime = 0f;
-
 
 
     }
@@ -88,93 +93,81 @@ public class SpellTemplate : MonoBehaviour
 
 
 
-    public virtual void castSpell()
+     public virtual void castSpell()
     {
-
-
         int layerMask = LayerMask.GetMask("Scenery", "Enemy");
-
+        //rawDirection = new Vector3(mousePos.x, mousePos.y, 0f) - tempHeroTransformValues;
         heroTransform = hero.transform.position;
-
-        Vector2 heroTransform2D = new Vector2(heroTransform.x, heroTransform.y);
-        Debug.Log("pre ScreenToWorldPoint location for heroTransform2D = " + heroTransform2D + ".");
-        mousePos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, Camera.main.farClipPlane));
-
-        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-        Debug.Log("pre ScreenToWorldPoint location for mousePos2D = " + mousePos2D + ".");
-
-        Vector3 direction3D = (mousePos3D - heroTransform).normalized;
-        direction2D = (mousePos2D - heroTransform2D).normalized;
-        Debug.Log("direction has coords " + direction2D + ".");
-
-        Debug.Log("heroTransform2D registered at " + heroTransform2D + ". mousePos registered at " + mousePos + ".");
-
-        Debug.Log("rayCastDistance set at " + rayCastDistance + ".");
+        direction = (mousePos - heroTransform).normalized;
+        Debug.Log("hero transform position = " + hero.transform.position);
+        Debug.Log("Camera.main.ScreenToWorldPoint(hero.transform.position) = " + Camera.main.ScreenToWorldPoint(hero.transform.position));
+        Debug.Log("heroTransform = " + heroTransform + ", direction = " + direction + ", mousePos = " + mousePos + ".");
 
 
-        RaycastHit2D hit = Physics2D.Raycast(heroTransform2D, direction2D, rayCastDistance, layerMask);
+        RaycastHit2D hit = Physics2D.Raycast(heroTransform, direction, rayCastDistance, layerMask);
+
+        Debug.Log("hit.point = " + hit.point + ".");
 
         if (hit.collider != null)
         {
-            Vector3 hit3D = new Vector3(hit.point.x, hit.point.y, 0f);
-            Debug.Log("pre camera hit3D value is " + hit3D + ", hit.point value is " + hit.point + ".");
-            hit3D = Camera.main.ScreenToWorldPoint(hit3D);
-            Debug.Log("post camera hit3D value is " + hit3D + ".");
-            gameObject.transform.position = hit3D;
+
+            gameObject.transform.position = hit.transform.position;
             gameObject.GetComponent<Animator>().SetBool("isCasting", true);
-
-
-            point = new Vector3(hit.point.x, hit.point.y, 0f);
+            Debug.Log("Spell now at " + gameObject.transform.position + " which should be the same as " + hit.transform.position + ".");
 
             if (hit.collider.CompareTag("Enemy") == true)
             {
 
                 hit.collider.GetComponent<NPCHealth>().damageNPCHealth(damageAmount);
-                Debug.Log("hit enemy : " + hit.collider.name + ". Spell should be " + spellHolderScript.currentSpell + ". Collision occurred at " + hit.point);
+                Debug.Log("hit enemy : " + hit.collider.name + ". Spell should be " + spellHolderScript.currentSpellInstantiate + ". Collision occurred at " + hit.transform.position);
 
             }
 
             else if (hit.collider.CompareTag("Scenery") == true)
             {
 
-                Debug.Log("hit Something : " + hit.collider.name + " spell should be " + spellHolderScript.currentSpell + ". Collision occurred at " + hit.point);
+                Debug.Log("hit Something : " + hit.collider.name + " spell should be " + spellHolderScript.currentSpellInstantiate + ". Collision occurred at " + hit.transform.position);
                 Debug.Log("hit tag  : " + hit.collider.tag);
+            }
+            else
+            {
+                Debug.Log("this is the statement appearing when a collider not on the layermask gets hit, it should never show up.");
+                Debug.Log("hit.name because something weird happened : " + hit.collider.name + ".");
             }
 
             currentCastDownTime = castDownTime;
             spellHolderScript.currentCastDownTime = currentCastDownTime;
             spellHolderScript.globalCastDownTime = globalCastDownTime;
-
             spellIconMask.fillAmount = 1f;
 
         }
 
-        else 
+
+        else
 
         {
+            Debug.Log("heroTransform (" + heroTransform + ") and mousePos (" + mousePos + ")");
+                point = new Vector3(heroTransform.x + (direction.x * rayCastDistance), heroTransform.y + (direction.y * rayCastDistance), 0f);
+                Debug.Log("point now converted to heroTransform + direction * rayCastDistance and located at " + point + ".");
 
-            point = heroTransform + direction3D * rayCastDistance;
-
-
+            spellHolderScript.fizzleSpell.transform.position = point;
             spellHolderScript.fizzleSpellAnim.SetBool("isCasting", true);
-            fizzleSpell.transform.position = point;
-
 
 
             spellHolderScript.globalCastDownTime = globalCastDownTime;
             spellHolderScript.currentCastDownTime = castDownTime;
             currentCastDownTime = castDownTime;
 
-            if (fizzleSpellCastDownTime == 0)
+            if (fizzleCastDownTime == 0)
             {
                 
-                fizzleSpellCastDownTime = fizzleSpellDownTimeMax;
+                fizzleCastDownTime = fizzleDownTimeMax;
 
             }
 
             spellIconMask.fillAmount = 1f;
 
-            Debug.Log("Nothing hit. Fizzlespell (" + fizzleSpell.transform.position + ") activating and moved to " + point + ", point calculated with heroTransform2D + direction2D * rayCastDistance.");
+            Debug.Log("Nothing hit. Fizzlespell activating and moved to " + point );
 
         }
 
@@ -184,9 +177,7 @@ public class SpellTemplate : MonoBehaviour
     }
 
 
-
-    //Work on Gamepad controls!!
-
+    //Work on this later! Gamepad controls
 
 
 
