@@ -20,9 +20,7 @@ public class DogPopUpMessage : MonoBehaviour
     public Sprite portraitTransparency;
     private Sprite defaultPortraitImage;
 
-    public GameObject dialoguePortraitBox;
-    public GameObject thoughtPortraitBox;
-
+    public GameObject PortraitBox;
 
     public bool InteractingWithDog;
 
@@ -38,10 +36,9 @@ public class DogPopUpMessage : MonoBehaviour
             thoughtBox.SetActive(true);
             yesButton.SetActive(true);
             noButton.SetActive(true);
-            defaultPortraitImage = thoughtPortraitBox.GetComponent<Image>().sprite;
-            thoughtPortraitBox.SetActive(true);
-            dialoguePortraitBox.SetActive(true);
-            thoughtPortraitBox.GetComponent<Image>().sprite = dogPortraitCurious;
+            defaultPortraitImage = PortraitBox.GetComponent<Image>().sprite;
+            PortraitBox.SetActive(true);
+            PortraitBox.GetComponent<Image>().sprite = dogPortraitCurious;
             thoughtBox.GetComponentInChildren<TextMeshProUGUI>().verticalAlignment = VerticalAlignmentOptions.Top;
             thoughtBox.GetComponentInChildren<TextMeshProUGUI>().horizontalAlignment = HorizontalAlignmentOptions.Justified;
             thoughtBox.GetComponentInChildren<TextMeshProUGUI>().SetText("Pet the dog?");
@@ -87,15 +84,15 @@ public class DogPopUpMessage : MonoBehaviour
                 dialogueBox.SetActive(false);
 
             }
-            if (dialoguePortraitBox.activeSelf == true)
+            if (PortraitBox.activeSelf == true)
             {
-                dialoguePortraitBox.GetComponent<Image>().sprite = portraitTransparency;
-                dialoguePortraitBox.SetActive(false);
+                PortraitBox.GetComponent<Image>().sprite = portraitTransparency;
+                PortraitBox.SetActive(false);
             }
-            if (thoughtPortraitBox.activeSelf == true)
+            if (PortraitBox.activeSelf == true)
             {
-                thoughtPortraitBox.GetComponent<Image>().sprite = defaultPortraitImage;
-                thoughtPortraitBox.SetActive(false);
+                PortraitBox.GetComponent<Image>().sprite = defaultPortraitImage;
+                PortraitBox.SetActive(false);
             }
 
 
@@ -108,12 +105,12 @@ public class DogPopUpMessage : MonoBehaviour
 
         Debug.Log("OnDogYesClick fired, this log coming from the DogPopUpMessage script.");
         thoughtBox.GetComponentInChildren<TextMeshProUGUI>().SetText("");
-        thoughtPortraitBox.GetComponent<Image>().sprite = defaultPortraitImage;
+        PortraitBox.GetComponent<Image>().sprite = defaultPortraitImage;
         yesButton.SetActive(false);
         noButton.SetActive(false);
         thoughtBox.SetActive(false);
         dialogueBox.SetActive(true);
-        dialoguePortraitBox.GetComponent<Image>().sprite = dogPortraitHappy;
+        PortraitBox.GetComponent<Image>().sprite = dogPortraitHappy;
         yesButton.GetComponentInChildren<TextMeshProUGUI>().verticalAlignment = VerticalAlignmentOptions.Middle;
         yesButton.GetComponentInChildren<TextMeshProUGUI>().horizontalAlignment = HorizontalAlignmentOptions.Center;
         dialogueBox.GetComponentInChildren<TextMeshProUGUI>().SetText("BARK! BARK!");
@@ -126,12 +123,12 @@ public class DogPopUpMessage : MonoBehaviour
 
         Debug.Log("OnDogNoClick fired, this log coming from the DogPopUpMessage script.");
         thoughtBox.GetComponentInChildren<TextMeshProUGUI>().SetText("");
-        thoughtPortraitBox.GetComponent<Image>().sprite = defaultPortraitImage;
+        PortraitBox.GetComponent<Image>().sprite = defaultPortraitImage;
         thoughtBox.SetActive(false);
         yesButton.SetActive(false);
         noButton.SetActive(false);
         dialogueBox.SetActive(true);
-        dialoguePortraitBox.GetComponent<Image>().sprite = dogPortraitSad;
+        PortraitBox.GetComponent<Image>().sprite = dogPortraitSad;
         noButton.GetComponentInChildren<TextMeshProUGUI>().verticalAlignment = VerticalAlignmentOptions.Middle;
         noButton.GetComponentInChildren<TextMeshProUGUI>().horizontalAlignment = HorizontalAlignmentOptions.Center;
         dialogueBox.GetComponentInChildren<TextMeshProUGUI>().SetText("*whine*");
