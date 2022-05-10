@@ -94,14 +94,22 @@ public class PillarInteraction : MonoBehaviour
 
     }
     
-
+    /*
     public IEnumerator pillarMove()
     {
         Debug.Log("pillarmove function activated");
+<<<<<<< Updated upstream
         gameObject.transform.position = gameObject.transform.position + pillarMoveDirection;
         if (Vector3.Distance(oldPillarTransform, gameObject.transform.position) >= (pillarMoveIncrement * pillarMoveTime))
         {
             pillarInPosition = true;
+=======
+        gameObject.transform.position = gameObject.transform.position + pillarMoveDirection * Time.deltaTime;
+        if (Vector3.Distance(oldPillarTransform, gameObject.transform.position) >= (pillarMoveIncrement * pillarMoveTime))
+        {
+            pillarInPosition = true;
+            StopCoroutine(pillarMove);
+>>>>>>> Stashed changes
             
         }
         else
@@ -113,7 +121,7 @@ public class PillarInteraction : MonoBehaviour
 
 
     }
-
+    */
     private void OnCollisionEnter2D(Collision2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
