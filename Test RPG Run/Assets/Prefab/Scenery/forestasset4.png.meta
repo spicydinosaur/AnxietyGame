@@ -31779,7 +31779,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -31813,8 +31813,8 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
+    resizeAlgorithm: 1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -31836,6 +31836,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -34599,9 +34611,8 @@ TextureImporter:
       forestasset4_6: -9045589242898098933
       forestasset4_110: 3593442913657018745
       forestasset4_93: 2897254202853302472
-      forestasset4_12: -8529987457151370669
-      forestasset4_46: 7463653994792074093
       forestasset4_126: -5922967286386300064
+      forestasset4_46: 7463653994792074093
       forestasset4_132: 6042652108047432003
       forestasset4_9: -4223041950622638387
       forestasset4_87: -199015349736514320
@@ -34609,11 +34620,12 @@ TextureImporter:
       forestasset4_15: -5491418856247600194
       forestasset4_41: 6708105853139102381
       forestasset4_103: 9069186903357016933
-      forestasset4_122: 4493632265612856217
+      forestasset4_12: -8529987457151370669
       forestasset4_88: 6867780937480614461
+      forestasset4_122: 4493632265612856217
       forestasset4_73: 6119092925897084988
-      forestasset4_120: 5210269190358911114
       forestasset4_119: 2430729402726596749
+      forestasset4_120: 5210269190358911114
       forestasset4_59: -9155366376755192730
       forestasset4_4: -4217304105087106929
       forestasset4_86: 502565906699257399

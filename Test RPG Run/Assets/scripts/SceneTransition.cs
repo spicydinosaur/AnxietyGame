@@ -14,19 +14,21 @@ public class SceneTransition : MonoBehaviour
     
 
 
-    public virtual void OnTriggerEnter2D(Collider2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<Player>().transitioningToScene == false)
-           {
+        if (collider2D != collidingObject || collidingObject.gameObject.GetComponent<Player>().transitioningToScene != false)
+        {
+            return;
 
-                collision.gameObject.GetComponent<Player>().transitioningToScene = true;
-                GameManager.gameManagerObject.GetComponent<UIFade>().callingTransition = destination;
-                GameManager.gameManagerObject.GetComponent<UIFade>().fadingIn = false;
-                GameManager.gameManagerObject.GetComponent<UIFade>().fadingOut = true;
-                cameraSwitch.changeCamera(this);
-                    //Debug.Log("transition occured from: " + name + "?");
-                    //wait for UIFade to say it is done then move target!!!
-            }
+        }
+
+        collidingObject.gameObject.GetComponent<Player>().transitioningToScene = true;
+        GameManager.gameManagerObject.GetComponent<UIFade>().callingTransition = destination;
+        GameManager.gameManagerObject.GetComponent<UIFade>().fadingIn = false;
+        GameManager.gameManagerObject.GetComponent<UIFade>().fadingOut = true;
+        cameraSwitch.changeCamera(this);
+        //Debug.Log("transition occured from: " + name + "?");
+        //wait for UIFade to say it is done then move target!!!
 
     }
 
