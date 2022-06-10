@@ -22,10 +22,6 @@ public class ChildSquealing : MonoBehaviour
     //how many times we want to run the squeallening script, ultimately leading to more e's each time. (we settled at 300)
     public int timesToRun = 0;
 
-    private void Awake()
-    {
-        dialogBox.SetActive(false);
-    }
 
     //if the player collides with this NPC it sets the TMPro to true, allowing for the text to be visible. Text starts out as "e!!!"
     void OnTriggerEnter2D(Collider2D collider)
@@ -34,7 +30,7 @@ public class ChildSquealing : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             dialogBox.SetActive(true);
-            dialogBox.GetComponent<TextMeshProUGUI>().SetText(squeal+squealEnd);
+            GetComponentInChildren<TextMeshProUGUI>().SetText(squeal+squealEnd);
         }
 
     }
@@ -59,9 +55,8 @@ public class ChildSquealing : MonoBehaviour
                 //We've waited long enough, add more eeeee's!
                 //this adds another e to the back of the incessant screaming. (squeal is the e's, squealend is the !!!
                 squeal += "e";
-                squealEnd = "!!!";
                 currentFrame = 0;
-                dialogBox.GetComponent<TextMeshProUGUI>().SetText(squeal + squealEnd);
+                GetComponentInChildren<TextMeshProUGUI>().SetText(squeal+squealEnd);
 
             }
 
@@ -78,11 +73,10 @@ public class ChildSquealing : MonoBehaviour
         {
             //Since this is the player leaving, reset everything
             squeal = "e";
-            squealEnd = "!!!";
-            timesToRun = 0;
+            GetComponentInChildren<TextMeshProUGUI>().SetText(squeal+squealEnd);
             currentFrame = 0;
-            dialogBox.GetComponent<TextMeshProUGUI>().SetText(squeal + squealEnd);
             dialogBox.SetActive(false);
+            timesToRun = 0;
         }
     }
 }

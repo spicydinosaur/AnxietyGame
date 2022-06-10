@@ -21,7 +21,7 @@ public class NPCController : MonoBehaviour
     public Transform targetToChase;
     public Image dialogBox;
     public Animator animator;
-    public Vector2 lookDirection;
+    public Vector2 lookDirection = new Vector2(0, -1);
 
     public bool isMoving = false;
     public float pauseTime;

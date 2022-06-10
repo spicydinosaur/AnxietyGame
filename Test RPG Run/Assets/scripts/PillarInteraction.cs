@@ -10,164 +10,127 @@ public class PillarInteraction : MonoBehaviour
 
     public GameObject interactHere;
     private InputAction interact;
+    public Animator heroAnim;
+    public bool movePillarPossible;
+    public Vector2 move;
+    public float heroStartPosition;
+    public int pillarMoveIncrement;
     public GameObject hero;
-
-    public bool pillarInPosition;
-    public Vector3 pillarMoveDirection;
-    
-    public bool canMoveUp;
-    public bool canMoveDown;
-    public bool canMoveLeft;
-    public bool canMoveRight;
-
-    public Vector3 oldPillarTransform;
-    public float pillarMoveIncrement;
-    public float maxPillarMoveIncrement;
-
-    public float pillarMoveTime;
+    public int heroTransformRoundedY;
+    public int heroTransformRoundedX;
 
 
 
-    private void OnEnable()
-    {
-        playerControls.Enable();
-        interact.performed += ctx => Interact();
 
-    }
 
+
+
+
+    // Start is called before the first frame update
     void Awake()
     {
         playerControls = new PlayerControls();
         interact = playerControls.PlayerActions.Interact;
-        pillarInPosition = true;
+        pillarMoveIncrement = 0;
+        heroStartPosition = -57;
     }
 
+    private void Start()
+    {
 
+    }
+
+    public void Update()
+    {
+        interact = playerControls.PlayerActions.Interact;
+        if (interact.triggered && movePillarPossible == true && pillarMoveIncrement<=12)
+        {
+            Interact();
+            Debug.Log("interact button pressed");
+        }
+    }
+
+    // Update is called once per frame
 
     public void Interact()
     {
-        Debug.Log("interact button pressed");
-        interactHere.SetActive(true);
-        int layerMask = LayerMask.GetMask("Hero");
-
-        oldPillarTransform = gameObject.transform.position;
-
-        if (canMoveDown)
-        {
-            RaycastHit2D hit2Dup = Physics2D.Raycast(gameObject.transform.position, Vector3.up, .5f, layerMask);
-            if (hit2Dup.collider != null)
-            {
-
-                pillarMoveDirection = new Vector3(0f, -.1f, 0f);
-
-            }
-        }
-        if (canMoveUp)
-        {
-            RaycastHit2D hit2Ddown = Physics2D.Raycast(gameObject.transform.position, Vector3.down, .5f, layerMask);
-            if (hit2Ddown.collider != null)
-            {
-                pillarMoveDirection = new Vector3(0f, .1f, 0f);
-            }
-        }
-        if (canMoveRight)
-        {
-            RaycastHit2D hit2Dleft = Physics2D.Raycast(gameObject.transform.position, Vector3.left, .5f, layerMask);
-            if ( hit2Dleft.collider != null)
-            {
-                pillarMoveDirection = new Vector3(.1f, 0f, 0f);
-            }
-        }
-        if (canMoveLeft)
-        {
-            RaycastHit2D hit2Dright = Physics2D.Raycast(gameObject.transform.position, Vector3.right, .5f, layerMask);
-            if (hit2Dright.collider != null)
-            {
-                pillarMoveDirection = new Vector3(-.1f, 0f, 0f);
-            }
-        }
-
-        Debug.Log("Interact function triggered, pillarMoveDirection = " + pillarMoveDirection);
-
-        pillarInPosition = false;
+        Debug.Log("interact function activated");
         StartCoroutine("pillarMove");
 
     }
     
-    /*
+
     public IEnumerator pillarMove()
     {
         Debug.Log("pillarmove function activated");
-<<<<<<< Updated upstream
-        gameObject.transform.position = gameObject.transform.position + pillarMoveDirection;
-        if (Vector3.Distance(oldPillarTransform, gameObject.transform.position) >= (pillarMoveIncrement * pillarMoveTime))
+        gameObject.transform.position = gameObject.transform.position + new Vector3(-.5f, 0f, 0f);
+        
+        pillarMoveIncrement = pillarMoveIncrement + 1;
+        heroStartPosition = heroStartPosition -.5f;
+        if (pillarMoveIncrement >= 12)
         {
-            pillarInPosition = true;
-=======
-        gameObject.transform.position = gameObject.transform.position + pillarMoveDirection * Time.deltaTime;
-        if (Vector3.Distance(oldPillarTransform, gameObject.transform.position) >= (pillarMoveIncrement * pillarMoveTime))
-        {
-            pillarInPosition = true;
-            StopCoroutine(pillarMove);
->>>>>>> Stashed changes
-            
+            StopCoroutine("pillarMove");
+            Debug.Log("coroutine stopped");
         }
-        else
-        {
-            pillarInPosition = false;
-        }
-  
-        yield return new WaitForSeconds(.2f);
+
+        yield return new WaitForSeconds(.1f);
 
 
     }
-    */
+
     private void OnCollisionEnter2D(Collision2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
         {
             interactHere.SetActive(true);
-            int layerMask = LayerMask.GetMask("Hero");
 
-            if (canMoveDown)
-            {
-                RaycastHit2D hit2Dup = Physics2D.Raycast(gameObject.transform.position, Vector3.up, .5f, layerMask);
-            }
-            if (canMoveUp)
-            {
-                RaycastHit2D hit2Ddown = Physics2D.Raycast(gameObject.transform.position, Vector3.down, .5f, layerMask);
-            }
-            if (canMoveRight)
-            {
-                RaycastHit2D hit2Dleft = Physics2D.Raycast(gameObject.transform.position, Vector3.left, .5f, layerMask);
-            }
-            if (canMoveLeft)
-            {
-                RaycastHit2D hit2Dright = Physics2D.Raycast(gameObject.transform.position, Vector3.right, .5f, layerMask);
-            }
+            heroTransformRoundedY = Mathf.RoundToInt(hero.transform.position.y);
+            heroTransformRoundedX = Mathf.RoundToInt(hero.transform.position.x);
 
-        }
-        else if (collider.gameObject.CompareTag("Misc Colliders"))
-        {
-            StopCoroutine("pillarMove");
-            Debug.Log("coroutine stopped");
+            if ( heroTransformRoundedY == 27 && heroTransformRoundedX == heroStartPosition && heroAnim.GetFloat("Look X") <= -.1)
+            {
+
+                movePillarPossible = true;
+            }
+            else
+            {
+                movePillarPossible = false;
+            }
         }
     }
 
-
-
-    private void OnCollisionExit2D(Collision2D collider)
+    private void OnCollisionStay2D(Collision2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            interactHere.SetActive(false);
-        }
-        else if (collider.gameObject.CompareTag("Misc Colliders"))
-        {
-     
+            interactHere.SetActive(true);
+
+            heroTransformRoundedY = Mathf.RoundToInt(hero.transform.position.y);
+            heroTransformRoundedX = Mathf.RoundToInt(hero.transform.position.x);
+
+            if (heroTransformRoundedY == 27 && heroTransformRoundedX == heroStartPosition && heroAnim.GetFloat("Look X") <= -.1)
+            {
+
+                movePillarPossible = true;
+            }
+            else
+            {
+                movePillarPossible = false;
+            }
         }
     }
+    
+    private void OnCollisionExit2D(Collision2D collider)
+    {
+        movePillarPossible = false;
+        interactHere.SetActive(false);
+    }
 
+    private void OnEnable()
+    {
+        playerControls.Enable();
+
+    }
 
     private void OnDisable()
     {

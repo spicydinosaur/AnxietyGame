@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -68,7 +68,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -4079,8 +4079,8 @@ TextureImporter:
       saturatedGrass_37: 1832183770
       saturatedGrass_153: -180438111
       saturatedGrass_36: 771746712
-      saturatedGrass_47: -1673793378
       saturatedGrass_31: -162987080
+      saturatedGrass_47: -1673793378
       saturatedGrass_149: 1281394038
       saturatedGrass_84: 68213413
       saturatedGrass_41: -2069876584

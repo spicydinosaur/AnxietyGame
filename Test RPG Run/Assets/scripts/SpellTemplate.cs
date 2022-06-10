@@ -66,7 +66,7 @@ public class SpellTemplate : MonoBehaviour
 
     public virtual void Update()
     {
-
+ 
         if (currentCastDownTime > 0f)
         {
             currentCastDownTime -= Time.deltaTime;
@@ -93,7 +93,7 @@ public class SpellTemplate : MonoBehaviour
 
 
 
-    public virtual void castSpell()
+     public virtual void castSpell()
     {
         int layerMask = LayerMask.GetMask("Scenery", "Enemy");
         //rawDirection = new Vector3(mousePos.x, mousePos.y, 0f) - tempHeroTransformValues;
@@ -147,8 +147,8 @@ public class SpellTemplate : MonoBehaviour
 
         {
             Debug.Log("heroTransform (" + heroTransform + ") and mousePos (" + mousePos + ")");
-            point = new Vector3(heroTransform.x + (direction.x * rayCastDistance), heroTransform.y + (direction.y * rayCastDistance), 0f);
-            Debug.Log("point now converted to heroTransform + direction * rayCastDistance and located at " + point + ".");
+                point = new Vector3(heroTransform.x + (direction.x * rayCastDistance), heroTransform.y + (direction.y * rayCastDistance), 0f);
+                Debug.Log("point now converted to heroTransform + direction * rayCastDistance and located at " + point + ".");
 
             spellHolderScript.fizzleSpell.transform.position = point;
             spellHolderScript.fizzleSpellAnim.SetBool("isCasting", true);
@@ -160,14 +160,14 @@ public class SpellTemplate : MonoBehaviour
 
             if (fizzleCastDownTime == 0)
             {
-
+                
                 fizzleCastDownTime = fizzleDownTimeMax;
 
             }
 
             spellIconMask.fillAmount = 1f;
 
-            Debug.Log("Nothing hit. Fizzlespell activating and moved to " + point);
+            Debug.Log("Nothing hit. Fizzlespell activating and moved to " + point );
 
         }
 
