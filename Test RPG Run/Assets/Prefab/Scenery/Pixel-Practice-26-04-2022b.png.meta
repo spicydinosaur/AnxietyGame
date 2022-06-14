@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b74ffa19c825acf4a902115d31d44826
+guid: ba1198eeb9ab85b47872a807da191e44
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,64 +104,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_0
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 512
-        width: 46
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a739b9b34b9ee5b40b3ae47d0dec292f
-      internalID: 493829302
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Pixel-Practice-26-04-2022b_1
       rect:
         serializedVersion: 2
-        x: 63
-        y: 512
-        width: 43
+        x: 28
+        y: 547
+        width: 113
         height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a038a58f016f0942b23ae1b4e65e519
-      internalID: 335124089
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_2
-      rect:
-        serializedVersion: 2
-        x: 110
-        y: 512
-        width: 44
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 009c107b5723f6844acc62635c9e27aa
-      internalID: -1130127468
+      spriteID: 154573bff3f23114eaf80aefec7eb8ef
+      internalID: -1801057206
       vertices: []
       indices: 
       edges: []
@@ -170,19 +128,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_3
       rect:
         serializedVersion: 2
-        x: 220
-        y: 526
-        width: 46
-        height: 27
+        x: 157
+        y: 562
+        width: 13
+        height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ea249c7bcf9b904f97ea6590b166ef7
-      internalID: -385858240
+      spriteID: 2931f128cb719074daa39d83c004d267
+      internalID: -966577829
       vertices: []
       indices: 
       edges: []
@@ -191,19 +149,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_4
       rect:
         serializedVersion: 2
-        x: 271
-        y: 526
-        width: 43
-        height: 27
+        x: 171
+        y: 562
+        width: 13
+        height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f9fbdde680c30a4b824d77f1f424ae3
-      internalID: 1825063469
+      spriteID: f9feb68a93f83754b9ce40ec1ecd9c6e
+      internalID: 824562052
       vertices: []
       indices: 
       edges: []
@@ -212,19 +170,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_5
       rect:
         serializedVersion: 2
-        x: 318
-        y: 526
-        width: 44
-        height: 27
+        x: 188
+        y: 562
+        width: 13
+        height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d9f8dcb34e44884c9a0af99acb5ba45
-      internalID: 1147175512
+      spriteID: 2a534ba544b9d424f843cf2b540c6d85
+      internalID: -927130864
       vertices: []
       indices: 
       edges: []
@@ -233,19 +191,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_6
       rect:
         serializedVersion: 2
-        x: 155
-        y: 511
+        x: 202
+        y: 562
         width: 13
         height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bb74dad149f637489136b554b393702
-      internalID: -1849175832
+      spriteID: f0b8dc42c6c38ec4f8802c9eb9926db2
+      internalID: -258230041
       vertices: []
       indices: 
       edges: []
@@ -254,19 +212,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_7
       rect:
         serializedVersion: 2
-        x: 169
-        y: 511
+        x: 157
+        y: 546
         width: 13
         height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cb421ea6ebab944d803f6f2e52a286b
-      internalID: -418489172
+      spriteID: 2e5513d09be83944db6380ea8cf65851
+      internalID: -951667494
       vertices: []
       indices: 
       edges: []
@@ -275,19 +233,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_8
       rect:
         serializedVersion: 2
-        x: 186
-        y: 511
+        x: 171
+        y: 546
         width: 13
         height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70f45b2c4c3f83047ab7385f4a93e0e9
-      internalID: -27551360
+      spriteID: e40b6ce0ab809f94ca1e08ecea6066f3
+      internalID: -1776756962
       vertices: []
       indices: 
       edges: []
@@ -296,19 +254,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_9
       rect:
         serializedVersion: 2
-        x: 200
-        y: 511
+        x: 188
+        y: 546
         width: 13
         height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40531ed7caa50f5458679ba4579372d2
-      internalID: -427965972
+      spriteID: a07b09c199747fa499290e814d051fdc
+      internalID: 336366682
       vertices: []
       indices: 
       edges: []
@@ -317,19 +275,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_10
       rect:
         serializedVersion: 2
-        x: 222
-        y: 496
-        width: 43
-        height: 25
+        x: 202
+        y: 546
+        width: 13
+        height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f554040bfd949b34ca31841dcd41a63e
-      internalID: -103544532
+      spriteID: 158a0596ff1fb1e48b2761acfe334eb7
+      internalID: 187099317
       vertices: []
       indices: 
       edges: []
@@ -338,19 +296,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_11
       rect:
         serializedVersion: 2
-        x: 270
-        y: 496
-        width: 43
-        height: 25
+        x: 220
+        y: 526
+        width: 46
+        height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efc70d26b7728814faa57260cb6a6301
-      internalID: -1585078174
+      spriteID: 253a86ee1a123ae4ea01d8cc0080f793
+      internalID: 726648109
       vertices: []
       indices: 
       edges: []
@@ -359,19 +317,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_12
       rect:
         serializedVersion: 2
-        x: 317
-        y: 496
+        x: 271
+        y: 526
         width: 43
-        height: 25
+        height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e19592b502d8bf4386ec4b1c6a6d129
-      internalID: 643716878
+      spriteID: 5d38852c88b2fda4993d3bcd75e98fe8
+      internalID: 54310459
       vertices: []
       indices: 
       edges: []
@@ -380,19 +338,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_13
       rect:
         serializedVersion: 2
-        x: 14
-        y: 482
-        width: 43
-        height: 25
+        x: 318
+        y: 526
+        width: 44
+        height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 339f345e6b5deef4c98a05445874ac78
-      internalID: 891111032
+      spriteID: 1d2cd93ee9f873e46bd010da0c2fd10e
+      internalID: -1217580259
       vertices: []
       indices: 
       edges: []
@@ -401,19 +359,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_14
       rect:
         serializedVersion: 2
-        x: 62
-        y: 482
-        width: 43
-        height: 25
+        x: 12
+        y: 512
+        width: 46
+        height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a4dd14f6e1c25d45a8f8d58d4c50086
-      internalID: -867371355
+      spriteID: b7e5dab9cfe78b04b9cdded6bc9760a9
+      internalID: 2061908103
       vertices: []
       indices: 
       edges: []
@@ -422,19 +380,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_15
       rect:
         serializedVersion: 2
-        x: 109
-        y: 482
+        x: 63
+        y: 512
         width: 43
-        height: 25
+        height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0394fd06965a608449defeeb9ea4fbc9
-      internalID: -1332837260
+      spriteID: 15aa6f116e391c14a83a3086c3386ff4
+      internalID: -936348659
       vertices: []
       indices: 
       edges: []
@@ -443,19 +401,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_16
       rect:
         serializedVersion: 2
-        x: 155
-        y: 495
-        width: 13
-        height: 11
+        x: 110
+        y: 512
+        width: 44
+        height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 085f43050a05c0c41bf27c62334251fd
-      internalID: 1763452270
+      spriteID: 8024acadede0f7d439d5a1534bb3ed28
+      internalID: -1143765763
       vertices: []
       indices: 
       edges: []
@@ -464,19 +422,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_17
       rect:
         serializedVersion: 2
-        x: 169
-        y: 495
+        x: 157
+        y: 531
         width: 13
         height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1eda167cd9d13a84e824cba3e48d00d2
-      internalID: 948020072
+      spriteID: 7deabeb8de4cf9f4982f3db88a26b78d
+      internalID: -525900621
       vertices: []
       indices: 
       edges: []
@@ -485,19 +443,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_18
       rect:
         serializedVersion: 2
-        x: 186
-        y: 495
+        x: 171
+        y: 531
         width: 13
         height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b157e33b5545b474a8e905b7e1e723ca
-      internalID: -164363530
+      spriteID: 662908e65743484448a0ee2a88a8adc2
+      internalID: 3698135
       vertices: []
       indices: 
       edges: []
@@ -506,19 +464,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_19
       rect:
         serializedVersion: 2
-        x: 200
-        y: 495
+        x: 188
+        y: 531
         width: 13
         height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d34197ab43c03a941a84844ff6da57c3
-      internalID: -1263016793
+      spriteID: 80bdf14f49b92d54898fc9b8fd3564b2
+      internalID: -1616155749
       vertices: []
       indices: 
       edges: []
@@ -527,19 +485,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_20
       rect:
         serializedVersion: 2
-        x: 155
-        y: 480
+        x: 202
+        y: 531
         width: 13
         height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acd1de687e3f99a44bd3bff55c554835
-      internalID: -1949264620
+      spriteID: 8fab8bd039c4e1946b88f322e65b6e12
+      internalID: 491676811
       vertices: []
       indices: 
       edges: []
@@ -548,19 +506,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_21
       rect:
         serializedVersion: 2
-        x: 169
-        y: 480
+        x: 156
+        y: 516
         width: 13
         height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08a610682a83198469ea43b1a649e540
-      internalID: -1466600874
+      spriteID: 91d5cfee8f665a344b482cccdfdc67fa
+      internalID: -203969228
       vertices: []
       indices: 
       edges: []
@@ -569,19 +527,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_22
       rect:
         serializedVersion: 2
-        x: 186
-        y: 480
+        x: 172
+        y: 516
         width: 13
         height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1322d46fcca235848a870b976d4e75de
-      internalID: -850918137
+      spriteID: fb529e139c109c842abcad9131c376c4
+      internalID: 2083980483
       vertices: []
       indices: 
       edges: []
@@ -590,19 +548,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_23
       rect:
         serializedVersion: 2
-        x: 200
-        y: 480
+        x: 188
+        y: 516
         width: 13
         height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d170be186fd04c4bb481819aff7e067
-      internalID: -402391913
+      spriteID: cd38dac17f14647488069eccccf2b77b
+      internalID: -868806553
       vertices: []
       indices: 
       edges: []
@@ -611,19 +569,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_24
       rect:
         serializedVersion: 2
-        x: 219
-        y: 462
-        width: 46
-        height: 27
+        x: 204
+        y: 516
+        width: 13
+        height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0dce4ac0534e1f84982d3abc5f483943
-      internalID: -1912173379
+      spriteID: 8de7eca82e81cba44b11880cd5240dca
+      internalID: -1185081357
       vertices: []
       indices: 
       edges: []
@@ -632,19 +590,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_25
       rect:
         serializedVersion: 2
-        x: 270
-        y: 462
+        x: 222
+        y: 496
         width: 43
-        height: 27
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1bce846e3ee64a4a9158544c130339b
-      internalID: -2078579561
+      spriteID: 96bf472dd618ecd4abfdc7ebd94b4e37
+      internalID: 1456909543
       vertices: []
       indices: 
       edges: []
@@ -653,19 +611,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_26
       rect:
         serializedVersion: 2
-        x: 319
-        y: 462
-        width: 44
-        height: 27
+        x: 270
+        y: 496
+        width: 43
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e90436456a14ae74ba3ee8a28276505e
-      internalID: -1033835097
+      spriteID: 85853754b0c04a4409408aeb71c62eb0
+      internalID: -2135647604
       vertices: []
       indices: 
       edges: []
@@ -674,19 +632,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_27
       rect:
         serializedVersion: 2
-        x: 6
-        y: 307
-        width: 156
-        height: 89
+        x: 317
+        y: 496
+        width: 43
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23c5450c344698d49994f998384e14b5
-      internalID: 165645759
+      spriteID: 71a7aa66bfb26ad4bbea7e6ad627242e
+      internalID: -1325689022
       vertices: []
       indices: 
       edges: []
@@ -695,19 +653,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_28
       rect:
         serializedVersion: 2
-        x: 154
-        y: 465
-        width: 13
-        height: 11
+        x: 14
+        y: 482
+        width: 43
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0878209c8affc494ea3ccdfe7fa5645d
-      internalID: -695908711
+      spriteID: 3e3fc22ea7fb3f84fb4e35ad4fbd680a
+      internalID: 760601818
       vertices: []
       indices: 
       edges: []
@@ -716,19 +674,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_29
       rect:
         serializedVersion: 2
-        x: 170
-        y: 465
-        width: 13
-        height: 11
+        x: 62
+        y: 482
+        width: 43
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31261c4f2b1ec3246b88daaf9bcb9044
-      internalID: 521891058
+      spriteID: 961ccb4bb19e59d40b1abe48fe0228f8
+      internalID: 162156513
       vertices: []
       indices: 
       edges: []
@@ -737,19 +695,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_30
       rect:
         serializedVersion: 2
-        x: 186
-        y: 465
-        width: 13
-        height: 11
+        x: 109
+        y: 482
+        width: 43
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 482cc430a0624d34596c2cca42e07408
-      internalID: -223862477
+      spriteID: 298d86eb0938ad3488601ff8f42f03cd
+      internalID: 565018045
       vertices: []
       indices: 
       edges: []
@@ -758,19 +716,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_31
       rect:
         serializedVersion: 2
-        x: 202
-        y: 465
+        x: 156
+        y: 500
         width: 13
         height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bf68f644bb6fd84cb185e162493f839
-      internalID: -2075775126
+      spriteID: 7ad14a0ab29f40d45a82b4e165c2f1fb
+      internalID: -898295193
       vertices: []
       indices: 
       edges: []
@@ -779,19 +737,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_32
       rect:
         serializedVersion: 2
-        x: 154
-        y: 449
+        x: 172
+        y: 500
         width: 13
         height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eaa0573214e92a64591501dc9bb37f4b
-      internalID: -451248353
+      spriteID: d94215a05fb767b4981013863b345bb1
+      internalID: -1676101470
       vertices: []
       indices: 
       edges: []
@@ -800,19 +758,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_33
       rect:
         serializedVersion: 2
-        x: 170
-        y: 449
+        x: 188
+        y: 500
         width: 13
         height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70ef5589a32ecfe4ea4813b6cad4b637
-      internalID: 1274285131
+      spriteID: 9b05e57346a3fba4ea8d6a9400cc113d
+      internalID: -593965881
       vertices: []
       indices: 
       edges: []
@@ -821,19 +779,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_34
       rect:
         serializedVersion: 2
-        x: 186
-        y: 449
+        x: 204
+        y: 500
         width: 13
         height: 11
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4c90e9ac9920354eb11db2d70377379
-      internalID: -839799182
+      spriteID: 3622d4edd3cd3c74aa8db69df09c2c43
+      internalID: -1503001353
       vertices: []
       indices: 
       edges: []
@@ -842,19 +800,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_35
       rect:
         serializedVersion: 2
-        x: 202
-        y: 449
-        width: 13
-        height: 11
+        x: 6
+        y: 307
+        width: 156
+        height: 166
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c08f95e276d7e346a6e08ba1d148af8
-      internalID: 1687730293
+      spriteID: 32ed41682d924294a9a68382aa4cd15c
+      internalID: -1115208411
       vertices: []
       indices: 
       edges: []
@@ -863,19 +821,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_36
       rect:
         serializedVersion: 2
-        x: 221
-        y: 432
-        width: 44
-        height: 25
+        x: 219
+        y: 462
+        width: 46
+        height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 150e91db5e2d7144eb9e7d540c7bfe98
-      internalID: 1178514094
+      spriteID: fc9d67a5a41e64540a431b8099f1b602
+      internalID: -324747128
       vertices: []
       indices: 
       edges: []
@@ -885,18 +843,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 270
-        y: 432
+        y: 462
         width: 43
-        height: 25
+        height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b4432874c38c794989ecccdac09ca3e
-      internalID: -1540268052
+      spriteID: d55617e8d72629e4ab2801bebb47c279
+      internalID: -1437790771
       vertices: []
       indices: 
       edges: []
@@ -906,18 +864,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 319
-        y: 432
-        width: 42
-        height: 25
+        y: 462
+        width: 44
+        height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a3c382df2431c94f824aff172d739ef
-      internalID: 596299131
+      spriteID: 4ced66c8ea4d45346a0fa97c9526fead
+      internalID: 1602886397
       vertices: []
       indices: 
       edges: []
@@ -926,19 +884,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_39
       rect:
         serializedVersion: 2
-        x: 172
-        y: 408
+        x: 368
+        y: 456
         width: 32
         height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 455c91d9da4d6cc47a9606090f7cdb6a
-      internalID: 1852331962
+      spriteID: 6bbc66f15b120a7439e520eb37530dc3
+      internalID: -1449202401
       vertices: []
       indices: 
       edges: []
@@ -947,796 +905,19 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_40
       rect:
         serializedVersion: 2
-        x: 208
-        y: 404
+        x: 404
+        y: 452
         width: 12
         height: 26
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53393ef0d66ed1641a4af7e05fdf4c1c
-      internalID: -1794565924
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_42
-      rect:
-        serializedVersion: 2
-        x: 172
-        y: 387
-        width: 32
-        height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 288a67f2a5c1caa45be09a05f8ac433a
-      internalID: 1585998846
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_43
-      rect:
-        serializedVersion: 2
-        x: 238
-        y: 386
-        width: 125
-        height: 36
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 609d13f9d87e1df46932cd5ef6a074be
-      internalID: -1924653102
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_44
-      rect:
-        serializedVersion: 2
-        x: 217
-        y: 353
-        width: 13
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6795bb2eb357ce84996ac11a49113aeb
-      internalID: -151411796
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_45
-      rect:
-        serializedVersion: 2
-        x: 236
-        y: 355
-        width: 13
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 61ad92e228f481041b88387a0614ec65
-      internalID: -1390794407
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_47
-      rect:
-        serializedVersion: 2
-        x: 252
-        y: 339
-        width: 114
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: edbc83b2d0e559b47b73564b4cb359ef
-      internalID: 630320476
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_49
-      rect:
-        serializedVersion: 2
-        x: 173
-        y: 325
-        width: 15
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae06c8d8d85c18645b36fa8f110d9a69
-      internalID: 470570127
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_50
-      rect:
-        serializedVersion: 2
-        x: 189
-        y: 325
-        width: 15
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2cc0d97f762b0e04ba51754b7ecdb362
-      internalID: 2102113005
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_51
-      rect:
-        serializedVersion: 2
-        x: 221
-        y: 305
-        width: 16
-        height: 38
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4692bc203eb943c44a87aea038b2b956
-      internalID: 742967008
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_52
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 339
-        width: 9
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0283d8c0403744f42ad537d73c05073f
-      internalID: -351807811
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_53
-      rect:
-        serializedVersion: 2
-        x: 210
-        y: 327
-        width: 5
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca46e35ae308bbb4a963e133b86bf70c
-      internalID: 927568779
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_54
-      rect:
-        serializedVersion: 2
-        x: 293
-        y: 310
-        width: 30
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f0b3afd27a6699248adb98213e150d14
-      internalID: 1831127279
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_55
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 275
-        width: 46
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 596b48bc26b1b2246b13700b1d764ab2
-      internalID: 249943612
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_56
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 275
-        width: 43
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bb89c1239c0dae14c9f0f0834539d0cd
-      internalID: 1125440750
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_57
-      rect:
-        serializedVersion: 2
-        x: 110
-        y: 275
-        width: 44
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: da711e629befbb7418b1af1a96ee14a5
-      internalID: 1768616468
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_58
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 275
-        width: 46
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4358e1019bc08bf4dac996d00382416f
-      internalID: 1899155316
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_59
-      rect:
-        serializedVersion: 2
-        x: 211
-        y: 275
-        width: 43
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: efee094ec11dbd543ace55b3b2d37115
-      internalID: -379709834
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_60
-      rect:
-        serializedVersion: 2
-        x: 260
-        y: 275
-        width: 44
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28dda87995498704dac2ea3ca4287061
-      internalID: -1770284280
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_61
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 244
-        width: 46
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8ca4f4c532484fb4aabd848025bfaaea
-      internalID: -1181731149
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_62
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 245
-        width: 43
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f483f795365ce44ab14d09b4f1161d9
-      internalID: 1059135512
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_63
-      rect:
-        serializedVersion: 2
-        x: 110
-        y: 245
-        width: 44
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7361f1a86061d0c4782ad472243e9c6d
-      internalID: -13631404
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_64
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 245
-        width: 46
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 35e844fc4417b5d49b24bb031f955991
-      internalID: 1039212135
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_65
-      rect:
-        serializedVersion: 2
-        x: 211
-        y: 245
-        width: 43
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9edf176be61a66b4b947f66bc44b55e0
-      internalID: 1636977624
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_66
-      rect:
-        serializedVersion: 2
-        x: 260
-        y: 245
-        width: 44
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a1828a1de81dbc84c91b690d67beb207
-      internalID: 2113735814
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_67
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 215
-        width: 43
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 12ae291fc3bd29b41b5e9a4d9c99d8c3
-      internalID: -956283083
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_68
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 215
-        width: 43
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7959073524f12f468f3a4f597ae34ec
-      internalID: -119554117
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_69
-      rect:
-        serializedVersion: 2
-        x: 110
-        y: 215
-        width: 43
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1fd2440ec3b8bef4e9c6c1e4aa1bb68e
-      internalID: -80100003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_70
-      rect:
-        serializedVersion: 2
-        x: 162
-        y: 215
-        width: 44
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b7640116d2b81f44386942811ad8f0f8
-      internalID: -770615820
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_71
-      rect:
-        serializedVersion: 2
-        x: 211
-        y: 215
-        width: 43
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c279a4565cd7d214ab4ee31c12d76fa6
-      internalID: -48127054
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_72
-      rect:
-        serializedVersion: 2
-        x: 260
-        y: 215
-        width: 42
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed38d5b689e85364f8753e7b70c0e326
-      internalID: 2124783026
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_73
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 184
-        width: 43
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d0bb964e994348349b6717ec81cb1f35
-      internalID: -1890027987
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_74
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 184
-        width: 43
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46a4deb267ec751419ae7568281298f1
-      internalID: 377919597
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_75
-      rect:
-        serializedVersion: 2
-        x: 110
-        y: 184
-        width: 43
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6adf9d8731ca7cc47851a01c13007d4f
-      internalID: -227429385
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_76
-      rect:
-        serializedVersion: 2
-        x: 162
-        y: 184
-        width: 44
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c1528449d912654eb8d9476cc2a7b2d
-      internalID: 1287532532
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_77
-      rect:
-        serializedVersion: 2
-        x: 211
-        y: 184
-        width: 43
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 35fc3d08f5e0ff24282780b8f3275eb0
-      internalID: -1095885059
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_78
-      rect:
-        serializedVersion: 2
-        x: 260
-        y: 184
-        width: 42
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 95d0efb5f72886d49a52f35cd03c87af
-      internalID: 420757586
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_79
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 156
-        height: 86
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 80e596890ad20c6439831fb52d299f8a
-      internalID: -1727435731
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pixel-Practice-26-04-2022b_80
-      rect:
-        serializedVersion: 2
-        x: 175
-        y: 1
-        width: 156
-        height: 85
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f379917bcbc711d4b806bca547623a48
-      internalID: 1442420572
+      spriteID: b8046023a7b8166489a654b4f5e8e8e8
+      internalID: -658946678
       vertices: []
       indices: 
       edges: []
@@ -1745,19 +926,82 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_41
       rect:
         serializedVersion: 2
-        x: 1
-        y: 86
-        width: 154
-        height: 80
+        x: 221
+        y: 432
+        width: 44
+        height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e941f59c57d376b4b9ebc8b4ac9f83ee
-      internalID: 1891077526
+      spriteID: 11f22a762578ba74cbe3429dbe812f81
+      internalID: -1823863144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_42
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 432
+        width: 43
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eceb88249b2eb6e4f975a39487c3dffe
+      internalID: 1564114068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_43
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 432
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe9ee3eb0488064da20fa02dcceea82
+      internalID: -595040832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_44
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 435
+        width: 32
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abe812da28d2e494a8f4f81858dce1df
+      internalID: 417243639
       vertices: []
       indices: 
       edges: []
@@ -1766,19 +1010,40 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_46
       rect:
         serializedVersion: 2
-        x: 176
-        y: 86
-        width: 154
-        height: 81
+        x: 174
+        y: 389
+        width: 32
+        height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 116176a77a078f6479ecc3114bc8a563
-      internalID: -719071531
+      spriteID: b952a7832235c604db98e2672bfde9a4
+      internalID: -1948902746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_47
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 385
+        width: 12
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ad18401c86991841a0e462836d62227
+      internalID: 713163585
       vertices: []
       indices: 
       edges: []
@@ -1787,23 +1052,838 @@ TextureImporter:
       name: Pixel-Practice-26-04-2022b_48
       rect:
         serializedVersion: 2
-        x: 6
-        y: 395
-        width: 157
-        height: 77
+        x: 238
+        y: 386
+        width: 125
+        height: 36
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -78.5, y: -38.5}
-        - {x: -12.5, y: 38.5}
-        - {x: 11.5, y: 38.5}
-        - {x: 78.5, y: -38.5}
+      outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 810029a13cf2359468cbf15222b2b6b2
-      internalID: -1799534759
+      spriteID: ea80763e271dec04f8aa45b847ff5329
+      internalID: -1384966933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_49
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 383
+        width: 32
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cb12d9d09aa57747af25acbec9bebab
+      internalID: 1316800445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_50
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 390
+        width: 12
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b1989c1c18a4243acbc9340f374f3b
+      internalID: -1351254588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_51
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 368
+        width: 32
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5233167e7fbdb445a81bdbb622da600
+      internalID: 884795171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_52
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 345
+        width: 16
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 133ebfa2375e821409c19d97335a2da2
+      internalID: -476338851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_53
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 355
+        width: 13
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa52a21be2f42b4cac7677b90cdb7da
+      internalID: 126170908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_54
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 347
+        width: 113
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d108bdd7d73a8f34aa6b51e1425f45d9
+      internalID: 1703405218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_55
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 362
+        width: 32
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a371885ba4802264c8592cdda701e760
+      internalID: -754281282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_56
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 349
+        width: 16
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0262b733fe57dc4f811f1b26ef2ca21
+      internalID: 1138517407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_57
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 339
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9510b821d011c640b28815a9e869264
+      internalID: -398966666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_60
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 314
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7251e69cc084f1b459ffc6e551c706a0
+      internalID: 732692627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_61
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 314
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee76d1bc2f5e6da49849206deef472ae
+      internalID: 1095993623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_62
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 327
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 737891dfae03dfd439ecdb166cd48a9f
+      internalID: -779917600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_63
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 310
+        width: 30
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad630b084b594f04c9520eae07121021
+      internalID: 257692474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_64
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 275
+        width: 46
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2f7d53af145f844ea02f9470607c28f
+      internalID: 1505471275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_65
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 275
+        width: 43
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7488bd1d6349e1408a266a194f7354e
+      internalID: 691605021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_66
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 275
+        width: 44
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f28348a39a4347d4fb9476b2faad0cc0
+      internalID: -2062307722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_67
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 275
+        width: 46
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fb8b42e09d2163409d505a94e81c5d2
+      internalID: 99466215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_68
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 275
+        width: 43
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63669ab106e90c74b85b9c5e21f8ad11
+      internalID: 1258032379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_69
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 275
+        width: 44
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8740eabdd59b11945b479fa94048cc1d
+      internalID: -2073668320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_70
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 244
+        width: 46
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e7052300b0f74b4782031fc484b2bc9
+      internalID: -2078893819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_71
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 245
+        width: 43
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d54381431f5920247beee74737de1fe7
+      internalID: -1999506720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_72
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 245
+        width: 44
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daaf17fcef273464d96a6f835a3dadb8
+      internalID: -794070533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_73
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 245
+        width: 46
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e56ad42c334be54eb4ab21bedccf631
+      internalID: -864656769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_74
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 245
+        width: 43
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8153eb1865d71e42b2cea5e848f6322
+      internalID: -1709539781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_75
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 245
+        width: 44
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd5d5c338edc0c4ca0c7b9891be6ede
+      internalID: 818763140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_76
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 215
+        width: 43
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b96ad7b3db39f34581e8c2cad5d92d0
+      internalID: -1032872663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_77
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 215
+        width: 43
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ecfc1fa847273d45ab18b5f11b8609c
+      internalID: 1252274175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_78
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 215
+        width: 43
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3c634a7411ca304fab44bd9a14554c2
+      internalID: -1336402086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_79
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 215
+        width: 44
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2e4254a891595046ac3fd7e28237f29
+      internalID: 702852882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_80
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 215
+        width: 43
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b19c63c801d2dd340bdced63f167a04b
+      internalID: -604172152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_81
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 215
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c079d180e354f6b47a38b0f01e9ab730
+      internalID: 628615832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_82
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 184
+        width: 43
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3ecaf786a712ba4bb51cc9e7f60c81c
+      internalID: -2058114607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_83
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 184
+        width: 43
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31874f15d5baf6d4bb7497b752d75b5b
+      internalID: -1812295584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_84
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 184
+        width: 43
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6015e3a86a4322498b75970936eab4c
+      internalID: -706684499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_85
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 184
+        width: 44
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92adfe8ffff943a4080d9b1852d82f6b
+      internalID: -550752929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_86
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 184
+        width: 43
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00f3a2794f25d264d92e95d62a8ce176
+      internalID: 851839879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_87
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 184
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bc0fb3630bda73418197a8b79f14e4e
+      internalID: 355339409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_88
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 156
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ace78d6c2e83e3b43b53817f6a77549e
+      internalID: 187795025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pixel-Practice-26-04-2022b_89
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 1
+        width: 156
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beb665e17136d314b873bcea3162e753
+      internalID: -840244508
       vertices: []
       indices: 
       edges: []
@@ -1819,87 +1899,96 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Pixel-Practice-26-04-2022b_44: -151411796
-      Pixel-Practice-26-04-2022b_26: -1033835097
-      Pixel-Practice-26-04-2022b_62: 1059135512
-      Pixel-Practice-26-04-2022b_65: 1636977624
-      Pixel-Practice-26-04-2022b_58: 1899155316
-      Pixel-Practice-26-04-2022b_38: 596299131
-      Pixel-Practice-26-04-2022b_36: 1178514094
-      Pixel-Practice-26-04-2022b_13: 891111032
-      Pixel-Practice-26-04-2022b_0: 493829302
-      Pixel-Practice-26-04-2022b_12: 643716878
-      Pixel-Practice-26-04-2022b_1: 335124089
-      Pixel-Practice-26-04-2022b_41: 1891077526
-      Pixel-Practice-26-04-2022b_40: -1794565924
-      Pixel-Practice-26-04-2022b_7: -418489172
-      Pixel-Practice-26-04-2022b_73: -1890027987
-      Pixel-Practice-26-04-2022b_46: -719071531
-      Pixel-Practice-26-04-2022b_42: 1585998846
-      Pixel-Practice-26-04-2022b_23: -402391913
-      Pixel-Practice-26-04-2022b_48: -1799534759
-      Pixel-Practice-26-04-2022b_29: 521891058
-      Pixel-Practice-26-04-2022b_17: 948020072
-      Pixel-Practice-26-04-2022b_80: 1442420572
-      Pixel-Practice-26-04-2022b_34: -839799182
-      Pixel-Practice-26-04-2022b_55: 249943612
-      Pixel-Practice-26-04-2022b_56: 1125440750
-      Pixel-Practice-26-04-2022b_54: 1831127279
-      Pixel-Practice-26-04-2022b_52: -351807811
-      Pixel-Practice-26-04-2022b_59: -379709834
-      Pixel-Practice-26-04-2022b_8: -27551360
-      Pixel-Practice-26-04-2022b_31: -2075775126
-      Pixel-Practice-26-04-2022b_71: -48127054
-      Pixel-Practice-26-04-2022b_30: -223862477
-      Pixel-Practice-26-04-2022b_33: 1274285131
-      Pixel-Practice-26-04-2022b_11: -1585078174
-      Pixel-Practice-26-04-2022b_49: 470570127
-      Pixel-Practice-26-04-2022b_78: 420757586
-      Pixel-Practice-26-04-2022b_61: -1181731149
-      Pixel-Practice-26-04-2022b_66: 2113735814
-      Pixel-Practice-26-04-2022b_19: -1263016793
-      Pixel-Practice-26-04-2022b_53: 927568779
-      Pixel-Practice-26-04-2022b_74: 377919597
-      Pixel-Practice-26-04-2022b_60: -1770284280
-      Pixel-Practice-26-04-2022b_10: -103544532
-      Pixel-Practice-26-04-2022b_20: -1949264620
-      Pixel-Practice-26-04-2022b_72: 2124783026
-      Pixel-Practice-26-04-2022b_43: -1924653102
-      Pixel-Practice-26-04-2022b_16: 1763452270
-      Pixel-Practice-26-04-2022b_75: -227429385
-      Pixel-Practice-26-04-2022b_45: -1390794407
-      Pixel-Practice-26-04-2022b_68: -119554117
-      Pixel-Practice-26-04-2022b_76: 1287532532
-      Pixel-Practice-26-04-2022b_70: -770615820
-      Pixel-Practice-26-04-2022b_25: -2078579561
-      Pixel-Practice-26-04-2022b_2: -1130127468
-      Pixel-Practice-26-04-2022b_63: -13631404
-      Pixel-Practice-26-04-2022b_21: -1466600874
-      Pixel-Practice-26-04-2022b_69: -80100003
-      Pixel-Practice-26-04-2022b_14: -867371355
-      Pixel-Practice-26-04-2022b_50: 2102113005
-      Pixel-Practice-26-04-2022b_3: -385858240
-      Pixel-Practice-26-04-2022b_39: 1852331962
-      Pixel-Practice-26-04-2022b_22: -850918137
-      Pixel-Practice-26-04-2022b_4: 1825063469
-      Pixel-Practice-26-04-2022b_32: -451248353
-      Pixel-Practice-26-04-2022b_28: -695908711
-      Pixel-Practice-26-04-2022b_5: 1147175512
-      Pixel-Practice-26-04-2022b_18: -164363530
-      Pixel-Practice-26-04-2022b_6: -1849175832
-      Pixel-Practice-26-04-2022b_35: 1687730293
-      Pixel-Practice-26-04-2022b_15: -1332837260
-      Pixel-Practice-26-04-2022b_64: 1039212135
-      Pixel-Practice-26-04-2022b_79: -1727435731
-      Pixel-Practice-26-04-2022b_51: 742967008
-      Pixel-Practice-26-04-2022b_67: -956283083
-      Pixel-Practice-26-04-2022b_77: -1095885059
-      Pixel-Practice-26-04-2022b_27: 165645759
-      Pixel-Practice-26-04-2022b_47: 630320476
-      Pixel-Practice-26-04-2022b_9: -427965972
-      Pixel-Practice-26-04-2022b_24: -1912173379
-      Pixel-Practice-26-04-2022b_57: 1768616468
-      Pixel-Practice-26-04-2022b_37: -1540268052
+      Pixel-Practice-26-04-2022b_83: -1812295584
+      Pixel-Practice-26-04-2022b_62: -779917600
+      Pixel-Practice-26-04-2022b_26: -2135647604
+      Pixel-Practice-26-04-2022b_36: -324747128
+      Pixel-Practice-26-04-2022b_42: 1564114068
+      Pixel-Practice-26-04-2022b_40: -658946678
+      Pixel-Practice-26-04-2022b_73: -864656769
+      Pixel-Practice-26-04-2022b_46: -1948902746
+      Pixel-Practice-26-04-2022b_55: -754281282
+      Pixel-Practice-26-04-2022b_54: 1703405218
+      Pixel-Practice-26-04-2022b_56: 1138517407
+      Pixel-Practice-26-04-2022b_59: -1404379682
+      Pixel-Practice-26-04-2022b_71: -1999506720
+      Pixel-Practice-26-04-2022b_49: 1316800445
+      Pixel-Practice-26-04-2022b_66: -2062307722
+      Pixel-Practice-26-04-2022b_11: 726648109
+      Pixel-Practice-26-04-2022b_61: 1095993623
+      Pixel-Practice-26-04-2022b_19: -1616155749
+      Pixel-Practice-26-04-2022b_53: 126170908
+      Pixel-Practice-26-04-2022b_74: -1709539781
+      Pixel-Practice-26-04-2022b_43: -595040832
+      Pixel-Practice-26-04-2022b_75: 818763140
+      Pixel-Practice-26-04-2022b_16: -1143765763
+      Pixel-Practice-26-04-2022b_76: -1032872663
+      Pixel-Practice-26-04-2022b_68: 1258032379
+      Pixel-Practice-26-04-2022b_87: 355339409
+      Pixel-Practice-26-04-2022b_25: 1456909543
+      Pixel-Practice-26-04-2022b_63: 257692474
+      Pixel-Practice-26-04-2022b_69: -2073668320
+      Pixel-Practice-26-04-2022b_85: -550752929
+      Pixel-Practice-26-04-2022b_14: 2061908103
+      Pixel-Practice-26-04-2022b_50: -1351254588
+      Pixel-Practice-26-04-2022b_3: -966577829
+      Pixel-Practice-26-04-2022b_39: -1449202401
+      Pixel-Practice-26-04-2022b_32: -1676101470
+      Pixel-Practice-26-04-2022b_28: 760601818
+      Pixel-Practice-26-04-2022b_5: -927130864
+      Pixel-Practice-26-04-2022b_18: 3698135
+      Pixel-Practice-26-04-2022b_35: -1115208411
+      Pixel-Practice-26-04-2022b_15: -936348659
+      Pixel-Practice-26-04-2022b_86: 851839879
+      Pixel-Practice-26-04-2022b_51: 884795171
+      Pixel-Practice-26-04-2022b_27: -1325689022
+      Pixel-Practice-26-04-2022b_47: 713163585
+      Pixel-Practice-26-04-2022b_9: 336366682
+      Pixel-Practice-26-04-2022b_57: -398966666
+      Pixel-Practice-26-04-2022b_44: 417243639
+      Pixel-Practice-26-04-2022b_81: 628615832
+      Pixel-Practice-26-04-2022b_65: 691605021
+      Pixel-Practice-26-04-2022b_58: 1232076782
+      Pixel-Practice-26-04-2022b_38: 1602886397
+      Pixel-Practice-26-04-2022b_13: -1217580259
+      Pixel-Practice-26-04-2022b_0: 958011931
+      Pixel-Practice-26-04-2022b_12: 54310459
+      Pixel-Practice-26-04-2022b_1: -1801057206
+      Pixel-Practice-26-04-2022b_41: -1823863144
+      Pixel-Practice-26-04-2022b_88: 187795025
+      Pixel-Practice-26-04-2022b_7: -951667494
+      Pixel-Practice-26-04-2022b_23: -868806553
+      Pixel-Practice-26-04-2022b_48: -1384966933
+      Pixel-Practice-26-04-2022b_29: 162156513
+      Pixel-Practice-26-04-2022b_17: -525900621
+      Pixel-Practice-26-04-2022b_80: -604172152
+      Pixel-Practice-26-04-2022b_34: -1503001353
+      Pixel-Practice-26-04-2022b_89: -840244508
+      Pixel-Practice-26-04-2022b_52: -476338851
+      Pixel-Practice-26-04-2022b_8: -1776756962
+      Pixel-Practice-26-04-2022b_31: -898295193
+      Pixel-Practice-26-04-2022b_33: -593965881
+      Pixel-Practice-26-04-2022b_30: 565018045
+      Pixel-Practice-26-04-2022b_78: -1336402086
+      Pixel-Practice-26-04-2022b_20: 491676811
+      Pixel-Practice-26-04-2022b_60: 732692627
+      Pixel-Practice-26-04-2022b_84: -706684499
+      Pixel-Practice-26-04-2022b_10: 187099317
+      Pixel-Practice-26-04-2022b_72: -794070533
+      Pixel-Practice-26-04-2022b_45: 1813455862
+      Pixel-Practice-26-04-2022b_70: -2078893819
+      Pixel-Practice-26-04-2022b_82: -2058114607
+      Pixel-Practice-26-04-2022b_2: -942102180
+      Pixel-Practice-26-04-2022b_21: -203969228
+      Pixel-Practice-26-04-2022b_22: 2083980483
+      Pixel-Practice-26-04-2022b_4: 824562052
+      Pixel-Practice-26-04-2022b_6: -258230041
+      Pixel-Practice-26-04-2022b_64: 1505471275
+      Pixel-Practice-26-04-2022b_79: 702852882
+      Pixel-Practice-26-04-2022b_67: 99466215
+      Pixel-Practice-26-04-2022b_77: 1252274175
+      Pixel-Practice-26-04-2022b_24: -1185081357
+      Pixel-Practice-26-04-2022b_37: -1437790771
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
