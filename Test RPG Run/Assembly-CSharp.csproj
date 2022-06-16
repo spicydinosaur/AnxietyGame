@@ -56,7 +56,6 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\scripts\HousingDoorTransitionInitiate.cs" />
     <Compile Include="Assets\scripts\ButtonController.cs" />
     <Compile Include="Assets\scripts\NPCChase.cs" />
     <Compile Include="Assets\scripts\GenericDoorOpenAndClose.cs" />
@@ -85,7 +84,7 @@
     <Compile Include="Assets\scripts\SpellTemplate.cs" />
     <Compile Include="Assets\scripts\BreatheAbilityTemplate.cs" />
     <Compile Include="Assets\scripts\DogPopUpMessage.cs" />
-    <Compile Include="Assets\scripts\PillarInteraction.cs" />
+    <Compile Include="Assets\scripts\ObjectInteraction.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
@@ -94,7 +93,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\scripts\NPCPatrolRoute.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
-    <Compile Include="Assets\scripts\CameraSwitch.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\scripts\StopOnTrigger.cs" />
     <Compile Include="Assets\scripts\ChildSquealing.cs" />
@@ -106,7 +104,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\scripts\EventBroadcaster.cs" />
-    <Compile Include="Assets\scripts\HousingDoorsTransition.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\scripts\SmiteSpellTemplate.cs" />
@@ -122,19 +119,18 @@
     <Compile Include="Assets\scripts\SignMessage.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\scripts\attack.cs" />
-    <Compile Include="Assets\scripts\YesOrNoButtons.cs" />
     <Compile Include="Assets\scripts\CoinCollectible.cs" />
     <Compile Include="Assets\scripts\FlamesSpellTemplate.cs" />
     <Compile Include="Assets\scripts\EnemyController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\scripts\DialogueTree.cs" />
+    <Compile Include="Assets\scripts\CameraConfinerOnOffTriggers.cs" />
     <Compile Include="Assets\scripts\NPCController.cs" />
-    <Compile Include="Assets\scripts\ManaCollectible.cs" />
     <Compile Include="Assets\scripts\UIHealthBar.cs" />
-    <Compile Include="Assets\scripts\HealthCollectible.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Scenes\GameManager.cs" />
-    <Compile Include="Assets\scripts\CameraConfinerOnOffTriggers.cs" />
+    <Compile Include="Assets\scripts\TeleportAway.cs" />
+    <Compile Include="Assets\scripts\SpellcastFinished.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />

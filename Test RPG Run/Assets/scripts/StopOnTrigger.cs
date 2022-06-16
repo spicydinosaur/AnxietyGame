@@ -7,14 +7,12 @@ public class StopOnTrigger : MonoBehaviour
 
     public NPCController controller;
     public Player player;
-    private Animator animator;
     
 
     public void Awake()
     {
 
         controller = GetComponentInParent<NPCController>();
-        animator = controller.animator;
 
 
     }
@@ -22,9 +20,15 @@ public class StopOnTrigger : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
-        {
-            controller.ChangeState(NPCController.movementType.Stop);
+        { 
+            if (controller.currentMovementType != NPCController.movementType.Stop)
+            {
 
+                controller.ChangeState(NPCController.movementType.Stop);
+                Debug.Log("onTriggerEnter2D: controller.prevMovementType equals" + controller.prevMovementType);
+                Debug.Log("onTriggerEnter2D: controller.currentMovementType equals" + controller.currentMovementType);
+
+            }
         }
     }
 
@@ -35,6 +39,8 @@ public class StopOnTrigger : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             controller.RevertState();
+            Debug.Log("onTriggerExit2D: controller.prevMovementType equals" + controller.prevMovementType);
+            Debug.Log("onTriggerExit2D: controller.currentMovementType equals" + controller.currentMovementType);
 
         }
     }

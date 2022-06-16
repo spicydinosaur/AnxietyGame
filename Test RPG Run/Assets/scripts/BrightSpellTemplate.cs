@@ -42,14 +42,14 @@ public class BrightSpellTemplate : SpellTemplate
             {
 
                 hit.collider.GetComponent<NPCHealth>().damageNPCHealth(damageAmount);
-                Debug.Log("hit enemy : " + hit.collider.name + ". Spell should be " + spellHolderScript.currentSpellInstantiate + ". Collision occurred at " + hit.transform.position);
+                Debug.Log("hit enemy : " + hit.collider.name + ". Spell should be " + spellHolderScript.currentSpell + ". Collision occurred at " + hit.transform.position);
 
             }
 
             else if (hit.collider.CompareTag("Scenery") == true)
             {
 
-                Debug.Log("hit Something : " + hit.collider.name + " spell should be " + spellHolderScript.currentSpellInstantiate + ". Collision occurred at " + hit.transform.position);
+                Debug.Log("hit Something : " + hit.collider.name + " spell should be " + spellHolderScript.currentSpell + ". Collision occurred at " + hit.transform.position);
                 Debug.Log("hit tag  : " + hit.collider.tag);
             }
             else
