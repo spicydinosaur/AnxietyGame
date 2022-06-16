@@ -8,10 +8,6 @@ public class SceneTransition : MonoBehaviour
 
     public SceneTransition destination;
     public Collider2D collidingObject;
-    public GameObject cameraOffLocal;
-    public GameObject cameraOnLocal;
-    public CameraSwitch cameraSwitch;
-    
 
 
     public virtual void OnTriggerEnter2D(Collider2D collision)
@@ -23,7 +19,6 @@ public class SceneTransition : MonoBehaviour
                 GameManager.gameManagerObject.GetComponent<UIFade>().callingTransition = destination;
                 GameManager.gameManagerObject.GetComponent<UIFade>().fadingIn = false;
                 GameManager.gameManagerObject.GetComponent<UIFade>().fadingOut = true;
-                cameraSwitch.changeCamera(this);
                     //Debug.Log("transition occured from: " + name + "?");
                     //wait for UIFade to say it is done then move target!!!
             }

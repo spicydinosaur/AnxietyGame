@@ -7,11 +7,12 @@ public class attack : MonoBehaviour
 
     public EnemyController controller;
     public Player player;
-    private Animator animator;
+    public Animator animator;
     public float maxTimeInvincible;
     public bool isInvincible;
     public float invincibilityCountdownTimer;
-    public GameObject tombstone;
+    public float healthDamage;
+
     
     
     public void Awake()
@@ -27,9 +28,10 @@ public class attack : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            controller.Attack(collider);
+
             player = collider.gameObject.GetComponent<Player>();
-            
+            invincibilityCountdownTimer = 0f;
+            controller.Attack(collider);
 
         }
     }
@@ -41,7 +43,7 @@ public class attack : MonoBehaviour
     
 
         
-        if (tombstone.activeSelf == false && collider.gameObject.CompareTag("Player"))
+        if (collider.gameObject.activeSelf && collider.gameObject.CompareTag("Player"))
         {
 
             if (isInvincible)
@@ -51,13 +53,17 @@ public class attack : MonoBehaviour
                 if (invincibilityCountdownTimer <= 0f)
                 {
                     isInvincible = false;
+                    invincibilityCountdownTimer = maxTimeInvincible;
+                    controller.Attack(collider);
+                    player.PlayerHealth(-healthDamage);
+                    isInvincible = true;
                 }
             
                 Debug.Log("Hero active?" + collider.gameObject.activeSelf);
             }
-            else if (!isInvincible)
+            else
             {
-                if (tombstone.activeSelf)
+                if (!collider.gameObject.activeSelf) //will it even register the hero if they are disabled?
 
                 {
                     controller.animator.SetBool("isAttacking", false);
@@ -67,10 +73,7 @@ public class attack : MonoBehaviour
 
                 }
 
-                invincibilityCountdownTimer = maxTimeInvincible;
-                controller.animator.SetBool("isAttacking", true);
-                player.PlayerHealth(-1);
-                isInvincible = true;
+
 
                 //Debug.Log("Hero active?" + collider.gameObject.activeSelf);
             }
@@ -83,8 +86,23 @@ public class attack : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            controller.currentMovementType = NPCController.movementType.ToOther;
 
+            controller.animator.SetBool("isAttacking", false);
+            invincibilityCountdownTimer = 0f;
+            Debug.Log("Hero active?" + collider.gameObject.activeSelf);
+            if (collider.gameObject.activeSelf)
+            {
+
+
+                controller.currentMovementType = NPCController.movementType.ToOther;
+
+            }
+            else
+            {
+
+                controller.RevertState();
+
+            }
         }
     }
 

@@ -12,7 +12,7 @@ public class CoinCollectible : MonoBehaviour, IDroppable
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (target.tombstone.activeSelf == false && collider.gameObject.CompareTag("Player"))
+        if (target.gameObject.activeSelf && collider.gameObject.CompareTag("Player"))
         {
             target.PlayerCoins(1);
             Destroy(gameObject);

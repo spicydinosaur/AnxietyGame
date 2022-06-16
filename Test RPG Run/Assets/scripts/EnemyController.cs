@@ -16,13 +16,12 @@ public class EnemyController : NPCController
 
     public Animator deathCloud;
     public GameObject objectDeathCloud;
-    public float heartPickupChance;
     public DropTable dropTable;
 
 
-    override public void Start()
+    override public void OnEnable()
     {
-        base.Start();
+        base.OnEnable();
         deathCloud = deathCloud.GetComponent<Animator>();
         dropTable = GetComponent<DropTable>();
         lookDirection = new Vector2(0, 1);
@@ -78,6 +77,8 @@ public class EnemyController : NPCController
         base.HeroDied();
         animator.SetBool("isAttacking", false);
         targetToChase = null;
+        isChasing = false;
+
 
     }
 

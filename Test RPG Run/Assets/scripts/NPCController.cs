@@ -31,12 +31,13 @@ public class NPCController : MonoBehaviour
 
 
     public Vector2 nextMove;
-    Vector2 move;
     Vector2 velocity;
+
+    public GameManager gameManager;
 
 
     // Start is called before the first frame update
-    public virtual void Start()
+    public virtual void OnEnable()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -46,6 +47,11 @@ public class NPCController : MonoBehaviour
         if (currentMovementType != movementType.Stop)
         { SetNextLocation(GetComponent<NPCPatrolRoute>().GetNextCoord()); }
 
+    }
+
+    public virtual void OnDisable()
+    {
+        EventBroadcaster.HeroDeath.RemoveListener(HeroDied);
     }
 
     public virtual void FixedUpdate()
@@ -145,7 +151,6 @@ public class NPCController : MonoBehaviour
     {
         currentMovementType = prevMovementType;
         delayTime = 0f;
-        isMoving = true;
         
     }
 
@@ -154,11 +159,6 @@ public class NPCController : MonoBehaviour
 
         isMoving = false;
         currentMovementType = movementType.Death;
-        //animator.SetBool("isAttacking", false);
-        //objectDeathCloud.transform.position = GetComponent<Transform>().position;
-        //deathCloud.SetBool("isDead", true);
-        //deathCloud.Play("enemyDeathCloud");
-        //dropTable.rollOnTable();
         EventBroadcaster.HeroDeath.RemoveListener(HeroDied);
         gameObject.SetActive(false);
 
@@ -201,6 +201,7 @@ public class NPCController : MonoBehaviour
         else if (currentMovementType == movementType.Patrol || currentMovementType == movementType.ToOther)
         {
             isMoving = true;
+            animator.SetFloat("Speed", 1);
         }
     }
 

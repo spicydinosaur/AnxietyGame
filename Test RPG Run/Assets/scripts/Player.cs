@@ -27,8 +27,9 @@ public class Player : MonoBehaviour
     //this is used in a few other scripts so don't remove it just because it doesn't get called!
     public bool transitioningToScene = false;
 
-    public GameObject tombstone;
+    public GameManager gameManager;
 
+    public GameObject teleportSpell;
 
 
     
@@ -37,7 +38,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        playerControls = new PlayerControls();
+        playerControls = gameManager.playerControls;
 
     }
 
@@ -64,8 +65,8 @@ public class Player : MonoBehaviour
         if (currentHealth <= 0)
         {
 
-            tombstone.SetActive(true);
-            tombstone.transform.position = GetComponent<Transform>().position;
+            teleportSpell.SetActive(true);
+            teleportSpell.transform.position = gameObject.transform.position;
             EventBroadcaster.onHeroDeath();
             gameObject.SetActive(false);
         
@@ -92,19 +93,7 @@ public class Player : MonoBehaviour
 
 
 
-    private void OnEnable()
-    {
 
-        playerControls.Enable();
-
-    }
-
-    private void OnDisable()
-    {
-
-        playerControls.Disable();
-
-    }
 
 
 

@@ -21,9 +21,6 @@ public class SpellTemplate : MonoBehaviour
     public float castDownTime;
     public float globalCastDownTime;
     public float currentCastDownTime;
-    public int currentCastDowntimeRounded;
-    public float fizzleCastDownTime;
-    public float fizzleDownTimeMax;
 
     //public float fizzleGlobalCastDownTime;
 
@@ -119,14 +116,14 @@ public class SpellTemplate : MonoBehaviour
             {
 
                 hit.collider.GetComponent<NPCHealth>().damageNPCHealth(damageAmount);
-                Debug.Log("hit enemy : " + hit.collider.name + ". Spell should be " + spellHolderScript.currentSpellInstantiate + ". Collision occurred at " + hit.transform.position);
+                Debug.Log("hit enemy : " + hit.collider.name + ". Spell should be " + spellHolderScript.currentSpell + ". Collision occurred at " + hit.transform.position);
 
             }
 
             else if (hit.collider.CompareTag("Scenery") == true)
             {
 
-                Debug.Log("hit Something : " + hit.collider.name + " spell should be " + spellHolderScript.currentSpellInstantiate + ". Collision occurred at " + hit.transform.position);
+                Debug.Log("hit Something : " + hit.collider.name + " spell should be " + spellHolderScript.currentSpell + ". Collision occurred at " + hit.transform.position);
                 Debug.Log("hit tag  : " + hit.collider.tag);
             }
             else
@@ -157,13 +154,6 @@ public class SpellTemplate : MonoBehaviour
             spellHolderScript.globalCastDownTime = globalCastDownTime;
             spellHolderScript.currentCastDownTime = castDownTime;
             currentCastDownTime = castDownTime;
-
-            if (fizzleCastDownTime == 0)
-            {
-                
-                fizzleCastDownTime = fizzleDownTimeMax;
-
-            }
 
             spellIconMask.fillAmount = 1f;
 

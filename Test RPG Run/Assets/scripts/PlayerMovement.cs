@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
 
-    private PlayerControls playerControls;
+    public PlayerControls playerControls;
 
     [SerializeField]
     private float playerSpeed = 3f;
@@ -20,29 +20,18 @@ public class PlayerMovement : MonoBehaviour
 
     private InputAction move;
 
+    public GameManager gameManager;
+
 
     private void Awake()
     {
 
         animator = GetComponent<Animator>();
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
-        playerControls = new PlayerControls();
+        playerControls = gameManager.playerControls;
         move = playerControls.PlayerActions.Movement;
     }
 
-
-    private void OnEnable()
-    {
-
-        move.Enable();
-
-    }
-
-    private void OnDisable()
-    {
-        move.Disable();
-
-    }
 
 
 
