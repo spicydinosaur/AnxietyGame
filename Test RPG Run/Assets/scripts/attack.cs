@@ -12,7 +12,7 @@ public class attack : MonoBehaviour
     public bool isInvincible;
     public float invincibilityCountdownTimer;
     public float healthDamage;
-
+    public IsTargetInView isTargetInView;
     
     
     public void Awake()
@@ -32,6 +32,7 @@ public class attack : MonoBehaviour
             player = collider.gameObject.GetComponent<Player>();
             invincibilityCountdownTimer = 0f;
             controller.Attack(collider);
+
 
         }
     }
@@ -90,17 +91,22 @@ public class attack : MonoBehaviour
             controller.animator.SetBool("isAttacking", false);
             invincibilityCountdownTimer = 0f;
             Debug.Log("Hero active?" + collider.gameObject.activeSelf);
-            if (collider.gameObject.activeSelf)
+            if (isTargetInView.playerInViewCone != true)
             {
 
+                if (collider.gameObject.activeSelf)
+                {
 
-                controller.currentMovementType = NPCController.movementType.ToOther;
 
-            }
-            else
-            {
+                    controller.currentMovementType = NPCController.movementType.ToOther;
 
-                controller.RevertState();
+                }
+                else
+                {
+
+                    controller.RevertState();
+
+                }
 
             }
         }

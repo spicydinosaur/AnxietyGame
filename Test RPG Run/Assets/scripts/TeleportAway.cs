@@ -23,18 +23,18 @@ public class TeleportAway : MonoBehaviour
         if (gameManager.breakdownComplete)
         {
                         
-            Vector3 pos = new Vector3();
+            Vector3 pos = new Vector3(-62.65f, 95.4f, 0f);
             hero.transform.position = pos;    
 
         }
         else if (gameManager.tutorialComplete)
         {
-            Vector3 pos = new Vector3();
+            Vector3 pos = new Vector3(18.44f, 64.18f, 0f);
             hero.transform.position = pos;
         }
         else
         {
-            Vector3 pos = new Vector3();
+            Vector3 pos = new Vector3(-67.8f, 95.4f, 0f);
             hero.transform.position = pos;
         }
 

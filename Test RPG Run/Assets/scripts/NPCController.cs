@@ -146,14 +146,14 @@ public class NPCController : MonoBehaviour
 
     }
 
-
+    //are we actually going to use the event in EventBroadcaster for the hero dying and to what end? Neither this nor EnemyController references it when the hero actually dies. 
     public virtual void HeroDied()
     {
-        currentMovementType = prevMovementType;
         delayTime = 0f;
-        
+
     }
 
+    //more needs to happen when a non enemy NPC dies, but that may be an individually based thing and there is nothing that gets killed yet
     public virtual void OnDeath()
     {
 

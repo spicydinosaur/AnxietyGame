@@ -8,13 +8,15 @@ using TMPro;
 
 public class IsTargetInView : MonoBehaviour
 {
+    public bool playerInViewCone;
     public EnemyController controller;
-    public GameObject tombstone;
+
 
     public void Awake()
     {
 
         controller = GetComponentInParent<EnemyController>();
+        playerInViewCone = false;
 
     }
 
@@ -25,6 +27,7 @@ public class IsTargetInView : MonoBehaviour
             controller.currentMovementType = NPCController.movementType.ToOther;
             controller.targetToChase = collider.GetComponent<Transform>();
             controller.ChangeTargetViewState(true);
+            playerInViewCone = true;
 
         }
 
@@ -34,19 +37,15 @@ public class IsTargetInView : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            controller.currentMovementType = NPCController.movementType.Patrol;
-            controller.targetToChase = null;
-            controller.ChangeTargetViewState(false);
 
-            //Debug.Log("OnTriggerExit2D function triggered by player!");
-
-            if (tombstone.activeSelf == true)
+            if (collider.gameObject.activeSelf == true)
             {
-                controller.SetNextLocation(GetComponentInParent<NPCPatrolRoute>().GetNextCoord());
-                controller.PauseMovement(3f);
-                controller.prevMovementType = NPCController.movementType.Patrol;
-                //Debug.Log("disabled player detected!");
 
+                controller.targetToChase = null;
+                controller.ChangeTargetViewState(false);
+                controller.RevertState();
+                playerInViewCone = false;
+                //Debug.Log("OnTriggerExit2D function triggered by player!");
             }
 
         }

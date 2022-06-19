@@ -13,7 +13,6 @@ public class NPCHealth : MonoBehaviour
 
     public float damageBlinkTime;
     public float maxDamageBlinkTime;
-    public SpriteRenderer spriteRenderer;
     public Color NPCColor;
 
 
@@ -57,7 +56,7 @@ public class NPCHealth : MonoBehaviour
 
             if(currentHealth <= 0)
             {
-                healthBar.SetActive(false);
+
                 GetComponent<EnemyController>().OnDeath();
 
             }

@@ -14,20 +14,32 @@ public class EnemyController : NPCController
     public float currentTextDisplayTime = 0f;
 
 
-    public Animator deathCloud;
-    public GameObject objectDeathCloud;
+    public Animator deathCloudAnim;
+    public GameObject deathCloud;
     public DropTable dropTable;
 
 
     override public void OnEnable()
     {
         base.OnEnable();
-        deathCloud = deathCloud.GetComponent<Animator>();
+        deathCloudAnim = deathCloud.GetComponent<Animator>();
         dropTable = GetComponent<DropTable>();
         lookDirection = new Vector2(0, 1);
         gameObject.GetComponent<Animator>().SetFloat("Look Y", lookDirection.y);
 
 
+    }
+
+    public override void OnDeath()
+    {
+
+        isMoving = false;
+        currentMovementType = movementType.Death;
+        animator.SetBool("isAttacking", false);
+        deathCloud.transform.position = transform.position;
+        dropTable.rollOnTable();
+        EventBroadcaster.HeroDeath.RemoveListener(HeroDied);
+        deathCloudAnim.SetBool("isDead", true);
     }
 
     // Update is called once per frame
@@ -70,6 +82,7 @@ public class EnemyController : NPCController
 
     }
 
+    //are we actually going to use the event in EventBroadcaster for the hero dying and to what end? Neither this nor NPCController references it when the hero actually dies. 
     public override void HeroDied()
     {
 
@@ -82,18 +95,6 @@ public class EnemyController : NPCController
 
     }
 
-    public override void OnDeath()
-    {
-
-
-        animator.SetBool("isAttacking", false);
-        objectDeathCloud.transform.position = GetComponent<Transform>().position;
-        deathCloud.SetBool("isDead", true);
-        dropTable.rollOnTable();
-        base.OnDeath();
-
-
-    }
 
 
     public void ChangeTargetViewState(bool viewState)
