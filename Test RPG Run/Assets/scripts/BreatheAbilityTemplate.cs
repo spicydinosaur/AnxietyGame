@@ -14,7 +14,7 @@ public class BreatheAbilityTemplate : SpellTemplate
 
     public override void castSpell()
     {
-
+        //transform.position = hero.transform.position;
         gameObject.GetComponent<Animator>().SetBool("isCasting", true);
         spellHolderScript.currentCastDownTime = castDownTime;
         currentCastDownTime = castDownTime;

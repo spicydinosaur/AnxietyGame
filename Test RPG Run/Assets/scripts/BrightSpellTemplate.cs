@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class BrightSpellTemplate : SpellTemplate
-{ 
+{
 
     public GameObject activeLightPool;
     public bool forLoopFoundDisabledPoolToImplement = false;
@@ -13,7 +13,7 @@ public class BrightSpellTemplate : SpellTemplate
 
 
 
-        
+
 
 
     public override void castSpell()
@@ -24,12 +24,14 @@ public class BrightSpellTemplate : SpellTemplate
         direction = (mousePos - heroTransform).normalized;
         Debug.Log("hero transform position = " + hero.transform.position);
         Debug.Log("Camera.main.ScreenToWorldPoint(hero.transform.position) = " + Camera.main.ScreenToWorldPoint(hero.transform.position));
-        Debug.Log("heroTransform = " + heroTransform + ", direction = " + direction + ", mousePos = " + mousePos + ".");        
-
-
+        Debug.Log("heroTransform = " + heroTransform + ", direction = " + direction + ", mousePos = " + mousePos + ".");
+        if (Vector2.Distance(heroTransform, mousePos) < rayCastDistance)
+        {
+            rayCastDistance = Vector2.Distance(heroTransform, mousePos);
+        }
         RaycastHit2D hit = Physics2D.Raycast(heroTransform, direction, rayCastDistance, layerMask);
 
-        Debug.Log("hit.point = " + hit.point + "."); 
+        Debug.Log("hit.point = " + hit.point + ".");
 
         if (hit.collider != null)
         {
@@ -71,7 +73,7 @@ public class BrightSpellTemplate : SpellTemplate
         {
             Debug.Log("no collider hit, moving on to making a light pool.");
 
-            for (int i = 0; i < spellHolder.GetComponent<SpellHolder>().numberOfPools -1; i++)
+            for (int i = 0; i < spellHolder.GetComponent<SpellHolder>().numberOfPools - 1; i++)
             {
                 Debug.Log("for statement for the bright spell cycling");
 
@@ -121,10 +123,10 @@ public class BrightSpellTemplate : SpellTemplate
             spellHolderScript.instantiatedPools.AddRange(instantiatedPoolsTemp);
             instantiatedPoolsTemp.Clear();
 
-            mouseDistance = Vector2.Distance(heroTransform, mousePos);
-            Debug.Log("mouseDistance = " + mouseDistance + ", calculated using heroTransform (" + heroTransform + ") and mousePos (" + mousePos + ")");
+           
+            Debug.Log("mouseDistance = " + Vector2.Distance(heroTransform, mousePos) + ", calculated using heroTransform (" + heroTransform + ") and mousePos (" + mousePos + ")");
 
-            if (mouseDistance < rayCastDistance)
+            if (Vector2.Distance(heroTransform, mousePos) < rayCastDistance)
             {
                 point = new Vector3(mousePos.x, mousePos.y, 0f);
                 Debug.Log("point now converted to mousePos with 0f for z axis and located at " + point + ".");

@@ -23,23 +23,28 @@ public class PlayerMovement : MonoBehaviour
     public GameManager gameManager;
 
 
-    private void Awake()
+    private void Start()
     {
 
         animator = GetComponent<Animator>();
-        rigidBody = gameObject.GetComponent<Rigidbody2D>();
         playerControls = gameManager.playerControls;
-        move = playerControls.PlayerActions.Movement;
+        //playerControls.PlayerActions.Movement.performed += Moving;
     }
 
 
+    /* public void Moving(InputAction.CallbackContext context)
+     {
 
+         context.ReadValue<Vector2>();
+         context.ReadValueAsButton();
 
+     }
+ */
 
     private void FixedUpdate()
     {
 
-        Vector2 input = move.ReadValue<Vector2>();
+        Vector2 input = playerControls.PlayerActions.Movement.ReadValue<Vector2>();
         rigidBody.velocity = new Vector2(input.x * playerSpeed, input.y * playerSpeed);
 
         if (!Mathf.Approximately(input.x, 0.0f) || !Mathf.Approximately(input.y, 0.0f))
@@ -54,5 +59,5 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    
+
 }

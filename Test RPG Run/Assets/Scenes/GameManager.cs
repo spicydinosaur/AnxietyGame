@@ -12,11 +12,18 @@ public class GameManager : PersistentSingleton<GameManager>
     public bool breakdownComplete = false;//same as above
 
 
+    protected override void Awake()
+    {
+
+        base.Awake();
+        playerControls = new PlayerControls();
+        gameManagerObject = gameObject;
+
+    }
+
 
     private void OnEnable()
     {
-        playerControls = new PlayerControls();
-        gameManagerObject = gameObject;
 
         playerControls.Enable();
 

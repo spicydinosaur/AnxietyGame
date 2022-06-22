@@ -194,83 +194,83 @@ public class SpellHolder : MonoBehaviour
         //if (mouseScrolling == 0f)
         //{
 
-            if (spellSelectMouseScrollWheel > 0) //scroll wheel gets moved up, moving through the spell list in a positive direction.
+        if (spellSelectMouseScrollWheel > 0) //scroll wheel gets moved up, moving through the spell list in a positive direction.
+        {
+
+
+            if (selectedSpell >= selectedSpellMax - 1)
             {
-
-
-                if (selectedSpell >= selectedSpellMax -1)
-                {
-                    selectedSpell = 0;
-
-                }
-                else
-                {
-                    selectedSpell++;
-                }
-
-                currentSpell = listOfSpells[selectedSpell];
-                currentSpellTemplate = currentSpell.GetComponent<SpellTemplate>();
-                currentSpellIcon = listOfSpellIcons[selectedSpell];
-                Debug.Log("spell instantiate gameobject is " + currentSpell);
-                Debug.Log("spell instantiate template script is " + currentSpellTemplate);
-                Debug.Log("Spell selection list position is " + selectedSpell);
-
-                if (globalCastDownTime > currentSpellTemplate.currentCastDownTime && selectedSpell != 0)
-                {
-                    currentSpellTemplate.currentCastDownTime = globalCastDownTime;
-                }
-
-                else
-                {
-                    //0 is breathe so not bothering to put in anything wrt global cast cooldowns
-                    currentCastDownTime = currentSpellTemplate.currentCastDownTime;
-                }
-
-
-
-                Debug.Log("mouse scroll wheel up. Spellholder.selectedSpell = " + selectedSpell);
-                spellIconImage.GetComponent<Image>().sprite = currentSpellIcon;
-
+                selectedSpell = 0;
 
             }
-            else if (spellSelectMouseScrollWheel < 0) //scroll wheel gets moved down, moving through the spell list in a negative direction.
+            else
             {
-
-
-                if (selectedSpell == 0)
-                {
-                    selectedSpell = selectedSpellMax - 1;
-
-                }
-                else if (selectedSpell > 0)
-                {
-                    selectedSpell--;
-                }
-                
-                Debug.Log("selectedSpell = " + selectedSpell);
-            
-                currentSpell = listOfSpells[selectedSpell];
-                currentSpellIcon = listOfSpellIcons[selectedSpell];
-                currentSpellTemplate = currentSpell.GetComponent<SpellTemplate>();
-                Debug.Log("spell instantiate gameobject is " + currentSpell);
-                Debug.Log("spell instantiate template script is " + currentSpellTemplate);
-
-
-                if (globalCastDownTime > currentSpellTemplate.currentCastDownTime && selectedSpell != 0)
-                {
-                    currentCastDownTime = globalCastDownTime;
-                    currentSpellTemplate.currentCastDownTime = globalCastDownTime;
-                }
-                else
-                {
-                    //0 is breathe so not bothering to put in anything wrt global cast cooldowns
-                    currentCastDownTime = currentSpellTemplate.currentCastDownTime;
-                }
-
-
-                Debug.Log("mouse scroll wheel down Spellholder.selectedSpell = " + selectedSpell);
-                spellIconImage.GetComponent<Image>().sprite = currentSpellIcon;
+                selectedSpell++;
             }
+
+            currentSpell = listOfSpells[selectedSpell];
+            currentSpellTemplate = currentSpell.GetComponent<SpellTemplate>();
+            currentSpellIcon = listOfSpellIcons[selectedSpell];
+            Debug.Log("spell instantiate gameobject is " + currentSpell);
+            Debug.Log("spell instantiate template script is " + currentSpellTemplate);
+            Debug.Log("Spell selection list position is " + selectedSpell);
+
+            if (globalCastDownTime > currentSpellTemplate.currentCastDownTime && selectedSpell != 0)
+            {
+                currentSpellTemplate.currentCastDownTime = globalCastDownTime;
+            }
+
+            else
+            {
+                //0 is breathe so not bothering to put in anything wrt global cast cooldowns
+                currentCastDownTime = currentSpellTemplate.currentCastDownTime;
+            }
+
+
+
+            Debug.Log("mouse scroll wheel up. Spellholder.selectedSpell = " + selectedSpell);
+            spellIconImage.GetComponent<Image>().sprite = currentSpellIcon;
+
+
+        }
+        else if (spellSelectMouseScrollWheel < 0) //scroll wheel gets moved down, moving through the spell list in a negative direction.
+        {
+
+
+            if (selectedSpell == 0)
+            {
+                selectedSpell = selectedSpellMax - 1;
+
+            }
+            else if (selectedSpell > 0)
+            {
+                selectedSpell--;
+            }
+
+            Debug.Log("selectedSpell = " + selectedSpell);
+
+            currentSpell = listOfSpells[selectedSpell];
+            currentSpellIcon = listOfSpellIcons[selectedSpell];
+            currentSpellTemplate = currentSpell.GetComponent<SpellTemplate>();
+            Debug.Log("spell instantiate gameobject is " + currentSpell);
+            Debug.Log("spell instantiate template script is " + currentSpellTemplate);
+
+
+            if (globalCastDownTime > currentSpellTemplate.currentCastDownTime && selectedSpell != 0)
+            {
+                currentCastDownTime = globalCastDownTime;
+                currentSpellTemplate.currentCastDownTime = globalCastDownTime;
+            }
+            else
+            {
+                //0 is breathe so not bothering to put in anything wrt global cast cooldowns
+                currentCastDownTime = currentSpellTemplate.currentCastDownTime;
+            }
+
+
+            Debug.Log("mouse scroll wheel down Spellholder.selectedSpell = " + selectedSpell);
+            spellIconImage.GetComponent<Image>().sprite = currentSpellIcon;
+        }
 
 
         if (currentCastDownTime > 0f)

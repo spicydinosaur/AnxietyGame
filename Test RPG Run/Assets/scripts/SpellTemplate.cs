@@ -37,7 +37,6 @@ public class SpellTemplate : MonoBehaviour
     public Vector3 point;
     public Vector3 rawDirection;
 
-    public float mouseDistance;
 
     public Animator fizzleSpellAnim;
     public GameObject fizzleSpell;
@@ -63,7 +62,7 @@ public class SpellTemplate : MonoBehaviour
 
     public virtual void Update()
     {
- 
+
         if (currentCastDownTime > 0f)
         {
             currentCastDownTime -= Time.deltaTime;
@@ -90,7 +89,7 @@ public class SpellTemplate : MonoBehaviour
 
 
 
-     public virtual void castSpell()
+    public virtual void castSpell()
     {
         int layerMask = LayerMask.GetMask("Scenery", "Enemy");
         //rawDirection = new Vector3(mousePos.x, mousePos.y, 0f) - tempHeroTransformValues;
@@ -100,6 +99,12 @@ public class SpellTemplate : MonoBehaviour
         Debug.Log("Camera.main.ScreenToWorldPoint(hero.transform.position) = " + Camera.main.ScreenToWorldPoint(hero.transform.position));
         Debug.Log("heroTransform = " + heroTransform + ", direction = " + direction + ", mousePos = " + mousePos + ".");
 
+
+
+        if (Vector2.Distance(heroTransform, mousePos) < rayCastDistance)
+        {            
+            rayCastDistance = Vector2.Distance(heroTransform, mousePos);
+        }
 
         RaycastHit2D hit = Physics2D.Raycast(heroTransform, direction, rayCastDistance, layerMask);
 
@@ -144,8 +149,18 @@ public class SpellTemplate : MonoBehaviour
 
         {
             Debug.Log("heroTransform (" + heroTransform + ") and mousePos (" + mousePos + ")");
-                point = new Vector3(heroTransform.x + (direction.x * rayCastDistance), heroTransform.y + (direction.y * rayCastDistance), 0f);
+            if (Vector2.Distance(heroTransform, mousePos) < rayCastDistance)
+            {
+                point = new Vector2(mousePos.x, mousePos.y);
+                Debug.Log("point now converted to mousePos with 0f for z axis and located at " + point + ".");
+
+            }
+            else
+            {
+                point = new Vector2(heroTransform.x + (direction.x * rayCastDistance), heroTransform.y + (direction.y * rayCastDistance));
                 Debug.Log("point now converted to heroTransform + direction * rayCastDistance and located at " + point + ".");
+            }
+            Debug.Log("point now converted to heroTransform + direction * rayCastDistance and located at " + point + ".");
 
             spellHolderScript.fizzleSpell.transform.position = point;
             spellHolderScript.fizzleSpellAnim.SetBool("isCasting", true);
@@ -157,7 +172,7 @@ public class SpellTemplate : MonoBehaviour
 
             spellIconMask.fillAmount = 1f;
 
-            Debug.Log("Nothing hit. Fizzlespell activating and moved to " + point );
+            Debug.Log("Nothing hit. Fizzlespell activating and moved to " + point);
 
         }
 
@@ -172,6 +187,3 @@ public class SpellTemplate : MonoBehaviour
 
 
 }
-
-
-
