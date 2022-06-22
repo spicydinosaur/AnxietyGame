@@ -1,17 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class TeleportAway : MonoBehaviour
 {
+    public GameManager gameManager;
+    public PlayerControls playerControls;
 
     public GameObject hero;
-    public GameManager gameManager;
     public Player player;
+
+    public Light2D mainCamLighting;
+    public GameObject nightmareLightingObject;
+    public Light2D nightmareLighting;
+
+    public List<GameObject> listOfGhosts = new List<GameObject>(6);
+
 
     // Start is called before the first frame update
     public void OnEnable()
     {
+        playerControls = gameManager.playerControls;
         transform.position = hero.transform.position;
         hero.SetActive(false);
 
@@ -40,6 +50,8 @@ public class TeleportAway : MonoBehaviour
 
         player.PlayerHealth(player.maxHealth);
         player.PlayerMana(player.maxMana);
+        playerControls.Disable();
+
     }
 
 }

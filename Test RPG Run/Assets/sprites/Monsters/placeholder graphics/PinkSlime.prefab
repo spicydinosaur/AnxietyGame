@@ -86,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2455138051804438031}
   - component: {fileID: 7248705706392487136}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: viewmask
   m_TagString: Misc Colliders
   m_Icon: {fileID: 0}
@@ -255,13 +255,13 @@ GameObject:
   - component: {fileID: 7998743178252001319}
   - component: {fileID: 7998743178252001322}
   - component: {fileID: 7998743177863998468}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: PinkSlime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7998743178252001314
 Transform:
   m_ObjectHideFlags: 0
@@ -271,7 +271,7 @@ Transform:
   m_GameObject: {fileID: 7998743178252001309}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.55, y: 5.63, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.66595, y: 0.66595, z: 0.66595}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1736020069105011936}
@@ -279,6 +279,7 @@ Transform:
   - {fileID: 7998743179526028084}
   - {fileID: 7998743178438606350}
   - {fileID: 1180520974360742480}
+  - {fileID: 3323576754662201402}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -302,7 +303,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -320,11 +321,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1690446009
-  m_SortingLayer: 0
+  m_SortingLayerID: 1231766705
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1942430931345528934, guid: 4562f5ca6d7a278499bf5396514c998a,
-    type: 3}
+  m_Sprite: {fileID: -1935524822, guid: e2ed5c77827ca8742bd9ed4cccb2e79d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentChaseObject: {fileID: 0}
-  controller: {fileID: 0}
+  controller: {fileID: 7998743178252001323}
 --- !u!114 &7998743178252001323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  currentMovementType: 0
+  currentMovementType: 1
   isChasing: 0
   canSeeTarget: 0
   targetToChase: {fileID: 0}
@@ -416,13 +416,13 @@ MonoBehaviour:
   prevMovementType: 0
   startingMovementType: 0
   nextMove: {x: 0, y: 0}
+  gameManager: {fileID: 0}
   numberOfBlinks: 4
   currentBlink: 0
   textDisplayTime: 0
   currentTextDisplayTime: 0
-  deathCloud: {fileID: 0}
-  objectDeathCloud: {fileID: 0}
-  heartPickupChance: 0
+  deathCloudAnim: {fileID: 3323576754662201380}
+  deathCloud: {fileID: 3323576754662201403}
   dropTable: {fileID: 0}
 --- !u!114 &7998743178252001315
 MonoBehaviour:
@@ -436,11 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e380db7c96d964c88018a0c9482d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PatrolCoord:
-  - {x: 67, y: 2}
-  - {x: 65, y: 2}
-  - {x: 65, y: 4}
-  - {x: 67, y: 4}
+  PatrolCoord: []
   NextPatrolElement: -1
   patrollingBool: 0
 --- !u!58 &7998743178252001319
@@ -456,9 +452,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.07333533}
   serializedVersion: 2
-  m_Radius: 0.33333334
+  m_Radius: 0.4485785
 --- !u!114 &7998743178252001322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,14 +467,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdd274bb3e8a364280b9f1959410c1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 5
-  maxHealth: 5
-  healthBarImage: {fileID: 0}
-  healthBar: {fileID: 0}
+  currentHealth: 6
+  maxHealth: 6
+  healthBarImage: {fileID: 1055941069963795694}
+  healthBar: {fileID: 8199118079730807142}
   damageBlinkTime: 0
   maxDamageBlinkTime: 0.5
-  spriteRenderer: {fileID: 0}
-  NPCColor: {r: 1, g: 1, b: 1, a: 0}
+  NPCColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &7998743177863998468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,9 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c70c9b1cc4ff0d445a6a62d9f1081d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemsInDropTable:
-  - {fileID: 0}
-  - {fileID: 0}
+  itemsInDropTable: []
   itemDropChance: []
   randomDropResult: 0
 --- !u!1 &7998743178438606345
@@ -508,7 +501,7 @@ GameObject:
   - component: {fileID: 7998743178438606349}
   - component: {fileID: 7998743178438606348}
   - component: {fileID: 7998743178438606351}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: ChaseText
   m_TagString: Text
   m_Icon: {fileID: 0}
@@ -533,7 +526,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.0069999695, y: 0.5739975}
+  m_AnchoredPosition: {x: 0, y: 0.86}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7998743178438606349
@@ -554,7 +547,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 531789853
+  m_SortingLayerID: 1231766705
   m_SortingOrder: 999
   m_TargetDisplay: 0
 --- !u!114 &7998743178438606348
@@ -579,7 +572,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &7998743178438606351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,7 +601,7 @@ GameObject:
   - component: {fileID: 7998743179051859527}
   - component: {fileID: 7998743179051859525}
   - component: {fileID: 7998743179051859524}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: Text (TMP)
   m_TagString: Text
   m_Icon: {fileID: 0}
@@ -745,7 +738,7 @@ GameObject:
   - component: {fileID: 7998743179526028090}
   - component: {fileID: 7998743179526028091}
   - component: {fileID: 5135612803885758659}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: ViewCone
   m_TagString: Misc Colliders
   m_Icon: {fileID: 0}
@@ -841,8 +834,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6cbb0b4ae4ef543b3767b68c802d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInViewCone: 0
   controller: {fileID: 0}
-  tombstone: {fileID: 0}
 --- !u!222 &5135612803885758659
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -889,7 +882,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 58.04, y: 1.52}
+  m_AnchoredPosition: {x: 0.07, y: 0.58}
   m_SizeDelta: {x: 100, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8586182442554178994
@@ -984,7 +977,7 @@ GameObject:
   - component: {fileID: 5510342120032535065}
   - component: {fileID: 8330396666395996535}
   - component: {fileID: 6355878855205874097}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: AttackCircle
   m_TagString: Misc Colliders
   m_Icon: {fileID: 0}
@@ -1018,12 +1011,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c25748fd24d2144a047d1982eb0dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
+  controller: {fileID: 7998743178252001323}
   player: {fileID: 0}
+  animator: {fileID: 7998743178252001313}
   maxTimeInvincible: 4
   isInvincible: 0
   invincibilityCountdownTimer: 0
-  tombstone: {fileID: 0}
+  healthDamage: 0
+  isTargetInView: {fileID: 7998743179526028091}
 --- !u!58 &6355878855205874097
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1134,4 +1129,96 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8918402557834332866, guid: 5eb9f5627ba693447a38c0d0fec8a1f3,
     type: 3}
   m_PrefabInstance: {fileID: 7193113722763773474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7998743177923922127
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7998743178252001314}
+    m_Modifications:
+    - target: {fileID: 2036350769403444222, guid: ccce12d78e9129e44acf66ff5d552822,
+        type: 3}
+      propertyPath: npcController
+      value: 
+      objectReference: {fileID: 7998743178252001323}
+    - target: {fileID: 4692339566669910260, guid: ccce12d78e9129e44acf66ff5d552822,
+        type: 3}
+      propertyPath: m_Name
+      value: enemyDeathCloud
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692339566669910261, guid: ccce12d78e9129e44acf66ff5d552822,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692339566669910261, guid: ccce12d78e9129e44acf66ff5d552822,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 57.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692339566669910261, guid: ccce12d78e9129e44acf66ff5d552822,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692339566669910261, guid: ccce12d78e9129e44acf66ff5d552822,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692339566669910261, guid: ccce12d78e9129e44acf66ff5d552822,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692339566669910261, guid: ccce12d78e9129e44acf66ff5d552822,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692339566669910261, guid: ccce12d78e9129e44acf66ff5d552822,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692339566669910261, guid: ccce12d78e9129e44acf66ff5d552822,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692339566669910261, guid: ccce12d78e9129e44acf66ff5d552822,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692339566669910261, guid: ccce12d78e9129e44acf66ff5d552822,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692339566669910261, guid: ccce12d78e9129e44acf66ff5d552822,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ccce12d78e9129e44acf66ff5d552822, type: 3}
+--- !u!95 &3323576754662201380 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4692339566669910251, guid: ccce12d78e9129e44acf66ff5d552822,
+    type: 3}
+  m_PrefabInstance: {fileID: 7998743177923922127}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3323576754662201402 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4692339566669910261, guid: ccce12d78e9129e44acf66ff5d552822,
+    type: 3}
+  m_PrefabInstance: {fileID: 7998743177923922127}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3323576754662201403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4692339566669910260, guid: ccce12d78e9129e44acf66ff5d552822,
+    type: 3}
+  m_PrefabInstance: {fileID: 7998743177923922127}
   m_PrefabAsset: {fileID: 0}

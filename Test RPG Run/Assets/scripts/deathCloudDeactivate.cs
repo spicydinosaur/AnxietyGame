@@ -6,8 +6,12 @@ public class deathCloudDeactivate : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public NPCController npcController;
+    private NPCController npcController;
 
+    public void OnEnable()
+    {
+        npcController = GetComponentInParent<NPCController>();
+    }
     public void Deactivate()
     {
 

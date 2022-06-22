@@ -6,14 +6,10 @@ public class NPCChase : MonoBehaviour
 
 {
     public GameObject currentChaseObject;
-    public NPCController controller;
+
 
 
     // Start is called before the first frame update
-    void Start()
-    {
-        controller = GetComponent<NPCController>();
-    }
 
     // Update is called once per frame
 

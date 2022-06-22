@@ -16,7 +16,7 @@ public class EnemyController : NPCController
 
     public Animator deathCloudAnim;
     public GameObject deathCloud;
-    public DropTable dropTable;
+    private DropTable dropTable;
 
 
     override public void OnEnable()

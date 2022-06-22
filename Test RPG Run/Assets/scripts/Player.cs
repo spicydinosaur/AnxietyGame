@@ -8,7 +8,6 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public static Player instance { get; private set; }
-    private PlayerControls playerControls;
     
     public float maxHealth;
     public float maxMana;
@@ -38,7 +37,6 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        playerControls = gameManager.playerControls;
 
     }
 
