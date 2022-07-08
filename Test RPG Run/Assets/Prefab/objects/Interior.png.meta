@@ -1166,7 +1166,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -1176,6 +1176,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -8896,8 +8908,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Interior_68: 2018704959885767423
       Interior_363: 8485348257416821028
+      Interior_68: 2018704959885767423
       Interior_141: -597916869144893024
       Interior_62: 2380881119575996568
       Interior_357: 5562883432670936892
@@ -8929,8 +8941,8 @@ TextureImporter:
       Interior_142: -1317657021188624976
       Interior_348: -2092179761687601446
       Interior_19: -2511735645363026015
-      Interior_182: -395395036679160773
       Interior_301: 4371779868003463810
+      Interior_182: -395395036679160773
       Interior_199: 5702337856551479131
       Interior_176: 2707774601367038798
       Interior_345: -2908181509373668381
@@ -9013,10 +9025,10 @@ TextureImporter:
       Interior_45: 3005343232260651273
       Interior_71: 6114839197241419037
       Interior_158: -8928517445511546961
-      Interior_165: -3182135960526451620
       Interior_254: 1395808472169755394
       Interior_87: -4893915402771191659
       Interior_180: 6573497484658891958
+      Interior_165: -3182135960526451620
       Interior_275: 3106963616296064381
       Interior_0: 2590456727276172604
       Interior_32: 3506655149425136423
@@ -9103,20 +9115,20 @@ TextureImporter:
       Interior_146: 1573519428241323413
       Interior_82: -8093073137725748741
       Interior_66: 364350253987745749
-      Interior_324: -2020327168363266856
       Interior_268: -8880229168386556391
+      Interior_324: -2020327168363266856
       Interior_107: 6794556393153719141
       Interior_27: -4935084350578651067
-      Interior_136: -5690200495053901903
       Interior_293: -8896045928998349615
-      Interior_153: -766464859402118312
-      Interior_265: 1963394333640659097
       Interior_237: 3977063495635400171
-      Interior_148: 4871973551405336186
+      Interior_265: 1963394333640659097
       Interior_232: -6192854275067537632
+      Interior_136: -5690200495053901903
+      Interior_148: 4871973551405336186
+      Interior_153: -766464859402118312
+      Interior_299: -8141545208476350153
       Interior_103: -6501645417195221300
       Interior_239: 7479149603319215279
-      Interior_299: -8141545208476350153
       Interior_105: -2894557613993137820
       Interior_137: 2635164231319732418
       Interior_292: -2791623650810486330
@@ -9215,8 +9227,8 @@ TextureImporter:
       Interior_24: 7332288176986594956
       Interior_313: -8992321459940867933
       Interior_178: -64551272081108192
-      Interior_317: -5752884943950285619
       Interior_343: -4297307216545091260
+      Interior_317: -5752884943950285619
       Interior_40: -6505098906331420374
       Interior_353: -4375884738589388581
       Interior_181: -3700554518459858399

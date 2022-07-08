@@ -467,9 +467,13 @@ GameObject:
   - component: {fileID: 4249434286110831969}
   - component: {fileID: 4120001611849790010}
   - component: {fileID: 4802154917495150012}
+<<<<<<< Updated upstream:Test RPG Run/Assets/Prefab/Hero.prefab
   - component: {fileID: 4120001611849790008}
   - component: {fileID: 7439779161351996115}
+=======
+>>>>>>> Stashed changes:AnxietyGame/Test RPG Run/Assets/Prefab/Hero.prefab
   - component: {fileID: 4120001611849790011}
+  - component: {fileID: 7712728893574273085}
   m_Layer: 6
   m_Name: Hero
   m_TagString: Player
@@ -561,8 +565,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.45955977
+  m_UseAutoMass: 1
+  m_Mass: 0.25850236
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -595,6 +599,58 @@ MonoBehaviour:
   transitioningToScene: 0
   gameManager: {fileID: 0}
   teleportSpell: {fileID: 0}
+<<<<<<< Updated upstream:Test RPG Run/Assets/Prefab/Hero.prefab
+=======
+  playerSpeed: 2
+  rigidBody: {fileID: 3039651407466758090}
+  lookDirection: {x: 0, y: -1}
+  move:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e479bf88-bebe-4dca-93e6-23b598c13310
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  spellSelectMouseScrollWheel: 0
+  movement: 0
+  moveInput: {x: 0, y: 0}
+  failSpell: {fileID: 7439779161519246768}
+  failSpellClip: {fileID: 8300000, guid: 32c06e292751ea84f86071ee4e9fc565, type: 3}
+  currentSpell: {fileID: 6431141420491781642}
+  currentSpellTemplate: {fileID: 482826386187247976}
+  addedSpell: {fileID: 0}
+  addedSpellIcon: {fileID: 0}
+  spellIconImage: {fileID: 0}
+  spellIconMask: {fileID: 0}
+  currentSpellIcon: {fileID: 21300000, guid: 96472731858b28e418e5dbfaad1d0f01, type: 3}
+  selectedSpell: 0
+  selectedSpellMax: 3
+  totalSelectedSpellMax: 4
+  listOfSpells:
+  - {fileID: 6431141420491781642}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  listOfSpellIcons:
+  - {fileID: 21300000, guid: 96472731858b28e418e5dbfaad1d0f01, type: 3}
+  - {fileID: 21300000, guid: 7809664b5a258fe46a06161db78c0585, type: 3}
+  - {fileID: 21300000, guid: 48a03692ff60ceb46b3613c68b786d0d, type: 3}
+  - {fileID: 21300000, guid: 32acac0e348650940b9a43328bd37a0a, type: 3}
+  instantiatedPools: []
+  breatheSpell: {fileID: 6431141420491781642}
+  fizzleSpell: {fileID: 0}
+  fizzleSpellAnim: {fileID: 0}
+  globalCastDownTime: 0
+  currentCastDownTime: 0
+  dialogueBox: {fileID: 0}
+  thoughtBox: {fileID: 0}
+  mousePosition: {x: 0, y: 0, z: 0}
+  numberOfPools: 4
+  poolToInstantiateFrom: {fileID: 0}
+  mainCam: {fileID: 0}
+>>>>>>> Stashed changes:AnxietyGame/Test RPG Run/Assets/Prefab/Hero.prefab
 --- !u!95 &4120001611849790010
 Animator:
   serializedVersion: 4
@@ -631,6 +687,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.01761198, y: 0.023020744}
   m_Size: {x: 0.608016, y: 0.8863163}
   m_Direction: 0
+<<<<<<< Updated upstream:Test RPG Run/Assets/Prefab/Hero.prefab
 --- !u!114 &4120001611849790008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -706,6 +763,8 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerActions
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+=======
+>>>>>>> Stashed changes:AnxietyGame/Test RPG Run/Assets/Prefab/Hero.prefab
 --- !u!114 &4120001611849790011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,7 +784,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.8
   m_LightVolumeIntensity: 0.3
-  m_LightVolumeIntensityEnabled: 1
+  m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 2731e9bab391b5f96b295b7cb1446b4903131280c93960fd4fc348090381949005081b2d00000000
   m_LightCookieSprite: {fileID: 21300000, guid: 0f9e16152e57e0f43ab01c087a570374,
     type: 3}
@@ -735,7 +794,7 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 1
+  m_ShadowIntensityEnabled: 0
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensityEnabled: 1
   m_ShadowVolumeIntensity: 1
@@ -785,6 +844,18 @@ MonoBehaviour:
   - {x: 0.541008, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &7712728893574273085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7439779161625973513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e14c015ed02e85742a2a998a288adaf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7439779161877291934
 GameObject:
   m_ObjectHideFlags: 0
