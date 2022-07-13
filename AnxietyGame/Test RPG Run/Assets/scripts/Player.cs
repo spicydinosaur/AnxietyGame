@@ -47,7 +47,6 @@ public class Player : MonoBehaviour
     public Vector2 moveInput;
 
     public AudioSource failSpell;
-    public AudioClip failSpellClip;
 
     //Spells
     public GameObject currentSpell;
@@ -68,7 +67,6 @@ public class Player : MonoBehaviour
     //these are temporararily defined onawake until the player can save progress
     public List<GameObject> listOfSpells = new List<GameObject>(4);
     public List<Sprite> listOfSpellIcons = new List<Sprite>(4);
-    public List<GameObject> instantiatedPools = new List<GameObject>(4);
 
     //breathe doesn't actually get instantiated as there will never be more than one instance;
     public GameObject breatheSpell;
@@ -79,16 +77,14 @@ public class Player : MonoBehaviour
 
     public float globalCastDownTime;
     public float currentCastDownTime;
+    //spells are double casting, (leading to the failSpell beep on every cast.) The below should stop that from happening.
+    public bool waitForSpellCheck;
 
 
     public GameObject dialogueBox;
     public GameObject thoughtBox;
 
     public Vector3 mousePosition;
-
-
-    public int numberOfPools;
-    public GameObject poolToInstantiateFrom;
 
     public Camera mainCam;
 
@@ -128,16 +124,7 @@ public class Player : MonoBehaviour
 
 
 
-        for (int i = 0; i < numberOfPools; i++)
-        {
 
-            GameObject instantiatedLightInProcessing = Instantiate(poolToInstantiateFrom, transform.position, Quaternion.identity);
-            instantiatedLightInProcessing.name = new string("LightPool" + i);
-            instantiatedPools.Add(instantiatedLightInProcessing);
-
-            Debug.Log("lightpool instantiating For loop on start is firing");
-
-        }
 
         selectedSpell = 0;
         currentSpell = breatheSpell;
@@ -149,24 +136,8 @@ public class Player : MonoBehaviour
 
         currentCastDownTime = 0f;
         globalCastDownTime = 0f;
+        waitForSpellCheck = false;
         spellIconMask.fillAmount = 0f;
-
-    }
-
-
-    public void InstantiatePools()
-    {
-
-        for (int i = 0; i < numberOfPools; i++)
-        {
-
-            GameObject instantiatedLightInProcessing = Instantiate(poolToInstantiateFrom, transform.position, Quaternion.identity);
-            instantiatedLightInProcessing.name = new string("LightPool" + i);
-            instantiatedPools.Add(instantiatedLightInProcessing);
-
-            Debug.Log("For loop on start is firing");
-
-        }
 
     }
 
@@ -185,15 +156,6 @@ public class Player : MonoBehaviour
         animator.SetFloat("Look X", lookDirection.x);
         animator.SetFloat("Look Y", lookDirection.y);
         animator.SetFloat("Speed", moveInput.magnitude);
-
-        if (spellSelectMouseScrollWheel > 0) //scroll wheel gets moved up, moving through the spell list in a positive direction.
-        {
-            Debug.Log("spellSelectMouseScrollWheel fired on Player script, registering as a positive integer!");
-        }
-        else if (spellSelectMouseScrollWheel < 0)
-        {
-            Debug.Log("spellSelectMouseScrollWheel fired on Player script, registering as a negative integer!");
-        }
 
 
         //below is the code for the scroll wheel to cycle through spells
@@ -306,15 +268,23 @@ public class Player : MonoBehaviour
 
     public void PrepCastSpell()
     {
+
         if (thoughtBox.activeSelf == false && dialogueBox.activeSelf == false)
         {
+
+            if (waitForSpellCheck)
+            {
+                waitForSpellCheck = false;
+                return;
+            }
+
             if (selectedSpell == 0)
             {
 
                 if (currentCastDownTime != 0)
                 {
                     Debug.Log("mouse click registered for spell casting. Spell on cooldown, attempt failed.");
-                    failSpell.PlayOneShot(failSpellClip, 1f);
+                    failSpell.Play();
 
 
                 }
@@ -331,7 +301,8 @@ public class Player : MonoBehaviour
                 if (currentCastDownTime != 0)
                 {
                     Debug.Log("mouse click registered for spell casting. Spell on cooldown, attempt failed.");
-                    failSpell.PlayOneShot(failSpellClip, 1f);
+                    failSpell.Play();
+                    //spells are double casting, (leading to the failSpell beep on every cast.) The below should stop that from happening.
 
 
                 }
@@ -348,6 +319,9 @@ public class Player : MonoBehaviour
                 }
 
             }
+
+            waitForSpellCheck = true;   
+
         }
 
     }

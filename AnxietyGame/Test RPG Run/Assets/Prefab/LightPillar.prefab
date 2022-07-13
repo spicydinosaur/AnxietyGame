@@ -208,9 +208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32115b8bbac22e4d9872ca03ff603e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 559081797358586040, guid: dffad1e4e79882944a67f32bb9fbda91,
-    type: 3}
-  pillarGameObjectLit: {fileID: 0}
 --- !u!114 &8726445632131126609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,7 +234,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockCheck: 0
-  puzzleLock: {fileID: 0}
+  puzzleLock: {fileID: 9084733055105159123, guid: 01829f974a553404cb8feda0c609d734,
+    type: 3}
 --- !u!1 &5225027748348454352
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,9 +297,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f01f7e45c4a9324683e3d67f09e9fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 559081797358586040, guid: dffad1e4e79882944a67f32bb9fbda91,
-    type: 3}
-  pillar: {fileID: 5225027748027536347}
 --- !u!1001 &8713181914418616795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -326,13 +321,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6564641477701851801, guid: 8751c4e412f02424780ea75a4e64723b,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564641477701851801, guid: 8751c4e412f02424780ea75a4e64723b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564641477701851801, guid: 8751c4e412f02424780ea75a4e64723b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564641477701851801, guid: 8751c4e412f02424780ea75a4e64723b,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.100000955
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6564641477701851801, guid: 8751c4e412f02424780ea75a4e64723b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.42999944
+      value: 0.69
       objectReference: {fileID: 0}
     - target: {fileID: 6564641477701851801, guid: 8751c4e412f02424780ea75a4e64723b,
         type: 3}
@@ -373,6 +383,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564641477701851801, guid: 8751c4e412f02424780ea75a4e64723b,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8751c4e412f02424780ea75a4e64723b, type: 3}
