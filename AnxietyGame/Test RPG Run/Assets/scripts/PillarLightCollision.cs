@@ -8,6 +8,7 @@ public class PillarLightCollision : MonoBehaviour
     // Start is called before the first frame update
     //public Light2D light2D;
 
+
     public void OnTriggerExit2D(Collider2D collider)
     {
 
@@ -20,6 +21,10 @@ public class PillarLightCollision : MonoBehaviour
             if (GetComponentInParent<Light2D>().isActiveAndEnabled)
             {
                 GetComponentInParent<Light2D>().enabled = false;
+                if (gameObject.GetComponent<PuzzleKey>().isActiveAndEnabled)
+                {
+                    gameObject.GetComponent<PuzzleKey>().ChangeLockState(PuzzleKey.LockCheck.locked);
+                }
 
             }
 

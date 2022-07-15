@@ -12,6 +12,10 @@ public class LightPillars : MonoBehaviour
 	{
 
 		gameObject.GetComponent<Light2D>().enabled = true;
+		if (gameObject.GetComponent<PuzzleKey>().isActiveAndEnabled)
+        {
+			gameObject.GetComponent<PuzzleKey>().ChangeLockState(PuzzleKey.LockCheck.unlocked);
+        }
 
 	}
 

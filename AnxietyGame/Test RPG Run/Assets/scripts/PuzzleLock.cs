@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PuzzleLock : MonoBehaviour 
 {
+
     
     public PuzzleKey[] puzzleKeys;
     public enum LockCheck {locked, unlocked};
     public LockCheck lockCheck;
+
+
 
     
     public virtual void CheckLocks()
