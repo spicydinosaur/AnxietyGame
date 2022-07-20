@@ -43,6 +43,8 @@ public class SpellTemplate : MonoBehaviour
 
     public Camera mainCam;
 
+    public GameObject hitObject;
+
 
 
 
@@ -103,27 +105,26 @@ public class SpellTemplate : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(heroTransform, direction, rayCastDistance, layerMask);
 
         Debug.Log("hit.point = " + hit.point + ".");
+        Debug.Log("hit.point = " + hit.point + ".");
 
-        if (hit.collider != null)
+        if (hit.collider)
         {
-            spellSound.Play();
+            hitObject = hit.collider.gameObject;
             gameObject.transform.position = hit.transform.position;
             gameObject.GetComponent<Animator>().SetBool("isCasting", true);
             Debug.Log("Spell now at " + gameObject.transform.position + " which should be the same as " + hit.transform.position + ".");
 
-            if (hit.collider.CompareTag("Enemy") == true)
+            if (hitObject.CompareTag("Enemy"))
             {
 
-                hit.collider.GetComponent<NPCHealth>().damageNPCHealth(damageAmount);
-                Debug.Log("hit enemy : " + hit.collider.name + ". Spell should be " + player.currentSpell + ". Collision occurred at " + hit.transform.position);
+                hitObject.GetComponent<NPCHealth>().damageNPCHealth(damageAmount);
 
             }
 
-            else if (hit.collider.CompareTag("Scenery") == true)
+            else if (hitObject.CompareTag("Scenery"))
             {
 
-                Debug.Log("hit Something : " + hit.collider.name + " spell should be " + player.currentSpell + ". Collision occurred at " + hit.transform.position);
-                Debug.Log("hit tag  : " + hit.collider.tag);
+
             }
             else
             {
@@ -135,6 +136,9 @@ public class SpellTemplate : MonoBehaviour
             player.currentCastDownTime = currentCastDownTime;
             player.globalCastDownTime = globalCastDownTime;
             spellIconMask.fillAmount = 1f;
+            Debug.Log("hit Something : " + hit.collider.name + " spell should be " + player.currentSpell + ". Collision occurred at " + hit.transform.position);
+            Debug.Log("hit tag  : " + hit.collider.tag);
+        
 
         }
 
@@ -143,8 +147,8 @@ public class SpellTemplate : MonoBehaviour
 
         {
             Debug.Log("heroTransform (" + heroTransform + ") and mousePos (" + mousePos + ")");
-                point = new Vector3(heroTransform.x + (direction.x * rayCastDistance), heroTransform.y + (direction.y * rayCastDistance), 0f);
-                Debug.Log("point now converted to heroTransform + direction * rayCastDistance and located at " + point + ".");
+            point = new Vector3(heroTransform.x + (direction.x * rayCastDistance), heroTransform.y + (direction.y * rayCastDistance), 0f);
+            Debug.Log("point now converted to heroTransform + direction * rayCastDistance and located at " + point + ".");
 
             player.fizzleSpell.transform.position = point;
             player.fizzleSpellAnim.SetBool("isCasting", true);
@@ -156,7 +160,7 @@ public class SpellTemplate : MonoBehaviour
 
             spellIconMask.fillAmount = 1f;
 
-            Debug.Log("Nothing hit. Fizzlespell activating and moved to " + point );
+            Debug.Log("Nothing hit. Fizzlespell activating and moved to " + point);
 
         }
 

@@ -21,9 +21,9 @@ public class PillarLightCollision : MonoBehaviour
             if (GetComponentInParent<Light2D>().isActiveAndEnabled)
             {
                 GetComponentInParent<Light2D>().enabled = false;
-                if (gameObject.GetComponent<PuzzleKey>().isActiveAndEnabled)
+                if (GetComponentInParent<PuzzleKey>().isActiveAndEnabled)
                 {
-                    gameObject.GetComponent<PuzzleKey>().ChangeLockState(PuzzleKey.LockCheck.locked);
+                    GetComponentInParent<PuzzleKey>().ChangeLockState(PuzzleKey.LockCheck.locked);
                 }
 
             }

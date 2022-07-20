@@ -12,16 +12,21 @@ public class PuzzleLock : MonoBehaviour
 
 
 
-    
+
     public virtual void CheckLocks()
     {
+        Debug.Log("lockCheck - PuzzleLock script");
         foreach (PuzzleKey puzzleKey in puzzleKeys)
         {
-            if (lockCheck == LockCheck.unlocked)
+
+            lockCheck = LockCheck.unlocked;
+
+            if (puzzleKey.lockCheck == PuzzleKey.LockCheck.unlocked)
             {
+                Debug.Log("lockCheck == LockCheck.unlocked - PuzzleLock script");
                 continue;
             }
-            else if (lockCheck == LockCheck.locked)
+            else if (puzzleKey.lockCheck == PuzzleKey.LockCheck.locked)
             {
                 lockCheck = LockCheck.locked;
                 break;

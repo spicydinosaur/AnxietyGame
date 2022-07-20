@@ -16,18 +16,19 @@ public class SceneTransition : MonoBehaviour
 
     public virtual void Awake()
     {
-        uiFade = GameManager.gameManagerObject.GetComponent<UIFade>();
+        //uiFade = GameManager.gameManagerObject.GetComponent<UIFade>();
         destinationTransform = destination.GetComponent<Transform>();
     }
 
     public virtual void OnTriggerEnter2D(Collider2D collider)
     {
         
-        Debug.Log("Scene transition attempted. the variable collidingObject value is " + collider.gameObject.name + ". collision.gameObject value is " + collider.gameObject);
 
 
         if (collider.gameObject.CompareTag("Player") && collider.GetComponent<Player>().transitioningToScene == false)
            {
+
+                Debug.Log("Scene transition attempted. the variable collidingObject value is " + collider.gameObject.name + ". collision.gameObject value is " + collider.gameObject);
                 collidingObject = collider.gameObject;
                 playerScript = collidingObject.GetComponent<Player>();
                 Debug.Log("transporting should commence!");
@@ -35,9 +36,9 @@ public class SceneTransition : MonoBehaviour
                 playerScript.transitioningToScene = true;
 
                 playerScript.lookDirection.Set(lookDirectionOnEntry.x, lookDirectionOnEntry.y);
-                uiFade.callingTransition = gameObject.GetComponent<SceneTransition>();
-                uiFade.fadingIn = false;
-                uiFade.fadingOut = true;
+                GameManager.gameManagerObject.GetComponent<UIFade>().callingTransition = gameObject.GetComponent<SceneTransition>();
+                GameManager.gameManagerObject.GetComponent<UIFade>().fadingIn = false;
+                GameManager.gameManagerObject.GetComponent<UIFade>().fadingOut = true;
                 Debug.Log("transition occured from: " + name + "?");
             //wait for UIFade to say it is done then move target!!!
         }

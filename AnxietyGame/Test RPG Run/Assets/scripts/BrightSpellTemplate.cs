@@ -12,7 +12,7 @@ public class BrightSpellTemplate : SpellTemplate
     public GameObject seasideRuinsEntrance;
     public GameObject monsterStone;
     public GameObject summonedSlime;
-    private GameObject hitObject;
+
 
     public GameObject activeLightPool;
     public bool forLoopFoundDisabledPoolToImplement = false;

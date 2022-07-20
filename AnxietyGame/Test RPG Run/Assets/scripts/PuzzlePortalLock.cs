@@ -10,9 +10,10 @@ public class PuzzlePortalLock : PuzzleLock
     public override void CheckLocks()
     {
         base.CheckLocks();
-        if (lockCheck == LockCheck.unlocked)
+        if (lockCheck == PuzzleLock.LockCheck.unlocked)
         {
             GetComponent<Animator>().SetBool("DoorOpening", true);
+            GetComponent<SpriteRenderer>().enabled = true;
             portalCollider.SetActive(true);
 
 
