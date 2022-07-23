@@ -6,135 +6,170 @@ using UnityEngine.InputSystem;
 
 public class ObjectInteraction : MonoBehaviour
 {
-    private PlayerControls playerControls;
+    public PlayerControls playerControls;
+    public InputAction interact;
 
-    public GameObject interactHere;
-    private InputAction interact;
-    public Animator heroAnim;
-    public bool movePillarPossible;
-    public Vector2 move;
-    public float heroStartPosition;
-    public int pillarMoveIncrement;
     public GameObject hero;
-    public int heroTransformRoundedY;
-    public int heroTransformRoundedX;
+    public Animator heroAnim;
+
+    public Rigidbody2D objectRB;
+    public bool moveObjectPossible;
+   
+      
+    public Vector3 moveIncrementVector;
+    public Vector3 previousObjectLocation;
+    public bool objectMoveObstructed;
+    public int stepsOnInteract;
+    public int countingSteps;
+
+    public GameObject northMoveCollider;
+    public GameObject southMoveCollider;
+    public GameObject eastMoveCollider;
+    public GameObject westMoveCollider;
+
+    public bool northColliderTriggered;
+    public bool southColliderTriggered;
+    public bool eastColliderTriggered;
+    public bool westColliderTriggered;
+
+    public bool playerFacingObject;
+
+    public bool puzzleComplete;
+
+    public Vector3 objectReturnLocation;
 
 
+    // calculate if player is facing object or not
 
 
-
-
-
-
-    // Start is called before the first frame update
     void Awake()
     {
-        playerControls = new PlayerControls();
+        playerControls = hero.GetComponent<Player>().playerControls;
         interact = playerControls.PlayerActions.Interact;
-        pillarMoveIncrement = 0;
-        heroStartPosition = -57;
-    }
+        interact.performed += ctx => InteractWithObject();
 
-    private void Start()
-    {
+        GetComponentInParent<Transform>().position = objectReturnLocation;
+        objectRB = GetComponentInParent<Rigidbody2D>();
 
+        objectMoveObstructed = false;
+        moveObjectPossible = false;
+
+        previousObjectLocation = GetComponentInParent<Rigidbody2D>().position;
+
+        countingSteps = 0;
+
+        heroAnim = hero.GetComponent<Animator>();
     }
 
     public void Update()
     {
-        interact = playerControls.PlayerActions.Interact;
-        if (interact.triggered && movePillarPossible == true && pillarMoveIncrement<=12)
+        if (playerFacingObject && !puzzleComplete)
         {
-            Interact();
-            Debug.Log("interact button pressed");
+
+            if (northColliderTriggered)
+            {
+                moveObjectPossible = true;
+                //object can move south
+                moveIncrementVector = new Vector2(0, -1);
+            }
+            else if (southColliderTriggered)
+            {
+                moveObjectPossible = true;
+                //object can move south
+                moveIncrementVector = new Vector2(0, 1);
+            }
+            else if (eastColliderTriggered)
+            {
+                moveObjectPossible = true;
+                //object can move south
+                moveIncrementVector = new Vector2(1, 0);
+            }
+            else if (westColliderTriggered)
+            {
+                moveObjectPossible = true;
+                //object can move south
+                moveIncrementVector = new Vector2(-1, 0);
+            }
+
         }
     }
 
-    // Update is called once per frame
 
-    public void Interact()
+
+    public void InteractWithObject()
     {
-        Debug.Log("interact function activated");
-        StartCoroutine("pillarMove");
 
+        Debug.Log("InteractWithObject() function activated");
+        if (moveObjectPossible)
+        {
+
+            previousObjectLocation = objectRB.transform.position;
+            objectRB.transform.position = objectRB.transform.position + moveIncrementVector;
+            objectRB.transform.position = previousObjectLocation;
+            if (!objectMoveObstructed)
+            {
+                countingSteps = 0;
+                StartCoroutine("objectMove");
+            }
+            else
+            {
+                Debug.Log("pathway for object obstructed.");
+                //play failure sound here
+            }
+        }
     }
     
 
-    public IEnumerator pillarMove()
+    public IEnumerator objectMove()
     {
-        Debug.Log("pillarmove function activated");
-        gameObject.transform.position = gameObject.transform.position + new Vector3(-.5f, 0f, 0f);
-        
-        pillarMoveIncrement = pillarMoveIncrement + 1;
-        heroStartPosition = heroStartPosition -.5f;
-        if (pillarMoveIncrement >= 12)
+        Debug.Log("objectMove coroutine activated");
+        if (countingSteps < stepsOnInteract)
         {
-            StopCoroutine("pillarMove");
+            heroAnim.SetFloat("Look X", moveIncrementVector.x);
+            heroAnim.SetFloat("Look Y", moveIncrementVector.y);
+            objectRB.transform.position = objectRB.transform.position + (moveIncrementVector / stepsOnInteract);
+            countingSteps++;
+            yield return new WaitForSeconds(.1f);
+
+        }
+        else
+        {
+            StopCoroutine("objectMove");
+            countingSteps = 0;
             Debug.Log("coroutine stopped");
         }
 
-        yield return new WaitForSeconds(.1f);
-
-
     }
 
-    private void OnCollisionEnter2D(Collision2D collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            interactHere.SetActive(true);
 
-            heroTransformRoundedY = Mathf.RoundToInt(hero.transform.position.y);
-            heroTransformRoundedX = Mathf.RoundToInt(hero.transform.position.x);
-
-            if ( heroTransformRoundedY == 27 && heroTransformRoundedX == heroStartPosition && heroAnim.GetFloat("Look X") <= -.1)
-            {
-
-                movePillarPossible = true;
-            }
-            else
-            {
-                movePillarPossible = false;
-            }
+            northMoveCollider.SetActive(true);
+            southMoveCollider.SetActive(true);
+            eastMoveCollider.SetActive(true);
+            westMoveCollider.SetActive(true);
         }
-    }
 
-    private void OnCollisionStay2D(Collision2D collider)
-    {
-        if (collider.gameObject.CompareTag("Player"))
+        else if (!collider.isTrigger || !collider.gameObject.CompareTag("interactable object"))
         {
-            interactHere.SetActive(true);
-
-            heroTransformRoundedY = Mathf.RoundToInt(hero.transform.position.y);
-            heroTransformRoundedX = Mathf.RoundToInt(hero.transform.position.x);
-
-            if (heroTransformRoundedY == 27 && heroTransformRoundedX == heroStartPosition && heroAnim.GetFloat("Look X") <= -.1)
-            {
-
-                movePillarPossible = true;
-            }
-            else
-            {
-                movePillarPossible = false;
-            }
+            objectMoveObstructed = true;
         }
+
     }
+
+
     
     private void OnCollisionExit2D(Collision2D collider)
     {
-        movePillarPossible = false;
-        interactHere.SetActive(false);
+        moveObjectPossible = false;
+
+        northMoveCollider.SetActive(false);
+        southMoveCollider.SetActive(false);
+        eastMoveCollider.SetActive(false);
+        westMoveCollider.SetActive(false);
+
     }
 
-    private void OnEnable()
-    {
-        playerControls.Enable();
-
-    }
-
-    private void OnDisable()
-    {
-
-        playerControls.Disable();
-    }
 }

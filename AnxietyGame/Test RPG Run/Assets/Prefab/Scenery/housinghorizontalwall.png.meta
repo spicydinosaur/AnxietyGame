@@ -104,11 +104,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: horizontalwall_0
+      name: housinghorizontalwall_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 6
+        y: 12
         width: 111
         height: 4
       alignment: 0
@@ -118,14 +118,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7a4e66c06ef64847b0252df6b2e06cc
-      internalID: -524202545
+      spriteID: 4d3ea537beab1164fadd543be2b90dc4
+      internalID: -1591110926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: horizontalwall_1
+      name: housinghorizontalwall_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6
+        width: 111
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 055c839db7c0ed242a109369685536c4
+      internalID: -1762481169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: housinghorizontalwall_2
       rect:
         serializedVersion: 2
         x: 0
@@ -139,8 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00a23f6ffc8793c4fa967897c557eaf1
-      internalID: -1343682080
+      spriteID: 4a3d71abeba4af149bbc512a13f5e040
+      internalID: -1447988178
       vertices: []
       indices: 
       edges: []
@@ -156,8 +177,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      horizontalwall_1: -1343682080
-      horizontalwall_0: -524202545
+      housinghorizontalwall_0: -1591110926
+      housinghorizontalwall_1: -1762481169
+      housinghorizontalwall_2: -1447988178
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
