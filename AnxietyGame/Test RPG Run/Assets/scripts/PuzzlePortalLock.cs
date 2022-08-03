@@ -16,6 +16,7 @@ public class PuzzlePortalLock : PuzzleLock
             GetComponent<SpriteRenderer>().enabled = true;
             portalCollider.SetActive(true);
 
+            CompleteLock();
 
         }
     }

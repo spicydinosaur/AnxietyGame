@@ -17,8 +17,8 @@ public class PillarLightCollision : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             Debug.Log(collider.name + "has left the ring of light and it should now deactivate! (PillarLightCollision)");
-
-            if (GetComponentInParent<Light2D>().isActiveAndEnabled)
+            
+            if (GetComponentInParent<Light2D>().isActiveAndEnabled && PuzzleKey.LockCheck.complete != GetComponentInParent<PuzzleKey>().lockCheck)
             {
                 GetComponentInParent<Light2D>().enabled = false;
                 if (GetComponentInParent<PuzzleKey>().isActiveAndEnabled)
