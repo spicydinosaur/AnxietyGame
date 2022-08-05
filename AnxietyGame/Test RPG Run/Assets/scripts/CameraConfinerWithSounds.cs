@@ -32,8 +32,10 @@ public class CameraConfinerWithSounds : CameraConfinerOnOffTriggers
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            vCam.gameObject.SetActive(false);
             clockTick.Pause();
+            clockChime.Stop(); 
+            vCam.gameObject.SetActive(false);
+
 
         }
 

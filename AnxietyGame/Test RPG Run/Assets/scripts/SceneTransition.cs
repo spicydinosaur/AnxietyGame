@@ -11,7 +11,7 @@ public class SceneTransition : MonoBehaviour
     public GameObject collidingObject;
     public Vector2 lookDirectionOnEntry;
     public Player playerScript;
-    public UIFade uiFade;
+    //public UIFade uiFade;
 
 
     public virtual void Awake()
@@ -51,9 +51,9 @@ public class SceneTransition : MonoBehaviour
     {
         collidingObject.transform.position = destinationTransform.position;
         Debug.Log("fade out finished!");
-        uiFade.fadingOut = false;
-        uiFade.fadingIn = true;
-        uiFade.lerpTime = 0f;
+        GameManager.gameManagerObject.GetComponent<UIFade>().fadingOut = false;
+        GameManager.gameManagerObject.GetComponent<UIFade>().fadingIn = true;
+        GameManager.gameManagerObject.GetComponent<UIFade>().lerpTime = 0f;
         Debug.Log("transition occured to: " + destination);
 
     }
@@ -62,9 +62,9 @@ public class SceneTransition : MonoBehaviour
     public virtual void fadeInFinished()
     {
         Debug.Log("fade in finished!");
-        uiFade.fadingOut = false;
-        uiFade.fadingIn = false;
-        uiFade.lerpTime = 0f;
+        GameManager.gameManagerObject.GetComponent<UIFade>().fadingOut = false;
+        GameManager.gameManagerObject.GetComponent<UIFade>().fadingIn = false;
+        GameManager.gameManagerObject.GetComponent<UIFade>().lerpTime = 0f;
         playerScript.transitioningToScene = false;
 
     }
