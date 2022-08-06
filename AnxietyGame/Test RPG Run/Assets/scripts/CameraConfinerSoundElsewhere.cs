@@ -4,14 +4,25 @@ using UnityEngine;
 
 public class CameraConfinerSoundElsewhere : CameraConfinerOnOffTriggers
 {
-    public GameObject soundSource;
-    public AudioSource clockTick;
-    public AudioSource clockChime;
+    public AudioSource audioSource;
+    public AudioClip clockTick;
+    public AudioClip clockChime;
+    public bool looping;
+
+    public bool fromUpstairs;
+
+    public float chimeNoise;
+    public float tickNoise;
+
+    //below is for the confiner that triggers the upstairs sound
+    public GameObject upstairsSeasideHouse;
     public void Start()
     {
-        clockTick = soundSource.GetComponent<AudioSource>();
-        clockChime = soundSource.GetComponentInChildren<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+        looping = false;
+
     }
+
 
     public override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,8 +30,28 @@ public class CameraConfinerSoundElsewhere : CameraConfinerOnOffTriggers
         if (collision.gameObject.CompareTag("Player"))
         {
             vCam.gameObject.SetActive(true);
-            clockTick.Play();
+            if (gameObject != upstairsSeasideHouse && !fromUpstairs)
+            {
+                audioSource.loop = !looping;
+                audioSource.PlayOneShot(clockChime, chimeNoise);
+            }
+            else
+            {
 
+                //this may need a coroutine if there is a way to go from upstairs seaside house to anywhere but the lower floor in one port
+                fromUpstairs = false;
+                audioSource.loop = looping;
+                audioSource.PlayOneShot(clockTick, tickNoise);
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.loop = looping;
+            audioSource.PlayOneShot(clockTick, tickNoise);
         }
     }
 
@@ -30,8 +61,8 @@ public class CameraConfinerSoundElsewhere : CameraConfinerOnOffTriggers
         if (collision.gameObject.CompareTag("Player"))
         {
             vCam.gameObject.SetActive(false);
-            clockTick.Pause();
-
+            audioSource.Stop();
+            
         }
 
     }

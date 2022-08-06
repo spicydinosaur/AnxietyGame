@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class CameraConfinerWithSounds : CameraConfinerOnOffTriggers
 {
-    public AudioSource clockTick;
-    public AudioSource clockChime;
-    void Start()
+    public AudioClip clockTick;
+    public AudioClip clockChime;
+    public AudioSource audioSource;
+    public bool looping;
+    public bool fromUpstairs;
+
+    //below is for the confiner that triggers the upstairs sound
+    public GameObject upstairsSeasideHouse;
+    public void Start()
     {
-        clockTick = GetComponent<AudioSource>();
-        clockChime = GetComponentInChildren<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+        looping = false;
+
     }
+
 
     public override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,12 +26,31 @@ public class CameraConfinerWithSounds : CameraConfinerOnOffTriggers
         if (collision.gameObject.CompareTag("Player"))
         {
             vCam.gameObject.SetActive(true);
-            clockTick.Play();
-            if (!clockChime.isPlaying)
+            if (gameObject != upstairsSeasideHouse && !fromUpstairs)
             {
-                clockChime.Play();
+                audioSource.loop = !looping;
+                audioSource.PlayOneShot(clockChime, 1f);
             }
+            else
+            {
 
+                //this may need a coroutine if there is a way to go from upstairs seaside house to anywhere but the lower floor in one port
+                fromUpstairs = false;
+                audioSource.loop = looping;
+                audioSource.PlayOneShot(clockTick, 1f);
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (!audioSource.isPlaying)
+        {
+            if (audioSource.loop == false)
+            {
+                audioSource.loop = looping;
+            }
+            audioSource.PlayOneShot(clockTick, .5f);
         }
     }
 
@@ -32,13 +59,10 @@ public class CameraConfinerWithSounds : CameraConfinerOnOffTriggers
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            clockTick.Pause();
-            clockChime.Stop(); 
             vCam.gameObject.SetActive(false);
-
+            audioSource.Stop();
 
         }
 
     }
-
 }

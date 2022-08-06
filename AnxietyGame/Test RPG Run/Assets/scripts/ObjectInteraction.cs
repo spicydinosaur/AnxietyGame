@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 public class ObjectInteraction : MonoBehaviour
@@ -18,9 +19,12 @@ public class ObjectInteraction : MonoBehaviour
       
     public Vector3 moveIncrementVector;
     public Vector3 previousObjectLocation;
+    public float moveIncrementVectorFloat;
+
     public bool objectMoveObstructed;
-    public int stepsOnInteract;
-    public int countingSteps;
+    public float stepsOnInteract;
+    public float countingSteps;
+    public float waitForSecondsCooroutine;
 
     public GameObject northMoveCollider;
     public GameObject southMoveCollider;
@@ -32,7 +36,7 @@ public class ObjectInteraction : MonoBehaviour
     public bool eastColliderTriggered;
     public bool westColliderTriggered;
 
-    public bool playerFacingObject;
+    public bool playerTouchingObject;
 
     public bool puzzleComplete;
 
@@ -45,13 +49,15 @@ public class ObjectInteraction : MonoBehaviour
     void Awake()
     {
         playerControls = hero.GetComponent<Player>().playerControls;
-        Debug.Log("playerControls = " + playerControls);
-        interact = playerControls.PlayerActions.Interact;
-        interact.performed += ctx => InteractWithObject();
+        playerControls.PlayerActions.Interact.performed += ctx => InteractWithObject();
 
-        GetComponentInParent<Transform>().position = objectReturnLocation;
+        objectReturnLocation = GetComponentInParent<Transform>().position;
         objectRB = GetComponentInParent<Rigidbody2D>();
 
+    }
+
+    public void Start()
+    {
         objectMoveObstructed = false;
         moveObjectPossible = false;
 
@@ -64,32 +70,32 @@ public class ObjectInteraction : MonoBehaviour
 
     public void Update()
     {
-        if (playerFacingObject && !puzzleComplete)
+        if (playerTouchingObject && !puzzleComplete)
         {
 
-            if (northColliderTriggered)
+            if (northMoveCollider.GetComponent<ObjectInteractionMiniColliders>().northColliderTriggered)
             {
                 moveObjectPossible = true;
                 //object can move south
-                moveIncrementVector = new Vector2(0, -1);
+                moveIncrementVector = new Vector3(0, -moveIncrementVectorFloat, 0f);
             }
-            else if (southColliderTriggered)
+            else if (southMoveCollider.GetComponent<ObjectInteractionMiniColliders>().southColliderTriggered)
             {
                 moveObjectPossible = true;
-                //object can move south
-                moveIncrementVector = new Vector2(0, 1);
+                //object can move north
+                moveIncrementVector = new Vector3(0, moveIncrementVectorFloat, 0f);
             }
-            else if (eastColliderTriggered)
+            else if (eastMoveCollider.GetComponent<ObjectInteractionMiniColliders>().eastColliderTriggered)
             {
                 moveObjectPossible = true;
-                //object can move south
-                moveIncrementVector = new Vector2(1, 0);
+                //object can move east
+                moveIncrementVector = new Vector3(-moveIncrementVectorFloat, 0, 0f);
             }
-            else if (westColliderTriggered)
+            else if (westMoveCollider.GetComponent<ObjectInteractionMiniColliders>().westColliderTriggered)
             {
                 moveObjectPossible = true;
-                //object can move south
-                moveIncrementVector = new Vector2(-1, 0);
+                //object can move west
+                moveIncrementVector = new Vector3(moveIncrementVectorFloat, 0, 0f);
             }
 
         }
@@ -106,11 +112,13 @@ public class ObjectInteraction : MonoBehaviour
 
             previousObjectLocation = objectRB.transform.position;
             objectRB.transform.position = objectRB.transform.position + moveIncrementVector;
+            Debug.Log("InteractWithObject() test move activated " + objectRB.transform.position + " prev move location " +previousObjectLocation);
             objectRB.transform.position = previousObjectLocation;
             if (!objectMoveObstructed)
             {
                 countingSteps = 0;
                 StartCoroutine("objectMove");
+                Debug.Log("pathway for object NOT +obstructed.");
             }
             else
             {
@@ -126,11 +134,12 @@ public class ObjectInteraction : MonoBehaviour
         Debug.Log("objectMove coroutine activated");
         if (countingSteps < stepsOnInteract)
         {
-            heroAnim.SetFloat("Look X", moveIncrementVector.x);
-            heroAnim.SetFloat("Look Y", moveIncrementVector.y);
-            objectRB.transform.position = objectRB.transform.position + (moveIncrementVector / stepsOnInteract);
+            //is this right? I want x or y to be .5f or -.5f
+            heroAnim.SetFloat("Look X", Mathf.Clamp01(moveIncrementVector.x/2f));
+            heroAnim.SetFloat("Look Y", Mathf.Clamp01(moveIncrementVector.y/2f));
+            objectRB.transform.position = objectRB.transform.position + (moveIncrementVector * stepsOnInteract);
             countingSteps++;
-            yield return new WaitForSeconds(.1f);
+            yield return new WaitForSeconds(waitForSecondsCooroutine);
 
         }
         else
@@ -142,7 +151,7 @@ public class ObjectInteraction : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnCollisionEnter2D(Collision2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
         {
@@ -153,7 +162,7 @@ public class ObjectInteraction : MonoBehaviour
             westMoveCollider.SetActive(true);
         }
 
-        else if (!collider.isTrigger || !collider.gameObject.CompareTag("interactable object"))
+        else if (!collider.gameObject.GetComponent<Collider2D>().isTrigger || !collider.gameObject.CompareTag("interactable object") || !collider.gameObject.CompareTag("Scenery"))
         {
             objectMoveObstructed = true;
         }
@@ -164,13 +173,22 @@ public class ObjectInteraction : MonoBehaviour
     
     private void OnCollisionExit2D(Collision2D collider)
     {
-        moveObjectPossible = false;
 
-        northMoveCollider.SetActive(false);
-        southMoveCollider.SetActive(false);
-        eastMoveCollider.SetActive(false);
-        westMoveCollider.SetActive(false);
+        if (collider.gameObject.CompareTag("Player"))
+        {
+            playerTouchingObject = false;
+            moveObjectPossible = false;
 
+            northMoveCollider.GetComponent<ObjectInteractionMiniColliders>().northColliderTriggered = false;
+            southMoveCollider.GetComponent<ObjectInteractionMiniColliders>().southColliderTriggered = false;
+            eastMoveCollider.GetComponent<ObjectInteractionMiniColliders>().eastColliderTriggered = false;
+            westMoveCollider.GetComponent<ObjectInteractionMiniColliders>().westColliderTriggered = false;
+
+            northMoveCollider.SetActive(false);
+            southMoveCollider.SetActive(false);
+            eastMoveCollider.SetActive(false);
+            westMoveCollider.SetActive(false);
+        }
     }
 
 }

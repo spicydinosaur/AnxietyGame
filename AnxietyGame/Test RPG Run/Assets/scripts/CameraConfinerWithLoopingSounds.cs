@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class CameraConfinerWithLoopingSounds : CameraConfinerOnOffTriggers
 {
-    public AudioSource seagulls;
-    public AudioSource windAndWaves;
+    public AudioClip seagulls;
+    public AudioClip windAndWaves;
+    public AudioSource audioSource;
+    public float seagullnoise;
+    public float waternoise;
     void Start()
     {
-        seagulls = GetComponent<AudioSource>();
-        windAndWaves = GetComponentInChildren<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     public override void OnTriggerEnter2D(Collider2D collision)
@@ -18,8 +21,10 @@ public class CameraConfinerWithLoopingSounds : CameraConfinerOnOffTriggers
         if (collision.gameObject.CompareTag("Player"))
         {
             vCam.gameObject.SetActive(true);
-            seagulls.Play();
-            windAndWaves.Play();
+            audioSource.loop = true;
+            audioSource.PlayOneShot(seagulls,seagullnoise);
+            audioSource.loop = true;
+            audioSource.PlayOneShot(windAndWaves, waternoise);
         }
     }
 
@@ -28,9 +33,9 @@ public class CameraConfinerWithLoopingSounds : CameraConfinerOnOffTriggers
 
         if (collision.gameObject.CompareTag("Player"))
         {
+
+            audioSource.Stop();
             vCam.gameObject.SetActive(false);
-            seagulls.Pause();
-            windAndWaves.Pause();
 
 
         }
