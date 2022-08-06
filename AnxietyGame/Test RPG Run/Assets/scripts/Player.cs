@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
     public Vector2 lookDirection = new Vector2(0, -1);
 
     public InputAction move;
-    public PlayerControls playerControls;
+    public PlayerControls playerControls { get; private set; }
 
     public float spellSelectMouseScrollWheel;
     public float movement;

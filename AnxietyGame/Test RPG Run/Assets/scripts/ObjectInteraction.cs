@@ -45,6 +45,7 @@ public class ObjectInteraction : MonoBehaviour
     void Awake()
     {
         playerControls = hero.GetComponent<Player>().playerControls;
+        Debug.Log("playerControls = " + playerControls);
         interact = playerControls.PlayerActions.Interact;
         interact.performed += ctx => InteractWithObject();
 
