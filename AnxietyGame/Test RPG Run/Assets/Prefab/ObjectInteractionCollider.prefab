@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5687460146622417191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5687460146622417184}
+  - component: {fileID: 5687460146622417185}
+  m_Layer: 0
+  m_Name: ObjectInteractionCollider
+  m_TagString: interactable object
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5687460146622417184
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687460146622417191}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -64.89, y: 26.42, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &5687460146622417185
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5687460146622417191}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 8.798496, y: 0.45890617}
+      - {x: 8.802933, y: -0.3780613}
+      - {x: 7.9787416, y: -0.38463044}
+      - {x: 7.9680414, y: 0.4536512}
+    - - {x: 0.7713852, y: -0.37402344}
+      - {x: -0.010939598, y: -0.36594033}
+      - {x: -0.03503704, y: 0.42954612}
+      - {x: 0.7363405, y: 0.4536512}
+    - - {x: 8.802723, y: 1.5592785}
+      - {x: 8.814453, y: 0.6705284}
+      - {x: -0.059970856, y: 0.6490383}
+      - {x: -0.059509277, y: 1.5057945}
+    - - {x: 8.810684, y: -1.3562374}
+      - {x: 8.81982, y: -0.4739647}
+      - {x: -0.059509277, y: -0.4909191}
+      - {x: -0.06391907, y: -1.390358}

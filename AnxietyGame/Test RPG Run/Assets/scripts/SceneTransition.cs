@@ -11,7 +11,6 @@ public class SceneTransition : MonoBehaviour
     public GameObject collidingObject;
     public Vector2 lookDirectionOnEntry;
     public Player playerScript;
-    public CameraConfinerSoundElsewhere upToDownstairsSeasideHouse;
     //public UIFade uiFade;
 
 
@@ -24,10 +23,6 @@ public class SceneTransition : MonoBehaviour
     public virtual void OnTriggerEnter2D(Collider2D collider)
     {
         
-        if (upToDownstairsSeasideHouse != null)
-        {
-            upToDownstairsSeasideHouse.gameObject.GetComponent<CameraConfinerSoundElsewhere>().fromUpstairs = true;
-        }
 
         if (collider.gameObject.CompareTag("Player") && collider.GetComponent<Player>().transitioningToScene == false)
            {
