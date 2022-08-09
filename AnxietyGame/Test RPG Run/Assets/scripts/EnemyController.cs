@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class EnemyController : NPCController
 {
 
+    //why are the cave bats refusing to face the correct way!?
+
+
     public int numberOfBlinks = 4;
     public int currentBlink = 0;
 

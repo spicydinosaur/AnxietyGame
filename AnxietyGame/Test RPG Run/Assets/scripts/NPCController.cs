@@ -39,7 +39,6 @@ public class NPCController : MonoBehaviour
     // Start is called before the first frame update
     public virtual void OnEnable()
     {
-        FaceTheRightWay(Vector2.down);
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         currentMovementType = startingMovementType;
@@ -61,12 +60,7 @@ public class NPCController : MonoBehaviour
         EventBroadcaster.HeroDeath.RemoveListener(HeroDied);
     }
 
-    public virtual void FaceTheRightWay(Vector2 faceVector2)
-    {
-        lookDirection = faceVector2;
-        gameObject.GetComponent<Animator>().SetFloat("Look X", lookDirection.x);
-        gameObject.GetComponent<Animator>().SetFloat("Look Y", lookDirection.y);
-    }
+
 
     public virtual void FixedUpdate()
     {
@@ -135,28 +129,6 @@ public class NPCController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (isMoving)
-
-        {
-
-            Vector2 move = new Vector2(horizontal, vertical);
-
-            if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
-            {
-                lookDirection.Set(move.x, move.y);
-                lookDirection.Normalize();
-            }
-
-            animator.SetFloat("Look X", lookDirection.x);
-            animator.SetFloat("Look Y", lookDirection.y);
-            animator.SetFloat("Speed", move.magnitude);
-
-        }
-
-
-    }
 
 
     public virtual void HeroDied()

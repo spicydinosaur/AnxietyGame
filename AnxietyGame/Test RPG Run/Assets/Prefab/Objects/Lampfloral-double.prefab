@@ -39,7 +39,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1298780029282347366}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8034471200589806781}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -440,7 +440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7049874603377950527}
   - component: {fileID: 7856909208179840461}
-  - component: {fileID: 4824581099619667860}
+  - component: {fileID: 4330241566222758610}
   m_Layer: 0
   m_Name: Lampfloral-double
   m_TagString: Untagged
@@ -457,7 +457,7 @@ Transform:
   m_GameObject: {fileID: 8314047854565187977}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 57.612, y: 8.937, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7890610205702487654}
@@ -503,9 +503,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 2086349163
+  m_SortingLayer: 8
+  m_SortingOrder: 16
   m_Sprite: {fileID: -1578359590, guid: 5f815b3702deba34a90f286e82462a7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -517,8 +517,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &4824581099619667860
-PolygonCollider2D:
+--- !u!61 &4330241566222758610
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -530,7 +530,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.7356918}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -540,16 +540,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.5581131, y: 1.0098677}
-      - {x: -0.66090775, y: -0.016448975}
-      - {x: -0.20799255, y: -0.022370815}
-      - {x: -0.18287659, y: -0.6778393}
-      - {x: -0.5, y: -0.96875}
-      - {x: 0.4375, y: -0.96875}
-      - {x: 0.5, y: -0.90625}
-      - {x: 0.1812172, y: -0.7102814}
-      - {x: 0.18119812, y: 0.045228004}
-      - {x: 0.6557007, y: 0.039052963}
-      - {x: 0.5718155, y: 1.0235739}
+  serializedVersion: 2
+  m_Size: {x: 0.36940765, y: 0.52917624}
+  m_EdgeRadius: 0

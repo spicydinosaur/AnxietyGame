@@ -6,10 +6,17 @@ public class SoundsForTheHero : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public AudioSource footstepsSource;
+    public AudioSource audioSource;
+    public AudioClip footsteps;
+
+
+    public void Awake()
+    {
+        audioSource = gameObject.GetComponent<AudioSource>();
+    }
     public void SoundForWalking()
     {
-        footstepsSource.Play();
+        audioSource.PlayOneShot(footsteps, .5f);
 
     }
 }

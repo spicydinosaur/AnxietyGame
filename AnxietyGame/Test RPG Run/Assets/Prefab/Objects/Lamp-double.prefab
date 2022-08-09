@@ -39,7 +39,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905716758856657243}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2493536099760818653}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -440,7 +440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8942898378042857639}
   - component: {fileID: 1434453623301618618}
-  - component: {fileID: 5144342197151157203}
+  - component: {fileID: 864239200664864199}
   m_Layer: 0
   m_Name: Lamp-double
   m_TagString: Untagged
@@ -457,7 +457,7 @@ Transform:
   m_GameObject: {fileID: 6392511269296026771}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 57.543, y: 6.482, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8189038504820269845}
@@ -505,7 +505,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2086349163
   m_SortingLayer: 8
-  m_SortingOrder: 0
+  m_SortingOrder: 16
   m_Sprite: {fileID: -470912143, guid: c30328fa8247c82498d888ad152a5228, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -517,8 +517,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &5144342197151157203
-PolygonCollider2D:
+--- !u!61 &864239200664864199
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -530,7 +530,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.010509968, y: -0.7619659}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -540,16 +540,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.60608673, y: 0.9413376}
-      - {x: -0.66090775, y: -0.016448975}
-      - {x: -0.20799255, y: -0.022370815}
-      - {x: -0.18287659, y: -0.6778393}
-      - {x: -0.5, y: -0.96875}
-      - {x: 0.4375, y: -0.96875}
-      - {x: 0.5, y: -0.90625}
-      - {x: 0.1812172, y: -0.7102814}
-      - {x: 0.18119812, y: 0.045228004}
-      - {x: 0.6557007, y: 0.039052963}
-      - {x: 0.5786743, y: 0.9756031}
+  serializedVersion: 2
+  m_Size: {x: 0.28532696, y: 0.43458676}
+  m_EdgeRadius: 0

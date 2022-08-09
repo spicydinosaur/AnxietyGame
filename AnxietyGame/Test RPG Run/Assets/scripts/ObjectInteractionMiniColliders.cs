@@ -4,32 +4,32 @@ using UnityEngine;
 
 public class ObjectInteractionMiniColliders : MonoBehaviour
 {
-    public string colliderDirection;
 
-    public bool northColliderTriggered;
-    public bool southColliderTriggered;
-    public bool eastColliderTriggered;
-    public bool westColliderTriggered;
+    public ObjectInteraction objectInteraction;
+
+    public enum ColliderDirection { north, south, east, west, inactive };
+
+    public ColliderDirection colliderDirection;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (colliderDirection == "North")
+            if (colliderDirection == ColliderDirection.north)
             {
-                northColliderTriggered = true;
+                objectInteraction.colliderDirection = ObjectInteraction.ColliderDirection.north;
             }
-            else if (colliderDirection == "South")
+            else if (colliderDirection == ColliderDirection.south)
             {
-                southColliderTriggered = true;
+                objectInteraction.colliderDirection = ObjectInteraction.ColliderDirection.south;
             }
-            else if (colliderDirection == "East")
+            else if (colliderDirection == ColliderDirection.east)
             {
-                eastColliderTriggered = true;
+                objectInteraction.colliderDirection = ObjectInteraction.ColliderDirection.east;
             }
-            else if (colliderDirection == "West")
+            else if (colliderDirection == ColliderDirection.west)
             {
-                westColliderTriggered = true;
+                objectInteraction.colliderDirection = ObjectInteraction.ColliderDirection.west;
             }
         }
     }
@@ -38,22 +38,8 @@ public class ObjectInteractionMiniColliders : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (colliderDirection == "North")
-            {
-                northColliderTriggered = false;
-            }
-            else if (colliderDirection == "South")
-            {
-                southColliderTriggered = false;
-            }
-            else if (colliderDirection == "East")
-            {
-                eastColliderTriggered = false;
-            }
-            else if (colliderDirection == "West")
-            {
-                westColliderTriggered = false;
-            }
+            //this is redundant with ObjectInteraction but hey, you never know if it will be needed and it doesn't hurt anything.
+            objectInteraction.colliderDirection = ObjectInteraction.ColliderDirection.inactive;
         }
     }
 

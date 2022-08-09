@@ -46,7 +46,8 @@ public class Player : MonoBehaviour
     public float movement;
     public Vector2 moveInput;
 
-    public AudioSource failSpell;
+    public AudioSource audioSource;
+    public AudioClip failSpell;
 
     //Spells
     public GameObject currentSpell;
@@ -104,8 +105,11 @@ public class Player : MonoBehaviour
     public void Start()
     {
         instance = this;
+
         animator = gameObject.GetComponent<Animator>();
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
+        audioSource = gameObject.GetComponent<AudioSource>();
+
         move = playerControls.PlayerActions.Movement;
         playerControls.PlayerActions.SpellSelectMouseScrollWheel.performed += ctx1 => spellSelectMouseScrollWheel = ctx1.ReadValue<float>();
         playerControls.PlayerActions.SpellCast.performed += ctx2 => PrepCastSpell();
@@ -121,8 +125,6 @@ public class Player : MonoBehaviour
         var brightSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/brighticon.png");
         var flamesSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/flamesicon.png");
         var smiteSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/smiteicon.png");
-
-
 
 
 
@@ -284,7 +286,7 @@ public class Player : MonoBehaviour
                 if (currentCastDownTime != 0)
                 {
                     Debug.Log("mouse click registered for spell casting. Spell on cooldown, attempt failed.");
-                    failSpell.Play();
+                    audioSource.PlayOneShot(failSpell);
 
 
                 }
@@ -301,7 +303,7 @@ public class Player : MonoBehaviour
                 if (currentCastDownTime != 0)
                 {
                     Debug.Log("mouse click registered for spell casting. Spell on cooldown, attempt failed.");
-                    failSpell.Play();
+                    audioSource.PlayOneShot(failSpell, 1f);
                     //spells are double casting, (leading to the failSpell beep on every cast.) The below should stop that from happening.
 
 

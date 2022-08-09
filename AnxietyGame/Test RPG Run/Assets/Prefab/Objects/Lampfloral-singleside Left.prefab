@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7832223148576788837}
   - component: {fileID: 8973946700086685813}
-  - component: {fileID: 1021298674517317891}
+  - component: {fileID: 2214124600442364268}
   m_Layer: 0
   m_Name: Lampfloral-singleside Left
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3505941738410459429}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -56.447678, y: 55.518158, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1923068439459121255}
@@ -72,9 +72,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 2086349163
+  m_SortingLayer: 8
+  m_SortingOrder: 16
   m_Sprite: {fileID: 21300000, guid: 4bf74261dd29e44458ca2c1458908e24, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -86,8 +86,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &1021298674517317891
-PolygonCollider2D:
+--- !u!61 &2214124600442364268
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -99,7 +99,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.11035347, y: -0.74620175}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -109,18 +109,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.5, y: 0.05469513}
-      - {x: 0.5, y: 1}
-      - {x: -0.5, y: 1}
-      - {x: -0.3430786, y: 0.6544609}
-      - {x: -0.26972198, y: -0.7790718}
-      - {x: -0.5, y: -1}
-      - {x: 0.3125, y: -1}
-      - {x: 0.23206711, y: -0.9375}
-      - {x: 0.12883759, y: -0.8591194}
-      - {x: 0.11091232, y: 0.069675446}
+  serializedVersion: 2
+  m_Size: {x: 0.42195702, y: 0.5501962}
+  m_EdgeRadius: 0
 --- !u!1 &3923948065279960953
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +151,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3923948065279960953}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 

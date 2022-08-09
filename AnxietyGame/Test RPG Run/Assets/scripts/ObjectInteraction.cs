@@ -31,10 +31,9 @@ public class ObjectInteraction : MonoBehaviour
     public GameObject eastMoveCollider;
     public GameObject westMoveCollider;
 
-    public bool northColliderTriggered;
-    public bool southColliderTriggered;
-    public bool eastColliderTriggered;
-    public bool westColliderTriggered;
+    public enum ColliderDirection { north, south, east, west, inactive };
+
+    public ColliderDirection colliderDirection;
 
     public bool playerTouchingObject;
 
@@ -53,6 +52,7 @@ public class ObjectInteraction : MonoBehaviour
 
         objectReturnLocation = GetComponentInParent<Transform>().position;
         objectRB = GetComponentInParent<Rigidbody2D>();
+        colliderDirection = ObjectInteraction.ColliderDirection.inactive;
 
     }
 
@@ -73,25 +73,25 @@ public class ObjectInteraction : MonoBehaviour
         if (playerTouchingObject && !puzzleComplete)
         {
 
-            if (northMoveCollider.GetComponent<ObjectInteractionMiniColliders>().northColliderTriggered)
+            if (colliderDirection == ObjectInteraction.ColliderDirection.north)
             {
                 moveObjectPossible = true;
                 //object can move south
                 moveIncrementVector = new Vector3(0, -moveIncrementVectorFloat, 0f);
             }
-            else if (southMoveCollider.GetComponent<ObjectInteractionMiniColliders>().southColliderTriggered)
+            else if (colliderDirection == ObjectInteraction.ColliderDirection.south)
             {
                 moveObjectPossible = true;
                 //object can move north
                 moveIncrementVector = new Vector3(0, moveIncrementVectorFloat, 0f);
             }
-            else if (eastMoveCollider.GetComponent<ObjectInteractionMiniColliders>().eastColliderTriggered)
+            else if (colliderDirection == ObjectInteraction.ColliderDirection.east)
             {
                 moveObjectPossible = true;
                 //object can move east
                 moveIncrementVector = new Vector3(-moveIncrementVectorFloat, 0, 0f);
             }
-            else if (westMoveCollider.GetComponent<ObjectInteractionMiniColliders>().westColliderTriggered)
+            else if (colliderDirection == ObjectInteraction.ColliderDirection.west)
             {
                 moveObjectPossible = true;
                 //object can move west
@@ -179,10 +179,8 @@ public class ObjectInteraction : MonoBehaviour
             playerTouchingObject = false;
             moveObjectPossible = false;
 
-            northMoveCollider.GetComponent<ObjectInteractionMiniColliders>().northColliderTriggered = false;
-            southMoveCollider.GetComponent<ObjectInteractionMiniColliders>().southColliderTriggered = false;
-            eastMoveCollider.GetComponent<ObjectInteractionMiniColliders>().eastColliderTriggered = false;
-            westMoveCollider.GetComponent<ObjectInteractionMiniColliders>().westColliderTriggered = false;
+            //this is redundant with ObjectInteractionMiniColliders but hey, you never know if it will be needed and it doesn't hurt anything.
+            colliderDirection = ObjectInteraction.ColliderDirection.inactive;
 
             northMoveCollider.SetActive(false);
             southMoveCollider.SetActive(false);
