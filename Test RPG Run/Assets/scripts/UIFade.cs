@@ -6,14 +6,19 @@ using UnityEngine;
 public class UIFade : MonoBehaviour
 {
     public Image fadeImage;
+
     //[SerializeField] float lerpTime;
     //[SerializeField] Color fadeOutColor;
     //[SerializeField] Color fadeInColor;
+
     public float lerpTime = 0f;
+
     public Color fadeOutColor;
     public Color fadeInColor;
+
     public bool fadingOut;
     public bool fadingIn;
+
     public float fadeTime;
     public SceneTransition callingTransition;
 
@@ -34,18 +39,18 @@ public class UIFade : MonoBehaviour
             fadeImage.color = Color.Lerp(fadeInColor, fadeImage.color, lerpTime);
         }
 
-        if (lerpTime < 1)
+        if (lerpTime < fadeTime/2)
         {
             if (fadingOut == true || fadingIn == true)
             {
-                //Debug.Log("lerptime going up: " + lerpTime);
-                lerpTime += Time.deltaTime / fadeTime;
+                Debug.Log("lerptime going up: " + lerpTime);
+                lerpTime += Time.deltaTime;
             }
 
         }
-        else if (lerpTime >= 1)
+        else if (lerpTime >= fadeTime/2)
         {
-            lerpTime = 1;
+            lerpTime = fadeTime/2;
             Debug.Log("fading out: " + fadingOut + " fading in: " + fadingIn);
             if (fadingOut == true && fadingIn == false)
             {

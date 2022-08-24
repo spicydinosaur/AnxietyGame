@@ -13,7 +13,7 @@ public class NPCHealth : MonoBehaviour
 
     public float damageBlinkTime;
     public float maxDamageBlinkTime;
-    public SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
     public Color NPCColor;
 
 
@@ -21,7 +21,8 @@ public class NPCHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthBar.SetActive(true);
-        NPCColor =  GetComponent<SpriteRenderer>().color;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        NPCColor = spriteRenderer.color;
 
     }
 
@@ -30,7 +31,7 @@ public class NPCHealth : MonoBehaviour
 
         if (damageBlinkTime <= 0)
         {
-            GetComponent<SpriteRenderer>().color = NPCColor;
+            spriteRenderer.color = NPCColor;
         }
         else
         {
@@ -52,7 +53,7 @@ public class NPCHealth : MonoBehaviour
             if (damageBlinkTime <= 0)
             {
                 damageBlinkTime = maxDamageBlinkTime;
-                GetComponent<SpriteRenderer>().color = Color.red;
+                spriteRenderer.color = Color.red;
             }
 
             if(currentHealth <= 0)

@@ -3,18 +3,58 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEditor.Experimental.SceneManagement;
+using UnityEngine.Rendering.Universal;
 
 public class BrightSpellTemplate : SpellTemplate
-{ 
+{
+
+    public GameObject seasideRuinsEntrance;
+    public GameObject monsterStone;
+    public GameObject summonedSlime;
+
 
     public GameObject activeLightPool;
     public bool forLoopFoundDisabledPoolToImplement = false;
     public List<GameObject> instantiatedPoolsTemp = new List<GameObject>(4);
 
+    public int numberOfPools;
+    public GameObject poolToInstantiateFrom;
+    public List<GameObject> instantiatedPools = new List<GameObject>(4);
 
 
-        
+    public override void Awake()
+    {
 
+        base.Awake();
+
+        for (int i = 0; i < numberOfPools; i++)
+        {
+
+            GameObject instantiatedLightInProcessing = Instantiate(poolToInstantiateFrom, transform.position, Quaternion.identity);
+            instantiatedLightInProcessing.name = new string("LightPool" + i);
+            instantiatedPools.Add(instantiatedLightInProcessing);
+
+            Debug.Log("lightpool instantiating For loop on start is firing");
+
+        }
+    }
+
+    public void InstantiatePools()
+    {
+
+        for (int i = 0; i < numberOfPools; i++)
+        {
+
+            GameObject instantiatedLightInProcessing = Instantiate(poolToInstantiateFrom, transform.position, Quaternion.identity);
+            instantiatedLightInProcessing.name = new string("LightPool" + i);
+            instantiatedPools.Add(instantiatedLightInProcessing);
+
+            Debug.Log("For loop on start is firing");
+
+        }
+
+    }
 
     public override void castSpell()
     {
@@ -29,28 +69,36 @@ public class BrightSpellTemplate : SpellTemplate
 
         RaycastHit2D hit = Physics2D.Raycast(heroTransform, direction, rayCastDistance, layerMask);
 
-        Debug.Log("hit.point = " + hit.point + "."); 
+        spellSound.Play();
 
-        if (hit.collider != null)
+        Debug.Log("hit.point = " + hit.point + ".");
+
+        if (hit.collider)
         {
-
+            hitObject = hit.collider.gameObject;
             gameObject.transform.position = hit.transform.position;
             gameObject.GetComponent<Animator>().SetBool("isCasting", true);
             Debug.Log("Spell now at " + gameObject.transform.position + " which should be the same as " + hit.transform.position + ".");
 
-            if (hit.collider.CompareTag("Enemy") == true)
+            if (hitObject.GetComponent<LightPillars>())
+
             {
 
-                hit.collider.GetComponent<NPCHealth>().damageNPCHealth(damageAmount);
-                Debug.Log("hit enemy : " + hit.collider.name + ". Spell should be " + spellHolderScript.currentSpell + ". Collision occurred at " + hit.transform.position);
+                hitObject.GetComponent<LightPillars>().HitByBright();
+                
+            }
+
+            else if (hitObject.CompareTag("Enemy"))
+            {
+
+                hitObject.GetComponent<NPCHealth>().damageNPCHealth(damageAmount);
 
             }
 
-            else if (hit.collider.CompareTag("Scenery") == true)
+            else if (hitObject.CompareTag("Scenery"))
             {
 
-                Debug.Log("hit Something : " + hit.collider.name + " spell should be " + spellHolderScript.currentSpell + ". Collision occurred at " + hit.transform.position);
-                Debug.Log("hit tag  : " + hit.collider.tag);
+
             }
             else
             {
@@ -59,10 +107,11 @@ public class BrightSpellTemplate : SpellTemplate
             }
 
             currentCastDownTime = castDownTime;
-            spellHolderScript.currentCastDownTime = currentCastDownTime;
-            spellHolderScript.globalCastDownTime = globalCastDownTime;
+            player.currentCastDownTime = currentCastDownTime;
+            player.globalCastDownTime = globalCastDownTime;
             spellIconMask.fillAmount = 1f;
-
+            Debug.Log("hit Something : " + hit.collider.name + " spell should be " + player.currentSpell + ". Collision occurred at " + hit.transform.position);
+            Debug.Log("hit tag  : " + hit.collider.tag);
         }
 
 
@@ -71,30 +120,30 @@ public class BrightSpellTemplate : SpellTemplate
         {
             Debug.Log("no collider hit, moving on to making a light pool.");
 
-            for (int i = 0; i < spellHolder.GetComponent<SpellHolder>().numberOfPools -1; i++)
+            for (int i = 0; i < numberOfPools -1; i++)
             {
                 Debug.Log("for statement for the bright spell cycling");
 
-                if (spellHolderScript.instantiatedPools[i].activeSelf == false)
+                if (instantiatedPools[i].activeSelf == false)
                 {
                     Debug.Log("found inactive pool.");
-                    activeLightPool = spellHolderScript.instantiatedPools[i];
+                    activeLightPool = instantiatedPools[i];
                     forLoopFoundDisabledPoolToImplement = true;
                     break;
                 }
 
             }
 
-            var instantiatedPoolsTemp = new List<GameObject>(spellHolderScript.instantiatedPools.Capacity);
+            var instantiatedPoolsTemp = new List<GameObject>(instantiatedPools.Capacity);
 
             if (forLoopFoundDisabledPoolToImplement == false)
             {
 
                 Debug.Log("No pools are disabled. Recycling pool.");
-                activeLightPool = spellHolderScript.instantiatedPools[0];
+                activeLightPool = instantiatedPools[0];
 
-                spellHolderScript.instantiatedPools.Remove(activeLightPool);
-                instantiatedPoolsTemp.AddRange(spellHolderScript.instantiatedPools);
+                instantiatedPools.Remove(activeLightPool);
+                instantiatedPoolsTemp.AddRange(instantiatedPools);
                 instantiatedPoolsTemp.Insert(3, activeLightPool);
 
             }
@@ -102,14 +151,14 @@ public class BrightSpellTemplate : SpellTemplate
             {
                 Debug.Log("using inactive pool.");
                 forLoopFoundDisabledPoolToImplement = false;
-                spellHolderScript.instantiatedPools.Remove(activeLightPool);
-                for (int i = 0; i < spellHolder.GetComponent<SpellHolder>().numberOfPools - 1; i++)
+                instantiatedPools.Remove(activeLightPool);
+                for (int i = 0; i < numberOfPools - 1; i++)
                 {
 
-                    if (spellHolderScript.instantiatedPools[i] != activeLightPool)
+                    if (instantiatedPools[i] != activeLightPool)
                     {
 
-                        instantiatedPoolsTemp.Insert(i, spellHolderScript.instantiatedPools[i]);
+                        instantiatedPoolsTemp.Insert(i, instantiatedPools[i]);
                     }
                 }
                 instantiatedPoolsTemp.Insert(3, activeLightPool);
@@ -117,8 +166,8 @@ public class BrightSpellTemplate : SpellTemplate
             }
 
 
-            spellHolderScript.instantiatedPools.Clear();
-            spellHolderScript.instantiatedPools.AddRange(instantiatedPoolsTemp);
+            instantiatedPools.Clear();
+            instantiatedPools.AddRange(instantiatedPoolsTemp);
             instantiatedPoolsTemp.Clear();
 
             mouseDistance = Vector2.Distance(heroTransform, mousePos);
@@ -143,8 +192,8 @@ public class BrightSpellTemplate : SpellTemplate
 
             Debug.Log("Pool of light should be at point " + point + ". It reads at " + activeLightPool.transform.position + ".");
 
-            spellHolderScript.globalCastDownTime = globalCastDownTime;
-            spellHolderScript.currentCastDownTime = castDownTime;
+            player.globalCastDownTime = globalCastDownTime;
+            player.currentCastDownTime = castDownTime;
             currentCastDownTime = castDownTime;
 
 

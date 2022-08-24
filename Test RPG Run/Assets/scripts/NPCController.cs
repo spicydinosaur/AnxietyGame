@@ -21,7 +21,7 @@ public class NPCController : MonoBehaviour
     public Transform targetToChase;
     public Image dialogBox;
     public Animator animator;
-    public Vector2 lookDirection = new Vector2(0, -1);
+    public Vector2 lookDirection;
 
     public bool isMoving = false;
     public float pauseTime;
@@ -31,7 +31,7 @@ public class NPCController : MonoBehaviour
 
 
     public Vector2 nextMove;
-    Vector2 velocity;
+    public Vector2 velocity;
 
     public GameManager gameManager;
 
@@ -45,7 +45,13 @@ public class NPCController : MonoBehaviour
         EventBroadcaster.HeroDeath.AddListener(HeroDied);
 
         if (currentMovementType != movementType.Stop)
-        { SetNextLocation(GetComponent<NPCPatrolRoute>().GetNextCoord()); }
+        { 
+            SetNextLocation(GetComponent<NPCPatrolRoute>().GetNextCoord());
+            animator.SetFloat("Speed", 1f);
+            isMoving = true;
+        }
+
+
 
     }
 
@@ -54,10 +60,10 @@ public class NPCController : MonoBehaviour
         EventBroadcaster.HeroDeath.RemoveListener(HeroDied);
     }
 
+
+
     public virtual void FixedUpdate()
     {
-
- 
 
         if (isMoving)
         {
@@ -123,28 +129,6 @@ public class NPCController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (isMoving)
-
-        {
-
-            Vector2 move = new Vector2(horizontal, vertical);
-
-            if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
-            {
-                lookDirection.Set(move.x, move.y);
-                lookDirection.Normalize();
-            }
-
-            animator.SetFloat("Look X", lookDirection.x);
-            animator.SetFloat("Look Y", lookDirection.y);
-            animator.SetFloat("Speed", move.magnitude);
-
-        }
-
-
-    }
 
 
     public virtual void HeroDied()
@@ -158,6 +142,7 @@ public class NPCController : MonoBehaviour
     {
 
         isMoving = false;
+        animator.SetFloat("Speed", 0f);
         currentMovementType = movementType.Death;
         EventBroadcaster.HeroDeath.RemoveListener(HeroDied);
         gameObject.SetActive(false);
@@ -175,6 +160,7 @@ public class NPCController : MonoBehaviour
     {
         
         isMoving = false;
+        animator.SetFloat("Speed", 0f);
         pauseTime = paramPauseTime;
         prevMovementType = currentMovementType;
         currentMovementType = movementType.Pause;
@@ -196,12 +182,12 @@ public class NPCController : MonoBehaviour
         if (currentMovementType == movementType.Stop || currentMovementType == movementType.Pause)
         {
             isMoving = false;
-            animator.SetFloat("Speed", 0);
+            animator.SetFloat("Speed", 0f);
         }
         else if (currentMovementType == movementType.Patrol || currentMovementType == movementType.ToOther)
         {
             isMoving = true;
-            animator.SetFloat("Speed", 1);
+            animator.SetFloat("Speed", 1f);
         }
     }
 
@@ -225,7 +211,8 @@ public class NPCController : MonoBehaviour
     {
 
         isMoving = true;
-      
+        animator.SetFloat("Speed", 1f);
+
     }
 
     public void StopMove()

@@ -10,7 +10,7 @@
                     "type": "Value",
                     "id": "0d4fb714-1068-4979-830c-52226483b7e5",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "NormalizeVector2",
                     "interactions": "Press",
                     "initialStateCheck": true
                 },
@@ -18,15 +18,6 @@
                     "name": "SpellCast",
                     "type": "Value",
                     "id": "cc07bb5f-9b4f-4a2d-b37d-e2b9dae04882",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "SpellCastGamepad",
-                    "type": "Value",
-                    "id": "30c9710f-98d9-4ce5-b8fe-6ae7f7dabbc8",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "Press",
@@ -47,84 +38,11 @@
                     "id": "f796bd89-a1b8-4e37-b174-da804cfa668a",
                     "expectedControlType": "Axis",
                     "processors": "",
-                    "interactions": "Press(pressPoint=1.401298E-45)",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "SpellSelectGamepad",
-                    "type": "Button",
-                    "id": "ebc63f55-f436-4730-bc1e-a218292c2872",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "MousePosition",
-                    "type": "Value",
-                    "id": "40ac495c-3e22-46a7-b302-48e96bcdc1d4",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 }
             ],
             "bindings": [
-                {
-                    "name": "Gamepad",
-                    "id": "b0e99a00-b5ba-4b14-a983-b05b698d0571",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SpellCastGamepad",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "ceb899e3-0afc-4a5b-b092-a83ef9ea6494",
-                    "path": "<Gamepad>/rightStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "SpellCastGamepad",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "c35fb66d-e25b-49af-87f9-3cc9c188f6c6",
-                    "path": "<Gamepad>/rightStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "SpellCastGamepad",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "2ec8f443-e9c3-41e8-adfb-952107da524d",
-                    "path": "<Gamepad>/rightStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "SpellCastGamepad",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "561f5a64-0172-4741-bcf2-1d05483e59bc",
-                    "path": "<Gamepad>/rightStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "SpellCastGamepad",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
                 {
                     "name": "",
                     "id": "248e026d-9e48-431f-ad7f-7f7c7d235594",
@@ -140,17 +58,6 @@
                     "name": "",
                     "id": "aa3b471c-e5c6-4dc0-9fcf-d1092c7cf1b6",
                     "path": "<Keyboard>/enter",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ef998617-b8fa-4e63-9530-5c16db0335fb",
-                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "Keyboard",
@@ -269,61 +176,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Gamepad",
-                    "id": "864209fd-fbaf-4343-b467-246de890c428",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Up",
-                    "id": "f4693370-7e99-435b-b77b-735cdc037c14",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Down",
-                    "id": "22580b65-c908-4cfd-984f-9aa0cd0e90d0",
-                    "path": "<Gamepad>/leftStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Left",
-                    "id": "410e450d-dbd7-4e0b-a499-2dcbb7b9d38c",
-                    "path": "<Gamepad>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Right",
-                    "id": "0cc112b5-d08a-49ef-846a-f181ddb4449a",
-                    "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "b708ffe5-384e-4d21-8bb5-c36075cff1a8",
                     "path": "<Mouse>/rightButton",
@@ -342,39 +194,6 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "SpellSelectMouseScrollWheel",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "99441b51-6880-44e0-a480-276cec7d09d4",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "SpellSelectGamepad",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "88f8354e-0958-479c-a0fb-861f0644bcfd",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "SpellSelectGamepad",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "89cace1d-bacc-49c7-b092-d96715687a25",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

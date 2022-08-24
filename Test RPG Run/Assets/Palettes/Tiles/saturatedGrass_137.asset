@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: saturatedGrass_137
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -2093749834, guid: 83679369ff7956a4aa927ce2ab526bf1, type: 3}
+  m_Sprite: {fileID: -1889819913, guid: 09eaacb6ef136eb4eb3064a3981c9bf0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -33,4 +33,4 @@ MonoBehaviour:
     e33: 1
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
-  m_ColliderType: 0
+  m_ColliderType: 1

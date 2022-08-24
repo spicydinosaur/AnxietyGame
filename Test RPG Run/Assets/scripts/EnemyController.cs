@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class EnemyController : NPCController
 {
 
+    //why are the cave bats refusing to face the correct way!?
+
+
     public int numberOfBlinks = 4;
     public int currentBlink = 0;
 
@@ -14,19 +17,13 @@ public class EnemyController : NPCController
     public float currentTextDisplayTime = 0f;
 
 
-    public Animator deathCloud;
-    public GameObject objectDeathCloud;
     public DropTable dropTable;
-
 
     override public void OnEnable()
     {
         base.OnEnable();
-        deathCloud = deathCloud.GetComponent<Animator>();
-        dropTable = GetComponent<DropTable>();
-        lookDirection = new Vector2(0, 1);
-        gameObject.GetComponent<Animator>().SetFloat("Look Y", lookDirection.y);
-
+        dropTable = gameObject.GetComponent<DropTable>();
+       
 
     }
 
@@ -87,10 +84,20 @@ public class EnemyController : NPCController
 
 
         animator.SetBool("isAttacking", false);
-        objectDeathCloud.transform.position = GetComponent<Transform>().position;
-        deathCloud.SetBool("isDead", true);
+        animator.SetBool("isDead", true);
         dropTable.rollOnTable();
         base.OnDeath();
+
+
+    }
+
+
+    public void DeathCloudDeactivate()
+    {
+
+        gameObject.GetComponent<Animator>().SetBool("isDead", false);
+        gameObject.GetComponent<Animator>().SetBool("isAttacking", false);
+        gameObject.GetComponentInParent<GameObject>().SetActive(false);
 
 
     }
@@ -140,7 +147,7 @@ public class EnemyController : NPCController
         prevMovementType = currentMovementType;
         animator.SetBool("isAttacking", true);
         currentMovementType = movementType.Attacking;
-        targetToChase = collider.GetComponent<Transform>();
+        targetToChase = collider.gameObject.GetComponent<Transform>();
     }
 
     override public void PauseMovement(float paramPauseTime)

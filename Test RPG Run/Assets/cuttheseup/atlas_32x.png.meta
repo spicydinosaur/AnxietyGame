@@ -2349,9 +2349,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 448
+        y: 466
         width: 32
-        height: 64
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -11299,7 +11299,7 @@ TextureImporter:
         width: 32
         height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -11307,6 +11307,27 @@ TextureImporter:
       bones: []
       spriteID: 0cfd192bf2767244499c539798e01b5d
       internalID: 8380577334742268816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atlas_32x_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 32
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b04e1959f304014daa887762d0ac9c7
+      internalID: 5015458456511791949
       vertices: []
       indices: 
       edges: []
@@ -11355,8 +11376,8 @@ TextureImporter:
       atlas_32x_37: -8928612617890780555
       atlas_32x_300: 7788127812213900187
       atlas_32x_374: -6966458733821308108
-      atlas_32x_261: 3517427685496433254
       atlas_32x_115: -2533949880586428794
+      atlas_32x_261: 3517427685496433254
       atlas_32x_90: 252290427448193825
       atlas_32x_192: 1429436314
       atlas_32x_273: 4405264584488310442
@@ -11467,13 +11488,13 @@ TextureImporter:
       atlas_32x_526: -3742594201645677545
       atlas_32x_508: 100544590
       atlas_32x_328: 4029777246560820648
+      atlas_32x_205: 1548891510895257207
+      atlas_32x_523: 1795552701136558456
+      atlas_32x_256: -1921483649907048771
       atlas_32x_146: -1062905450
       atlas_32x_378: -8895196709985158414
-      atlas_32x_468: -723163742
-      atlas_32x_523: 1795552701136558456
       atlas_32x_20: -4938060061955489392
-      atlas_32x_256: -1921483649907048771
-      atlas_32x_205: 1548891510895257207
+      atlas_32x_468: -723163742
       atlas_32x_499: 6780893527800004596
       atlas_32x_463: 7334000820824213607
       atlas_32x_392: -827122212

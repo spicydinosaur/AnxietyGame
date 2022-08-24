@@ -20,21 +20,22 @@ public class TeleportAway : MonoBehaviour
     public void TeleportedSuccessfully()
     {
         hero.SetActive(true);
+        player.lookDirection.Set(0f,-.5f);
         if (gameManager.breakdownComplete)
         {
                         
-            Vector3 pos = new Vector3();
+            Vector3 pos = new Vector3(-64.92f, 95.15f, 0f);
             hero.transform.position = pos;    
 
         }
         else if (gameManager.tutorialComplete)
         {
-            Vector3 pos = new Vector3();
+            Vector3 pos = new Vector3(8.76f, 3.86f, 0f);
             hero.transform.position = pos;
         }
         else
         {
-            Vector3 pos = new Vector3();
+            Vector3 pos = new Vector3(-68.46f, 95.21f, 0f);
             hero.transform.position = pos;
         }
 

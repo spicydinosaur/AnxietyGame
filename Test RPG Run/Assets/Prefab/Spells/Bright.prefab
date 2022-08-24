@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 511332770612862833}
   - component: {fileID: 4286442323269153344}
   - component: {fileID: 8697489384702747217}
+  - component: {fileID: 1416531497}
   m_Layer: 8
   m_Name: Bright
   m_TagString: Attacks
@@ -81,14 +82,11 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   rayCastDistance: 5
-  damageAmount: 1
+  damageAmount: 2
   manaCost: 0.01
-  castDownTime: 2
+  castDownTime: 3
   globalCastDownTime: 3
   currentCastDownTime: 0
-  currentCastDowntimeRounded: 0
-  fizzleSpellCastDownTime: 0
-  fizzleSpellDownTimeMax: 0
   hero: {fileID: 0}
   player: {fileID: 0}
   spellHolder: {fileID: 0}
@@ -97,19 +95,16 @@ MonoBehaviour:
   worldPos: {x: 0, y: 0}
   direction: {x: 0, y: 0}
   heroTransform: {x: 0, y: 0}
-  point: {x: 0, y: 0}
+  point: {x: 0, y: 0, z: 0}
+  rawDirection: {x: 0, y: 0, z: 0}
+  mouseDistance: 0
   fizzleSpellAnim: {fileID: 0}
   fizzleSpell: {fileID: 0}
   spellIconMask: {fileID: 0}
-  poolList: []
-  instantiatedPools: []
+  mainCam: {fileID: 0}
   activeLightPool: {fileID: 0}
-  numberOfPools: 4
-  poolToInstantiateFrom: {fileID: 0}
-  instantiatedLightInProcessing: {fileID: 0}
-  lastPoolInList: {fileID: 0}
-  lightPoolCollision: {fileID: 0}
-  hasPoolBeenDisabled: 1
+  forLoopFoundDisabledPoolToImplement: 0
+  instantiatedPoolsTemp: []
 --- !u!212 &8697489384702747217
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -130,7 +125,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -149,7 +144,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -325706449
-  m_SortingLayer: 8
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 867b5c79e326f8e44b0330fa099767aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -162,3 +157,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1416531497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8554349928205775947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df2002a0f46f96499cad51dcd63174b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

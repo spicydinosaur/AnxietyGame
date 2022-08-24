@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6135818891171398735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6135818891171398734}
+  - component: {fileID: 8014623642859065318}
+  m_Layer: 6
+  m_Name: SpellHolder
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6135818891171398734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6135818891171398735}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8014623642859065318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6135818891171398735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de2e4e6c97652049b2980693086002e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hero: {fileID: 0}
+  failSpell: {fileID: 0}
+  failSpellClip: {fileID: 8300000, guid: 32c06e292751ea84f86071ee4e9fc565, type: 3}
+  currentSpell: {fileID: 4233495517601247468, guid: c06259dd71b29cd40ac9eec8a8787e8d,
+    type: 3}
+  currentSpellTemplate: {fileID: 7292238984166664078, guid: c06259dd71b29cd40ac9eec8a8787e8d,
+    type: 3}
+  addedSpell: {fileID: 0}
+  addedSpellIcon: {fileID: 0}
+  spellIconImage: {fileID: 0}
+  spellIconMask: {fileID: 0}
+  currentSpellIcon: {fileID: 21300000, guid: 96472731858b28e418e5dbfaad1d0f01, type: 3}
+  selectedSpell: 0
+  selectedSpellMax: 3
+  totalSelectedSpellMax: 4
+  listOfSpells:
+  - {fileID: 4233495517601247468, guid: c06259dd71b29cd40ac9eec8a8787e8d, type: 3}
+  - {fileID: 8554349928205775947, guid: 36fdee57da14fae4e9ee9d4e297cc8ef, type: 3}
+  - {fileID: 5753819806328685811, guid: e9deb1ce97a7a3c4fbf7420426e15468, type: 3}
+  - {fileID: 5142224357547054913, guid: c4064913d7fc6e644beac436b60f2088, type: 3}
+  listOfSpellIcons:
+  - {fileID: 21300000, guid: 96472731858b28e418e5dbfaad1d0f01, type: 3}
+  - {fileID: 21300000, guid: 7809664b5a258fe46a06161db78c0585, type: 3}
+  - {fileID: 21300000, guid: 48a03692ff60ceb46b3613c68b786d0d, type: 3}
+  - {fileID: 21300000, guid: 32acac0e348650940b9a43328bd37a0a, type: 3}
+  instantiatedPools: []
+  breatheSpell: {fileID: 4233495517601247468, guid: c06259dd71b29cd40ac9eec8a8787e8d,
+    type: 3}
+  fizzleSpell: {fileID: 6198995046417555928, guid: 0d34a9268076f6a408263f24a6f97c55,
+    type: 3}
+  fizzleSpellAnim: {fileID: 4998179009736638504, guid: 0d34a9268076f6a408263f24a6f97c55,
+    type: 3}
+  globalCastDownTime: 0
+  currentCastDownTime: 0
+  player: {fileID: 0}
+  dialogueBox: {fileID: 2963438706451339403, guid: f98ebf08c4cd3704e829164cb71730d9,
+    type: 3}
+  thoughtBox: {fileID: 7879394633027735624, guid: 0b9ca0a26c4842d4389d8c88e9a0e153,
+    type: 3}
+  mousePosition: {x: 0, y: 0, z: 0}
+  spellSelectMouseScrollWheel: 0
+  numberOfPools: 4
+  poolToInstantiateFrom: {fileID: 1747110498308974326, guid: cdb688e5d1772e846a6031f13066fa92,
+    type: 3}
+  mainCam: {fileID: 3199121378866868697, guid: 271d1680ca25b544d9a984bd5095c2d8, type: 3}
+  gameManager: {fileID: 559081797358586040, guid: dffad1e4e79882944a67f32bb9fbda91,
+    type: 3}

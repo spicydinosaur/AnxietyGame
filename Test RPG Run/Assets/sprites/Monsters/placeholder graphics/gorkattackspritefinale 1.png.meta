@@ -1,0 +1,522 @@
+fileFormatVersion: 2
+guid: 4a0a6f0f4851f4a4b9f33c4a3f0028e2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2647984968474408316
+    second: gorkattackspritefinale_0
+  - first:
+      213: -8443542121439622317
+    second: gorkattackspritefinale_1
+  - first:
+      213: -9199267040879925394
+    second: gorkattackspritefinale_2
+  - first:
+      213: -6220516630659973954
+    second: gorkattackspritefinale_3
+  - first:
+      213: 3254430631614810015
+    second: gorkattackspritefinale_4
+  - first:
+      213: -2428007595685691429
+    second: gorkattackspritefinale_5
+  - first:
+      213: -155040416738857988
+    second: gorkattackspritefinale_6
+  - first:
+      213: -7514707522276224682
+    second: gorkattackspritefinale_7
+  - first:
+      213: -7881189336080463012
+    second: gorkattackspritefinale_8
+  - first:
+      213: 7037541590366696233
+    second: gorkattackspritefinale_9
+  - first:
+      213: 8622354197003859363
+    second: gorkattackspritefinale_10
+  - first:
+      213: 6249141646753564975
+    second: gorkattackspritefinale_11
+  - first:
+      213: -3519347281859924699
+    second: gorkattackspritefinale_12
+  - first:
+      213: -7537918146654078611
+    second: gorkattackspritefinale_13
+  - first:
+      213: 1686911303589520089
+    second: gorkattackspritefinale_14
+  - first:
+      213: 4302581003232141102
+    second: gorkattackspritefinale_15
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gorkattackspritefinale_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 84
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c75bd789c488fb420800000000000000
+      internalID: 2647984968474408316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorkattackspritefinale_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 92
+        width: 13
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35b0b852d2382da80800000000000000
+      internalID: -8443542121439622317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorkattackspritefinale_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 84
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e67a46abd53a55080800000000000000
+      internalID: -9199267040879925394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorkattackspritefinale_3
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 92
+        width: 13
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebc3a1605194ca9a0800000000000000
+      internalID: -6220516630659973954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorkattackspritefinale_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 67
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f970d8faa6f0a2d20800000000000000
+      internalID: 3254430631614810015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorkattackspritefinale_5
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 69
+        width: 24
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdf3433b4fbfd4ed0800000000000000
+      internalID: -2428007595685691429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorkattackspritefinale_6
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 67
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfba37aff8f29ddf0800000000000000
+      internalID: -155040416738857988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorkattackspritefinale_7
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 67
+        width: 22
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65115c7b25566b790800000000000000
+      internalID: -7514707522276224682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorkattackspritefinale_8
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 43
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5bc35f1e0460a290800000000000000
+      internalID: -7881189336080463012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorkattackspritefinale_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 42
+        width: 24
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92338d93ace5aa160800000000000000
+      internalID: 7037541590366696233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorkattackspritefinale_10
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 42
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a573008571c8a770800000000000000
+      internalID: 8622354197003859363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorkattackspritefinale_11
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 44
+        width: 22
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2988d5e73969b650800000000000000
+      internalID: 6249141646753564975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorkattackspritefinale_12
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 11
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52da08f1b44c82fc0800000000000000
+      internalID: -3519347281859924699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorkattackspritefinale_13
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 2
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6976ba126fe36790800000000000000
+      internalID: -7537918146654078611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorkattackspritefinale_14
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 11
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d26b0a94ec196710800000000000000
+      internalID: 1686911303589520089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gorkattackspritefinale_15
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 3
+        width: 13
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2fdefa50a6d5bb30800000000000000
+      internalID: 4302581003232141102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      gorkattackspritefinale_1: -8443542121439622317
+      gorkattackspritefinale_11: 6249141646753564975
+      gorkattackspritefinale_14: 1686911303589520089
+      gorkattackspritefinale_8: -7881189336080463012
+      gorkattackspritefinale_15: 4302581003232141102
+      gorkattackspritefinale_2: -9199267040879925394
+      gorkattackspritefinale_3: -6220516630659973954
+      gorkattackspritefinale_10: 8622354197003859363
+      gorkattackspritefinale_0: 2647984968474408316
+      gorkattackspritefinale_12: -3519347281859924699
+      gorkattackspritefinale_4: 3254430631614810015
+      gorkattackspritefinale_13: -7537918146654078611
+      gorkattackspritefinale_6: -155040416738857988
+      gorkattackspritefinale_9: 7037541590366696233
+      gorkattackspritefinale_5: -2428007595685691429
+      gorkattackspritefinale_7: -7514707522276224682
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
