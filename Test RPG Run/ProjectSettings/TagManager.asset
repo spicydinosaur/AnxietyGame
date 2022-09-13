@@ -21,6 +21,7 @@ TagManager:
   - effects
   - PlayerSorting
   - interactable object
+  - boundary box
   layers:
   - Default
   - TransparentFX
@@ -37,7 +38,7 @@ TagManager:
   - HUD
   - TextOverHUD
   - HUDButtons
-  - 
+  - Boundary Box
   - 
   - 
   - 

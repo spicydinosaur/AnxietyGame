@@ -1,5 +1,122 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1152129882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1152129883}
+  - component: {fileID: 1152129884}
+  - component: {fileID: 1152129885}
+  - component: {fileID: 1152129886}
+  m_Layer: 2
+  m_Name: EastPillar Tutorial ObjectInteraction Holder
+  m_TagString: Misc Colliders
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1152129883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152129882}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.10307, y: -0.76781, z: 0}
+  m_LocalScale: {x: 1.57574, y: 1.57574, z: 1.57574}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1782362466574892793}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1152129884
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152129882}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.039907455, y: -0.3483858}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0
+--- !u!114 &1152129885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152129882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ebe2e93fe4c6149add34c00fbecddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroScript: {fileID: 0}
+  heroAnim: {fileID: 0}
+  objectBC: {fileID: 1152129884}
+  moveIncrementVector: {x: 0, y: 0, z: 0}
+  previousObjectLocation: {x: 0, y: 0, z: 0}
+  moveIncrementVectorFloat: 1
+  objectMoveObstructed: 0
+  isInBoundary: 0
+  stepsOnInteract: 30
+  countingSteps: 1
+  waitForSecondsCooroutine: 0.025
+  northMoveCollider: {fileID: 1782362467228208836}
+  southMoveCollider: {fileID: 1782362465404058514}
+  eastMoveCollider: {fileID: 1782362465252112254}
+  westMoveCollider: {fileID: 1782362466530589134}
+  colliderDirection: 4
+  playerTouchingObject: 0
+  puzzleComplete: 0
+  canMove: 0
+  direction: {x: 0, y: 0}
+  size: {x: 0.5, y: 0.5}
+  boxCastMovement: {x: 0, y: 0, z: 0}
+  specialObject: {fileID: 1782362466574892792}
+  boxDistance: 1
+--- !u!50 &1152129886
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152129882}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1782362465252112254
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,9 +128,9 @@ GameObject:
   - component: {fileID: 1782362465252112255}
   - component: {fileID: 1782362465252112252}
   - component: {fileID: 8624469031671762873}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: ColliderEast
-  m_TagString: interactable object
+  m_TagString: Misc Colliders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782362465252112254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.071, y: 0, z: 0}
+  m_LocalPosition: {x: 0.142, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46,7 +163,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.27329254, y: -0.35152435}
+  m_Offset: {x: 0.18555832, y: -0.34734344}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -57,7 +174,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.06261444, y: 0.5967407}
+  m_Size: {x: 0.04197693, y: 0.22395325}
   m_EdgeRadius: 0
 --- !u!114 &8624469031671762873
 MonoBehaviour:
@@ -71,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d1ebdf1b7f3344883dd133f617f4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectInteraction: {fileID: 7988064463669446406}
+  objectInteraction: {fileID: 1152129885}
   colliderDirection: 2
 --- !u!1 &1782362465404058514
 GameObject:
@@ -84,9 +201,9 @@ GameObject:
   - component: {fileID: 1782362465404058515}
   - component: {fileID: 1782362465404058512}
   - component: {fileID: 3412783338608391862}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: ColliderSouth
-  m_TagString: interactable object
+  m_TagString: Misc Colliders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,7 +236,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.059453964, y: -0.6498833}
+  m_Offset: {x: -0.034814835, y: -0.5990124}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -130,7 +247,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.62122726, y: 0.057266235}
+  m_Size: {x: 0.29481888, y: 0.051475525}
   m_EdgeRadius: 0
 --- !u!114 &3412783338608391862
 MonoBehaviour:
@@ -144,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d1ebdf1b7f3344883dd133f617f4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectInteraction: {fileID: 7988064463669446406}
+  objectInteraction: {fileID: 1152129885}
   colliderDirection: 1
 --- !u!1 &1782362466064275504
 GameObject:
@@ -156,9 +273,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1782362466064275505}
   - component: {fileID: 1782362466064275511}
-  m_Layer: 11
+  - component: {fileID: 1401905735}
+  m_Layer: 2
   m_Name: Movement Colliders
-  m_TagString: Untagged
+  m_TagString: Misc Colliders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,7 +313,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.059444427, y: -0.34187222}
+  m_Offset: {x: -0.039907455, y: -0.3483858}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -206,8 +324,26 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.88334656, y: 0.8380909}
+  m_Size: {x: 0.74007034, y: 0.6687641}
   m_EdgeRadius: 0
+--- !u!114 &1401905735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782362466064275504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 630811a37adde7c4bb08a38838e37818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroScript: {fileID: 0}
+  northMoveCollider: {fileID: 1782362467228208836}
+  southMoveCollider: {fileID: 1782362465404058514}
+  eastMoveCollider: {fileID: 1782362465252112254}
+  westMoveCollider: {fileID: 1782362466530589134}
+  objectInteraction: {fileID: 1152129885}
 --- !u!1 &1782362466530589134
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,9 +355,9 @@ GameObject:
   - component: {fileID: 1782362466530589135}
   - component: {fileID: 1782362466530589132}
   - component: {fileID: 1950946545916958750}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: ColliderWest
-  m_TagString: interactable object
+  m_TagString: Misc Colliders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,7 +370,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782362466530589134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.053, y: 0, z: 0}
+  m_LocalPosition: {x: -0.096, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -254,7 +390,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.41223526, y: -0.36303043}
+  m_Offset: {x: -0.3141861, y: -0.33027434}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -265,7 +401,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.06136322, y: 0.60915947}
+  m_Size: {x: 0.036712646, y: 0.23522902}
   m_EdgeRadius: 0
 --- !u!114 &1950946545916958750
 MonoBehaviour:
@@ -279,7 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d1ebdf1b7f3344883dd133f617f4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectInteraction: {fileID: 7988064463669446406}
+  objectInteraction: {fileID: 1152129885}
   colliderDirection: 3
 --- !u!1 &1782362466574892792
 GameObject:
@@ -293,14 +429,12 @@ GameObject:
   - component: {fileID: 1782362466574892799}
   - component: {fileID: 1782362466574892798}
   - component: {fileID: 1782362466574892796}
-  - component: {fileID: 1782362466574892797}
   - component: {fileID: 7324999928970462001}
-  - component: {fileID: 7988064463669446406}
   - component: {fileID: 9014967958236096956}
   - component: {fileID: 9014967958236096963}
   m_Layer: 11
   m_Name: EastPillar - Puzzle Two Tutorial Dungeon
-  m_TagString: interactable object
+  m_TagString: Scenery
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -320,6 +454,7 @@ Transform:
   - {fileID: 1782362466783578762}
   - {fileID: 1782362466064275505}
   - {fileID: 4741242548467518619}
+  - {fileID: 1152129883}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -388,7 +523,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010719299, y: -1.3100471}
+  m_Offset: {x: 0.007434845, y: -1.1241398}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -399,7 +534,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7680664, y: 1.6694946}
+  m_Size: {x: 1.2374802, y: 1.6239815}
   m_EdgeRadius: 0
 --- !u!114 &1782362466574892796
 MonoBehaviour:
@@ -479,27 +614,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!50 &1782362466574892797
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1782362466574892792}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 1
-  m_Mass: 1.4788616
-  m_LinearDrag: 25
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
 --- !u!114 &7324999928970462001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,46 +626,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32115b8bbac22e4d9872ca03ff603e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7988064463669446406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1782362466574892792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46ebe2e93fe4c6149add34c00fbecddf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interact:
-    m_Name: Interact
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 1e85f8f2-f8d9-47be-b8b7-375d68168d6f
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  heroScript: {fileID: 0}
-  heroAnim: {fileID: 0}
-  objectRB: {fileID: 1782362466574892797}
-  moveObjectPossible: 0
-  moveIncrementVector: {x: 0, y: 0, z: 0}
-  previousObjectLocation: {x: 0, y: 0, z: 0}
-  moveIncrementVectorFloat: 0
-  objectMoveObstructed: 0
-  stepsOnInteract: 0
-  countingSteps: 0
-  waitForSecondsCooroutine: 0
-  northMoveCollider: {fileID: 1782362467228208836}
-  southMoveCollider: {fileID: 1782362465404058514}
-  eastMoveCollider: {fileID: 1782362465252112254}
-  westMoveCollider: {fileID: 1782362466530589134}
-  colliderDirection: 4
-  playerTouchingObject: 0
-  puzzleComplete: 0
-  objectReturnLocation: {x: 0, y: 0, z: 0}
 --- !u!114 &9014967958236096956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,9 +712,9 @@ GameObject:
   - component: {fileID: 1782362467228208837}
   - component: {fileID: 1782362467228208858}
   - component: {fileID: 2757909352719557704}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: ColliderNorth
-  m_TagString: interactable object
+  m_TagString: Misc Colliders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -673,7 +747,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05687332, y: -0.019330978}
+  m_Offset: {x: -0.049259186, y: -0.068766594}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -684,7 +758,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6232681, y: 0.0785408}
+  m_Size: {x: 0.2702942, y: 0.056512833}
   m_EdgeRadius: 0
 --- !u!114 &2757909352719557704
 MonoBehaviour:
@@ -698,7 +772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d1ebdf1b7f3344883dd133f617f4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectInteraction: {fileID: 7988064463669446406}
+  objectInteraction: {fileID: 1152129885}
   colliderDirection: 0
 --- !u!1001 &1782362465537284344
 PrefabInstance:

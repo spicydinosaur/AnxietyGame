@@ -79,9 +79,9 @@ public class Player : MonoBehaviour
 
     public float globalCastDownTime;
     public float currentCastDownTime;
-    //spells are double casting, (leading to the failSpell beep on every cast.) The below should stop that from happening.
-    public bool waitForSpellCheck;
-
+    
+    //spells and interactions are double casting, (leading to the failSpell beep on every cast.) The below should stop that from happening.
+    public int waitForSpellCheck;
 
     public GameObject dialogueBox;
     public GameObject thoughtBox;
@@ -120,8 +120,9 @@ public class Player : MonoBehaviour
         audioSource = gameObject.GetComponent<AudioSource>();
 
         move = playerControls.PlayerActions.Movement;
-        playerControls.PlayerActions.SpellSelectMouseScrollWheel.performed += ctx1 => spellSelectMouseScrollWheel = ctx1.ReadValue<float>();
-        playerControls.PlayerActions.SpellCast.performed += ctx2 => PrepCastSpell();
+        playerControls.PlayerActions.SpellSelectMouseScrollWheel.performed += ctx => spellSelectMouseScrollWheel = ctx.ReadValue<float>();
+        playerControls.PlayerActions.SpellCast.performed += OnSpellCast;
+        playerControls.PlayerActions.Interact.performed += OnInteract;
         //move.performed += ctx3 => movement = ctx3.ReadValue<float>();
 
         currentHealth = maxHealth;
@@ -147,9 +148,9 @@ public class Player : MonoBehaviour
 
         currentCastDownTime = 0f;
         globalCastDownTime = 0f;
-        waitForSpellCheck = false;
+        waitForSpellCheck = 0;
         spellIconMask.fillAmount = 0f;
-        playerControls.PlayerActions.Interact.performed += InteractionCall;
+
 
     }
 
@@ -278,16 +279,20 @@ public class Player : MonoBehaviour
 
     }
 
-    public void PrepCastSpell()
+    public void OnSpellCast( InputAction.CallbackContext context )
     {
 
         if (thoughtBox.activeSelf == false && dialogueBox.activeSelf == false)
         {
 
-            if (waitForSpellCheck)
+            if (waitForSpellCheck < 2)
             {
-                waitForSpellCheck = false;
+                waitForSpellCheck++;
                 return;
+            }
+            else
+            {
+                waitForSpellCheck = 0;
             }
 
             if (selectedSpell == 0)
@@ -332,15 +337,24 @@ public class Player : MonoBehaviour
 
             }
 
-            waitForSpellCheck = true;   
-
         }
 
     }
 
-    public void InteractionCall(InputAction.CallbackContext ctx)
+    public void OnInteract(InputAction.CallbackContext context)
     {
-        playerControls.PlayerActions.Interact.performed += objectInteraction.InteractWithObject;
+        Debug.Log("OnInteract fired from Player script.");
+
+            if (objectInteraction != null)
+            {
+
+
+                Debug.Log("objectInteraction is set to " + objectInteraction);
+                objectInteraction.InteractWithObject();
+                //Debug.Log("callback context is " + ctx);
+            
+            }
+
     }
 
     public void PlayerHealth(float amount)

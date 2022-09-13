@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.Mathematics;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -11,15 +14,16 @@ public class ObjectInteraction : MonoBehaviour
     public Player heroScript;
     public Animator heroAnim;
 
-    public Rigidbody2D objectRB;
+    public BoxCollider2D objectBC;
     //public bool moveObjectPossible;
-   
-      
+
+
     public Vector3 moveIncrementVector;
     public Vector3 previousObjectLocation;
     public float moveIncrementVectorFloat;
 
     public bool objectMoveObstructed;
+    public bool isInBoundary;
     public float stepsOnInteract;
     public float countingSteps;
     public float waitForSecondsCooroutine;
@@ -37,6 +41,15 @@ public class ObjectInteraction : MonoBehaviour
 
     public bool puzzleComplete;
 
+    public bool canMove;
+
+    public Vector2 direction;
+    public Vector2 size;
+    public Vector3 boxCastMovement;
+
+    public GameObject specialObject;
+    public float boxDistance;
+
 
     // calculate if player is facing object or not
 
@@ -44,24 +57,29 @@ public class ObjectInteraction : MonoBehaviour
 
     public void Start()
     {
- 
+
         objectMoveObstructed = false;
-        objectMoveObstructed = false;
+        playerTouchingObject = false;
+        canMove = false;
+
 
         previousObjectLocation = gameObject.transform.position;
 
-        countingSteps = 0;
+        countingSteps = 1;
 
 
-        objectRB = GetComponent<Rigidbody2D>();
+        objectBC = GetComponent<BoxCollider2D>();
         colliderDirection = ObjectInteraction.ColliderDirection.inactive;
+
 
     }
 
 
-    public void InteractWithObject(InputAction.CallbackContext ctx)
+    public void InteractWithObject()
     {
-
+        isInBoundary = false;
+        objectMoveObstructed = false;
+        canMove = false;
         Debug.Log("InteractWithObject() function activated");
         if (playerTouchingObject && !puzzleComplete)
         {
@@ -69,34 +87,59 @@ public class ObjectInteraction : MonoBehaviour
             if (colliderDirection == ObjectInteraction.ColliderDirection.north)
             {
                 //object can move south
-                moveIncrementVector = new Vector3(0, -moveIncrementVectorFloat, 0f);
+                moveIncrementVector = new Vector3(0, -moveIncrementVectorFloat);
+                direction = Vector2.down;
+
             }
             else if (colliderDirection == ObjectInteraction.ColliderDirection.south)
             {
                 //object can move north
-                moveIncrementVector = new Vector3(0, moveIncrementVectorFloat, 0f);
+                moveIncrementVector = new Vector3(0, moveIncrementVectorFloat);
+                direction = Vector2.up;
             }
             else if (colliderDirection == ObjectInteraction.ColliderDirection.east)
             {
                 //object can move east
-                moveIncrementVector = new Vector3(-moveIncrementVectorFloat, 0, 0f);
+                moveIncrementVector = new Vector3(-moveIncrementVectorFloat, 0);
+                direction = Vector2.left;
             }
             else if (colliderDirection == ObjectInteraction.ColliderDirection.west)
             {
                 //object can move west
-                moveIncrementVector = new Vector3(moveIncrementVectorFloat, 0, 0f);
+                moveIncrementVector = new Vector3(moveIncrementVectorFloat, 0);
+                direction = Vector2.right;
             }
 
-            previousObjectLocation = gameObject.transform.position;
-            gameObject.transform.position = gameObject.transform.position + moveIncrementVector;
-            Debug.Log("InteractWithObject() test move activated " + objectRB.transform.position + " prev move location " +previousObjectLocation);
-            gameObject.transform.position = previousObjectLocation;
-            if (!objectMoveObstructed)
+            var size = objectBC.size;
+            int layerMask = LayerMask.GetMask("Enemy", "Boundary Box");
+            RaycastHit2D[] boxCast = Physics2D.BoxCastAll(gameObject.transform.position + moveIncrementVector, size, 0f, direction, .001f, layerMask);
+            for (int i = 0; i < boxCast.Length; i++)
             {
-                countingSteps = 0;
+                Debug.Log("colliding object " + boxCast[i].collider.gameObject.name);
+                if (boxCast[i].collider.gameObject.tag == "boundary box")
+                {
+                    isInBoundary = true;
+                    continue;
+                }
+                else
+                {
+                    objectMoveObstructed = true;
+                    break;
+                }
+            }
+
+            if (!objectMoveObstructed && isInBoundary && !puzzleComplete)
+            {
+                canMove = true;
+            }
+
+
+            if (canMove)
+            {
+                countingSteps = 1;
                 StartCoroutine("objectMove");
-                Debug.Log("pathway for object NOT +obstructed.");
-                
+                Debug.Log("pathway for object NOT obstructed.");
+
 
             }
             else
@@ -106,77 +149,34 @@ public class ObjectInteraction : MonoBehaviour
             }
         }
     }
-    
+
 
     public IEnumerator objectMove()
     {
         Debug.Log("objectMove coroutine activated");
-        if (countingSteps < stepsOnInteract)
+        while (countingSteps <= stepsOnInteract)
         {
+            if (countingSteps == stepsOnInteract)
+            {
+                StopCoroutine("objectMove");
+                countingSteps = 0;
+                Debug.Log("coroutine stopped");
+            }
+            Debug.Log("countingSteps = " + countingSteps + " and stepsOnInteract = " + stepsOnInteract);
 
             //is this right? I want x or y to be .5f or -.5f
-            heroAnim.SetFloat("Look X", Mathf.Clamp01(moveIncrementVector.x));
-            heroAnim.SetFloat("Look Y", Mathf.Clamp01(moveIncrementVector.y));
-            gameObject.transform.position = gameObject.transform.position + (moveIncrementVector/stepsOnInteract);
+            //heroAnim.SetFloat("Look X", Mathf.Clamp01(moveIncrementVector.x));
+            //heroAnim.SetFloat("Look Y", Mathf.Clamp01(moveIncrementVector.y));
+            specialObject.transform.position = specialObject.transform.position + (moveIncrementVector / stepsOnInteract);
             countingSteps++;
-
-            
+            Debug.Log("after addition countingSteps = " + countingSteps);
 
             yield return new WaitForSeconds(waitForSecondsCooroutine);
 
-        }
-        else
-        {
-            StopCoroutine("objectMove");
-            countingSteps = 0;
-            Debug.Log("coroutine stopped");
-        }
-
-    }
-
-    private void OnCollisionEnter2D(Collision2D collider)
-    {
-        if (collider.gameObject.CompareTag("Player"))
-        {
-            heroScript.objectInteraction = gameObject.GetComponent<ObjectInteraction>();
-
-            northMoveCollider.SetActive(true);
-            southMoveCollider.SetActive(true);
-            eastMoveCollider.SetActive(true);
-            westMoveCollider.SetActive(true);
 
 
-        }
-
-        else if (!collider.gameObject.GetComponent<Collider2D>().isTrigger || !collider.gameObject.CompareTag("interactable object") || !collider.gameObject.CompareTag("Scenery"))
-        {
-            objectMoveObstructed = true;
-        }
-
-    }
-
-
-    
-    private void OnCollisionExit2D(Collision2D collider)
-    {
-
-        if (collider.gameObject.CompareTag("Player"))
-        {
-
-            heroScript.objectInteraction = null;
-
-            //this is redundant with ObjectInteractionMiniColliders but hey, you never know if it will be needed and it doesn't hurt anything.
-            colliderDirection = ObjectInteraction.ColliderDirection.inactive;
-
-            northMoveCollider.SetActive(false);
-            southMoveCollider.SetActive(false);
-            eastMoveCollider.SetActive(false);
-            westMoveCollider.SetActive(false);
-        }
-        else if (!collider.gameObject.GetComponent<Collider2D>().isTrigger || !collider.gameObject.CompareTag("interactable object") || !collider.gameObject.CompareTag("Scenery"))
-        {
-            objectMoveObstructed = false;
         }
     }
-
 }
+
+

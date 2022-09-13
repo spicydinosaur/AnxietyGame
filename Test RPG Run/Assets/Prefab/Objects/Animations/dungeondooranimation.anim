@@ -20,20 +20,20 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 1562046434, guid: 79475b2fc873dc74fbf3e3c07a945069, type: 3}
-    - time: 0.33333334
-      value: {fileID: -131971392, guid: 79475b2fc873dc74fbf3e3c07a945069, type: 3}
-    - time: 0.6666667
-      value: {fileID: 1867999913, guid: 79475b2fc873dc74fbf3e3c07a945069, type: 3}
-    - time: 1
-      value: {fileID: -1441651181, guid: 79475b2fc873dc74fbf3e3c07a945069, type: 3}
-    - time: 1.3333334
-      value: {fileID: 1470743453, guid: 79475b2fc873dc74fbf3e3c07a945069, type: 3}
+      value: {fileID: 2081301920, guid: 70ad3322bd02f7742ac54ecaa308a938, type: 3}
+    - time: 0.2
+      value: {fileID: 1194934905, guid: 70ad3322bd02f7742ac54ecaa308a938, type: 3}
+    - time: 0.4
+      value: {fileID: 744378069, guid: 70ad3322bd02f7742ac54ecaa308a938, type: 3}
+    - time: 0.6
+      value: {fileID: -1545657522, guid: 70ad3322bd02f7742ac54ecaa308a938, type: 3}
+    - time: 0.8
+      value: {fileID: 841450332, guid: 70ad3322bd02f7742ac54ecaa308a938, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 15
+  m_SampleRate: 25
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -48,17 +48,17 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 1562046434, guid: 79475b2fc873dc74fbf3e3c07a945069, type: 3}
-    - {fileID: -131971392, guid: 79475b2fc873dc74fbf3e3c07a945069, type: 3}
-    - {fileID: 1867999913, guid: 79475b2fc873dc74fbf3e3c07a945069, type: 3}
-    - {fileID: -1441651181, guid: 79475b2fc873dc74fbf3e3c07a945069, type: 3}
-    - {fileID: 1470743453, guid: 79475b2fc873dc74fbf3e3c07a945069, type: 3}
+    - {fileID: 2081301920, guid: 70ad3322bd02f7742ac54ecaa308a938, type: 3}
+    - {fileID: 1194934905, guid: 70ad3322bd02f7742ac54ecaa308a938, type: 3}
+    - {fileID: 744378069, guid: 70ad3322bd02f7742ac54ecaa308a938, type: 3}
+    - {fileID: -1545657522, guid: 70ad3322bd02f7742ac54ecaa308a938, type: 3}
+    - {fileID: 841450332, guid: 70ad3322bd02f7742ac54ecaa308a938, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.4000001
+    m_StopTime: 0.84000003
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -78,7 +78,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1.3333334
+  - time: 0.8
     functionName: PathClearedToRoomThree
     data: 
     objectReferenceParameter: {fileID: 0}
