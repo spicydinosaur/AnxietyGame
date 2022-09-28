@@ -269,10 +269,10 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 0.54747546
-  m_LinearDrag: 25
-  m_AngularDrag: 0.05
+  m_UseAutoMass: 0
+  m_Mass: 1000
+  m_LinearDrag: 500
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -332,7 +332,7 @@ MonoBehaviour:
   targetToChase: {fileID: 0}
   dialogBox: {fileID: 0}
   animator: {fileID: 692744376871328200}
-  lookDirection: {x: 0, y: -1}
+  lookDirection: {x: 0, y: 1}
   isMoving: 0
   pauseTime: 0
   delayTime: 0
@@ -348,8 +348,8 @@ MonoBehaviour:
   currentTextDisplayTime: 0
   dropTable: {fileID: 128783546463296852}
   textMeshProUGUI: {fileID: 2318243250183996527}
+  secondsPerHalfBlink: 0
   route: {fileID: 692744376871328202}
-  newPatrolLoc: []
 --- !u!114 &692744376871328202
 MonoBehaviour:
   m_ObjectHideFlags: 0

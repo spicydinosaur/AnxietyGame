@@ -10,12 +10,13 @@ public class lightPoolCollision : MonoBehaviour
 
 
 
+
     public void OnTriggerExit2D(Collider2D collider)
     {
 
         if (collider.gameObject.CompareTag("Player"))
         {
-             gameObject.SetActive(false);
+             gameObject.GetComponentInParent<Light2D>().enabled = false;
         }
 
     }
