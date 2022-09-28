@@ -7,20 +7,16 @@ public class LPMonsterSummonStone : LightPillars
 {
     public GameObject summonedSlime;
     public RaycastHit2D checkForPlayer;
+    public EnemyController enemyController;
+
 
 
     public override void HitByBright()
     {
         gameObject.GetComponent<Light2D>().enabled = true;
-        if (gameObject.GetComponent<PuzzleKey>().isActiveAndEnabled)
-        {
-            GetComponent<PuzzleKey>().ChangeLockState(PuzzleKey.LockCheck.unlocked);
-
-        }
-
         summonedSlime.SetActive(true);
 
-        int layerMask = LayerMask.GetMask("Player");
+        /*int layerMask = LayerMask.GetMask("Player");
 
         checkForPlayer = Physics2D.Raycast(summonedSlime.transform.position, Vector3.right, 5f, layerMask);
         if (checkForPlayer.collider != null)
@@ -53,7 +49,7 @@ public class LPMonsterSummonStone : LightPillars
             summonedSlime.GetComponent<Animator>().SetFloat("Look Y", -.5f);
             return;
         }
-
+        */
     }
 
 }

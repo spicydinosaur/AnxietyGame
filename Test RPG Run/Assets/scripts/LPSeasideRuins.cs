@@ -17,5 +17,4 @@ public class LPSeasideRuins : LightPillars
         gameObject.GetComponent<Collider2D>().enabled = false;
     }
 
-
-}
+  }

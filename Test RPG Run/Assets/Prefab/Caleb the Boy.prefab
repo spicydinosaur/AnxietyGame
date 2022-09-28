@@ -305,7 +305,9 @@ MonoBehaviour:
   prevMovementType: 0
   startingMovementType: 1
   nextMove: {x: 0, y: 0}
+  velocity: {x: 0, y: 0}
   gameManager: {fileID: 0}
+  hero: {fileID: 0}
 --- !u!114 &3773873779461980636
 MonoBehaviour:
   m_ObjectHideFlags: 0

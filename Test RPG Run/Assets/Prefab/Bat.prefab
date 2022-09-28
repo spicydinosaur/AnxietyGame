@@ -177,7 +177,8 @@ GameObject:
   - component: {fileID: 692744376871328202}
   - component: {fileID: 692744376871328206}
   - component: {fileID: 692744376871328195}
-  m_Layer: 9
+  - component: {fileID: 128783546463296852}
+  m_Layer: 7
   m_Name: Bat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -338,15 +339,17 @@ MonoBehaviour:
   prevMovementType: 0
   startingMovementType: 0
   nextMove: {x: 0, y: 0}
-  gameManager: {fileID: 559081797358586040, guid: dffad1e4e79882944a67f32bb9fbda91,
-    type: 3}
+  velocity: {x: 0, y: 0}
+  gameManager: {fileID: 0}
+  hero: {fileID: 0}
   numberOfBlinks: 4
   currentBlink: 0
   textDisplayTime: 0
   currentTextDisplayTime: 0
-  deathCloud: {fileID: 0}
-  objectDeathCloud: {fileID: 0}
-  dropTable: {fileID: 0}
+  dropTable: {fileID: 128783546463296852}
+  textMeshProUGUI: {fileID: 2318243250183996527}
+  route: {fileID: 692744376871328202}
+  newPatrolLoc: []
 --- !u!114 &692744376871328202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,6 +402,21 @@ MonoBehaviour:
   damageBlinkTime: 0
   maxDamageBlinkTime: 0.5
   NPCColor: {r: 1, g: 1, b: 1, a: 0}
+--- !u!114 &128783546463296852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692744376871328244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c70c9b1cc4ff0d445a6a62d9f1081d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsInDropTable: []
+  itemDropChance: []
+  randomDropResult: 0
 --- !u!1 &692744377025518103
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1b316425645ce429c6b099fa63e1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
+  controller: {fileID: 692744376871328194}
 --- !u!114 &692744377614762706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,8 +648,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a6cbb0b4ae4ef543b3767b68c802d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  tombstone: {fileID: 0}
+  controller: {fileID: 692744376871328194}
+  portalAnimation: {fileID: 0}
 --- !u!222 &2439118657969996074
 CanvasRenderer:
   m_ObjectHideFlags: 0

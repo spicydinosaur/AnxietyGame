@@ -18,7 +18,7 @@ public class NPCController : MonoBehaviour
     public movementType currentMovementType;
     public bool isChasing = false;
     public bool canSeeTarget = false;
-    public Transform targetToChase;
+    public GameObject targetToChase;
     public Image dialogBox;
     public Animator animator;
     public Vector2 lookDirection;
@@ -34,6 +34,8 @@ public class NPCController : MonoBehaviour
     public Vector2 velocity;
 
     public GameManager gameManager;
+
+    public GameObject hero;
 
 
     // Start is called before the first frame update
@@ -77,6 +79,8 @@ public class NPCController : MonoBehaviour
             velocity.Normalize();
             position.x = position.x + speed * velocity.x * Time.deltaTime;
             position.y = position.y + speed * velocity.y * Time.deltaTime;
+            animator.SetFloat("Look X", velocity.x);
+            animator.SetFloat("Look Y", velocity.y);
 
             rigidbody2d.MovePosition(position);
 
@@ -93,9 +97,15 @@ public class NPCController : MonoBehaviour
 
             else if (currentMovementType == movementType.ToOther)
             {
-
-                SetNextLocation(new Vector2(targetToChase.position.x, targetToChase.position.y));
-
+                if (targetToChase != null)
+                {
+                    SetNextLocation(new Vector2(targetToChase.transform.position.x, targetToChase.transform.position.y));
+                }
+                else
+                {
+                    currentMovementType = prevMovementType;
+                    SetMovingState();
+                }
             }
 
             else if (currentMovementType == movementType.Stop)

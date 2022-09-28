@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3154761126302360373}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.59, y: -1.57, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.8333334}
   m_ConstrainProportionsScale: 1
@@ -172,7 +172,9 @@ MonoBehaviour:
   prevMovementType: 0
   startingMovementType: 0
   nextMove: {x: 0, y: 0}
+  velocity: {x: 0, y: 0}
   gameManager: {fileID: 0}
+  hero: {fileID: 0}
 --- !u!1001 &2609349030625698347
 PrefabInstance:
   m_ObjectHideFlags: 0

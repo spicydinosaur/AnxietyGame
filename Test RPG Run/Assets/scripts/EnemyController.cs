@@ -10,21 +10,31 @@ public class EnemyController : NPCController
     //why are the cave bats refusing to face the correct way!?
 
 
-    public int numberOfBlinks = 4;
-    public int currentBlink = 0;
+    public float numberOfBlinks;
+    public float currentBlink;
 
     public float textDisplayTime;
-    public float currentTextDisplayTime = 0f;
+    public float currentTextDisplayTime;
 
 
     public DropTable dropTable;
 
+    public TextMeshProUGUI textMeshProUGUI;
+    public float secondsPerHalfBlink;
+
+    public NPCPatrolRoute route;
+
+
+
+    //onenable should have stuff set up to let the slime know where the player is and head that way.
     override public void OnEnable()
     {
         base.OnEnable();
-        dropTable = gameObject.GetComponent<DropTable>();
-       
-
+        dropTable = GetComponent<DropTable>();
+        textMeshProUGUI.enabled = false;
+        currentTextDisplayTime = 0f;
+        numberOfBlinks = 4;
+        currentBlink = 0;
     }
 
     // Update is called once per frame
@@ -34,31 +44,31 @@ public class EnemyController : NPCController
         {
 
             currentTextDisplayTime += Time.deltaTime;
-            if (dialogBox.enabled == false
+            /*if (textMeshProUGUI == false
                 &&
                 currentTextDisplayTime <= (currentBlink + .5f) * textDisplayTime / numberOfBlinks
                 &&
                 currentTextDisplayTime >= (currentBlink) * textDisplayTime / numberOfBlinks)
             {
-                dialogBox.enabled = true;
+                textMeshProUGUI.enabled = true;
             }
-            else if (dialogBox.enabled == true
+            else if (textMeshProUGUI.enabled == true
                 &&
                 currentTextDisplayTime >= (currentBlink + 0.5f) * textDisplayTime / numberOfBlinks
                 &&
                 currentTextDisplayTime <= (currentBlink + 1f) * textDisplayTime / numberOfBlinks)
             {
-                dialogBox.enabled = false;
+                textMeshProUGUI.enabled = false;
                 currentBlink++;
-            }
+            }*/
 
             if (currentTextDisplayTime >= textDisplayTime)
             {
                 textDisplayTime = 0f;
                 currentTextDisplayTime = 0f;
                 currentBlink = 0;
-                dialogBox.enabled = false;
-                dialogBox.GetComponent<TextMeshProUGUI>().SetText("");
+                textMeshProUGUI.enabled = false;
+                textMeshProUGUI.SetText("");
             }
 
         }
@@ -67,17 +77,6 @@ public class EnemyController : NPCController
 
     }
 
-    public override void HeroDied()
-    {
-
-        Debug.Log("HeroDied triggered for: " + name);
-        base.HeroDied();
-        animator.SetBool("isAttacking", false);
-        targetToChase = null;
-        isChasing = false;
-
-
-    }
 
     public override void OnDeath()
     {
@@ -95,9 +94,9 @@ public class EnemyController : NPCController
     public void DeathCloudDeactivate()
     {
 
-        gameObject.GetComponent<Animator>().SetBool("isDead", false);
-        gameObject.GetComponent<Animator>().SetBool("isAttacking", false);
-        gameObject.GetComponentInParent<GameObject>().SetActive(false);
+        GetComponent<Animator>().SetBool("isDead", false);
+        GetComponent<Animator>().SetBool("isAttacking", false);
+        GetComponentInParent<GameObject>().SetActive(false);
 
 
     }
@@ -114,15 +113,15 @@ public class EnemyController : NPCController
             if (canSeeTarget)
             {
                 PauseMovement(.8f);
-                dialogBox.enabled = true;
-                dialogBox.GetComponent<TextMeshProUGUI>().SetText("!");
+                textMeshProUGUI.enabled = true;
+                textMeshProUGUI.SetText("!");
 
             }
             else
             {
                 PauseMovement(3f);
-                dialogBox.enabled = true;
-                dialogBox.GetComponent<TextMeshProUGUI>().SetText("?");
+                textMeshProUGUI.enabled = true;
+                textMeshProUGUI.SetText("?");
             }
         }
 
@@ -147,7 +146,7 @@ public class EnemyController : NPCController
         prevMovementType = currentMovementType;
         animator.SetBool("isAttacking", true);
         currentMovementType = movementType.Attacking;
-        targetToChase = collider.gameObject.GetComponent<Transform>();
+        targetToChase = collider.gameObject;
     }
 
     override public void PauseMovement(float paramPauseTime)
@@ -155,7 +154,7 @@ public class EnemyController : NPCController
 
         base.PauseMovement(paramPauseTime);
         textDisplayTime = paramPauseTime;
-
+        secondsPerHalfBlink = paramPauseTime/(numberOfBlinks*2);
 
     }
 }

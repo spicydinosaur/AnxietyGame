@@ -7,18 +7,19 @@ using UnityEngine.Rendering.Universal;
 
 public class LightPillars : MonoBehaviour
 {
+    //Child scripts all start with the initials "LP," including LPMonsterSummonStone and LPSeasideRuins, and perhaps others if need be.
+    public GameObject objectToLight;
 
-	//Child scripts all start with the initials "LP," including LPMonsterSummonStone and LPSeasideRuins, and perhaps others if need be.
-	public virtual void HitByBright()
-	{
+    public virtual void HitByBright()
+    {
 
-		gameObject.GetComponent<Light2D>().enabled = true;
-		if (gameObject.GetComponent<PuzzleKey>().isActiveAndEnabled)
+        objectToLight.GetComponent<Light2D>().enabled = true;
+        if (objectToLight.GetComponent<PuzzleKey>().isActiveAndEnabled)
         {
-			GetComponent<PuzzleKey>().ChangeLockState(PuzzleKey.LockCheck.unlocked);
+            objectToLight.GetComponent<PuzzleKey>().ChangeLockState(PuzzleKey.LockCheck.unlocked);
 
         }
 
-	}
+    }
 
 }

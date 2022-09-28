@@ -1,5 +1,77 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &376165801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 376165802}
+  - component: {fileID: 376165804}
+  - component: {fileID: 5908824274472416756}
+  m_Layer: 11
+  m_Name: Bright Targeting Collider
+  m_TagString: Spell Interaction
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &376165802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376165801}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1782362466574892793}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &376165804
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376165801}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0051498413, y: -0.26398468}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 4}
+    newSize: {x: 0.8378378, y: 1.418919}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3272858, y: 3.181038}
+  m_EdgeRadius: 0
+--- !u!114 &5908824274472416756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376165801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32115b8bbac22e4d9872ca03ff603e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToLight: {fileID: 1782362466574892792}
 --- !u!1 &1152129882
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,7 +85,7 @@ GameObject:
   - component: {fileID: 1152129885}
   - component: {fileID: 1152129886}
   m_Layer: 2
-  m_Name: EastPillar Tutorial ObjectInteraction Holder
+  m_Name: ObjectInteraction Holder
   m_TagString: Misc Colliders
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -429,7 +501,6 @@ GameObject:
   - component: {fileID: 1782362466574892799}
   - component: {fileID: 1782362466574892798}
   - component: {fileID: 1782362466574892796}
-  - component: {fileID: 7324999928970462001}
   - component: {fileID: 9014967958236096956}
   - component: {fileID: 9014967958236096963}
   m_Layer: 11
@@ -455,6 +526,7 @@ Transform:
   - {fileID: 1782362466064275505}
   - {fileID: 4741242548467518619}
   - {fileID: 1152129883}
+  - {fileID: 376165802}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -523,7 +595,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.007434845, y: -1.1241398}
+  m_Offset: {x: 0.007434845, y: -1.2895813}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -534,7 +606,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2374802, y: 1.6239815}
+  m_Size: {x: 1.2374802, y: 1.2930984}
   m_EdgeRadius: 0
 --- !u!114 &1782362466574892796
 MonoBehaviour:
@@ -614,18 +686,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!114 &7324999928970462001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1782362466574892792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32115b8bbac22e4d9872ca03ff603e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &9014967958236096956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,6 +723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1782362466783578762}
   - component: {fileID: 1782362466783578763}
+  - component: {fileID: 7666924969723098124}
   m_Layer: 2
   m_Name: LightCollider
   m_TagString: Misc Colliders
@@ -701,6 +762,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5
+--- !u!114 &7666924969723098124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782362466783589749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f01f7e45c4a9324683e3d67f09e9fe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1782362467228208836
 GameObject:
   m_ObjectHideFlags: 0

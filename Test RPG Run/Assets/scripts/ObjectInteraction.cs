@@ -111,7 +111,7 @@ public class ObjectInteraction : MonoBehaviour
             }
 
             var size = objectBC.size;
-            int layerMask = LayerMask.GetMask("Enemy", "Boundary Box");
+            int layerMask = LayerMask.GetMask("Enemy", "Boundary Box", "Player", "NPC", "Scenery");
             RaycastHit2D[] boxCast = Physics2D.BoxCastAll(gameObject.transform.position + moveIncrementVector, size, 0f, direction, .001f, layerMask);
             for (int i = 0; i < boxCast.Length; i++)
             {
@@ -119,6 +119,10 @@ public class ObjectInteraction : MonoBehaviour
                 if (boxCast[i].collider.gameObject.tag == "boundary box")
                 {
                     isInBoundary = true;
+                    continue;
+                }
+                else if (boxCast[i].collider.gameObject.tag == "Spell Interaction")
+                {
                     continue;
                 }
                 else

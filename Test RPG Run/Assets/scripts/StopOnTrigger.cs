@@ -7,6 +7,7 @@ public class StopOnTrigger : MonoBehaviour
 
     public NPCController controller;
     public Player player;
+
     
 
     public void Awake()
@@ -21,10 +22,10 @@ public class StopOnTrigger : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         { 
-            if (controller.currentMovementType != NPCController.movementType.Stop)
+            if (controller.currentMovementType != NPCController.movementType.Stop && controller.currentMovementType != NPCController.movementType.Pause)
             {
 
-                controller.ChangeState(NPCController.movementType.Stop);
+                controller.PauseMovement(Mathf.Infinity);
                 Debug.Log("onTriggerEnter2D: controller.prevMovementType equals" + controller.prevMovementType);
                 Debug.Log("onTriggerEnter2D: controller.currentMovementType equals" + controller.currentMovementType);
 

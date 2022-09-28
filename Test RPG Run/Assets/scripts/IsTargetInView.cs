@@ -9,7 +9,7 @@ using TMPro;
 public class IsTargetInView : MonoBehaviour
 {
     public EnemyController controller;
-    public GameObject tombstone;
+    public GameObject portalAnimation;
 
     public void Awake()
     {
@@ -22,9 +22,12 @@ public class IsTargetInView : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
+            controller.prevMovementType = controller.currentMovementType;
             controller.currentMovementType = NPCController.movementType.ToOther;
-            controller.targetToChase = collider.GetComponent<Transform>();
+            controller.targetToChase = collider.gameObject;
             controller.ChangeTargetViewState(true);
+            controller.isChasing = true;
+
 
         }
 
@@ -34,20 +37,21 @@ public class IsTargetInView : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            controller.currentMovementType = NPCController.movementType.Patrol;
-            controller.targetToChase = null;
+            controller.prevMovementType = controller.currentMovementType;
+            controller.currentMovementType = controller.startingMovementType;
+            controller.isChasing = false;
             controller.ChangeTargetViewState(false);
 
             //Debug.Log("OnTriggerExit2D function triggered by player!");
+            //below must work with player porting out instead of dying and creating a tombstone
 
-            if (tombstone.activeSelf == true)
-            {
-                controller.SetNextLocation(GetComponentInParent<NPCPatrolRoute>().GetNextCoord());
-                controller.PauseMovement(3f);
-                controller.prevMovementType = NPCController.movementType.Patrol;
+        if (GetComponentInParent<NPCPatrolRoute>().patrollingBool == true)
+        {
+            controller.SetNextLocation(GetComponentInParent<NPCPatrolRoute>().GetNextCoord());
+        }
                 //Debug.Log("disabled player detected!");
 
-            }
+           
 
         }
 
