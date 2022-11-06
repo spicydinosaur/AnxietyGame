@@ -26,7 +26,8 @@ public class ObjectInteraction : MonoBehaviour
     public bool isInBoundary;
     public float stepsOnInteract;
     public float countingSteps;
-    public float waitForSecondsCooroutine;
+    public float countingStepsMax;
+    public float waitForSecondsCoroutine;
 
     public GameObject northMoveCollider;
     public GameObject southMoveCollider;
@@ -43,6 +44,8 @@ public class ObjectInteraction : MonoBehaviour
 
     public bool canMove;
 
+    public bool objectMoveRunning;
+
     public Vector2 direction;
     public Vector2 size;
     public Vector3 boxCastMovement;
@@ -50,6 +53,7 @@ public class ObjectInteraction : MonoBehaviour
     public GameObject specialObject;
     public float boxDistance;
 
+    public AudioSource pillarGrindSound;
 
     // calculate if player is facing object or not
 
@@ -61,12 +65,15 @@ public class ObjectInteraction : MonoBehaviour
         objectMoveObstructed = false;
         playerTouchingObject = false;
         canMove = false;
+        objectMoveRunning = false;
+
+        //experimental below
+        countingSteps = 0f;
 
 
         previousObjectLocation = gameObject.transform.position;
 
-        countingSteps = 1;
-
+        countingSteps = countingStepsMax;
 
         objectBC = GetComponent<BoxCollider2D>();
         colliderDirection = ObjectInteraction.ColliderDirection.inactive;
@@ -140,7 +147,7 @@ public class ObjectInteraction : MonoBehaviour
 
             if (canMove)
             {
-                countingSteps = 1;
+                countingSteps = countingStepsMax;
                 StartCoroutine("objectMove");
                 Debug.Log("pathway for object NOT obstructed.");
 
@@ -154,9 +161,22 @@ public class ObjectInteraction : MonoBehaviour
         }
     }
 
+    public void Update()
+    {
+        if (objectMoveRunning == true)
+        {
+             if (pillarGrindSound.isPlaying == false)
+            {
+
+                pillarGrindSound.Play();
+
+            }
+        }
+    }
 
     public IEnumerator objectMove()
     {
+        objectMoveRunning = true;
         Debug.Log("objectMove coroutine activated");
         while (countingSteps <= stepsOnInteract)
         {
@@ -165,17 +185,17 @@ public class ObjectInteraction : MonoBehaviour
                 StopCoroutine("objectMove");
                 countingSteps = 0;
                 Debug.Log("coroutine stopped");
+                objectMoveRunning = false;
+                pillarGrindSound.Stop();
             }
+
             Debug.Log("countingSteps = " + countingSteps + " and stepsOnInteract = " + stepsOnInteract);
 
-            //is this right? I want x or y to be .5f or -.5f
-            //heroAnim.SetFloat("Look X", Mathf.Clamp01(moveIncrementVector.x));
-            //heroAnim.SetFloat("Look Y", Mathf.Clamp01(moveIncrementVector.y));
             specialObject.transform.position = specialObject.transform.position + (moveIncrementVector / stepsOnInteract);
             countingSteps++;
             Debug.Log("after addition countingSteps = " + countingSteps);
 
-            yield return new WaitForSeconds(waitForSecondsCooroutine);
+            yield return new WaitForSeconds(waitForSecondsCoroutine);
 
 
 

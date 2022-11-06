@@ -23,6 +23,7 @@ TagManager:
   - interactable object
   - boundary box
   - Spell Interaction
+  - loot
   layers:
   - Default
   - TransparentFX
@@ -33,7 +34,7 @@ TagManager:
   - Player
   - Enemy
   - Props
-  - Pickups
+  - Loot
   - NPC
   - Scenery
   - HUD
@@ -89,6 +90,9 @@ TagManager:
     locked: 0
   - name: foreground accessories
     uniqueID: 2086349163
+    locked: 0
+  - name: Consumables-Loot
+    uniqueID: 2534517343
     locked: 0
   - name: Roofs
     uniqueID: 756746245

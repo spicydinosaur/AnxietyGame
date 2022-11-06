@@ -85,7 +85,10 @@ public class EnemyController : NPCController
         animator.SetBool("isAttacking", false);
         animator.SetBool("isDead", true);
         dropTable.rollOnTable();
-        base.OnDeath();
+        animator.SetFloat("Speed", 1f);
+        isMoving = false;
+        currentMovementType = movementType.Death;
+        EventBroadcaster.HeroDeath.RemoveListener(HeroDied);
 
 
     }
@@ -96,8 +99,7 @@ public class EnemyController : NPCController
 
         GetComponent<Animator>().SetBool("isDead", false);
         GetComponent<Animator>().SetBool("isAttacking", false);
-        GetComponentInParent<GameObject>().SetActive(false);
-
+        gameObject.SetActive(false);
 
     }
 

@@ -46,10 +46,10 @@ public class NPCController : MonoBehaviour
         currentMovementType = startingMovementType;
         EventBroadcaster.HeroDeath.AddListener(HeroDied);
 
-        if (currentMovementType != movementType.Stop)
+        if (currentMovementType == movementType.Patrol)
         { 
             SetNextLocation(GetComponent<NPCPatrolRoute>().GetNextCoord());
-            animator.SetFloat("Speed", 1f);
+            animator.SetFloat("Speed", 1.1f);
             isMoving = true;
         }
 
@@ -150,9 +150,7 @@ public class NPCController : MonoBehaviour
 
     public virtual void OnDeath()
     {
-
         isMoving = false;
-        animator.SetFloat("Speed", 0f);
         currentMovementType = movementType.Death;
         EventBroadcaster.HeroDeath.RemoveListener(HeroDied);
         gameObject.SetActive(false);

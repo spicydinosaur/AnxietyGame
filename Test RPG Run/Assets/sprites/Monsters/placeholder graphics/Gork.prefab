@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 7770862580395584324}
-  tombstone: {fileID: 0}
+  portalAnimation: {fileID: 0}
 --- !u!222 &4869451609112736684
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -356,13 +356,14 @@ GameObject:
   - component: {fileID: 7770862580395584328}
   - component: {fileID: 7770862580395584325}
   - component: {fileID: 7770862580242392939}
+  - component: {fileID: 1771817028}
   m_Layer: 7
   m_Name: Gork
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7770862580395584333
 Transform:
   m_ObjectHideFlags: 0
@@ -372,7 +373,7 @@ Transform:
   m_GameObject: {fileID: 7770862580395584370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 18.927704, y: 5.2095327, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9073293373496565259}
@@ -424,7 +425,7 @@ SpriteRenderer:
   m_SortingLayerID: 1231766705
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1473316608, guid: d0eac20c5d95bb64cbcda29034618a04, type: 3}
+  m_Sprite: {fileID: 280139023, guid: bc0ad208454542c408893227ea113f81, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -443,13 +444,13 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7770862580395584370}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
-  m_Mass: 999
-  m_LinearDrag: 25
-  m_AngularDrag: 0.05
+  m_Mass: 1000
+  m_LinearDrag: 500
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -466,7 +467,7 @@ Animator:
   m_GameObject: {fileID: 7770862580395584370}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9573f07606caaff47a1af61898a54bf8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 55a79758be84c9541a889b85c5dbc7d1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -489,7 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentChaseObject: {fileID: 0}
-  controller: {fileID: 0}
+  controller: {fileID: 7770862580395584324}
 --- !u!114 &7770862580395584324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,7 +511,7 @@ MonoBehaviour:
   dialogBox: {fileID: 0}
   animator: {fileID: 7770862580395584334}
   lookDirection: {x: -0.5148858, y: -0.8572588}
-  isMoving: 1
+  isMoving: 0
   pauseTime: 0
   delayTime: 0
   prevMovementType: 0
@@ -518,13 +519,15 @@ MonoBehaviour:
   nextMove: {x: 67, y: 2}
   velocity: {x: 0, y: 0}
   gameManager: {fileID: 0}
+  hero: {fileID: 0}
   numberOfBlinks: 4
   currentBlink: 0
-  textDisplayTime: 0
+  textDisplayTime: 2
   currentTextDisplayTime: 0
-  deathCloud: {fileID: 0}
-  objectDeathCloud: {fileID: 0}
-  dropTable: {fileID: 0}
+  dropTable: {fileID: 7770862580242392939}
+  textMeshProUGUI: {fileID: 7770862579062568235}
+  secondsPerHalfBlink: 1
+  route: {fileID: 7770862580395584332}
 --- !u!114 &7770862580395584332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,11 +590,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c70c9b1cc4ff0d445a6a62d9f1081d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemsInDropTable:
-  - {fileID: 0}
-  itemDropChance:
-  - 100
+  itemsInDropTable: []
+  itemDropChance: []
   randomDropResult: 0
+--- !u!114 &1771817028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7770862580395584370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da9a9ae426e896745abc15f0e21673e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brazierNW: {fileID: 0}
+  brazierNE: {fileID: 0}
+  brazierSW: {fileID: 0}
+  brazierSE: {fileID: 0}
+  lightPillarN: {fileID: 0}
+  lightPillarE: {fileID: 0}
+  lightPillarW: {fileID: 0}
+  lightPillarS: {fileID: 0}
+  totem: {fileID: 0}
+  flamesLootDrop: {fileID: 0}
+  hero: {fileID: 0}
+  healthScript: {fileID: 7770862580395584325}
 --- !u!1 &7770862580615738726
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +654,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.0069999695, y: 1.15}
+  m_AnchoredPosition: {x: -0.02, y: 0.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7770862580615738722
@@ -799,7 +824,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.02, y: 1.05}
+  m_AnchoredPosition: {x: -0.036, y: 0.652}
   m_SizeDelta: {x: 100, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8770758324478172788
@@ -986,8 +1011,8 @@ RectTransform:
   m_GameObject: {fileID: 8770758326418464683}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8770758324808700503}
   m_Father: {fileID: 8770758324478172744}
@@ -995,8 +1020,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1, y: 0.000008583069}
-  m_SizeDelta: {x: 0, y: -0.000011444092}
+  m_AnchoredPosition: {x: 28.2, y: -4.4}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &8770758326418464726
 CanvasRenderer:
@@ -1061,7 +1086,7 @@ PrefabInstance:
     - target: {fileID: 2415118825545889935, guid: 5eb9f5627ba693447a38c0d0fec8a1f3,
         type: 3}
       propertyPath: m_Offset.x
-      value: -0.01580429
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8918402557834332866, guid: 5eb9f5627ba693447a38c0d0fec8a1f3,
         type: 3}
