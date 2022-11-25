@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7155649202203872191}
   - component: {fileID: 434116278754505542}
   - component: {fileID: 1187040717259177591}
+  - component: {fileID: 7477698899573110008}
   m_Layer: 11
   m_Name: Lamp-singleside left
   m_TagString: Scenery
@@ -99,7 +100,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.123308584, y: -0.58982366}
+  m_Offset: {x: 0.11638339, y: -0.58982366}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -110,8 +111,41 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32056144, y: 0.7578527}
+  m_Size: {x: 0.3067111, y: 0.7578527}
   m_EdgeRadius: 0
+--- !u!60 &7477698899573110008
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797477842782827628}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1.9375}
+    newSize: {x: 1, y: 1.9375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.014883965, y: -0.20855282}
+      - {x: -0.05678028, y: -0.812949}
+      - {x: -0.29991812, y: -0.8738892}
+      - {x: -0.22245929, y: -0.97036487}
+      - {x: 0.52348167, y: -0.96556914}
+      - {x: 0.5818386, y: -0.8584124}
+      - {x: 0.25068882, y: -0.8025424}
+      - {x: 0.2645395, y: -0.20855224}
 --- !u!1 &889924509661205348
 GameObject:
   m_ObjectHideFlags: 0

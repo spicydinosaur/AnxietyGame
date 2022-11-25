@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7506012229605553137}
   - component: {fileID: 5508789106876660008}
-  - component: {fileID: 7931060971203784074}
+  - component: {fileID: 3277180718876627907}
   m_Layer: 11
   m_Name: Lampfloral-singleside left
   m_TagString: Scenery
@@ -86,8 +86,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7931060971203784074
-BoxCollider2D:
+--- !u!60 &3277180718876627907
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.13113932, y: -0.6009495}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -109,9 +109,16 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.3231813, y: 0.79810095}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.014883965, y: -0.20855282}
+      - {x: -0.05678028, y: -0.812949}
+      - {x: -0.29991812, y: -0.8738892}
+      - {x: -0.22245929, y: -0.97036487}
+      - {x: 0.52348167, y: -0.96556914}
+      - {x: 0.5818386, y: -0.8584124}
+      - {x: 0.25068882, y: -0.8025424}
+      - {x: 0.2645395, y: -0.20855224}
 --- !u!1 &5718168482266737510
 GameObject:
   m_ObjectHideFlags: 0

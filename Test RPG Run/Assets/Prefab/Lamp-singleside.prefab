@@ -201,7 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3356458404896580009}
   - component: {fileID: 5467152655970670928}
-  - component: {fileID: 6746470399262790753}
+  - component: {fileID: 1349617698}
   m_Layer: 11
   m_Name: Lamp-singleside
   m_TagString: Scenery
@@ -277,8 +277,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6746470399262790753
-BoxCollider2D:
+--- !u!60 &1349617698
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -290,7 +290,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12263118, y: -0.58982366}
+  m_Offset: {x: -0.25, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -300,6 +300,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.45106003, y: 0.7578527}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.014883965, y: -0.20855282}
+      - {x: -0.05678028, y: -0.812949}
+      - {x: -0.29991812, y: -0.8738892}
+      - {x: -0.22245929, y: -0.97036487}
+      - {x: 0.52348167, y: -0.96556914}
+      - {x: 0.5818386, y: -0.8584124}
+      - {x: 0.25068882, y: -0.8025424}
+      - {x: 0.2645395, y: -0.20855224}

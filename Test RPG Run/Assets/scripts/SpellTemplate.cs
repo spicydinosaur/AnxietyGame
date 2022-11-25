@@ -104,13 +104,15 @@ public class SpellTemplate : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(heroTransform, direction, rayCastDistance, layerMask);
 
-        Debug.Log("hit.point = " + hit.point + ".");
+        spellSound.Play();
+
         Debug.Log("hit.point = " + hit.point + ".");
 
         if (hit.collider)
         {
             hitObject = hit.collider.gameObject;
-            gameObject.transform.position = hit.transform.position;
+            //gameObject.transform.position = hit.transform.position;
+            gameObject.transform.position = hit.point;
             gameObject.GetComponent<Animator>().SetBool("isCasting", true);
             Debug.Log("Spell now at " + gameObject.transform.position + " which should be the same as " + hit.transform.position + ".");
 

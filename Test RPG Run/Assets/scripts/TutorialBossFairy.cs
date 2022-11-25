@@ -29,7 +29,7 @@ public class TutorialBossFairy : MonoBehaviour
 
     void OnEnable()
     {
-        totem.GetComponent<Light2D>().enabled = false;
+
     }
 
 

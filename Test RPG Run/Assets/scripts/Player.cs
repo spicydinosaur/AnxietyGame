@@ -4,15 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
+
 
 public class Player : MonoBehaviour
 {
     public static Player instance { get; private set; }
     //private PlayerControls playerControls;
     
+    public UnityEvent spellCast;
+    public UnityEvent interact;
+
     public float maxHealth;
     public float maxMana;
-
 
     public float currentHealth;
     public float currentMana;
@@ -79,29 +83,18 @@ public class Player : MonoBehaviour
 
     public float globalCastDownTime;
     public float currentCastDownTime;
-    
+
     //spells and interactions are double casting, (leading to the failSpell beep on every cast.) The below should stop that from happening.
     public int waitForSpellCheck;
 
-    public GameObject dialogueBox;
-    public GameObject thoughtBox;
+    //public GameObject dialogueBox;
+    //public GameObject thoughtBox;
 
     public Vector3 mousePosition;
 
     public Camera mainCam;
 
-    public void OnEnable()
-    {
 
-        playerControls.Enable();
-    }
-
-    public void OnDisable()
-    {
-
-        playerControls.Disable();
-
-    }
 
 
     public void Awake()
@@ -109,6 +102,49 @@ public class Player : MonoBehaviour
 
         playerControls = new PlayerControls();
 
+
+    }
+
+    public void OnEnable()
+    {
+
+        playerControls.Enable();
+        playerControls.PlayerActions.Enable();
+        playerControls.UIControl.Disable();
+        //spellCast.AddListener(OnSpellCast);
+        //interact.AddListener(OnInteract);
+        //movement.AddListener(OnMovement());
+        //spellScrolling.AddListener(OnScrollWheel);
+
+    }
+
+    public void OnDisable()
+    {
+
+        //spellCast.RemoveListener(OnSpellCast);
+        //interact.RemoveListener(OnInteract);
+        //movement.RemoveListener(OnMovement);
+        //spellScrolling.RemoveListener(OnScrollWheel);
+        playerControls.PlayerActions.SpellCast.performed -= OnSpellCast;
+        playerControls.PlayerActions.Interact.performed -= OnInteract;
+        playerControls.Disable();
+
+
+    }
+
+
+    public void SwitchMapPlayerActions()
+    {
+        playerControls.UIControl.Disable();
+        playerControls.PlayerActions.Enable();
+        move = playerControls.PlayerActions.Movement;
+    }
+
+    public void SwitchMapUIInput()
+    {
+        playerControls.PlayerActions.Disable();
+        playerControls.UIControl.Enable();
+        move = playerControls.UIControl.Navigate;
     }
 
     public void Start()
@@ -157,7 +193,7 @@ public class Player : MonoBehaviour
 
     public void FixedUpdate()
     {
-    //below is the code for player movement.
+        //below is the code for player movement.
         moveInput = move.ReadValue<Vector2>();
         rigidBody.velocity = new Vector2(moveInput.x * playerSpeed, moveInput.y * playerSpeed);
 
@@ -172,7 +208,6 @@ public class Player : MonoBehaviour
 
 
         //below is the code for the scroll wheel to cycle through spells
-
         if (spellSelectMouseScrollWheel > 0) //scroll wheel gets moved up, moving through the spell list in a positive direction.
         {
             spellSelectMouseScrollWheel = 0;
@@ -279,11 +314,26 @@ public class Player : MonoBehaviour
 
     }
 
-    public void OnSpellCast( InputAction.CallbackContext context )
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        Debug.Log("OnInteract fired from Player script.");
+
+        if (objectInteraction != null)
+        {
+
+
+            Debug.Log("objectInteraction is set to " + objectInteraction);
+            objectInteraction.InteractWithObject();
+            //Debug.Log("callback context is " + ctx);
+
+        }
+
+    }
+    public void OnSpellCast(InputAction.CallbackContext context)
     {
 
-        if (thoughtBox.activeSelf == false && dialogueBox.activeSelf == false)
-        {
+        //if (isTalking != true)
+        //{
 
             if (waitForSpellCheck < 2)
             {
@@ -337,23 +387,7 @@ public class Player : MonoBehaviour
 
             }
 
-        }
-
-    }
-
-    public void OnInteract(InputAction.CallbackContext context)
-    {
-        Debug.Log("OnInteract fired from Player script.");
-
-            if (objectInteraction != null)
-            {
-
-
-                Debug.Log("objectInteraction is set to " + objectInteraction);
-                objectInteraction.InteractWithObject();
-                //Debug.Log("callback context is " + ctx);
-            
-            }
+        //}
 
     }
 
@@ -371,10 +405,10 @@ public class Player : MonoBehaviour
             teleportSpell.transform.position = gameObject.transform.position;
             EventBroadcaster.onHeroDeath();
             gameObject.SetActive(false);
-        
+
 
         }
-        
+
     }
 
     public void PlayerMana(float amount)
@@ -407,6 +441,120 @@ public class Player : MonoBehaviour
         listOfSpellIcons.Add(addedSpellIcon);
 
     }
+
+
+    /*
+      public void OnMovement()
+    {
+        if (playerControls.PlayerActions.enabled)
+        {
+            InputAction move = playerControls.PlayerActions.Movement;
+            moveInput = move.ReadValue<Vector2>();
+            rigidBody.velocity = new Vector2(moveInput.x * playerSpeed, moveInput.y * playerSpeed);
+        }
+        else if (playerControls.UI.enabled)
+        {
+            InputAction move = playerControls.UI.Navigate;
+            moveInput = move.ReadValue<Vector2>();
+            rigidBody.velocity = new Vector2(moveInput.x * playerSpeed, moveInput.y * playerSpeed);
+        }
+        if (!Mathf.Approximately(moveInput.x, 0.0f) || !Mathf.Approximately(moveInput.y, 0.0f))
+        {
+            lookDirection.Set(moveInput.x, moveInput.y);
+        }
+
+        animator.SetFloat("Look X", lookDirection.x);
+        animator.SetFloat("Look Y", lookDirection.y);
+        animator.SetFloat("Speed", moveInput.magnitude);
+
+    }
+      
+      
+      public void OnScrollWheel()
+    {
+        if (spellSelectMouseScrollWheel > 0) //scroll wheel gets moved up, moving through the spell list in a positive direction.
+        {
+            spellSelectMouseScrollWheel = 0;
+
+            if (selectedSpell >= selectedSpellMax - 1)
+            {
+                selectedSpell = 0;
+
+            }
+            else
+            {
+                selectedSpell++;
+            }
+
+            currentSpell = listOfSpells[selectedSpell];
+            currentSpellTemplate = currentSpell.GetComponent<SpellTemplate>();
+            currentSpellIcon = listOfSpellIcons[selectedSpell];
+            Debug.Log("spell instantiate gameobject is " + currentSpell);
+            Debug.Log("spell instantiate template script is " + currentSpellTemplate);
+            Debug.Log("Spell selection list position is " + selectedSpell);
+
+            if (globalCastDownTime > currentSpellTemplate.currentCastDownTime && selectedSpell != 0)
+            {
+                currentSpellTemplate.currentCastDownTime = globalCastDownTime;
+            }
+
+            else
+            {
+                //0 is breathe so not bothering to put in anything wrt global cast cooldowns
+                currentCastDownTime = currentSpellTemplate.currentCastDownTime;
+            }
+
+
+
+            Debug.Log("mouse scroll wheel up. Spellholder.selectedSpell = " + selectedSpell);
+            spellIconImage.GetComponent<Image>().sprite = currentSpellIcon;
+
+
+        }
+        else if (spellSelectMouseScrollWheel < 0) //scroll wheel gets moved down, moving through the spell list in a negative direction.
+        {
+
+
+            if (selectedSpell == 0)
+            {
+                selectedSpell = selectedSpellMax - 1;
+
+            }
+            else if (selectedSpell > 0)
+            {
+                selectedSpell--;
+            }
+
+            Debug.Log("selectedSpell = " + selectedSpell);
+
+            currentSpell = listOfSpells[selectedSpell];
+            currentSpellIcon = listOfSpellIcons[selectedSpell];
+            currentSpellTemplate = currentSpell.GetComponent<SpellTemplate>();
+            Debug.Log("spell instantiate gameobject is " + currentSpell);
+            Debug.Log("spell instantiate template script is " + currentSpellTemplate);
+
+
+            if (globalCastDownTime > currentSpellTemplate.currentCastDownTime && selectedSpell != 0)
+            {
+                currentCastDownTime = globalCastDownTime;
+                currentSpellTemplate.currentCastDownTime = globalCastDownTime;
+            }
+            else
+            {
+                //0 is breathe so not bothering to put in anything wrt global cast cooldowns
+                currentCastDownTime = currentSpellTemplate.currentCastDownTime;
+            }
+
+
+            Debug.Log("mouse scroll wheel down Spellholder.selectedSpell = " + selectedSpell);
+            spellIconImage.GetComponent<Image>().sprite = currentSpellIcon;
+        }
+    }
+
+    */
+
+
+
 
 
 }
