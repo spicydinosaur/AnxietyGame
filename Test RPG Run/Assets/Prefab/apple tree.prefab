@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2547409383267233694}
   - component: {fileID: 2547409383267233664}
-  - component: {fileID: 9212241336551222695}
+  - component: {fileID: 3053071504822882273}
   m_Layer: 11
   m_Name: apple tree
   m_TagString: Scenery
@@ -25,9 +25,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2547409383267233695}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.95, y: -7.07, z: 0}
-  m_LocalScale: {x: 0.45000002, y: 0.45000002, z: 0.45000002}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4927690804569109258}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 2086349163
   m_SortingLayer: 8
   m_SortingOrder: 6
-  m_Sprite: {fileID: -1254507738, guid: 258afd15858137244b6588da032516ca, type: 3}
+  m_Sprite: {fileID: -988236266, guid: 9f65912756ebed64a9a6f2e24f5813ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,8 +86,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &9212241336551222695
-CircleCollider2D:
+--- !u!60 &3053071504822882273
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -99,9 +99,26 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.041126672, y: -3.4546363}
-  serializedVersion: 2
-  m_Radius: 0.89584345
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.875, y: 8.125}
+    newSize: {x: 2.375, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5625, y: -2.9375}
+      - {x: -1, y: -3.375}
+      - {x: -1.75, y: -3.9375}
+      - {x: -1.6875, y: -4.0625}
+      - {x: 1.75, y: -4.0625}
+      - {x: 1.9375, y: -3.75}
+      - {x: 1.0625, y: -3.5625}
+      - {x: 0.8125, y: -2.9375}
 --- !u!1 &5927515247541027136
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +132,7 @@ GameObject:
   - component: {fileID: 3069589891315130441}
   m_Layer: 11
   m_Name: transparency
-  m_TagString: Untagged
+  m_TagString: Scenery
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,22 +170,21 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 7.875, y: 8.125}
-    newSize: {x: 2.375, y: 4}
+    newSize: {x: 3.34375, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1, y: -3.625}
-      - {x: 0.8125, y: -2.9375}
-      - {x: 0.625, y: -2}
+    - - {x: 0.7010994, y: -2.6341543}
       - {x: 1.125, y: -1.6875}
-      - {x: 1.4375, y: -1.4375}
       - {x: 1.6875, y: -1.625}
-      - {x: 2.375, y: -1.875}
-      - {x: 2.9375, y: -1.625}
-      - {x: 3.3125, y: -1.6875}
+      - {x: 2, y: -1.75}
+      - {x: 2.375, y: -1.8125}
+      - {x: 2.625, y: -1.3125}
+      - {x: 2.8125, y: -1.6875}
+      - {x: 3.3125, y: -1.75}
       - {x: 3.6875, y: -1.125}
       - {x: 3.75, y: -0.5}
       - {x: 3.9375, y: -0.3125}
@@ -203,14 +219,7 @@ PolygonCollider2D:
       - {x: -1.0625, y: -1.625}
       - {x: -0.875, y: -1.8125}
       - {x: -0.6875, y: -1.625}
-      - {x: -0.5625, y: -2.9375}
-      - {x: -1, y: -3.375}
-      - {x: -1.75, y: -3.9375}
-      - {x: -1.6875, y: -4.0625}
-      - {x: 1.75, y: -4.0625}
-      - {x: 1.8125, y: -3.9375}
-      - {x: 1.8125, y: -3.8125}
-      - {x: 1.6875, y: -3.6875}
+      - {x: -0.6385975, y: -2.6331062}
 --- !u!114 &3069589891315130441
 MonoBehaviour:
   m_ObjectHideFlags: 0

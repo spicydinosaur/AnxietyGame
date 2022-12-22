@@ -81,6 +81,28 @@ MonoBehaviour:
     spritePortraits:
     - {fileID: 21300000, guid: 50a1c3ca2c06b0a40aee816a52fe5fcb, type: 3}
     - {fileID: 21300000, guid: 98503102371059342ab5a51bb2a51c5b, type: 3}
+  - id: 3
+    fields:
+    - title: Name
+      value: Hero Thoughts
+      type: 0
+      typeString: 
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: The actor that we use when the Hero is thinking.
+      type: 0
+      typeString: 
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 0}
+    alternatePortraits: []
+    spritePortraits: []
   items: []
   locations: []
   variables:

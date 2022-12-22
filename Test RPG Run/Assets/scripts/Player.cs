@@ -137,14 +137,14 @@ public class Player : MonoBehaviour
     {
         playerControls.UIControl.Disable();
         playerControls.PlayerActions.Enable();
-        move = playerControls.PlayerActions.Movement;
+
     }
 
     public void SwitchMapUIInput()
     {
         playerControls.PlayerActions.Disable();
         playerControls.UIControl.Enable();
-        move = playerControls.UIControl.Navigate;
+
     }
 
     public void Start()
@@ -155,7 +155,7 @@ public class Player : MonoBehaviour
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
         audioSource = gameObject.GetComponent<AudioSource>();
 
-        move = playerControls.PlayerActions.Movement;
+        move = playerControls.Movement.Movement;
         playerControls.PlayerActions.SpellSelectMouseScrollWheel.performed += ctx => spellSelectMouseScrollWheel = ctx.ReadValue<float>();
         playerControls.PlayerActions.SpellCast.performed += OnSpellCast;
         playerControls.PlayerActions.Interact.performed += OnInteract;

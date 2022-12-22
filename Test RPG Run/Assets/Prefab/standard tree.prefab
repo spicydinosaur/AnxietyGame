@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6397916944762154552}
   m_Layer: 11
   m_Name: transparency
-  m_TagString: Untagged
+  m_TagString: Scenery
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.625, y: -2}
+    - - {x: 0.7010994, y: -2.6341543}
       - {x: 1.125, y: -1.6875}
       - {x: 1.6875, y: -1.625}
       - {x: 2, y: -1.75}
@@ -115,14 +115,7 @@ PolygonCollider2D:
       - {x: -1.0625, y: -1.625}
       - {x: -0.875, y: -1.8125}
       - {x: -0.6875, y: -1.625}
-      - {x: -0.5625, y: -2.9375}
-      - {x: -1, y: -3.375}
-      - {x: -1.75, y: -3.9375}
-      - {x: -1.6875, y: -4.0625}
-      - {x: 1.75, y: -4.0625}
-      - {x: 1.9375, y: -3.75}
-      - {x: 1.0625, y: -3.5625}
-      - {x: 0.8125, y: -2.9375}
+      - {x: -0.6385975, y: -2.6331062}
 --- !u!1 &4831974867311879834
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4831974867311879835}
   - component: {fileID: 4831974867311879829}
-  - component: {fileID: 4831974867311879828}
+  - component: {fileID: 7724340606669847367}
   m_Layer: 11
   m_Name: standard tree
   m_TagString: Scenery
@@ -198,7 +191,7 @@ SpriteRenderer:
   m_SortingLayerID: 2086349163
   m_SortingLayer: 8
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2040922911, guid: 258afd15858137244b6588da032516ca, type: 3}
+  m_Sprite: {fileID: 1630048165, guid: 9f65912756ebed64a9a6f2e24f5813ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -209,8 +202,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &4831974867311879828
-CapsuleCollider2D:
+--- !u!60 &7724340606669847367
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -222,6 +215,23 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.031507015, y: -3.326645}
-  m_Size: {x: 1.4624813, y: 1.4624813}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.875, y: 8.125}
+    newSize: {x: 3.34375, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5625, y: -2.9375}
+      - {x: -1, y: -3.375}
+      - {x: -1.75, y: -3.9375}
+      - {x: -1.6875, y: -4.0625}
+      - {x: 1.75, y: -4.0625}
+      - {x: 1.9375, y: -3.75}
+      - {x: 1.0625, y: -3.5625}
+      - {x: 0.8125, y: -2.9375}

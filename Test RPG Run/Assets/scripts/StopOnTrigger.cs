@@ -39,9 +39,14 @@ public class StopOnTrigger : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            controller.RevertState();
-            Debug.Log("onTriggerExit2D: controller.prevMovementType equals" + controller.prevMovementType);
-            Debug.Log("onTriggerExit2D: controller.currentMovementType equals" + controller.currentMovementType);
+            if (controller.currentMovementType == NPCController.movementType.Pause)
+            {
+
+                controller.RevertState();
+                controller.PauseMovement(3);
+                Debug.Log("onTriggerExit2D: controller.prevMovementType equals" + controller.prevMovementType);
+                Debug.Log("onTriggerExit2D: controller.currentMovementType equals" + controller.currentMovementType);
+            }
 
         }
     }

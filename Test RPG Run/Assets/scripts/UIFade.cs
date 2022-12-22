@@ -29,13 +29,13 @@ public class UIFade : MonoBehaviour
     {
         if (fadingOut == true && fadingIn == false)
         {
-            Debug.Log("lerp set. fading out " + fadingOut + " fading in " + fadingIn);
+            //Debug.Log("lerp set. fading out " + fadingOut + " fading in " + fadingIn);
             fadeImage.color = Color.Lerp(fadeImage.color, fadeOutColor, lerpTime);
 
         }
         else if (fadingOut == false && fadingIn == true)
         {
-            Debug.Log("lerp set. fading out " + fadingOut + " fading in " + fadingIn);
+            //Debug.Log("lerp set. fading out " + fadingOut + " fading in " + fadingIn);
             fadeImage.color = Color.Lerp(fadeInColor, fadeImage.color, lerpTime);
         }
 
@@ -43,7 +43,7 @@ public class UIFade : MonoBehaviour
         {
             if (fadingOut == true || fadingIn == true)
             {
-                Debug.Log("lerptime going up: " + lerpTime);
+                //Debug.Log("lerptime going up: " + lerpTime);
                 lerpTime += Time.deltaTime;
             }
 
@@ -51,17 +51,17 @@ public class UIFade : MonoBehaviour
         else if (lerpTime >= fadeTime/2)
         {
             lerpTime = fadeTime/2;
-            Debug.Log("fading out: " + fadingOut + " fading in: " + fadingIn);
+            //Debug.Log("fading out: " + fadingOut + " fading in: " + fadingIn);
             if (fadingOut == true && fadingIn == false)
             {
-                Debug.Log("fading out:" + fadingOut);
+                //Debug.Log("fading out:" + fadingOut);
                 callingTransition.fadeOutFinished();
 
 
             }
             else if (fadingIn == true && fadingOut == false)
             {
-                Debug.Log("fading in:" + fadingIn);
+                //Debug.Log("fading in:" + fadingIn);
                 fadingIn = false;
                 callingTransition.fadeInFinished();
                 //enabled = false;

@@ -289,6 +289,71 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &5174031121566649039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4641782008622696573}
+  - component: {fileID: 3962912497545978065}
+  m_Layer: 6
+  m_Name: Hero Thought Actor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4641782008622696573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5174031121566649039}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7439779161625973559}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3962912497545978065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5174031121566649039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64578247383140469c45370654a984a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actor: Hero Thoughts
+  persistentDataName: 
+  portrait: {fileID: 0}
+  spritePortrait: {fileID: 0}
+  barkUISettings:
+    barkUI: {fileID: 0}
+    barkUIOffset: {x: 0, y: 2, z: 0}
+  standardDialogueUISettings:
+    subtitlePanelNumber: 5
+    customSubtitlePanel: {fileID: 0}
+    customSubtitlePanelOffset: {x: 0, y: 0, z: 0}
+    menuPanelNumber: 0
+    customMenuPanel: {fileID: 0}
+    customMenuPanelOffset: {x: 0, y: 0, z: 0}
+    useMenuPanelFor: 0
+    portraitAnimatorController: {fileID: 0}
+    setSubtitleColor: 1
+    applyColorToPrependedName: 0
+    prependActorNameSeparator: ': '
+    prependActorNameFormat: '{0}{1}'
+    subtitleColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &7439779160327345907
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,6 +419,7 @@ GameObject:
   - component: {fileID: 7712728893574273085}
   - component: {fileID: 6757196329874438078}
   - component: {fileID: 6757196329874438084}
+  - component: {fileID: 5982755250777139289}
   m_Layer: 6
   m_Name: Hero
   m_TagString: Player
@@ -377,6 +443,7 @@ Transform:
   - {fileID: 7439779160327345904}
   - {fileID: 8693227354113799754}
   - {fileID: 953208523}
+  - {fileID: 4641782008622696573}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -465,6 +532,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d11bbdc1cff4dc445a55a2afb964badb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellCast:
+    m_PersistentCalls:
+      m_Calls: []
+  interact:
+    m_PersistentCalls:
+      m_Calls: []
   maxHealth: 100
   maxMana: 100
   currentHealth: 100
@@ -521,8 +594,6 @@ MonoBehaviour:
   globalCastDownTime: 0
   currentCastDownTime: 0
   waitForSpellCheck: 0
-  dialogueBox: {fileID: 0}
-  thoughtBox: {fileID: 0}
   mousePosition: {x: 0, y: 0, z: 0}
   mainCam: {fileID: 0}
 --- !u!95 &4120001611849790010
@@ -750,6 +821,39 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5982755250777139289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7439779161625973513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64578247383140469c45370654a984a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actor: Hero
+  persistentDataName: 
+  portrait: {fileID: 0}
+  spritePortrait: {fileID: 21300000, guid: d05e4cd154c9d1141bc2c61872eb6c68, type: 3}
+  barkUISettings:
+    barkUI: {fileID: 0}
+    barkUIOffset: {x: 0, y: 2, z: 0}
+  standardDialogueUISettings:
+    subtitlePanelNumber: 3
+    customSubtitlePanel: {fileID: 0}
+    customSubtitlePanelOffset: {x: 0, y: 0, z: 0}
+    menuPanelNumber: 0
+    customMenuPanel: {fileID: 0}
+    customMenuPanelOffset: {x: 0, y: 0, z: 0}
+    useMenuPanelFor: 0
+    portraitAnimatorController: {fileID: 0}
+    setSubtitleColor: 1
+    applyColorToPrependedName: 0
+    prependActorNameSeparator: ': '
+    prependActorNameFormat: '{0}{1}'
+    subtitleColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &7439779161877291934
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,18 +1095,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7169841322849863398}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4503431086865118434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6431141420491781642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4df2002a0f46f96499cad51dcd63174b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &1689465567
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1099,6 +1191,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4503431086865118434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6431141420491781642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df2002a0f46f96499cad51dcd63174b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8693227354113799754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1955943818961055916, guid: c06259dd71b29cd40ac9eec8a8787e8d,

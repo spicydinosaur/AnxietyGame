@@ -9,7 +9,7 @@ public class NPCSortingLayerSwap : MonoBehaviour
     public int mclPosition;
     public int totalCollisions = 0;
 
-    private string normalSortingLayer;
+    public string normalSortingLayer;
     private string[] colliderCarriersSortingLayer = new string[5];
 
 

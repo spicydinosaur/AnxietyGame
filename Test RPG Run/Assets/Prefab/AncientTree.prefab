@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2365251121189740494}
   - component: {fileID: 4517429438703028492}
   - component: {fileID: 7482753072998929116}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AncientTree
-  m_TagString: Untagged
+  m_TagString: Scenery
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 2086349163
   m_SortingLayer: 8
   m_SortingOrder: 0
-  m_Sprite: {fileID: 932400693, guid: 258afd15858137244b6588da032516ca, type: 3}
+  m_Sprite: {fileID: -701568448, guid: 9f65912756ebed64a9a6f2e24f5813ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

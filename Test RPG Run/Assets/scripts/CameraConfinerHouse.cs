@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Audio;
 
 public class CameraConfinerHouse : MonoBehaviour
 {
@@ -9,70 +10,62 @@ public class CameraConfinerHouse : MonoBehaviour
     public AudioSource clockTick;
     public AudioSource clockChime;
 
-    public CinemachineVirtualCamera vCam;
-
-    public float chimeTimer;
+    public GameManager timer;
 
 
     //this is for the seaside village house downstairs only
 
     public AudioSource[] allAudioSources;
-    private AudioListener listener;
 
+    public AudioMixer audioMixer;
 
-    private void StopAllAudio()
+    public string exposedParameter;
+    public float durationFadeIn;
+    public float targetVolumeFadeIn;
+
+    public string exposedParameterTick;
+    public string exposedParameterChime;
+
+    public float durationFadeInChime;
+    public float targetVolumeFadeInChime;
+
+    public float durationFadeOutChime;
+    public float targetVolumeFadeOutChime;
+
+    public float durationFadeInTick;
+    public float targetVolumeFadeInTick;
+
+    public float durationFadeOutTick;
+    public float targetVolumeFadeOutTick;
+
+    public void OnEnable()
     {
-        allAudioSources = FindObjectsOfType<AudioSource>();
-
-        foreach (var audioS in allAudioSources)
-        {
-            audioS.Stop();
-        }
+        timer.chimeTimer = 0f;
     }
 
-    public IEnumerator FadeOutAudio()
-    {
-        if (AudioListener.volume > 0.1f)
-        {
-            AudioListener.volume -= 0.1f;
-            yield return new WaitForSeconds(.1f);
-        }
-        else
-        {
-            StopAllAudio();
-            AudioListener.volume = 1f;
-            StopCoroutine(FadeOutAudio());
-        }
-
-    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            vCam.gameObject.SetActive(true);
-            if (chimeTimer <= 0)
+            Debug.Log("hero entered the collider" + gameObject.name);
+            StartCoroutine(FadeMixerGroup.StartFade(audioMixer, exposedParameter, durationFadeIn, targetVolumeFadeIn));
+            if (timer.chimeTimer <= 0)
             {
-                clockTick.Stop();
                 clockChime.Play();
-                chimeTimer = 300;
+                timer.chimeTimer = 300;
+                //StartCoroutine(FadeMixerGroup.StartFade(audioMixer, exposedParameterChime, durationFadeInChime, targetVolumeFadeInChime));
             }
             else
             {
                 clockTick.Play();
+                //StartCoroutine(FadeMixerGroup.StartFade(audioMixer, exposedParameterTick, durationFadeInTick, targetVolumeFadeInTick));
             }
         }
     }
 
-    public void Update()
-    {
-        if (chimeTimer > 0)
-        {
-            chimeTimer -= Time.deltaTime;
 
-        }
-    }
 
     public void OnTriggerStay2D(Collider2D collision)
     {
@@ -83,12 +76,16 @@ public class CameraConfinerHouse : MonoBehaviour
             if (!clockChime.isPlaying && !clockTick.isPlaying)
             {
                 clockTick.Play();
+                StartCoroutine(FadeMixerGroup.StartFade(audioMixer, exposedParameterChime, durationFadeOutChime, targetVolumeFadeOutChime));
+                StartCoroutine(FadeMixerGroup.StartFade(audioMixer, exposedParameterTick, durationFadeInTick, targetVolumeFadeInTick));
             }
-            else if (chimeTimer <= 0)
+            else if (timer.chimeTimer <= 0)
             {
-                clockTick.Stop();
+                //clockTick.Stop();
                 clockChime.Play();
-                chimeTimer = 300;
+                StartCoroutine(FadeMixerGroup.StartFade(audioMixer, exposedParameterTick, durationFadeOutTick, targetVolumeFadeOutTick));
+                StartCoroutine(FadeMixerGroup.StartFade(audioMixer, exposedParameterChime, durationFadeInChime, targetVolumeFadeInChime));
+                timer.chimeTimer = 300;
             }
 
         }
@@ -96,13 +93,11 @@ public class CameraConfinerHouse : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-
         if (collision.gameObject.CompareTag("Player"))
         {
-            vCam.gameObject.SetActive(false);
-            StartCoroutine(FadeOutAudio());
 
+            Debug.Log("hero exited the collider" + gameObject.name);
         }
-
     }
+
 }
