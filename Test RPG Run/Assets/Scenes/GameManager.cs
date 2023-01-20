@@ -1,3 +1,4 @@
+using PixelCrushers.DialogueSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,11 +23,13 @@ public class GameManager : PersistentSingleton<GameManager>
 
     public float timer;
 
+
     public void OnEnable()
     {
         gameManagerObject = gameObject;
         timer = 1f;
         allAudioSources = null;
+        Lua.RegisterFunction("CopingModifier", this, SymbolExtensions.GetMethodInfo(() => CopingModifier((double)0)));
 
     }
 
@@ -56,4 +59,17 @@ public class GameManager : PersistentSingleton<GameManager>
     }
 
 
+
+     void OnDisable()
+     {
+         // Note: If this script is on your Dialogue Manager & the Dialogue Manager is configured
+         // as Don't Destroy On Load (on by default), don't unregister Lua functions.
+         Lua.UnregisterFunction("CopingModifier"); // <-- Only if not on Dialogue Manager.
+     }
+
+     public void CopingModifier(double copingAmount)
+     {
+        Debug.Log("CopingModifier activated with the modifier " + copingAmount);
+         Player.instance.PlayerMana((float)copingAmount);
+     }
 }

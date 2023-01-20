@@ -2,8 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Audio;
 using UnityEngine;
+using Unity.VisualScripting;
+
 public static class FadeMixerGroup
 {
+    public static string exposedParameterFadeOut;
+    public static string exposedParameterFadeIn;
+
+
     public static IEnumerator StartFade(AudioMixer audioMixer, string exposedParam, float duration, float targetVolume)
     {
         float currentTime = 0;

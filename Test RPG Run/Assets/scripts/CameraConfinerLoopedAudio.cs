@@ -46,18 +46,25 @@ public class CameraConfinerLoopedAudio : MonoBehaviour
                 lAudioS.Play();
 
             }
-
-            StartCoroutine(FadeMixerGroup.StartFade(audioMixer, exposedParameter, durationFadeIn, targetVolumeFadeIn));
-
+            FadeMixerGroup.exposedParameterFadeIn = exposedParameter;
+            if (FadeMixerGroup.exposedParameterFadeOut != FadeMixerGroup.exposedParameterFadeIn && FadeMixerGroup.exposedParameterFadeOut != null)
+            {
+                StartCoroutine(FadeMixerGroup.StartFade(audioMixer, FadeMixerGroup.exposedParameterFadeIn, durationFadeIn, targetVolumeFadeIn));
+                StartCoroutine(FadeMixerGroup.StartFade(audioMixer, FadeMixerGroup.exposedParameterFadeOut, durationFadeOut, targetVolumeFadeOut));
+            }
+            else if (FadeMixerGroup.exposedParameterFadeOut == null)
+            {
+                StartCoroutine(FadeMixerGroup.StartFade(audioMixer, FadeMixerGroup.exposedParameterFadeIn, durationFadeIn, targetVolumeFadeIn));
+            }
         }
     }
 
-    public void OnTriggerExit2D(Collider2D collision)
+    public void OnTriggerExit2D(Collider2D collider)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-
+            if (collider.gameObject.CompareTag("Player") && collider.GetComponent<Player>().transitioningToScene == false)
+            {
+                FadeMixerGroup.exposedParameterFadeOut = exposedParameter;
+            }
             Debug.Log("hero exited the collider" + gameObject.name);
-        }
     }
 }

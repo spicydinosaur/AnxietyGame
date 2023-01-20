@@ -38,6 +38,9 @@ public class CameraConfinerHouse : MonoBehaviour
     public float durationFadeOutTick;
     public float targetVolumeFadeOutTick;
 
+    public float durationFadeOut;
+    public float targetVolumeFadeOut;
+
     public void OnEnable()
     {
         timer.chimeTimer = 0f;
@@ -50,17 +53,23 @@ public class CameraConfinerHouse : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("hero entered the collider" + gameObject.name);
-            StartCoroutine(FadeMixerGroup.StartFade(audioMixer, exposedParameter, durationFadeIn, targetVolumeFadeIn));
+            //StartCoroutine(FadeMixerGroup.StartFade(audioMixer, exposedParameter, durationFadeIn, targetVolumeFadeIn));
             if (timer.chimeTimer <= 0)
             {
+                FadeMixerGroup.exposedParameterFadeIn = exposedParameterChime;
                 clockChime.Play();
                 timer.chimeTimer = 300;
-                //StartCoroutine(FadeMixerGroup.StartFade(audioMixer, exposedParameterChime, durationFadeInChime, targetVolumeFadeInChime));
+                StartCoroutine(FadeMixerGroup.StartFade(audioMixer, exposedParameterChime, durationFadeInChime, targetVolumeFadeInChime));
             }
             else
             {
+                FadeMixerGroup.exposedParameterFadeIn = exposedParameterTick;
                 clockTick.Play();
-                //StartCoroutine(FadeMixerGroup.StartFade(audioMixer, exposedParameterTick, durationFadeInTick, targetVolumeFadeInTick));
+                StartCoroutine(FadeMixerGroup.StartFade(audioMixer, exposedParameterTick, durationFadeInTick, targetVolumeFadeInTick));
+            }
+            if (FadeMixerGroup.exposedParameterFadeOut != FadeMixerGroup.exposedParameterFadeIn && FadeMixerGroup.exposedParameterFadeOut != null)
+            {
+                StartCoroutine(FadeMixerGroup.StartFade(audioMixer, FadeMixerGroup.exposedParameterFadeOut, durationFadeOut, targetVolumeFadeOut));
             }
         }
     }
@@ -91,12 +100,20 @@ public class CameraConfinerHouse : MonoBehaviour
         }
     }
 
-    public void OnTriggerExit2D(Collider2D collision)
+    public void OnTriggerExit2D(Collider2D collider)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collider.gameObject.CompareTag("Player") && collider.GetComponent<Player>().transitioningToScene == false)
         {
-
-            Debug.Log("hero exited the collider" + gameObject.name);
+            if (clockTick.isPlaying)
+            {
+                exposedParameter = exposedParameterTick;
+            }
+            else
+            {
+                exposedParameter = exposedParameterChime;
+            }
+            FadeMixerGroup.exposedParameterFadeOut = exposedParameter;
+            StartCoroutine(FadeMixerGroup.StartFade(audioMixer, FadeMixerGroup.exposedParameterFadeOut, durationFadeOut, targetVolumeFadeOut));
         }
     }
 

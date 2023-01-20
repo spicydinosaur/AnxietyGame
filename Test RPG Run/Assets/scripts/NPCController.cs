@@ -49,7 +49,7 @@ public class NPCController : MonoBehaviour
         if (currentMovementType == movementType.Patrol)
         { 
             SetNextLocation(GetComponent<NPCPatrolRoute>().GetNextCoord());
-            animator.SetFloat("Speed", 1.1f);
+            animator.SetFloat("Speed", 2f);
             isMoving = true;
         }
 
@@ -190,12 +190,12 @@ public class NPCController : MonoBehaviour
         if (currentMovementType == movementType.Stop || currentMovementType == movementType.Pause)
         {
             isMoving = false;
-            animator.SetFloat("Speed", 0f);
+            animator.SetFloat("Speed", 1f);
         }
         else if (currentMovementType == movementType.Patrol || currentMovementType == movementType.ToOther)
         {
             isMoving = true;
-            animator.SetFloat("Speed", 1f);
+            animator.SetFloat("Speed", 2f);
         }
     }
 
@@ -219,7 +219,7 @@ public class NPCController : MonoBehaviour
     {
 
         isMoving = true;
-        animator.SetFloat("Speed", 1f);
+        animator.SetFloat("Speed", 2f);
 
     }
 
