@@ -144,7 +144,7 @@ public class EnemyController : NPCController
     public void Attack(Collider2D collider)
     {
         isMoving = false;
-        animator.SetFloat("Speed", 0f);
+        animator.SetFloat("Speed", 3f);
         prevMovementType = currentMovementType;
         animator.SetBool("isAttacking", true);
         currentMovementType = movementType.Attacking;

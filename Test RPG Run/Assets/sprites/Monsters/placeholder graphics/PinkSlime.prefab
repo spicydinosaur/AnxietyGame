@@ -251,7 +251,6 @@ GameObject:
   - component: {fileID: 7998743178252001313}
   - component: {fileID: 7998743178252001317}
   - component: {fileID: 7998743178252001323}
-  - component: {fileID: 7998743178252001315}
   - component: {fileID: 7998743178252001319}
   - component: {fileID: 7998743178252001322}
   - component: {fileID: 7998743177863998468}
@@ -417,28 +416,15 @@ MonoBehaviour:
   nextMove: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
   gameManager: {fileID: 0}
+  hero: {fileID: 0}
   numberOfBlinks: 4
   currentBlink: 0
   textDisplayTime: 0
   currentTextDisplayTime: 0
-  deathCloud: {fileID: 0}
-  objectDeathCloud: {fileID: 0}
   dropTable: {fileID: 0}
---- !u!114 &7998743178252001315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7998743178252001309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7e380db7c96d964c88018a0c9482d8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PatrolCoord: []
-  NextPatrolElement: -1
-  patrollingBool: 0
+  textMeshProUGUI: {fileID: 0}
+  secondsPerHalfBlink: 0
+  route: {fileID: 0}
 --- !u!58 &7998743178252001319
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -835,7 +821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
-  tombstone: {fileID: 0}
+  portalAnimation: {fileID: 0}
 --- !u!222 &5135612803885758659
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -637,10 +637,10 @@ GameObject:
   - component: {fileID: 1930579659862216189}
   - component: {fileID: 1930579659862216185}
   - component: {fileID: 1930579659862216183}
-  - component: {fileID: 1930579659862216191}
   - component: {fileID: 1930579659862216187}
   - component: {fileID: 1930579659862216182}
   - component: {fileID: 1930579659780325848}
+  - component: {fileID: 3766838051451710263}
   m_Layer: 7
   m_Name: Grey Goo
   m_TagString: Enemy
@@ -811,22 +811,7 @@ MonoBehaviour:
   dropTable: {fileID: 1930579659780325848}
   textMeshProUGUI: {fileID: 1930579658526577560}
   secondsPerHalfBlink: 0
-  route: {fileID: 1930579659862216191}
---- !u!114 &1930579659862216191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1930579659862216129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7e380db7c96d964c88018a0c9482d8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PatrolCoord: []
-  NextPatrolElement: -1
-  patrollingBool: 0
+  route: {fileID: 0}
 --- !u!58 &1930579659862216187
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -877,6 +862,28 @@ MonoBehaviour:
   itemsInDropTable: []
   itemDropChance: []
   randomDropResult: 0
+--- !u!114 &3766838051451710263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930579659862216129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 549af2078d19c044da7cf055123e93b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolArray: []
+  positionInList: 0
+  currentMovementOptionElapsedTime: 0
+  isInterrupted: 0
+  interruptMovementOptionElapsedTime: 0
+  preinterrupt: []
+  interrupt: []
+  postinterrupt: []
+  interruptionState: 0
+  positionInInterrupt: 0
 --- !u!1 &1930579660078175189
 GameObject:
   m_ObjectHideFlags: 0

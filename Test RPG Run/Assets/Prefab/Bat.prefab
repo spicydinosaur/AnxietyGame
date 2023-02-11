@@ -174,10 +174,10 @@ GameObject:
   - component: {fileID: 692744376871328200}
   - component: {fileID: 692744376871328204}
   - component: {fileID: 692744376871328194}
-  - component: {fileID: 692744376871328202}
   - component: {fileID: 692744376871328206}
   - component: {fileID: 692744376871328195}
   - component: {fileID: 128783546463296852}
+  - component: {fileID: 6954506572040191406}
   m_Layer: 7
   m_Name: Bat
   m_TagString: Enemy
@@ -349,24 +349,7 @@ MonoBehaviour:
   dropTable: {fileID: 128783546463296852}
   textMeshProUGUI: {fileID: 2318243250183996527}
   secondsPerHalfBlink: 0
-  route: {fileID: 692744376871328202}
---- !u!114 &692744376871328202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 692744376871328244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7e380db7c96d964c88018a0c9482d8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PatrolCoord:
-  - {x: 20.43, y: 5.57}
-  - {x: 20.43, y: 5.57}
-  NextPatrolElement: 0
-  patrollingBool: 0
+  route: {fileID: 0}
 --- !u!58 &692744376871328206
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -417,6 +400,33 @@ MonoBehaviour:
   itemsInDropTable: []
   itemDropChance: []
   randomDropResult: 0
+--- !u!114 &6954506572040191406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692744376871328244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 549af2078d19c044da7cf055123e93b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolArray:
+  - movementOption: 3
+    movementPosition: {x: 0, y: 0}
+    duration: 0
+    distanceFromTarget: 0
+    target: {fileID: 0}
+  positionInList: 0
+  currentMovementOptionElapsedTime: 0
+  isInterrupted: 0
+  interruptMovementOptionElapsedTime: 0
+  preinterrupt: []
+  interrupt: []
+  postinterrupt: []
+  interruptionState: 0
+  positionInInterrupt: 0
 --- !u!1 &692744377025518103
 GameObject:
   m_ObjectHideFlags: 0

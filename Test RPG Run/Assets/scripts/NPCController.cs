@@ -52,7 +52,10 @@ public class NPCController : MonoBehaviour
             animator.SetFloat("Speed", 2f);
             isMoving = true;
         }
-
+        else
+        {
+            animator.SetFloat("Speed", 1f);
+        }
 
 
     }
@@ -168,7 +171,8 @@ public class NPCController : MonoBehaviour
     {
         
         isMoving = false;
-        animator.SetFloat("Speed", 0f);
+        animator.SetFloat("Speed", 1f);
+        animator.speed = 1f;
         pauseTime = paramPauseTime;
         prevMovementType = currentMovementType;
         currentMovementType = movementType.Pause;
@@ -227,7 +231,8 @@ public class NPCController : MonoBehaviour
     {
 
         isMoving = false;
-         
+        animator.SetFloat("Speed", 1f);
+
     }
 
 

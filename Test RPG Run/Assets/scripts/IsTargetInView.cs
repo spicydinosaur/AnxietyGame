@@ -8,16 +8,16 @@ using TMPro;
 
 public class IsTargetInView : MonoBehaviour
 {
-    public EnemyController controller;
+    public AdvancedPatrolScript controller;
     public GameObject portalAnimation;
 
     public void Awake()
     {
 
-        controller = GetComponentInParent<EnemyController>();
+        controller = GetComponentInParent<AdvancedPatrolScript>();
 
     }
-
+/*
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
@@ -55,5 +55,5 @@ public class IsTargetInView : MonoBehaviour
 
         }
 
-    }
+    }*/
 }

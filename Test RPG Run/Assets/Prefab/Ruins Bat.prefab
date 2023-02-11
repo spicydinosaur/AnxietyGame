@@ -259,10 +259,10 @@ GameObject:
   - component: {fileID: 3925210647939697329}
   - component: {fileID: 3925210647939697333}
   - component: {fileID: 3925210647939697339}
-  - component: {fileID: 3925210647939697331}
   - component: {fileID: 3925210647939697335}
   - component: {fileID: 3925210647939697338}
   - component: {fileID: 4480447118804930093}
+  - component: {fileID: 974963516733134691}
   m_Layer: 7
   m_Name: Ruins Bat
   m_TagString: Enemy
@@ -434,24 +434,7 @@ MonoBehaviour:
   dropTable: {fileID: 4480447118804930093}
   textMeshProUGUI: {fileID: 2290138592606705430}
   secondsPerHalfBlink: 0
-  route: {fileID: 3925210647939697331}
---- !u!114 &3925210647939697331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3925210647939697293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7e380db7c96d964c88018a0c9482d8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PatrolCoord:
-  - {x: 20.43, y: 5.57}
-  - {x: 20.43, y: 5.57}
-  NextPatrolElement: 0
-  patrollingBool: 0
+  route: {fileID: 0}
 --- !u!58 &3925210647939697335
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -502,6 +485,28 @@ MonoBehaviour:
   itemsInDropTable: []
   itemDropChance: []
   randomDropResult: 0
+--- !u!114 &974963516733134691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3925210647939697293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 549af2078d19c044da7cf055123e93b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolArray: []
+  positionInList: 0
+  currentMovementOptionElapsedTime: 0
+  isInterrupted: 0
+  interruptMovementOptionElapsedTime: 0
+  preinterrupt: []
+  interrupt: []
+  postinterrupt: []
+  interruptionState: 0
+  positionInInterrupt: 0
 --- !u!1 &3925210648230168942
 GameObject:
   m_ObjectHideFlags: 0

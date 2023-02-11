@@ -14,12 +14,9 @@ public class MovementOption
     public OptionType movementOption;
     public Vector2 movementPosition;
     public float duration;
+    public float distanceFromTarget;
     public GameObject target;
 
-    public virtual void Activate()
-    {
-
-    }
 }
 
 

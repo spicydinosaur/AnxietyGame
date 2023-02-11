@@ -1,19 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StopOnTrigger : MonoBehaviour
 {
 
-    public NPCController controller;
+    public AdvancedPatrolScript controller;
+    public MovementOption option;
     public Player player;
+    public MovementOption[] preinterrupt;
+    public MovementOption[] interrupt;
+    public MovementOption[] postinterrupt;
 
     
 
     public void Awake()
     {
 
-        controller = GetComponentInParent<NPCController>();
+        controller = GetComponentInParent<AdvancedPatrolScript>();
 
 
     }
@@ -21,15 +26,11 @@ public class StopOnTrigger : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
-        { 
-            if (controller.currentMovementType != NPCController.movementType.Stop && controller.currentMovementType != NPCController.movementType.Pause)
-            {
+        {
+            
+            option.movementPosition = Vector3.Normalize(collider.transform.position - gameObject.transform.position);
+            controller.Interrupt(preinterrupt, interrupt, postinterrupt);
 
-                controller.PauseMovement(Mathf.Infinity);
-                Debug.Log("onTriggerEnter2D: controller.prevMovementType equals" + controller.prevMovementType);
-                Debug.Log("onTriggerEnter2D: controller.currentMovementType equals" + controller.currentMovementType);
-
-            }
         }
     }
 
@@ -39,14 +40,8 @@ public class StopOnTrigger : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            if (controller.currentMovementType == NPCController.movementType.Pause)
-            {
-
-                controller.RevertState();
-                controller.PauseMovement(3);
-                Debug.Log("onTriggerExit2D: controller.prevMovementType equals" + controller.prevMovementType);
-                Debug.Log("onTriggerExit2D: controller.currentMovementType equals" + controller.currentMovementType);
-            }
+            //change this to StopInterrupt()
+            controller.NextPatrol();
 
         }
     }

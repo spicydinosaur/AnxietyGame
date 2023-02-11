@@ -458,10 +458,10 @@ GameObject:
   - component: {fileID: 3505258869180530457}
   - component: {fileID: 3505258869180530461}
   - component: {fileID: 3505258869180530451}
-  - component: {fileID: 3505258869180530459}
   - component: {fileID: 3505258869180530463}
   - component: {fileID: 3505258869180530450}
   - component: {fileID: 3505258869262218044}
+  - component: {fileID: 152234513275249599}
   m_Layer: 7
   m_Name: Gork
   m_TagString: Enemy
@@ -633,22 +633,7 @@ MonoBehaviour:
   dropTable: {fileID: 3505258869262218044}
   textMeshProUGUI: {fileID: 3505258870517145980}
   secondsPerHalfBlink: 1
-  route: {fileID: 3505258869180530459}
---- !u!114 &3505258869180530459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3505258869180530469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7e380db7c96d964c88018a0c9482d8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PatrolCoord: []
-  NextPatrolElement: 0
-  patrollingBool: 0
+  route: {fileID: 0}
 --- !u!58 &3505258869180530463
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -699,6 +684,28 @@ MonoBehaviour:
   itemsInDropTable: []
   itemDropChance: []
   randomDropResult: 0
+--- !u!114 &152234513275249599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3505258869180530469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 549af2078d19c044da7cf055123e93b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolArray: []
+  positionInList: 0
+  currentMovementOptionElapsedTime: 0
+  isInterrupted: 0
+  interruptMovementOptionElapsedTime: 0
+  preinterrupt: []
+  interrupt: []
+  postinterrupt: []
+  interruptionState: 0
+  positionInInterrupt: 0
 --- !u!1 &3505258869917672463
 GameObject:
   m_ObjectHideFlags: 0
