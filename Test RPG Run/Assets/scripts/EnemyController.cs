@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting.Generated.PropertyProviders;
 
 public class EnemyController : NPCController
 {
@@ -10,19 +11,25 @@ public class EnemyController : NPCController
     //why are the cave bats refusing to face the correct way!?
 
 
+    public DropTable dropTable;
+
+   /* public float maxTimeInvincible;
+    public bool isInvincible;
+    public float invincibilityCountdownTimer;
+   */
+    public MoveViewCone moveViewCone;
+
     public float numberOfBlinks;
     public float currentBlink;
 
     public float textDisplayTime;
     public float currentTextDisplayTime;
-
-
-    public DropTable dropTable;
-
     public TextMeshProUGUI textMeshProUGUI;
     public float secondsPerHalfBlink;
 
-    public NPCPatrolRoute route;
+
+
+
 
 
 
@@ -31,52 +38,11 @@ public class EnemyController : NPCController
     {
         base.OnEnable();
         dropTable = GetComponent<DropTable>();
-        textMeshProUGUI.enabled = false;
-        currentTextDisplayTime = 0f;
-        numberOfBlinks = 4;
-        currentBlink = 0;
+        
+
     }
 
     // Update is called once per frame
-    override public void FixedUpdate()
-    {
-        if (textDisplayTime != 0f)
-        {
-
-            currentTextDisplayTime += Time.deltaTime;
-            /*if (textMeshProUGUI == false
-                &&
-                currentTextDisplayTime <= (currentBlink + .5f) * textDisplayTime / numberOfBlinks
-                &&
-                currentTextDisplayTime >= (currentBlink) * textDisplayTime / numberOfBlinks)
-            {
-                textMeshProUGUI.enabled = true;
-            }
-            else if (textMeshProUGUI.enabled == true
-                &&
-                currentTextDisplayTime >= (currentBlink + 0.5f) * textDisplayTime / numberOfBlinks
-                &&
-                currentTextDisplayTime <= (currentBlink + 1f) * textDisplayTime / numberOfBlinks)
-            {
-                textMeshProUGUI.enabled = false;
-                currentBlink++;
-            }*/
-
-            if (currentTextDisplayTime >= textDisplayTime)
-            {
-                textDisplayTime = 0f;
-                currentTextDisplayTime = 0f;
-                currentBlink = 0;
-                textMeshProUGUI.enabled = false;
-                textMeshProUGUI.SetText("");
-            }
-
-        }
-
-        base.FixedUpdate();
-
-    }
-
 
     public override void OnDeath()
     {
@@ -85,10 +51,11 @@ public class EnemyController : NPCController
         animator.SetBool("isAttacking", false);
         animator.SetBool("isDead", true);
         dropTable.rollOnTable();
-        animator.SetFloat("Speed", 1f);
+        animator.SetFloat("Speed", 0f);
         isMoving = false;
-        currentMovementType = movementType.Death;
         EventBroadcaster.HeroDeath.RemoveListener(HeroDied);
+        currentTextDisplayTime = 0f;
+        textMeshProUGUI.enabled= false;
 
 
     }
@@ -98,65 +65,80 @@ public class EnemyController : NPCController
     {
 
         GetComponent<Animator>().SetBool("isDead", false);
-        GetComponent<Animator>().SetBool("isAttacking", false);
         gameObject.SetActive(false);
 
     }
 
-
-    public void ChangeTargetViewState(bool viewState)
+    /*
+    public void OnCollisionEnter2D(Collision2D collider)
     {
-        canSeeTarget = viewState;
-
-        if (!isChasing)
+        if (collider.gameObject.CompareTag("NPC"))
         {
-            currentBlink = 0;
+            //target = collider.gameObject;
+            //invincibilityCountdownTimer = 0f;
+            //Attack(target);
 
-            if (canSeeTarget)
+        }
+    }
+
+     
+
+    public void OnCollisionStay2D(Collision2D collider)
+    {
+
+
+
+        if (collider.gameObject.activeSelf && collider.gameObject.CompareTag("Player"))
+        {
+
+            if (isInvincible)
             {
-                PauseMovement(.8f);
-                textMeshProUGUI.enabled = true;
-                textMeshProUGUI.SetText("!");
+                animator.SetBool("isAttacking", false);
+                invincibilityCountdownTimer -= Time.deltaTime;
 
+                if (invincibilityCountdownTimer <= 0f)
+                {
+                    invincibilityCountdownTimer = maxTimeInvincible;
+                    hero.GetComponent<Player>().PlayerHealth(-healthDamage);
+                    isInvincible = false;
+                }
+
+                Debug.Log("Hero active?" + collider.gameObject.activeSelf);
             }
             else
             {
-                PauseMovement(3f);
-                textMeshProUGUI.enabled = true;
-                textMeshProUGUI.SetText("?");
+                if (!collider.gameObject.activeSelf) //will it even register the hero if they are disabled?
+
+                {
+                    animator.SetBool("isAttacking", false);
+
+                    Debug.Log("Hero active?" + collider.gameObject.activeSelf);
+                    return;
+
+                }
+
+
+
+                //Debug.Log("Hero active?" + collider.gameObject.activeSelf);
             }
+
         }
 
-
     }
-
+   
+    //make this an event: HeroDied
     public void OnCollisionExit2D(Collision2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
         {
 
-            StartMove();
             animator.SetBool("isAttacking", false);
+            invincibilityCountdownTimer = 0f;
+            Debug.Log("Hero active?" + collider.gameObject.activeSelf);
+            advancedPatrolScript.StopInterrupt();                 
+
 
         }
     }
-
-    public void Attack(Collider2D collider)
-    {
-        isMoving = false;
-        animator.SetFloat("Speed", 3f);
-        prevMovementType = currentMovementType;
-        animator.SetBool("isAttacking", true);
-        currentMovementType = movementType.Attacking;
-        targetToChase = collider.gameObject;
-    }
-
-    override public void PauseMovement(float paramPauseTime)
-    {
-
-        base.PauseMovement(paramPauseTime);
-        textDisplayTime = paramPauseTime;
-        secondsPerHalfBlink = paramPauseTime/(numberOfBlinks*2);
-
-    }
+    */
 }

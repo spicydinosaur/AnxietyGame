@@ -225,9 +225,9 @@ public class Player : MonoBehaviour
             currentSpell = listOfSpells[selectedSpell];
             currentSpellTemplate = currentSpell.GetComponent<SpellTemplate>();
             currentSpellIcon = listOfSpellIcons[selectedSpell];
-            Debug.Log("spell instantiate gameobject is " + currentSpell);
-            Debug.Log("spell instantiate template script is " + currentSpellTemplate);
-            Debug.Log("Spell selection list position is " + selectedSpell);
+            //Debug.Log("spell instantiate gameobject is " + currentSpell);
+            //Debug.Log("spell instantiate template script is " + currentSpellTemplate);
+            //Debug.Log("Spell selection list position is " + selectedSpell);
 
             if (globalCastDownTime > currentSpellTemplate.currentCastDownTime && selectedSpell != 0)
             {
@@ -242,7 +242,7 @@ public class Player : MonoBehaviour
 
 
 
-            Debug.Log("mouse scroll wheel up. Spellholder.selectedSpell = " + selectedSpell);
+            //Debug.Log("mouse scroll wheel up. Spellholder.selectedSpell = " + selectedSpell);
             spellIconImage.GetComponent<Image>().sprite = currentSpellIcon;
 
 
@@ -261,13 +261,13 @@ public class Player : MonoBehaviour
                 selectedSpell--;
             }
 
-            Debug.Log("selectedSpell = " + selectedSpell);
+            //Debug.Log("selectedSpell = " + selectedSpell);
 
             currentSpell = listOfSpells[selectedSpell];
             currentSpellIcon = listOfSpellIcons[selectedSpell];
             currentSpellTemplate = currentSpell.GetComponent<SpellTemplate>();
-            Debug.Log("spell instantiate gameobject is " + currentSpell);
-            Debug.Log("spell instantiate template script is " + currentSpellTemplate);
+            //Debug.Log("spell instantiate gameobject is " + currentSpell);
+            //Debug.Log("spell instantiate template script is " + currentSpellTemplate);
 
 
             if (globalCastDownTime > currentSpellTemplate.currentCastDownTime && selectedSpell != 0)
@@ -282,7 +282,7 @@ public class Player : MonoBehaviour
             }
 
 
-            Debug.Log("mouse scroll wheel down Spellholder.selectedSpell = " + selectedSpell);
+            //Debug.Log("mouse scroll wheel down Spellholder.selectedSpell = " + selectedSpell);
             spellIconImage.GetComponent<Image>().sprite = currentSpellIcon;
         }
 
@@ -316,13 +316,13 @@ public class Player : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        Debug.Log("OnInteract fired from Player script.");
+        //Debug.Log("OnInteract fired from Player script.");
 
         if (objectInteraction != null)
         {
 
 
-            Debug.Log("objectInteraction is set to " + objectInteraction);
+            //Debug.Log("objectInteraction is set to " + objectInteraction);
             objectInteraction.InteractWithObject();
             //Debug.Log("callback context is " + ctx);
 
@@ -350,7 +350,7 @@ public class Player : MonoBehaviour
 
                 if (currentCastDownTime != 0)
                 {
-                    Debug.Log("mouse click registered for spell casting. Spell on cooldown, attempt failed.");
+                    //Debug.Log("mouse click registered for spell casting. Spell on cooldown, attempt failed.");
                     audioSource.PlayOneShot(failSpell);
 
 
@@ -358,7 +358,7 @@ public class Player : MonoBehaviour
                 else if (currentCastDownTime == 0f)
                 {
                     //This spell has no range and requires no values other than being at 0 on currentCastDownTime.
-                    Debug.Log("mouse click registered for spell casting. Spell available to cast, no cooldown in place. " + currentSpellTemplate.name + " is the current instantiated template.");
+                    //Debug.Log("mouse click registered for spell casting. Spell available to cast, no cooldown in place. " + currentSpellTemplate.name + " is the current instantiated template.");
                     currentSpellTemplate.castSpell();
 
                 }
@@ -367,7 +367,7 @@ public class Player : MonoBehaviour
             {
                 if (currentCastDownTime != 0)
                 {
-                    Debug.Log("mouse click registered for spell casting. Spell on cooldown, attempt failed.");
+                    //Debug.Log("mouse click registered for spell casting. Spell on cooldown, attempt failed.");
                     audioSource.PlayOneShot(failSpell, 1f);
                     //spells are double casting, (leading to the failSpell beep on every cast.) The below should stop that from happening.
 
@@ -375,12 +375,12 @@ public class Player : MonoBehaviour
                 }
                 else if (currentCastDownTime == 0f)
                 {
-                    Debug.Log("pre camera conversion gives us playerControls.PlayerActions.MousePosition.ReadValue<Vector2>() at " + Mouse.current.position.ReadValue());
+                    //Debug.Log("pre camera conversion gives us playerControls.PlayerActions.MousePosition.ReadValue<Vector2>() at " + Mouse.current.position.ReadValue());
                     mousePosition = mainCam.ScreenToWorldPoint(new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, 0f));
-                    Debug.Log("Mouse click registered for spell casting. mousePosition registered at: " + mousePosition);
+                    //Debug.Log("Mouse click registered for spell casting. mousePosition registered at: " + mousePosition);
                     currentSpellTemplate.mousePos = new Vector2(mousePosition.x, mousePosition.y);
-                    Debug.Log("Spell available to cast, no cooldown in place. mousePos registered at: " + currentSpellTemplate.mousePos);
-                    Debug.Log("mouse click registered for spell casting. Spell available to cast, no cooldown in place. " + currentSpellTemplate + " is the current instantiated template. The currentSpellInstantiate is " + currentSpell);
+                    //Debug.Log("Spell available to cast, no cooldown in place. mousePos registered at: " + currentSpellTemplate.mousePos);
+                    //Debug.Log("mouse click registered for spell casting. Spell available to cast, no cooldown in place. " + currentSpellTemplate + " is the current instantiated template. The currentSpellInstantiate is " + currentSpell);
                     currentSpellTemplate.castSpell();
 
                 }

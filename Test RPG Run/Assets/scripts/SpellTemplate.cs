@@ -97,16 +97,16 @@ public class SpellTemplate : MonoBehaviour
         //rawDirection = new Vector3(mousePos.x, mousePos.y, 0f) - tempHeroTransformValues;
         heroTransform = hero.transform.position;
         direction = (mousePos - heroTransform).normalized;
-        Debug.Log("hero transform position = " + hero.transform.position);
-        Debug.Log("Camera.main.ScreenToWorldPoint(hero.transform.position) = " + Camera.main.ScreenToWorldPoint(hero.transform.position));
-        Debug.Log("heroTransform = " + heroTransform + ", direction = " + direction + ", mousePos = " + mousePos + ".");
+        //Debug.Log("hero transform position = " + hero.transform.position);
+        //Debug.Log("Camera.main.ScreenToWorldPoint(hero.transform.position) = " + Camera.main.ScreenToWorldPoint(hero.transform.position));
+        //Debug.Log("heroTransform = " + heroTransform + ", direction = " + direction + ", mousePos = " + mousePos + ".");
 
 
         RaycastHit2D hit = Physics2D.Raycast(heroTransform, direction, rayCastDistance, layerMask);
 
         spellSound.Play();
 
-        Debug.Log("hit.point = " + hit.point + ".");
+       //Debug.Log("hit.point = " + hit.point + ".");
 
         if (hit.collider)
         {
@@ -114,7 +114,7 @@ public class SpellTemplate : MonoBehaviour
             //gameObject.transform.position = hit.transform.position;
             gameObject.transform.position = hit.point;
             gameObject.GetComponent<Animator>().SetBool("isCasting", true);
-            Debug.Log("Spell now at " + gameObject.transform.position + " which should be the same as " + hit.transform.position + ".");
+            //Debug.Log("Spell now at " + gameObject.transform.position + " which should be the same as " + hit.transform.position + ".");
 
             if (hitObject.CompareTag("Enemy"))
             {
@@ -130,16 +130,16 @@ public class SpellTemplate : MonoBehaviour
             }
             else
             {
-                Debug.Log("this is the statement appearing when a collider not on the layermask gets hit, it should never show up.");
-                Debug.Log("hit.name because something weird happened : " + hit.collider.name + ".");
+                //Debug.Log("this is the statement appearing when a collider not on the layermask gets hit, it should never show up.");
+                //Debug.Log("hit.name because something weird happened : " + hit.collider.name + ".");
             }
 
             currentCastDownTime = castDownTime;
             player.currentCastDownTime = currentCastDownTime;
             player.globalCastDownTime = globalCastDownTime;
             spellIconMask.fillAmount = 1f;
-            Debug.Log("hit Something : " + hit.collider.name + " spell should be " + player.currentSpell + ". Collision occurred at " + hit.transform.position);
-            Debug.Log("hit tag  : " + hit.collider.tag);
+            //Debug.Log("hit Something : " + hit.collider.name + " spell should be " + player.currentSpell + ". Collision occurred at " + hit.transform.position);
+            //Debug.Log("hit tag  : " + hit.collider.tag);
         
 
         }
@@ -148,9 +148,9 @@ public class SpellTemplate : MonoBehaviour
         else
 
         {
-            Debug.Log("heroTransform (" + heroTransform + ") and mousePos (" + mousePos + ")");
+            //Debug.Log("heroTransform (" + heroTransform + ") and mousePos (" + mousePos + ")");
             point = new Vector3(heroTransform.x + (direction.x * rayCastDistance), heroTransform.y + (direction.y * rayCastDistance), 0f);
-            Debug.Log("point now converted to heroTransform + direction * rayCastDistance and located at " + point + ".");
+            //Debug.Log("point now converted to heroTransform + direction * rayCastDistance and located at " + point + ".");
 
             player.fizzleSpell.transform.position = point;
             player.fizzleSpellAnim.SetBool("isCasting", true);
@@ -162,7 +162,7 @@ public class SpellTemplate : MonoBehaviour
 
             spellIconMask.fillAmount = 1f;
 
-            Debug.Log("Nothing hit. Fizzlespell activating and moved to " + point);
+           // Debug.Log("Nothing hit. Fizzlespell activating and moved to " + point);
 
         }
 

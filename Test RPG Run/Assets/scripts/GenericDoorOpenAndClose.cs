@@ -6,6 +6,9 @@ public class GenericDoorOpenAndClose : MonoBehaviour
 {
 
     public Animator animator;
+    public AudioSource audioSource;
+    public AudioClip doorOpenSound;
+    public AudioClip doorCloseSound;
 
 
     // Start is called before the first frame update
@@ -19,6 +22,7 @@ public class GenericDoorOpenAndClose : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && animator.GetBool("doorTriggered") != true)
         {
             animator.SetBool("doorTriggered", true);
+            audioSource.PlayOneShot(doorOpenSound, .5f);
         }
     }
 
@@ -27,6 +31,7 @@ public class GenericDoorOpenAndClose : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && animator.GetBool("doorTriggered") == true)
         {
             animator.SetBool("doorTriggered", false);
+            audioSource.PlayOneShot(doorCloseSound, .5f);
         }
     }
 }
