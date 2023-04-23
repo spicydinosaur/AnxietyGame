@@ -266,7 +266,7 @@ public class AdvancedPatrolScript : MonoBehaviour
     {
         Debug.Log("RunFromTarget Coroutine has fired!");
         //eventually there will probably be an error if the position is outside the navmesh. We need to be able to check if the position is a valid position and adjust accordingly if it is not.
-        //this is currently NOT working! Find a way to calculate the position variable that allows the NPC to reliably run from its target.
+        //this needs testing! Finding a way to calculate the position variable that allows the NPC to reliably run from its target.
         agent.isStopped = false;
         Debug.Log("destination coords are " + target + "\ngameObject coords are " + gameObject.transform.position + ". distanceFromTarget = " + distanceFromTarget);
         if (distanceFromTarget == 0)
@@ -275,7 +275,8 @@ public class AdvancedPatrolScript : MonoBehaviour
         }
         while (Vector2.Distance(transform.position, target.transform.position) < distanceFromTarget)
         {
-            Vector2 position = target.transform.position * -1;
+            var distance = Vector2.Distance(transform.position, target.transform.position);
+            Vector2 position = new Vector2(transform.position.x - distance, transform.position.y - distance);
             SetDestination(position);
             animator.SetFloat("Speed", 1f);
             controller.isMoving = true;
