@@ -44,9 +44,7 @@ public class MoveViewCone : MonoBehaviour
     private void Awake()
     {
         controller = GetComponentInParent<NPCController>();
-        rigidBody = GetComponentInParent<Rigidbody2D>();
         advancedPatrolScript = GetComponentInParent<AdvancedPatrolScript>(); 
-        movementOption = GetComponent<MovementOption>();
         textMeshProUGUI.enabled = false;
         currentTextDisplayTime = 0f;
 
@@ -79,7 +77,7 @@ public class MoveViewCone : MonoBehaviour
         {
 
             currentTextDisplayTime += Time.deltaTime;
-            /*if (textMeshProUGUI == false
+            if (textMeshProUGUI == false
                 &&
                 currentTextDisplayTime <= (currentBlink + .5f) * textDisplayTime / numberOfBlinks
                 &&
@@ -95,7 +93,7 @@ public class MoveViewCone : MonoBehaviour
             {
                 textMeshProUGUI.enabled = false;
                 currentBlink++;
-            }*/
+            }
 
             if (currentTextDisplayTime >= textDisplayTime)
             {
@@ -104,6 +102,7 @@ public class MoveViewCone : MonoBehaviour
                 currentBlink = 0;
                 textMeshProUGUI.enabled = false;
                 textMeshProUGUI.SetText("");
+                controller.isChasing = false;
             }
 
         }
@@ -112,7 +111,7 @@ public class MoveViewCone : MonoBehaviour
     public void ChangeTargetViewState()
     {
 
-        if (!controller.isChasing)
+        if (controller.isChasing)
         {
             if (Vector2.Distance(gameObject.transform.position, controller.target.transform.position) >= minimumViewDistance)
             {
@@ -146,6 +145,7 @@ public class MoveViewCone : MonoBehaviour
         {
 
             canSeeTarget = true;
+            controller.isChasing = true;
             ChangeTargetViewState();
 
         }

@@ -23,6 +23,9 @@ public class AdvancedPatrolScript : MonoBehaviour
     public Coroutine runningCoroutine;
     public float destinationThreshold;
 
+    //using this to dump the path from calculatepath
+    public NavMeshHit hit;
+    public Vector2 bestDistanceVector2;
 
     public bool isInterrupted;
     public float interruptMovementOptionElapsedTime;
@@ -52,6 +55,10 @@ public class AdvancedPatrolScript : MonoBehaviour
     public float defaultManaDamage;
 
     public NavMeshAgent agent;
+    public bool hasBestVector2Changed;
+    public GameObject destinationToken;
+    public bool isRunningBackwards;
+    public GameObject emergencyDestinationToken;
 
     public void OnEnable()
     {
@@ -76,6 +83,11 @@ public class AdvancedPatrolScript : MonoBehaviour
         {
             TriggerMovementOption(patrolArray[positionInList]);
         }
+    }
+
+    public void Awake()
+    {
+        hit = new NavMeshHit();
     }
     void SetDestination(GameObject target)
     {
@@ -139,14 +151,14 @@ public class AdvancedPatrolScript : MonoBehaviour
         animator.SetFloat("Speed", 0f);
         controller.isMoving = false;
         agent.isStopped = true;
-        Debug.Log("Stop functioned has fired!");
+        //Debug.Log("Stop functioned has fired!");
 
 
     }
     public IEnumerator Wait(float waitTime)
     {
-        Debug.Log("Wait Coroutine has fired!");
-        Debug.Log("runningCoroutine = " + runningCoroutine);
+        //Debug.Log("Wait Coroutine has fired!");
+        //Debug.Log("runningCoroutine = " + runningCoroutine);
         animator.SetFloat("Speed", 0f);
         controller.isMoving = false;
         agent.isStopped = true;
@@ -157,17 +169,17 @@ public class AdvancedPatrolScript : MonoBehaviour
 
     }
 
-    public IEnumerator MoveTo(Vector2 vectorDestination,float distanceFromTarget)
+    public IEnumerator MoveTo(Vector2 vectorDestination, float distanceFromTarget)
     {
-        Debug.Log("MoveTo Coroutine has fired!");
+        //Debug.Log("MoveTo Coroutine has fired!");
         agent.isStopped = false;
         SetDestination(vectorDestination);
-        Debug.Log("destination coords are " + vectorDestination + "\ngameObject coords are " + gameObject.transform.position + ". distanceFromTarget = " + distanceFromTarget);
+        //Debug.Log("destination coords are " + vectorDestination + "\ngameObject coords are " + gameObject.transform.position + ". distanceFromTarget = " + distanceFromTarget);
         if (distanceFromTarget == 0)
         {
             distanceFromTarget = 0.5f;
         }
-        while (Vector2.Distance(transform.position, vectorDestination) > distanceFromTarget) 
+        while (Vector2.Distance(transform.position, vectorDestination) > distanceFromTarget)
         {
             animator.SetFloat("Speed", 1f);
             controller.isMoving = true;
@@ -184,14 +196,14 @@ public class AdvancedPatrolScript : MonoBehaviour
         agent.isStopped = true;
         animator.SetFloat("Speed", 0f);
         controller.isMoving = false;
-        Debug.Log("destination coords are " + vectorDestination + "\ngameObject coords are " + gameObject.transform.position + " MoveTo Complete.");
+        //Debug.Log("destination coords are " + vectorDestination + "\ngameObject coords are " + gameObject.transform.position + " MoveTo Complete.");
         NextPatrolOrInterrupt();
         yield break;
 
     }
     public IEnumerator LookAt(Vector2 lookDirection, float waitTime)
     {
-        Debug.Log("LookAt Coroutine has fired!");
+        //Debug.Log("LookAt Coroutine has fired!");
         animator.SetFloat("Speed", 0f);
         controller.isMoving = false;
         agent.isStopped = true;
@@ -203,10 +215,10 @@ public class AdvancedPatrolScript : MonoBehaviour
     }
     public IEnumerator FollowTarget(GameObject target, float distanceFromTarget)
     {
-        Debug.Log("FollowTarget Coroutine has fired!");
+        //Debug.Log("FollowTarget Coroutine has fired!");
         //what do we do if the player moves off the current navmesh? We need to be able to reset the NPC so that it doesn't create errors or just try endlessly to get to the PC or NPC it is trying to follow.
         agent.isStopped = false;
-        Debug.Log("destination coords are " + target + "\ngameObject coords are " + gameObject.transform.position + ". distanceFromTarget = " + distanceFromTarget);
+        //Debug.Log("destination coords are " + target + "\ngameObject coords are " + gameObject.transform.position + ". distanceFromTarget = " + distanceFromTarget);
         if (distanceFromTarget == 0)
         {
             distanceFromTarget = 1f;
@@ -229,37 +241,10 @@ public class AdvancedPatrolScript : MonoBehaviour
         agent.isStopped = true;
         animator.SetFloat("Speed", 0f);
         controller.isMoving = false;
-        Debug.Log("destination coords are " + target.transform.position + "\ngameObject coords are " + gameObject.transform.position + " MoveTo Complete.");
+        //Debug.Log("destination coords are " + target.transform.position + "\ngameObject coords are " + gameObject.transform.position + " MoveTo Complete.");
         NextPatrolOrInterrupt();
         yield break;
-        /*
-        while (Vector2.Distance(rigidBody2D.position, target.transform.position) > distanceFromTarget)
-        {
-            animator.SetFloat("Speed", 1f);
-            controller.isMoving = true;
-            Debug.Log("destination coords are " + target.transform.position + "\ngameObject coords are " + gameObject.transform.position + "\npositioninlist is " + positionInList);
 
-            Vector2 position = rigidBody2D.position;
-            var horizontal = target.transform.position.x - position.x;
-            var vertical = target.transform.position.x - position.y;
-            var velocity = new Vector2(horizontal, vertical);
-            Debug.Log("velocity = " + velocity);
-            velocity.Normalize();
-            Debug.Log("velocity.Normalize() = " + velocity);
-            position.x = position.x + controller.speed * velocity.x * Time.deltaTime;
-            position.y = position.y + controller.speed * velocity.y * Time.deltaTime;
-            animator.SetFloat("Look X", velocity.x);
-            animator.SetFloat("Look Y", velocity.y);
-            rigidBody2D.MovePosition(position);
-
-            yield return new WaitForFixedUpdate();
-            
-        }
-        animator.SetFloat("Speed", 0f);
-        controller.isMoving = false;
-        NextPatrolOrInterrupt();
-        yield break;
-        */
     }
 
     public IEnumerator RunFromTarget(GameObject target, float distanceFromTarget)
@@ -271,23 +256,78 @@ public class AdvancedPatrolScript : MonoBehaviour
         Debug.Log("destination coords are " + target + "\ngameObject coords are " + gameObject.transform.position + ". distanceFromTarget = " + distanceFromTarget);
         if (distanceFromTarget == 0)
         {
-            distanceFromTarget = 5f;
+            distanceFromTarget = 3f;
         }
         while (Vector2.Distance(transform.position, target.transform.position) < distanceFromTarget)
         {
             var distance = Vector2.Distance(transform.position, target.transform.position);
-            Vector2 position = new Vector2(transform.position.x - distance, transform.position.y - distance);
-            SetDestination(position);
-            animator.SetFloat("Speed", 1f);
-            controller.isMoving = true;
-            var horizontal = target.transform.position.x;
-            var vertical = target.transform.position.y;
+            var horizontal = target.transform.position.x - transform.position.x;
+            var vertical = target.transform.position.y - transform.position.y;
             var velocity = new Vector2(horizontal, vertical);
             velocity.Normalize();
-            position.x = position.x + controller.speed * velocity.x * Time.deltaTime;
-            position.y = position.y + controller.speed * velocity.y * Time.deltaTime;
-            animator.SetFloat("Look X", -velocity.x);
-            animator.SetFloat("Look Y", -velocity.y);
+            Vector2 position = new Vector2(transform.position.x - (distance * velocity.x), transform.position.y - (distance * velocity.y));
+            Debug.Log("distance variable = " + distance + ". velocity variable = " + velocity + ". position variable = " + position);
+            destinationToken.transform.position = position;
+
+            //it could be interesting to use positive velocity values and have the enemy staring at the target it is fleeing from while running away. Perhaps this will be of use in a boss fight later on!
+            if (isRunningBackwards)
+            {
+                animator.SetFloat("Look X", velocity.x);
+                animator.SetFloat("Look Y", velocity.y);
+            }
+            else
+            {
+                animator.SetFloat("Look X", -velocity.x);
+                animator.SetFloat("Look Y", -velocity.y);
+            }
+
+
+            if (NavMesh.SamplePosition(position, out hit, 0.1f, NavMesh.AllAreas)) //&& path.status == NavMeshPathStatus.PathComplete)
+            {
+                Debug.Log("RunFronTarget coroutine initial if statement has fired!");
+                SetDestination(position); 
+                emergencyDestinationToken.gameObject.SetActive(false);
+            }
+            else
+            {
+                Debug.Log("in RunFronTarget coroutine, initial if statement moved to else.");
+                //untested material,see TestDistanceFromTarget() function
+                bestDistanceVector2 = transform.position;
+
+                hasBestVector2Changed = false;
+
+                if (NavMesh.SamplePosition(new Vector2(transform.position.x - 0.5f, transform.position.y), out hit, 0.1f, NavMesh.AllAreas)) //&& path.status == NavMeshPathStatus.PathComplete)
+                {
+                    Debug.Log("in RunFromTarget coroutine, inside else statement, first if successful");
+                    TestDistanceFromTarget(new Vector2(transform.position.x - 0.5f, transform.position.y), target);
+                }
+                if (NavMesh.SamplePosition(new Vector2(transform.position.x + 0.5f, transform.position.y), out hit, 0.1f, NavMesh.AllAreas))
+                {
+                    Debug.Log("in RunFromTarget coroutine, inside else statement, second if successful");
+                    TestDistanceFromTarget(new Vector2(transform.position.x + 0.5f, transform.position.y), target);
+                }
+                if (NavMesh.SamplePosition(new Vector2(transform.position.x, transform.position.y - 0.5f), out hit, 0.1f, NavMesh.AllAreas))
+                {
+                    Debug.Log("in RunFromTarget coroutine, inside else statement, third if successful");
+                    TestDistanceFromTarget(new Vector2(transform.position.x, transform.position.y - 0.5f), target);
+                }
+                if (NavMesh.SamplePosition(new Vector2(transform.position.x, transform.position.y + 0.5f), out hit, 0.1f, NavMesh.AllAreas))
+                {
+                    Debug.Log("in RunFromTarget coroutine, inside else statement, fourth if successful");
+                    TestDistanceFromTarget(new Vector2(transform.position.x, transform.position.y + 0.5f), target);
+                }
+                if (hasBestVector2Changed)
+                {
+                    Debug.Log("in RunFromTarget coroutine, inside else statement, fifth if successful, now a path should be set! bestDistanceVector2 = " + bestDistanceVector2);
+                    SetDestination(bestDistanceVector2);
+                    //the below just gives bestDistanceVector2 a value to work with.
+                    bestDistanceVector2 = transform.position;
+                    emergencyDestinationToken.gameObject.SetActive(true);
+                    emergencyDestinationToken.transform.position = bestDistanceVector2;
+                }
+                animator.SetFloat("Speed", 1f);
+                controller.isMoving = true;
+            }
             yield return new WaitForSeconds(0.1f);
             //Debug.Log("destination coords are " + vectorDestination + "\ngameObject coords are " + gameObject.transform.position + " MoveTo Continuing (God Willing).");
         }
@@ -297,37 +337,22 @@ public class AdvancedPatrolScript : MonoBehaviour
         Debug.Log("destination coords are " + target.transform.position + "\ngameObject coords are " + gameObject.transform.position + " RunFromTarget Complete.");
         NextPatrolOrInterrupt();
         yield break;
-        /*
-        Debug.Log("RunFromTarget Coroutine has fired!");
 
-        yield return new WaitForFixedUpdate();
+    }
 
-        while (Vector2.Distance(rigidBody2D.position, target.transform.position) < distanceFromTarget)
+    //untested material, See RunFronTarget Enum
+    public void TestDistanceFromTarget(Vector2 attemptingPosition, GameObject target)
+    {
+        var distanceOfPath = Vector2.Distance(attemptingPosition, target.transform.position);
+        if (!hasBestVector2Changed)
         {
-            animator.SetFloat("Speed", 1f);
-            controller.isMoving = true;
-            Debug.Log("destination coords are " + target.transform.position + "\ngameObject coords are " + gameObject.transform.position + "\npositioninlist is " + positionInList);
-
-            Vector2 position = gameObject.transform.position * -1;
-            var horizontal = target.transform.position.x;
-            var vertical = target.transform.position.y;
-            var velocity = new Vector2(horizontal, vertical);
-            velocity.Normalize();
-            position.x = position.x + controller.speed * velocity.x * Time.deltaTime;
-            position.y = position.y + controller.speed * velocity.y * Time.deltaTime;
-            animator.SetFloat("Look X", -velocity.x);
-            animator.SetFloat("Look Y", -velocity.y);
-            rigidBody2D.MovePosition(position);
-
-            yield return new WaitForFixedUpdate();
-
+            bestDistanceVector2 = attemptingPosition;
+            hasBestVector2Changed = true;
         }
-
-        animator.SetFloat("Speed", 0f);
-        controller.isMoving = false;
-        NextPatrolOrInterrupt();
-        yield break;
-        */
+        else if (distanceOfPath > Vector2.Distance(bestDistanceVector2, target.transform.position))
+        {
+            bestDistanceVector2 = attemptingPosition;
+        }
     }
 
 
@@ -351,9 +376,9 @@ public class AdvancedPatrolScript : MonoBehaviour
             {
                 target.GetComponent<Player>().PlayerHealth(controller.healthDamage);
             }
-            if (manaDamage != 0f) 
+            if (manaDamage != 0f)
             {
-                target.GetComponent<Player>().PlayerMana(controller.manaDamage); 
+                target.GetComponent<Player>().PlayerMana(controller.manaDamage);
             }
 
             yield return new WaitForSeconds(duration);
@@ -367,7 +392,7 @@ public class AdvancedPatrolScript : MonoBehaviour
     {
         isInterrupted = true;
         preinterrupt = _preinterrupt;
-        interrupt = _interrupt; 
+        interrupt = _interrupt;
         postinterrupt = _postinterrupt;
 
         interruptionState = InterruptionState.Preinterrupt;
@@ -393,7 +418,7 @@ public class AdvancedPatrolScript : MonoBehaviour
         {
             interruptionState = InterruptionState.Preinterrupt;
         }
-        positionInInterrupt= 0;
+        positionInInterrupt = 0;
         NextPatrolOrInterrupt();
 
     }
@@ -426,7 +451,7 @@ public class AdvancedPatrolScript : MonoBehaviour
         {
             currentInterruptArray = null;
             Debug.Log("currentInterruptArray = null");
-            positionInInterrupt= 0;
+            positionInInterrupt = 0;
             isInterrupted = false;
         }
 
@@ -483,7 +508,7 @@ public class AdvancedPatrolScript : MonoBehaviour
             TriggerMovementOption(currentInterruptArray[positionInInterrupt]);
         }
         else
-        {    
+        {
             TriggerMovementOption(patrolArray[positionInList]);
         }
     }
@@ -496,56 +521,50 @@ public class AdvancedPatrolScript : MonoBehaviour
             StopCoroutine(runningCoroutine);
             runningCoroutine = null;
         }
-        Debug.Log("runningCoroutine = " + runningCoroutine);
+        //Debug.Log("runningCoroutine = " + runningCoroutine);
 
 
         switch (movementOption.movementOption)
         {
             case MovementOption.OptionType.Stop:
-                Debug.Log("runningCoroutine = null because the OptionType is Stop");
+                //Debug.Log("runningCoroutine = null because the OptionType is Stop");
                 Stop();
                 break;
 
             case MovementOption.OptionType.Wait:
                 runningCoroutine = StartCoroutine(Wait(movementOption.duration));
-                Debug.Log("runningCoroutine = Wait()");
+                //Debug.Log("runningCoroutine = Wait()");
                 break;
 
             case MovementOption.OptionType.MoveTo:
                 runningCoroutine = StartCoroutine(MoveTo(movementOption.movementPosition, movementOption.distanceFromTarget));
-                Debug.Log("runningCoroutine = MoveTo()");
+                //Debug.Log("runningCoroutine = MoveTo()");
                 break;
 
             case MovementOption.OptionType.LookAt:
                 runningCoroutine = StartCoroutine(LookAt(movementOption.movementPosition, movementOption.duration));
-                Debug.Log("runningCoroutine = LookAt()");
+                //Debug.Log("runningCoroutine = LookAt()");
                 break;
-               
+
             case MovementOption.OptionType.FollowTarget:
                 runningCoroutine = StartCoroutine(FollowTarget(movementOption.target, movementOption.distanceFromTarget));
-                Debug.Log("runningCoroutine = FollowTarget()");
+                //Debug.Log("runningCoroutine = FollowTarget()");
                 break;
 
             case MovementOption.OptionType.RunFromTarget:
-                runningCoroutine = StartCoroutine(RunFromTarget(movementOption.target,  movementOption.distanceFromTarget));
-                Debug.Log("runningCoroutine = RunFronTarget()");
+                runningCoroutine = StartCoroutine(RunFromTarget(movementOption.target, movementOption.distanceFromTarget));
+                //Debug.Log("runningCoroutine = RunFronTarget()");
                 break;
-                
+
             case MovementOption.OptionType.MeleeAttack:
                 runningCoroutine = StartCoroutine(MeleeAttack(movementOption.target, movementOption.duration, movementOption.distanceFromTarget));
                 Debug.Log("runningCoroutine = MeleeAttack()");
                 break;
 
-                /* The below is currently redundant
-    case MovementOption.OptionType.ChaseTarget:
-        runningCoroutine = StartCoroutine(ChaseTarget(movementOption.target, movementOption.duration));
-        Debug.Log("runningCoroutine = ChaseTarget()");
-        break;
-        */
 
         }
 
-        Debug.Log("positionInList = " + positionInList);
+        //Debug.Log("positionInList = " + positionInList);
     }
 
     public void StopInterrupt()
@@ -558,42 +577,8 @@ public class AdvancedPatrolScript : MonoBehaviour
 
         }
     }
-}
 
-//ChaseTarget is pretty much just FollowTarget, so unless we need it to be done differently, it is redundant.
-/*
-public IEnumerator ChaseTarget(GameObject target, float waitTime)
-{
-    Debug.Log("ChaseTarget Coroutine has fired!");
-    Vector2 relativeChasePosition = new Vector2(target.transform.position.x - gameObject.transform.position.x, target.transform.position.y - gameObject.transform.position.y);
 
-    if (Mathf.Approximately(gameObject.transform.position.x, relativeChasePosition.x) == false 
-        || Mathf.Approximately(gameObject.transform.position.y, relativeChasePosition.y) == false)
-    {
-
-        controller.isMoving = true;
-        controller.isChasing = true;
-        animator.SetFloat("Speed", 1f);
-        Vector2 position = gameObject.transform.position;
-        var horizontal = relativeChasePosition.x;
-        var vertical = relativeChasePosition.y;
-        var velocity = new Vector2(horizontal, vertical);
-        velocity.Normalize();
-        position.x = position.x + controller.speed * velocity.x * Time.deltaTime;
-        position.y = position.y + controller.speed * velocity.y * Time.deltaTime;
-        animator.SetFloat("Look X", velocity.x);
-        animator.SetFloat("Look Y", velocity.y);
-
-        yield return new WaitForSeconds(waitTime);
-    }
-    else
-    {
-        controller.isMoving = false;
-        controller.isChasing = false;
-        animator.SetFloat("Speed", 0f);
-        NextPatrolOrInterrupt();
-        yield break;
-    }
 
 }
-*/
+
