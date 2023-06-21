@@ -67,7 +67,7 @@ public class NPCController : MonoBehaviour
         canSeeTarget= false;
         isMoving=false;
         animator.SetFloat("Speed", 0f);
-        advancedPatrolScript.positionInList = 0;
+        //advancedPatrolScript.positionInList = 0;
         
     }
 

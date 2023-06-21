@@ -1281,6 +1281,11 @@ PrefabInstance:
       propertyPath: textMeshProUGUI
       value: 
       objectReference: {fileID: 1500166491}
+    - target: {fileID: 1930579658992948966, guid: ca12d24b34e5d9545aaad08a7d222356,
+        type: 3}
+      propertyPath: advancedPatrolScript
+      value: 
+      objectReference: {fileID: 1436407146}
     - target: {fileID: 1930579658992948968, guid: ca12d24b34e5d9545aaad08a7d222356,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1531,6 +1536,18 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1436407146 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3766838051451710263, guid: ca12d24b34e5d9545aaad08a7d222356,
+    type: 3}
+  m_PrefabInstance: {fileID: 1436407142}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436407143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 549af2078d19c044da7cf055123e93b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1446185809
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,8 +2043,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721397526}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.0323, y: -0.0112, z: 0}
-  m_LocalScale: {x: 0.2254, y: 2.1435401, z: 1}
+  m_LocalPosition: {x: 2.0323, y: -0.0004, z: 0}
+  m_LocalScale: {x: 0.2254, y: 2.165029, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1723690652}
@@ -2762,9 +2779,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 692744377614762707, guid: beba3bde5a39fdd48b7b1406a13cd32c,
         type: 3}
+      propertyPath: rigidBody
+      value: 
+      objectReference: {fileID: 1937071121}
+    - target: {fileID: 692744377614762707, guid: beba3bde5a39fdd48b7b1406a13cd32c,
+        type: 3}
       propertyPath: textMeshProUGUI
       value: 
       objectReference: {fileID: 1758216750}
+    - target: {fileID: 692744377614762707, guid: beba3bde5a39fdd48b7b1406a13cd32c,
+        type: 3}
+      propertyPath: advancedPatrolScript
+      value: 
+      objectReference: {fileID: 1937071115}
     - target: {fileID: 692744377614762717, guid: beba3bde5a39fdd48b7b1406a13cd32c,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2903,6 +2930,24 @@ NavMeshAgent:
   m_BaseOffset: 0.40624997
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1937071115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6954506572040191406, guid: beba3bde5a39fdd48b7b1406a13cd32c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1937071111}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937071112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 549af2078d19c044da7cf055123e93b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &1937071121 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 692744376871328207, guid: beba3bde5a39fdd48b7b1406a13cd32c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1937071111}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1976925683
 GameObject:
   m_ObjectHideFlags: 0

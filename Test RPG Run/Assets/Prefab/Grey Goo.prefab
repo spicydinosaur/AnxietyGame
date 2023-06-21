@@ -58,7 +58,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: -325706449
   m_SortingOrder: 998
   m_TargetDisplay: 0
@@ -104,7 +106,7 @@ MonoBehaviour:
     m_Bits: 0
 --- !u!95 &336553745656328016
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -121,7 +123,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &650372154113982749
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +134,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4157771904864563141}
-  - component: {fileID: 454994215055989931}
   - component: {fileID: 3314485870531363949}
   m_Layer: 2
   m_Name: AttackCircle
@@ -155,25 +157,6 @@ Transform:
   m_Father: {fileID: 1930579659862216190}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &454994215055989931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 650372154113982749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71c25748fd24d2144a047d1982eb0dba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 1930579659862216183}
-  player: {fileID: 0}
-  animator: {fileID: 1930579659862216189}
-  maxTimeInvincible: 4
-  isInvincible: 0
-  invincibilityCountdownTimer: 0
-  healthDamage: 0
 --- !u!58 &3314485870531363949
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -184,6 +167,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -498,7 +500,6 @@ GameObject:
   - component: {fileID: 1930579658992948968}
   - component: {fileID: 1930579658992948969}
   - component: {fileID: 1930579658992948966}
-  - component: {fileID: 1930579658992948967}
   - component: {fileID: 3643035863273329951}
   - component: {fileID: 778124725113694798}
   m_Layer: 2
@@ -539,6 +540,25 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -572,6 +592,7 @@ PolygonCollider2D:
       - {x: 0.9679928, y: -0.4840541}
       - {x: 0.43522453, y: -0.99027777}
       - {x: 1.3468456, y: -4.1148753}
+  m_UseDelaunayMesh: 0
 --- !u!114 &1930579658992948966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -584,21 +605,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1b316425645ce429c6b099fa63e1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1930579659862216183}
---- !u!114 &1930579658992948967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1930579658992948971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a6cbb0b4ae4ef543b3767b68c802d29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 1930579659862216183}
-  portalAnimation: {fileID: 0}
+  advancedPatrolScript: {fileID: 0}
+  movementOption:
+    movementOption: 0
+    movementPosition: {x: 0, y: 0}
+    duration: 0
+    distanceFromTarget: 0
+    text: 
+    target: {fileID: 0}
+  canseetarget_preinterrupt: []
+  canseetarget_interrupt: []
+  canseetarget_postinterrupt: []
+  canNOTseetarget_preinterrupt: []
+  canNOTseetarget_interrupt: []
+  canNOTseetarget_postinterrupt: []
+  canSeeTarget: 0
 --- !u!222 &3643035863273329951
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -617,6 +638,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -635,12 +675,13 @@ GameObject:
   - component: {fileID: 1930579659862216184}
   - component: {fileID: 1930579659862216186}
   - component: {fileID: 1930579659862216189}
-  - component: {fileID: 1930579659862216185}
   - component: {fileID: 1930579659862216183}
   - component: {fileID: 1930579659862216187}
   - component: {fileID: 1930579659862216182}
   - component: {fileID: 1930579659780325848}
   - component: {fileID: 3766838051451710263}
+  - component: {fileID: 839571168987909712}
+  - component: {fileID: 984635382675045842}
   m_Layer: 7
   m_Name: Grey Goo
   m_TagString: Enemy
@@ -666,7 +707,7 @@ Transform:
   - {fileID: 1930579660078175186}
   - {fileID: 7325659909973813132}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1930579659862216184
 SpriteRenderer:
@@ -737,13 +778,19 @@ Rigidbody2D:
   m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!95 &1930579659862216189
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -760,21 +807,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1930579659862216185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1930579659862216129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a02bbb21bdf6f94193236f5bda4fbd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentChaseObject: {fileID: 0}
-  controller: {fileID: 1930579659862216183}
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1930579659862216183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,30 +822,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  currentMovementType: 0
   isChasing: 1
   canSeeTarget: 1
-  targetToChase: {fileID: 0}
-  dialogBox: {fileID: 0}
   animator: {fileID: 1930579659862216189}
   lookDirection: {x: 0, y: -1}
   isMoving: 0
-  pauseTime: 0
-  delayTime: 0
-  prevMovementType: 0
-  startingMovementType: 2
-  nextMove: {x: 0, y: 0}
-  velocity: {x: 0, y: 0}
   gameManager: {fileID: 0}
   hero: {fileID: 0}
+  target: {fileID: 0}
+  healthDamage: 0
+  manaDamage: 0
+  advancedPatrolScript: {fileID: 0}
+  preinterrupt: []
+  interrupt: []
+  postinterrupt: []
+  player_preinterrupt: []
+  player_interrupt: []
+  player_postinterrupt: []
+  attack_preinterrupt: []
+  attack_interrupt: []
+  attack_postinterrupt: []
+  dropTable: {fileID: 1930579659780325848}
+  moveViewCone: {fileID: 0}
   numberOfBlinks: 4
   currentBlink: 0
   textDisplayTime: 4
   currentTextDisplayTime: 0
-  dropTable: {fileID: 1930579659780325848}
   textMeshProUGUI: {fileID: 1930579658526577560}
   secondsPerHalfBlink: 0
-  route: {fileID: 0}
 --- !u!58 &1930579659862216187
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -822,6 +860,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -877,6 +934,8 @@ MonoBehaviour:
   patrolArray: []
   positionInList: 0
   currentMovementOptionElapsedTime: 0
+  destinationThreshold: 0
+  bestDistanceVector2: {x: 0, y: 0}
   isInterrupted: 0
   interruptMovementOptionElapsedTime: 0
   preinterrupt: []
@@ -884,6 +943,56 @@ MonoBehaviour:
   postinterrupt: []
   interruptionState: 0
   positionInInterrupt: 0
+  dontLoopPatrol: 0
+  dontLoopInterrupt: 0
+  startOnLoad: 0
+  controller: {fileID: 0}
+  animator: {fileID: 0}
+  rigidBody2D: {fileID: 0}
+  healthDamage: 0
+  manaDamage: 0
+  defaultHealthDamage: 0
+  defaultManaDamage: 0
+  agent: {fileID: 0}
+  hasBestVector2Changed: 0
+  destinationToken: {fileID: 0}
+  isRunningBackwards: 0
+  emergencyDestinationToken: {fileID: 0}
+--- !u!195 &839571168987909712
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930579659862216129}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 1
+  m_Acceleration: 1
+  avoidancePriority: 50
+  m_AngularSpeed: 1
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &984635382675045842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930579659862216129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d94be5dd2cf45b147abbd92a82d91591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 0}
 --- !u!1 &1930579660078175189
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,7 +1050,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: -1828574419
   m_SortingOrder: 999
   m_TargetDisplay: 0
@@ -1066,6 +1177,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 1930579659862216190}
     m_Modifications:
     - target: {fileID: 910552009803358747, guid: 5eb9f5627ba693447a38c0d0fec8a1f3,
@@ -1159,6 +1271,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eb9f5627ba693447a38c0d0fec8a1f3, type: 3}
 --- !u!4 &7916308332247294268 stripped
 Transform:

@@ -10,11 +10,12 @@ using UnityEngine;
 [Serializable]
 public class MovementOption
 {
-    public enum OptionType { Stop, Wait, MoveTo, LookAt, FollowTarget, RunFromTarget, MeleeAttack }
+    public enum OptionType { Stop, Wait, MoveTo, LookAt, FollowTarget, RunFromTarget, MeleeAttack, RangedAttack, PopUpText }
     public OptionType movementOption;
     public Vector2 movementPosition;
     public float duration;
     public float distanceFromTarget;
+    public string text;
     public GameObject target;
     //an individual interrupt should set the looping on its end.
 }

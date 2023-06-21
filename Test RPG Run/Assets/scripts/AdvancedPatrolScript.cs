@@ -4,6 +4,7 @@ using NavMeshPlus.Extensions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -59,6 +60,8 @@ public class AdvancedPatrolScript : MonoBehaviour
     public GameObject destinationToken;
     public bool isRunningBackwards;
     public GameObject emergencyDestinationToken;
+
+    public float wobbleVarForRunFromTarget;
 
     public void OnEnable()
     {
@@ -216,7 +219,6 @@ public class AdvancedPatrolScript : MonoBehaviour
     public IEnumerator FollowTarget(GameObject target, float distanceFromTarget)
     {
         //Debug.Log("FollowTarget Coroutine has fired!");
-        //what do we do if the player moves off the current navmesh? We need to be able to reset the NPC so that it doesn't create errors or just try endlessly to get to the PC or NPC it is trying to follow.
         agent.isStopped = false;
         //Debug.Log("destination coords are " + target + "\ngameObject coords are " + gameObject.transform.position + ". distanceFromTarget = " + distanceFromTarget);
         if (distanceFromTarget == 0)
@@ -249,14 +251,16 @@ public class AdvancedPatrolScript : MonoBehaviour
 
     public IEnumerator RunFromTarget(GameObject target, float distanceFromTarget)
     {
-        Debug.Log("RunFromTarget Coroutine has fired!");
-        //eventually there will probably be an error if the position is outside the navmesh. We need to be able to check if the position is a valid position and adjust accordingly if it is not.
-        //this needs testing! Finding a way to calculate the position variable that allows the NPC to reliably run from its target.
+        //Debug.Log("RunFromTarget Coroutine has fired!");
         agent.isStopped = false;
-        Debug.Log("destination coords are " + target + "\ngameObject coords are " + gameObject.transform.position + ". distanceFromTarget = " + distanceFromTarget);
+        //Debug.Log("destination coords are " + target + "\ngameObject coords are " + gameObject.transform.position + ". distanceFromTarget = " + distanceFromTarget);
         if (distanceFromTarget == 0)
         {
             distanceFromTarget = 3f;
+        }
+        if (wobbleVarForRunFromTarget == 0f)
+        {
+            wobbleVarForRunFromTarget = 1f;
         }
         while (Vector2.Distance(transform.position, target.transform.position) < distanceFromTarget)
         {
@@ -266,10 +270,11 @@ public class AdvancedPatrolScript : MonoBehaviour
             var velocity = new Vector2(horizontal, vertical);
             velocity.Normalize();
             Vector2 position = new Vector2(transform.position.x - (distance * velocity.x), transform.position.y - (distance * velocity.y));
-            Debug.Log("distance variable = " + distance + ". velocity variable = " + velocity + ". position variable = " + position);
-            destinationToken.transform.position = position;
-
-            //it could be interesting to use positive velocity values and have the enemy staring at the target it is fleeing from while running away. Perhaps this will be of use in a boss fight later on!
+            //Debug.Log("distance variable = " + distance + ". velocity variable = " + velocity + ". position variable = " + position);
+            if (destinationToken != null)
+            {
+                destinationToken.transform.position = position;
+            }
             if (isRunningBackwards)
             {
                 animator.SetFloat("Look X", velocity.x);
@@ -282,48 +287,53 @@ public class AdvancedPatrolScript : MonoBehaviour
             }
 
 
-            if (NavMesh.SamplePosition(position, out hit, 0.1f, NavMesh.AllAreas)) //&& path.status == NavMeshPathStatus.PathComplete)
+            if (NavMesh.SamplePosition(position, out hit, 0.1f, NavMesh.AllAreas)) 
             {
-                Debug.Log("RunFronTarget coroutine initial if statement has fired!");
-                SetDestination(position); 
-                emergencyDestinationToken.gameObject.SetActive(false);
+                //Debug.Log("RunFronTarget coroutine initial if statement has fired!");
+                SetDestination(position);
+                if (emergencyDestinationToken != null)
+                {
+                    emergencyDestinationToken.gameObject.SetActive(false);
+                }
             }
             else
             {
-                Debug.Log("in RunFronTarget coroutine, initial if statement moved to else.");
-                //untested material,see TestDistanceFromTarget() function
+                //Debug.Log("in RunFronTarget coroutine, initial if statement moved to else.");
                 bestDistanceVector2 = transform.position;
 
                 hasBestVector2Changed = false;
 
-                if (NavMesh.SamplePosition(new Vector2(transform.position.x - 0.5f, transform.position.y), out hit, 0.1f, NavMesh.AllAreas)) //&& path.status == NavMeshPathStatus.PathComplete)
+                if (NavMesh.SamplePosition(new Vector2(transform.position.x - wobbleVarForRunFromTarget, transform.position.y), out hit, 0.1f, NavMesh.AllAreas)) 
                 {
-                    Debug.Log("in RunFromTarget coroutine, inside else statement, first if successful");
-                    TestDistanceFromTarget(new Vector2(transform.position.x - 0.5f, transform.position.y), target);
+                    //Debug.Log("in RunFromTarget coroutine, inside else statement, first if successful");
+                    TestDistanceFromTarget(new Vector2(transform.position.x - wobbleVarForRunFromTarget, transform.position.y), target);
                 }
-                if (NavMesh.SamplePosition(new Vector2(transform.position.x + 0.5f, transform.position.y), out hit, 0.1f, NavMesh.AllAreas))
+                if (NavMesh.SamplePosition(new Vector2(transform.position.x + wobbleVarForRunFromTarget, transform.position.y), out hit, 0.1f, NavMesh.AllAreas))
                 {
-                    Debug.Log("in RunFromTarget coroutine, inside else statement, second if successful");
-                    TestDistanceFromTarget(new Vector2(transform.position.x + 0.5f, transform.position.y), target);
+                    //Debug.Log("in RunFromTarget coroutine, inside else statement, second if successful");
+                    TestDistanceFromTarget(new Vector2(transform.position.x + wobbleVarForRunFromTarget, transform.position.y), target);
                 }
-                if (NavMesh.SamplePosition(new Vector2(transform.position.x, transform.position.y - 0.5f), out hit, 0.1f, NavMesh.AllAreas))
+                if (NavMesh.SamplePosition(new Vector2(transform.position.x, transform.position.y - wobbleVarForRunFromTarget), out hit, 0.1f, NavMesh.AllAreas))
                 {
-                    Debug.Log("in RunFromTarget coroutine, inside else statement, third if successful");
-                    TestDistanceFromTarget(new Vector2(transform.position.x, transform.position.y - 0.5f), target);
+                    //Debug.Log("in RunFromTarget coroutine, inside else statement, third if successful");
+                    TestDistanceFromTarget(new Vector2(transform.position.x, transform.position.y - wobbleVarForRunFromTarget), target);
                 }
-                if (NavMesh.SamplePosition(new Vector2(transform.position.x, transform.position.y + 0.5f), out hit, 0.1f, NavMesh.AllAreas))
+                if (NavMesh.SamplePosition(new Vector2(transform.position.x, transform.position.y + wobbleVarForRunFromTarget), out hit, 0.1f, NavMesh.AllAreas))
                 {
-                    Debug.Log("in RunFromTarget coroutine, inside else statement, fourth if successful");
-                    TestDistanceFromTarget(new Vector2(transform.position.x, transform.position.y + 0.5f), target);
+                    //Debug.Log("in RunFromTarget coroutine, inside else statement, fourth if successful");
+                    TestDistanceFromTarget(new Vector2(transform.position.x, transform.position.y + wobbleVarForRunFromTarget), target);
                 }
                 if (hasBestVector2Changed)
                 {
-                    Debug.Log("in RunFromTarget coroutine, inside else statement, fifth if successful, now a path should be set! bestDistanceVector2 = " + bestDistanceVector2);
+                    //Debug.Log("in RunFromTarget coroutine, inside else statement, fifth if successful, now a path should be set! bestDistanceVector2 = " + bestDistanceVector2);
                     SetDestination(bestDistanceVector2);
                     //the below just gives bestDistanceVector2 a value to work with.
                     bestDistanceVector2 = transform.position;
-                    emergencyDestinationToken.gameObject.SetActive(true);
-                    emergencyDestinationToken.transform.position = bestDistanceVector2;
+                    if (emergencyDestinationToken != null)
+                    {
+                        emergencyDestinationToken.gameObject.SetActive(true);
+                        emergencyDestinationToken.transform.position = bestDistanceVector2;
+                    }
                 }
                 animator.SetFloat("Speed", 1f);
                 controller.isMoving = true;
@@ -334,7 +344,7 @@ public class AdvancedPatrolScript : MonoBehaviour
         agent.isStopped = true;
         animator.SetFloat("Speed", 0f);
         controller.isMoving = false;
-        Debug.Log("destination coords are " + target.transform.position + "\ngameObject coords are " + gameObject.transform.position + " RunFromTarget Complete.");
+        //Debug.Log("destination coords are " + target.transform.position + "\ngameObject coords are " + gameObject.transform.position + " RunFromTarget Complete.");
         NextPatrolOrInterrupt();
         yield break;
 
@@ -359,13 +369,13 @@ public class AdvancedPatrolScript : MonoBehaviour
     //Needs more work to be fully integrated. Port enemyController values for attack over to NPCController? Or find another way. How to allow for different attack damages from the same mob, and different types of damage (health, coping, etc.)
     public IEnumerator MeleeAttack(GameObject target, float duration, float distanceFromTarget)
     {
-        Debug.Log("MeleeAttack Coroutine has fired!");
+        //Debug.Log("MeleeAttack Coroutine has fired!");
 
         //yield return new WaitForSeconds(duration);
         controller.isMoving = false;
         animator.SetFloat("Speed", 0f);
         animator.SetBool("isAttacking", true);
-        Debug.Log("destination coords are " + target + "\ngameObject coords are " + gameObject.transform.position + ". distanceFromTarget = " + distanceFromTarget);
+        //Debug.Log("destination coords are " + target + "\ngameObject coords are " + gameObject.transform.position + ". distanceFromTarget = " + distanceFromTarget);
         if (distanceFromTarget == 0)
         {
             distanceFromTarget = 0.2f;
@@ -386,6 +396,55 @@ public class AdvancedPatrolScript : MonoBehaviour
         animator.SetBool("isAttacking", false);
         NextPatrolOrInterrupt();
         yield break;
+    }
+
+    //Below is untouched and needs to be written, current code is from MeleeAttack
+    public IEnumerator RangedAttack(GameObject target, float duration, float distanceFromTarget)
+    {
+        //Debug.Log("RangedAttack Coroutine has fired!");
+        /*
+        controller.isMoving = false;
+        animator.SetFloat("Speed", 0f);
+        animator.SetBool("isAttacking", true);
+        Debug.Log("destination coords are " + target + "\ngameObject coords are " + gameObject.transform.position + ". distanceFromTarget = " + distanceFromTarget);
+        if (distanceFromTarget == 0)
+        {
+            distanceFromTarget = 0.2f;
+        }
+        while (Vector2.Distance(transform.position, target.transform.position) <= distanceFromTarget)
+        {
+            if (healthDamage != 0f)
+            {
+                target.GetComponent<Player>().PlayerHealth(controller.healthDamage);
+            }
+            if (manaDamage != 0f)
+            {
+                target.GetComponent<Player>().PlayerMana(controller.manaDamage);
+            }
+
+            yield return new WaitForSeconds(duration);
+        }*/
+        animator.SetBool("isAttacking", false);
+        NextPatrolOrInterrupt();
+        yield break;
+    }
+
+    public IEnumerator PopUpText(float duration, string text, GameObject target)
+    {
+        
+        target.GetComponent<TextMeshProUGUI>().enabled = true;
+        target.GetComponent<TextMeshProUGUI>().SetText(text);
+
+        yield return new WaitForSeconds(duration/2);
+
+        target.GetComponent<TextMeshProUGUI>().enabled = false;
+        target.GetComponent<TextMeshProUGUI>().SetText("");
+        yield return new WaitForSeconds(duration/2);
+
+        NextPatrolOrInterrupt();
+        yield break;
+
+
     }
 
     public void Interrupt(MovementOption[] _preinterrupt, MovementOption[] _interrupt, MovementOption[] _postinterrupt)
@@ -426,8 +485,7 @@ public class AdvancedPatrolScript : MonoBehaviour
     private void NextInterrupt()
     {
 
-        Debug.Log("NextInterrupt setting for currentInterruptArray = " + interruptionState + " and positionInInterrupt " + positionInInterrupt
-    + "\nAnimator value for speed = " + animator.GetFloat("Speed") + " and runningCoroutine = " + runningCoroutine);
+        //Debug.Log("NextInterrupt setting for currentInterruptArray = " + interruptionState + " and positionInInterrupt " + positionInInterrupt + "\nAnimator value for speed = " + animator.GetFloat("Speed") + " and runningCoroutine = " + runningCoroutine);
 
         MovementOption[] currentInterruptArray;
 
@@ -435,22 +493,22 @@ public class AdvancedPatrolScript : MonoBehaviour
         if (interruptionState == InterruptionState.Preinterrupt)
         {
             currentInterruptArray = preinterrupt;
-            Debug.Log("currentInterruptArray = preinterrupt");
+            //Debug.Log("currentInterruptArray = preinterrupt");
         }
         else if (interruptionState == InterruptionState.Interrupt)
         {
             currentInterruptArray = interrupt;
-            Debug.Log("currentInterruptArray = interrupt");
+            //Debug.Log("currentInterruptArray = interrupt");
         }
         else if (interruptionState == InterruptionState.Postinterrupt)
         {
             currentInterruptArray = postinterrupt;
-            Debug.Log("currentInterruptArray = postinterrupt");
+            //Debug.Log("currentInterruptArray = postinterrupt");
         }
         else
         {
             currentInterruptArray = null;
-            Debug.Log("currentInterruptArray = null");
+            //Debug.Log("currentInterruptArray = null");
             positionInInterrupt = 0;
             isInterrupted = false;
         }
@@ -504,7 +562,7 @@ public class AdvancedPatrolScript : MonoBehaviour
 
         if (currentInterruptArray != null)
         {
-            Debug.Log("positionInInterrupt = " + positionInInterrupt);
+            //Debug.Log("positionInInterrupt = " + positionInInterrupt);
             TriggerMovementOption(currentInterruptArray[positionInInterrupt]);
         }
         else
@@ -561,7 +619,15 @@ public class AdvancedPatrolScript : MonoBehaviour
                 Debug.Log("runningCoroutine = MeleeAttack()");
                 break;
 
+            case MovementOption.OptionType.RangedAttack:
+                runningCoroutine = StartCoroutine(RangedAttack(movementOption.target, movementOption.duration, movementOption.distanceFromTarget));
+                Debug.Log("runningCoroutine = RangedAttack()");
+                break;
 
+            case MovementOption.OptionType.PopUpText:
+                runningCoroutine = StartCoroutine(PopUpText(movementOption.duration, movementOption.text, movementOption.target));
+                //Debug.Log("runningCoroutine = Wait()");
+                break;
         }
 
         //Debug.Log("positionInList = " + positionInList);

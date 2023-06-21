@@ -57,7 +57,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: -1828574419
   m_SortingOrder: 999
   m_TargetDisplay: 0
@@ -110,7 +112,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1513405418471516297}
-  - component: {fileID: 3090484616745540583}
   - component: {fileID: 93598022884819745}
   m_Layer: 2
   m_Name: AttackCircle
@@ -134,25 +135,6 @@ Transform:
   m_Father: {fileID: 3925210647939697330}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3090484616745540583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2717213972715357777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71c25748fd24d2144a047d1982eb0dba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  player: {fileID: 0}
-  animator: {fileID: 0}
-  maxTimeInvincible: 4
-  isInvincible: 0
-  invincibilityCountdownTimer: 0
-  healthDamage: 0
 --- !u!58 &93598022884819745
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -163,6 +145,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -257,12 +258,13 @@ GameObject:
   - component: {fileID: 3925210647939697332}
   - component: {fileID: 3925210647939697334}
   - component: {fileID: 3925210647939697329}
-  - component: {fileID: 3925210647939697333}
   - component: {fileID: 3925210647939697339}
   - component: {fileID: 3925210647939697335}
   - component: {fileID: 3925210647939697338}
   - component: {fileID: 4480447118804930093}
   - component: {fileID: 974963516733134691}
+  - component: {fileID: 2162496593005512216}
+  - component: {fileID: 5516911740245900216}
   m_Layer: 7
   m_Name: Ruins Bat
   m_TagString: Enemy
@@ -288,7 +290,7 @@ Transform:
   - {fileID: 5172963312967779928}
   - {fileID: 3925210648230168943}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3925210647939697332
 SpriteRenderer:
@@ -360,13 +362,19 @@ Rigidbody2D:
   m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!95 &3925210647939697329
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -383,21 +391,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3925210647939697333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3925210647939697293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a02bbb21bdf6f94193236f5bda4fbd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentChaseObject: {fileID: 0}
-  controller: {fileID: 3925210647939697339}
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &3925210647939697339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,30 +406,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  currentMovementType: 0
   isChasing: 0
   canSeeTarget: 0
-  targetToChase: {fileID: 0}
-  dialogBox: {fileID: 0}
   animator: {fileID: 3925210647939697329}
   lookDirection: {x: 0, y: 1}
   isMoving: 0
-  pauseTime: 0
-  delayTime: 0
-  prevMovementType: 0
-  startingMovementType: 0
-  nextMove: {x: 0, y: 0}
-  velocity: {x: 0, y: 0}
   gameManager: {fileID: 0}
   hero: {fileID: 0}
+  target: {fileID: 0}
+  healthDamage: 0
+  manaDamage: 0
+  advancedPatrolScript: {fileID: 0}
+  preinterrupt: []
+  interrupt: []
+  postinterrupt: []
+  player_preinterrupt: []
+  player_interrupt: []
+  player_postinterrupt: []
+  attack_preinterrupt: []
+  attack_interrupt: []
+  attack_postinterrupt: []
+  dropTable: {fileID: 4480447118804930093}
+  moveViewCone: {fileID: 0}
   numberOfBlinks: 4
   currentBlink: 0
   textDisplayTime: 0
   currentTextDisplayTime: 0
-  dropTable: {fileID: 4480447118804930093}
   textMeshProUGUI: {fileID: 2290138592606705430}
   secondsPerHalfBlink: 0
-  route: {fileID: 0}
 --- !u!58 &3925210647939697335
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -445,6 +444,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -500,6 +518,8 @@ MonoBehaviour:
   patrolArray: []
   positionInList: 0
   currentMovementOptionElapsedTime: 0
+  destinationThreshold: 0
+  bestDistanceVector2: {x: 0, y: 0}
   isInterrupted: 0
   interruptMovementOptionElapsedTime: 0
   preinterrupt: []
@@ -507,6 +527,56 @@ MonoBehaviour:
   postinterrupt: []
   interruptionState: 0
   positionInInterrupt: 0
+  dontLoopPatrol: 0
+  dontLoopInterrupt: 0
+  startOnLoad: 0
+  controller: {fileID: 0}
+  animator: {fileID: 0}
+  rigidBody2D: {fileID: 0}
+  healthDamage: 0
+  manaDamage: 0
+  defaultHealthDamage: 0
+  defaultManaDamage: 0
+  agent: {fileID: 0}
+  hasBestVector2Changed: 0
+  destinationToken: {fileID: 0}
+  isRunningBackwards: 0
+  emergencyDestinationToken: {fileID: 0}
+--- !u!195 &2162496593005512216
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3925210647939697293}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 1
+  m_Acceleration: 1
+  avoidancePriority: 50
+  m_AngularSpeed: 1
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &5516911740245900216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3925210647939697293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d94be5dd2cf45b147abbd92a82d91591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 0}
 --- !u!1 &3925210648230168942
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +635,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 531789853
   m_SortingOrder: 998
   m_TargetDisplay: 0
@@ -611,7 +683,7 @@ MonoBehaviour:
     m_Bits: 0
 --- !u!95 &3925210648230172307
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -628,7 +700,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3925210648819454375
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,7 +713,6 @@ GameObject:
   - component: {fileID: 3925210648819454372}
   - component: {fileID: 3925210648819454373}
   - component: {fileID: 3925210648819454378}
-  - component: {fileID: 3925210648819454379}
   - component: {fileID: 2178972980565119571}
   m_Layer: 2
   m_Name: ViewCone
@@ -680,6 +752,25 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -713,6 +804,7 @@ PolygonCollider2D:
       - {x: 0.9679928, y: -0.4840541}
       - {x: 0.43522453, y: -0.99027777}
       - {x: 1.3468456, y: -4.1148753}
+  m_UseDelaunayMesh: 0
 --- !u!114 &3925210648819454378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,21 +817,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1b316425645ce429c6b099fa63e1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 3925210647939697339}
---- !u!114 &3925210648819454379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3925210648819454375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a6cbb0b4ae4ef543b3767b68c802d29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 3925210647939697339}
-  portalAnimation: {fileID: 0}
+  advancedPatrolScript: {fileID: 0}
+  movementOption:
+    movementOption: 0
+    movementPosition: {x: 0, y: 0}
+    duration: 0
+    distanceFromTarget: 0
+    text: 
+    target: {fileID: 0}
+  canseetarget_preinterrupt: []
+  canseetarget_interrupt: []
+  canseetarget_postinterrupt: []
+  canNOTseetarget_preinterrupt: []
+  canNOTseetarget_interrupt: []
+  canNOTseetarget_postinterrupt: []
+  canSeeTarget: 0
 --- !u!222 &2178972980565119571
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1052,6 +1144,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 3925210647939697330}
     m_Modifications:
     - target: {fileID: 910552009803358747, guid: 5eb9f5627ba693447a38c0d0fec8a1f3,
@@ -1135,6 +1228,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eb9f5627ba693447a38c0d0fec8a1f3, type: 3}
 --- !u!4 &863564781006847799 stripped
 Transform:
