@@ -45,7 +45,9 @@ public class SpellTemplate : MonoBehaviour
 
     public GameObject hitObject;
 
+    
 
+    //much of this needs to be ported over to SpellProjectileMovement for anything that is not hitscan.
 
 
     public virtual void Awake()
