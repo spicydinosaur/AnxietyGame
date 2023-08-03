@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2178260157410354426}
   - component: {fileID: 1820548051252057011}
   - component: {fileID: 6927198171022520230}
-  m_Layer: 11
+  m_Layer: 18
   m_Name: transparency
-  m_TagString: Scenery
+  m_TagString: Non-Collider Scenery
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,7 +149,7 @@ Transform:
   m_Children:
   - {fileID: 2178260157410354426}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4831974867311879829
 SpriteRenderer:

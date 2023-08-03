@@ -10,6 +10,8 @@ using UnityEditor;
 
 public class SpellProjectile : MonoBehaviour
 {
+    //This script resides on a gameobject that comes into creation when a spell like Smite or Flame is cast.
+
 
     public GameObject parentSpell;
     public Vector3 spellStartPoint;
@@ -28,14 +30,11 @@ public class SpellProjectile : MonoBehaviour
     public AudioSource spellSound;
     public AudioSource fizzleSound;
 
-    public Vector2 newPosition;
-
-
+    //The below means I'm not typing the layer values over and over again as strings and potentially mispelling something here or there.
     public enum LayersInMask {Enemy, Scenery, NPC, Player, Allies}
     [SerializeField]
     public List<LayersInMask> layerMasksToHit;
     [SerializeField]
-    public int positionInLayerList;
 
     public List<string> combinedLayerString; 
     public float healthAmount;
@@ -51,26 +50,18 @@ public class SpellProjectile : MonoBehaviour
 
     void Awake()
     {
-        positionInLayerList = 0;
-        mousePos = spellTemplate.mousePos;
 
+        mousePos = spellTemplate.mousePos;
+        maxDistance = spellTemplate.distance;
         directionToTarget = mousePos - transform.position;
 
-        // Calculate the angle in radians
+        // Calculate the angle of the rotation for the projectile and convert from radians to degrees
         angle = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
 
-        // Rotate towards the target
+        // Rotate towards where the mouse was clicked from where the projectile was instantiated.
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
-        //layerMask = LayerMask.GetMask(combinedLayerString);
-        //direction = spellTemplate.directionNormalized;
-        //projectileSound.Play(0);
-        spellStartPoint = transform.position;
         animator = gameObject.GetComponent<Animator>();
-        //animator.SetBool("isOnTheMove", true);
-        //animator.SetBool("hitTarget", false);
-        //animator.SetBool("hasFizzled", false);
-        //Debug.Log("hit.point = " + hit.point + ".");
+
 
         foreach (LayersInMask value in layerMasksToHit)
         {
@@ -105,6 +96,9 @@ public class SpellProjectile : MonoBehaviour
                     {
                         //healthAmount must be a negative in the UI for it to damage, otherwise it will heal!
                         collidingObject.GetComponent<NPCHealth>().ChangeNPCHealth(healthAmount);
+                        //Below will need to be tested with a variety of enemies, as it may make the spell warp from one place as its projectile,
+                        //for too much of a distance to where the spell effect is seen.
+                        transform.position = collidingObject.transform.position;
                     }
                     if (manaAmount != 0f)
                     {
@@ -145,14 +139,22 @@ public class SpellProjectile : MonoBehaviour
 
     public void SpellHit(GameObject collidingGameObject)
     {
-        //it's possible there will be colliders that cause the projectile turned spell effect to "jump" from a small distance to the transform, it may be necessary to have colliders specifically for spells that have their own layers in the future.
+
         projectileSound.Stop();
         spellSound.Play(0);
-        gameObject.transform.rotation = Quaternion.identity;
         animator.SetBool("hitTarget", true);
         animator.SetBool("hasFizzled", false);
 
+    }
 
+    public void rotateSpellToNormal()
+    {
+        transform.rotation = Quaternion.identity;
+    }
+
+    public void OnSpellEnd()
+    {
+        Destroy(gameObject);
     }
 
     public void Update()

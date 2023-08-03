@@ -9,18 +9,26 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
+    //This script resides on the Hero and handles any context interactions/movement/and basic HUD changes
+    //The game uses the 2019 Input System for controls.
+    //There should never be more than one of this script active at any time.
+
     public static Player instance { get; private set; }
-    //private PlayerControls playerControls;
     
     public UnityEvent spellCast;
     public UnityEvent interact;
 
+    //Health is actually Mental Health, and Mana is actually Coping.
+    //Mental Health is the ability to exist within the world,
+    //while Coping is the ability to interact, affect, and change the world
     public float maxHealth;
     public float maxMana;
 
     public float currentHealth;
     public float currentMana;
 
+    //the health and mana bars max out at a spot that does not fully fill the bar,
+    //because the Hero is never at 100% Mental Health or 100% Coping.
     public float maxHealthBar;
     public float maxManaBar;
 
@@ -41,13 +49,17 @@ public class Player : MonoBehaviour
 
     public Rigidbody2D rigidBody;
 
+    //temporary value until saving is a thing.
     public Vector2 lookDirection = new Vector2(0, -1);
 
     public InputAction move;
     public PlayerControls playerControls { get; private set; }
     public ObjectInteraction objectInteraction;
 
+    //The scrollwheel is used to flip through the spells the Hero currently possesses.
+    //The change can be seen on the HUD where the circle shaped image is at the bottom right.
     public float spellSelectMouseScrollWheel;
+    
     public float movement;
     public Vector2 moveInput;
 
@@ -56,35 +68,31 @@ public class Player : MonoBehaviour
 
     //Spells
     public GameObject currentSpell;
-    public SpellTemplate currentSpellTemplate;
+    public SpellTemplate currentSpellScript;
+    public SpellTimer spellTimer;
 
-    //These are for when the spell gets added to the players "spellbook" and are used to add details to three of the four relevant hashtables.
-    public GameObject addedSpell;
-    public Sprite addedSpellIcon;
+    //These are for when the spell gets added to the players "spellbook" but increasing selectedSpellMax may just be a better way to handle it.
+    //This is probably unecessary code.
+    //public GameObject addedSpell;
+    //public Sprite addedSpellIcon;
 
     public Image spellIconImage;
-    public Image spellIconMask;
     public Sprite currentSpellIcon;
 
     public int selectedSpell;
-    //below starts at 0 and coincides with the numbers the list of spells
+    //below starts at 0 and coincides with the number of spells the Hero currently has available, which may not be the entire list.
     public int selectedSpellMax;
 
-    //these are temporararily defined onawake until the player can save progress
+    //these are temporararily defined here until the player can save progress
     public List<GameObject> listOfSpells = new List<GameObject>(4);
     public List<Sprite> listOfSpellIcons = new List<Sprite>(4);
 
-    //breathe doesn't actually get instantiated as there will never be more than one instance;
     public GameObject breatheSpell;
 
-
     //spells and interactions are double casting, (leading to the failSpell beep on every cast.) The below should stop that from happening.
+    //disabling this with the intention of testing if this is still a problem.
     public int waitForSpellCheck;
-    public float fizzleCastDowntime;
-    public SpellTimer spellTimer;
-
-    //public GameObject dialogueBox;
-    //public GameObject thoughtBox;
+    //public SpellTimer spellTimer;
 
     public Vector3 mousePosition;
 
@@ -157,26 +165,13 @@ public class Player : MonoBehaviour
         gameManager.GetComponent<UIHealthBar>().SetValueHealth(maxHealthBar / (currentHealth / maxHealth));
         gameManager.GetComponent<UIHealthBar>().SetValueMana(maxManaBar / (currentMana / maxMana));
 
-        /*
-        var breatheSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/breatheicon.png");
-        var brightSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/brighticon.png");
-        var flamesSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/flamesicon.png");
-        var smiteSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/smiteicon.png");
-        */
-
-
         selectedSpell = 0;
         currentSpell = breatheSpell;
-        currentSpellTemplate = currentSpell.GetComponent<SpellTemplate>();
+        currentSpellScript = currentSpell.GetComponent<SpellTemplate>();
         currentSpellIcon = listOfSpellIcons[selectedSpell];
 
-
-        //Temporary cap for spells until we can get a persistent variable in place to track how many spells the player has with saves and such.
-
-
-        waitForSpellCheck = 0;
-        spellIconMask.fillAmount = 0f;
-
+        spellTimer.currentSpellScript = currentSpellScript;
+        spellTimer.castDownTime = currentSpellScript.castDownTime;
 
     }
 
@@ -198,97 +193,56 @@ public class Player : MonoBehaviour
 
 
         //below is the code for the scroll wheel to cycle through spells
-        if (spellSelectMouseScrollWheel > 0) //scroll wheel gets moved up, moving through the spell list in a positive direction.
+        if (spellSelectMouseScrollWheel != 0)
         {
-
-
-            if (selectedSpell >= selectedSpellMax)
+            if (spellSelectMouseScrollWheel > 0) //scroll wheel gets moved up, moving through the spell list in a positive direction.
             {
-                selectedSpell = 0;
+
+
+                if (selectedSpell >= selectedSpellMax)
+                {
+                    //0 is Breathe
+                    selectedSpell = 0;
+
+                }
+                else
+                {
+                    selectedSpell++;
+                }
+
+
+                //Debug.Log("mouse scroll wheel up. Spellholder.selectedSpell = " + selectedSpell);
+
 
             }
-            else
+            else if (spellSelectMouseScrollWheel < 0) //scroll wheel gets moved down, moving through the spell list in a negative direction.
             {
-                selectedSpell++;
+
+
+                if (selectedSpell == 0)
+                {
+                    selectedSpell = selectedSpellMax;
+
+                }
+                else if (selectedSpell > 0)
+                {
+                    selectedSpell--;
+                }
+
+
+
             }
-
-            //currentSpell = listOfSpells[selectedSpell];
-            //currentSpellTemplate = currentSpell.GetComponent<SpellTemplate>();
-            //currentSpellIcon = listOfSpellIcons[selectedSpell];
-            //Debug.Log("spell instantiate gameobject is " + currentSpell);
-            //Debug.Log("spell instantiate template script is " + currentSpellTemplate);
-            //Debug.Log("Spell selection list position is " + selectedSpell);
-
-            if (spellTimer.globalCastDownTime > currentSpellTemplate.currentCastDownTime && selectedSpell != 0)
-            {
-                spellTimer.currentCastDownTime = spellTimer.globalCastDownTime;
-            }
-
-            else
-            {
-                //0 is breathe so not bothering to put in anything wrt global cast cooldowns
-                spellTimer.currentCastDownTime = currentSpellTemplate.currentCastDownTime;
-            }
-
 
             currentSpell = listOfSpells[selectedSpell];
             currentSpellIcon = listOfSpellIcons[selectedSpell];
-            currentSpellTemplate = currentSpell.GetComponent<SpellTemplate>();
+            currentSpellScript = currentSpell.GetComponent<SpellTemplate>();
             spellIconImage.sprite = currentSpellIcon;
             spellSelectMouseScrollWheel = 0f;
-            //Debug.Log("mouse scroll wheel up. Spellholder.selectedSpell = " + selectedSpell);
-            //spellIconImage.sprite = currentSpellIcon;
 
+            spellTimer.currentSpellScript = currentSpellScript;
+            spellTimer.castDownTime = currentSpellScript.castDownTime;
 
         }
-        else if (spellSelectMouseScrollWheel < 0) //scroll wheel gets moved down, moving through the spell list in a negative direction.
-        {
-
-
-            if (selectedSpell == 0)
-            {
-                selectedSpell = selectedSpellMax;
-
-            }
-            else if (selectedSpell > 0)
-            {
-                selectedSpell--;
-            }
-
-            //Debug.Log("selectedSpell = " + selectedSpell);
-
-            //currentSpell = listOfSpells[selectedSpell];
-            //currentSpellIcon = listOfSpellIcons[selectedSpell];
-            //currentSpellTemplate = currentSpell.GetComponent<SpellTemplate>();
-            //Debug.Log("spell instantiate gameobject is " + currentSpell);
-            //Debug.Log("spell instantiate template script is " + currentSpellTemplate);
-
-
-            if (spellTimer.globalCastDownTime > currentSpellTemplate.currentCastDownTime && selectedSpell != 0)
-            {
-                currentSpellTemplate.currentCastDownTime = spellTimer.globalCastDownTime;
-
-            }
-            else
-            {
-                //0 is breathe so not bothering to put in anything wrt global cast cooldowns
-                spellTimer.currentCastDownTime = currentSpellTemplate.currentCastDownTime;
-            }
-
-            //currentSpell = listOfSpells[selectedSpell];
-            //currentSpellIcon = listOfSpellIcons[selectedSpell];
-            //currentSpellTemplate = currentSpell.GetComponent<SpellTemplate>();
-            //Debug.Log("mouse scroll wheel down Spellholder.selectedSpell = " + selectedSpell);
-            //spellIconImage.sprite = currentSpellIcon;
-            currentSpell = listOfSpells[selectedSpell];
-            currentSpellIcon = listOfSpellIcons[selectedSpell];
-            currentSpellTemplate = currentSpell.GetComponent<SpellTemplate>();
-            spellIconImage.sprite = currentSpellIcon;
-            spellSelectMouseScrollWheel = 0f;
-        }
-
-
-
 
     }
 
@@ -299,18 +253,19 @@ public class Player : MonoBehaviour
         if (objectInteraction != null)
         {
 
-
-            //Debug.Log("objectInteraction is set to " + objectInteraction);
+            //ObjectInteraction is done with the keyboard, currently the enter key, that allows for things such as pushing pillars along a track and other future interactions.
+            //Debug.Log("PillarObjectInteraction is set to " + PillarObjectInteraction);
             objectInteraction.InteractWithObject();
             //Debug.Log("callback context is " + ctx);
 
         }
 
+
     }
     public void OnSpellCast(InputAction.CallbackContext context)
     {
-
-            if (waitForSpellCheck < 2)
+            //Below stops the fact that the spell gets double cast, actually casting the spell then makinf the spell failure sound a split second later.
+            /*if (waitForSpellCheck < 1)
             {
                 waitForSpellCheck++;
                 return;
@@ -318,44 +273,43 @@ public class Player : MonoBehaviour
             else
             {
                 waitForSpellCheck = 0;
-            }
+            }*/
 
-            if (selectedSpell == 0)
+            if (selectedSpell == 0) //again that's Breathe, which has special rules.
             {
 
-                if (spellTimer.currentCastDownTime != 0)
+                if (currentSpellScript.currentCastDownTime > 0f)
                 {
                 //Debug.Log("mouse click registered for spell casting. Spell on cooldown, attempt failed.");
                 failSpell.Play(0);
-
-
-            }
-                else if (spellTimer.currentCastDownTime == 0f)
+                }
+                else 
                 {
                     //This spell has no range and requires no values other than being at 0 on currentCastDownTime.
-                    //Debug.Log("mouse click registered for spell casting. Spell available to cast, no cooldown in place. " + currentSpellTemplate.name + " is the current instantiated template.");
-                    currentSpellTemplate.castSpell();
+                    //Debug.Log("mouse click registered for spell casting. Spell available to cast, no cooldown in place. " + currentSpellScript.name + " is the current instantiated template.");
+                    currentSpellScript.castSpell();
+                    spellTimer.globalCastDownTime = currentSpellScript.globalCastDownTime;
 
                 }
             }
             else
             {
-                if (spellTimer.currentCastDownTime != 0)
+                if (currentSpellScript.currentCastDownTime > 0f || spellTimer.globalCastDownTime > 0f || currentSpellScript.manaCost > currentMana)
                 {
                     //Debug.Log("mouse click registered for spell casting. Spell on cooldown, attempt failed.");
                     failSpell.Play(0);
 
                 }
-                else if (spellTimer.currentCastDownTime == 0f)
+                else 
                 {
                     //Debug.Log("pre camera conversion gives us playerControls.PlayerActions.MousePosition.ReadValue<Vector2>() at " + Mouse.current.position.ReadValue());
                     mousePosition = mainCam.ScreenToWorldPoint(new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, 0f));
                     //Debug.Log("Mouse click registered for spell casting. mousePosition registered at: " + mousePosition);
-                    currentSpellTemplate.mousePos = new Vector2(mousePosition.x, mousePosition.y);
-                    //Debug.Log("Spell available to cast, no cooldown in place. mousePos registered at: " + currentSpellTemplate.mousePos);
-                    //Debug.Log("mouse click registered for spell casting. Spell available to cast, no cooldown in place. " + currentSpellTemplate + " is the current instantiated template. The currentSpellInstantiate is " + currentSpell);
-                    currentSpellTemplate.castSpell();
-
+                    currentSpellScript.mousePos = new Vector2(mousePosition.x, mousePosition.y);
+                    //Debug.Log("Spell available to cast, no cooldown in place. mousePos registered at: " + currentSpellScript.mousePos);
+                    //Debug.Log("mouse click registered for spell casting. Spell available to cast, no cooldown in place. " + currentSpellScript + " is the current instantiated template. The currentSpellInstantiate is " + currentSpell);
+                    currentSpellScript.castSpell();
+                    spellTimer.globalCastDownTime = currentSpellScript.globalCastDownTime;
                 }
 
             }
@@ -366,27 +320,32 @@ public class Player : MonoBehaviour
     {
 
         currentHealth = Mathf.Clamp(currentHealth + amount, 0f, maxHealth);
+        //wait should the below equation be reversed? I'm not sure.
         gameManager.GetComponent<UIHealthBar>().SetValueHealth(maxHealthBar / (currentHealth / maxHealth));
 
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0f)
         {
 
             teleportSpell.SetActive(true);
-            teleportSpell.transform.position = gameObject.transform.position;
-            EventBroadcaster.onHeroDeath();
-            gameObject.SetActive(false);
 
+            //Let's permanently move the teleport spell gameobject over the Hero's spriterenderer. Then we can delete the below commented out scripting.
+            //We also need a script for the teleportSpell with a function that moves the hero to the appropriate bed and disables the spell.
+            //Put the function at the end of the teleportSpell animation.
+            //teleportSpell.transform.position = gameObject.transform.position;
+            EventBroadcaster.onHeroDeath();
 
         }
 
     }
+
 
     public void PlayerMana(float amount)
     {
 
         currentMana = Mathf.Clamp(currentMana + amount, 0, maxMana);
         gameManager.GetComponent<UIHealthBar>().SetValueMana(maxManaBar / (currentMana / maxMana));
+        //if mana reaches 0, interactions with anything other than coping mechanisms and beds should be shut down.
 
     }
 
@@ -398,21 +357,16 @@ public class Player : MonoBehaviour
 
     }
 
-    public void addSpell(GameObject addedSpell, Sprite addedSpellIcon)
+    //we might need the following, but if all the spells are in the right order in their list, we should just be able to bump up the selectedSpellMax value by 1.
+    /*public void addSpell(GameObject addedSpell, Sprite addedSpellIcon)
     {
-        /*
-        var breatheSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/breatheicon.png");
-        var brightSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/brighticon.png");
-        var flamesSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/flamesicon.png");
-        var smiteSpellIcon = Resources.Load<Sprite>("Assets/Prefabs/Spells/SpellIcons/smiteicon.png");
-        */
 
         listOfSpells.Capacity = listOfSpells.Capacity + 1;
 
         listOfSpells.Add(addedSpell);
         listOfSpellIcons.Add(addedSpellIcon);
 
-    }
+    }*/
 
 }
 

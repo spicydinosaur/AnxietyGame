@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectInteractionMiniColliders : MonoBehaviour
+public class PillarObjectInteractionMiniColliders : MonoBehaviour
 {
 
-    public ObjectInteraction objectInteraction;
+    public PillarObjectInteraction objectInteraction;
 
     public enum ColliderDirection { north, south, east, west};
 
@@ -18,19 +18,19 @@ public class ObjectInteractionMiniColliders : MonoBehaviour
         {
             if (colliderDirection == ColliderDirection.north)
             {
-                objectInteraction.colliderDirection = ObjectInteraction.ColliderDirection.north;
+                objectInteraction.colliderDirection = PillarObjectInteraction.ColliderDirection.north;
             }
             else if (colliderDirection == ColliderDirection.south)
             {
-                objectInteraction.colliderDirection = ObjectInteraction.ColliderDirection.south;
+                objectInteraction.colliderDirection = PillarObjectInteraction.ColliderDirection.south;
             }
             else if (colliderDirection == ColliderDirection.east)
             {
-                objectInteraction.colliderDirection = ObjectInteraction.ColliderDirection.east;
+                objectInteraction.colliderDirection = PillarObjectInteraction.ColliderDirection.east;
             }
             else if (colliderDirection == ColliderDirection.west)
             {
-                objectInteraction.colliderDirection = ObjectInteraction.ColliderDirection.west;
+                objectInteraction.colliderDirection = PillarObjectInteraction.ColliderDirection.west;
             }
             objectInteraction.playerTouchingObject = true;
         }
@@ -40,8 +40,8 @@ public class ObjectInteractionMiniColliders : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            //this is redundant with ObjectInteraction but hey, you never know if it will be needed and it doesn't hurt anything.
-            objectInteraction.colliderDirection = ObjectInteraction.ColliderDirection.inactive;
+            //this is redundant with PillarObjectInteraction but hey, you never know if it will be needed and it doesn't hurt anything.
+            objectInteraction.colliderDirection = PillarObjectInteraction.ColliderDirection.inactive;
             objectInteraction.playerTouchingObject = false;
         }
     }

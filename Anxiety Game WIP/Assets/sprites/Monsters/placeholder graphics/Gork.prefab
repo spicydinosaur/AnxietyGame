@@ -223,6 +223,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -459,7 +478,6 @@ GameObject:
   - component: {fileID: 7770862579520024667}
   - component: {fileID: 7770862579520024666}
   - component: {fileID: 7770862579520024661}
-  - component: {fileID: 7770862579520024660}
   - component: {fileID: 4869451609112736684}
   m_Layer: 7
   m_Name: ViewCone
@@ -499,6 +517,25 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -532,6 +569,7 @@ PolygonCollider2D:
       - {x: 0.9679928, y: -0.4840541}
       - {x: 0.43522453, y: -0.99027777}
       - {x: 1.3468456, y: -4.1148753}
+  m_UseDelaunayMesh: 0
 --- !u!114 &7770862579520024661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,21 +582,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1b316425645ce429c6b099fa63e1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 7770862580395584324}
---- !u!114 &7770862579520024660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7770862579520024664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a6cbb0b4ae4ef543b3767b68c802d29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 7770862580395584324}
-  portalAnimation: {fileID: 0}
+  advancedPatrolScript: {fileID: 0}
+  movementOption:
+    movementOption: 0
+    movementPosition: {x: 0, y: 0}
+    duration: 0
+    distanceFromTarget: 0
+    text: 
+    target: {fileID: 0}
+  canseetarget_preinterrupt: []
+  canseetarget_interrupt: []
+  canseetarget_postinterrupt: []
+  canNOTseetarget_preinterrupt: []
+  canNOTseetarget_interrupt: []
+  canNOTseetarget_postinterrupt: []
+  canSeeTarget: 0
 --- !u!222 &4869451609112736684
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -579,7 +617,6 @@ GameObject:
   - component: {fileID: 7770862580395584331}
   - component: {fileID: 7770862580395584329}
   - component: {fileID: 7770862580395584334}
-  - component: {fileID: 7770862580395584330}
   - component: {fileID: 7770862580395584324}
   - component: {fileID: 7770862580395584332}
   - component: {fileID: 7770862580395584328}
@@ -613,7 +650,7 @@ Transform:
   - {fileID: 820733482}
   - {fileID: 560683779}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7770862580395584331
 SpriteRenderer:
@@ -684,13 +721,19 @@ Rigidbody2D:
   m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!95 &7770862580395584334
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -707,21 +750,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7770862580395584330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7770862580395584370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a02bbb21bdf6f94193236f5bda4fbd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentChaseObject: {fileID: 0}
-  controller: {fileID: 7770862580395584324}
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &7770862580395584324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -735,30 +765,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  currentMovementType: 0
-  isChasing: 0
   canSeeTarget: 0
-  targetToChase: {fileID: 0}
-  dialogBox: {fileID: 0}
   animator: {fileID: 7770862580395584334}
   lookDirection: {x: -0.5148858, y: -0.8572588}
-  isMoving: 0
-  pauseTime: 0
-  delayTime: 0
-  prevMovementType: 0
-  startingMovementType: 0
-  nextMove: {x: 67, y: 2}
-  velocity: {x: 0, y: 0}
   gameManager: {fileID: 0}
   hero: {fileID: 0}
+  target: {fileID: 0}
+  advancedPatrolScript: {fileID: 0}
+  preinterrupt: []
+  interrupt: []
+  postinterrupt: []
+  player_preinterrupt: []
+  player_interrupt: []
+  player_postinterrupt: []
+  attack_preinterrupt: []
+  attack_interrupt: []
+  attack_postinterrupt: []
+  dropTable: {fileID: 7770862580242392939}
   numberOfBlinks: 4
   currentBlink: 0
   textDisplayTime: 2
   currentTextDisplayTime: 0
-  dropTable: {fileID: 7770862580242392939}
   textMeshProUGUI: {fileID: 7770862579062568235}
   secondsPerHalfBlink: 1
-  route: {fileID: 7770862580395584332}
+  maxAggroDistance: 0
 --- !u!114 &7770862580395584332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -784,6 +814,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -912,7 +961,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: -1828574419
   m_SortingOrder: 999
   m_TargetDisplay: 0
@@ -965,7 +1016,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5237178548035848566}
-  - component: {fileID: 8596557446354385432}
   - component: {fileID: 6692919650334204638}
   m_Layer: 7
   m_Name: AttackCircle
@@ -989,25 +1039,6 @@ Transform:
   m_Father: {fileID: 7770862580395584333}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8596557446354385432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8654787806883817390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71c25748fd24d2144a047d1982eb0dba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 7770862580395584324}
-  player: {fileID: 0}
-  animator: {fileID: 7770862580395584334}
-  maxTimeInvincible: 4
-  isInvincible: 0
-  invincibilityCountdownTimer: 0
-  healthDamage: 0
 --- !u!58 &6692919650334204638
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1018,6 +1049,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1082,7 +1132,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: -325706449
   m_SortingOrder: 998
   m_TargetDisplay: 0
@@ -1128,7 +1180,7 @@ MonoBehaviour:
     m_Bits: 0
 --- !u!95 &8770758324478172745
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1145,7 +1197,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8770758324808700502
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,6 +1357,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7770862580395584333}
     m_Modifications:
     - target: {fileID: 910552009803358747, guid: 5eb9f5627ba693447a38c0d0fec8a1f3,
@@ -1382,6 +1436,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eb9f5627ba693447a38c0d0fec8a1f3, type: 3}
 --- !u!4 &9073293373496565259 stripped
 Transform:

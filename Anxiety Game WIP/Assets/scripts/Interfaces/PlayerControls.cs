@@ -93,7 +93,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""abc60daf-32cd-4959-a7be-400eae590866"",
                     ""path"": ""<Mouse>/scroll/y"",
-                    ""interactions"": ""Press"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""SpellSelectMouseScrollWheel"",

@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectInteractionColliderSetup : MonoBehaviour
+public class PillarObjectInteractionColliderSetup : MonoBehaviour
 {
-    public Player heroScript;
+    public Player player;
     public GameObject northMoveCollider;
     public GameObject southMoveCollider;
     public GameObject eastMoveCollider;
     public GameObject westMoveCollider;
 
-    public ObjectInteraction objectInteraction;
+    public PillarObjectInteraction objectInteraction;
     
     
     public void OnTriggerEnter2D(Collider2D collider)
@@ -25,7 +25,7 @@ public class ObjectInteractionColliderSetup : MonoBehaviour
             eastMoveCollider.SetActive(true);
             westMoveCollider.SetActive(true);
 
-            heroScript.objectInteraction = objectInteraction;
+            player.objectInteraction = objectInteraction;
 
 
 
@@ -40,7 +40,7 @@ public class ObjectInteractionColliderSetup : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
 
-            heroScript.objectInteraction = null;
+            player.objectInteraction = null;
 
             northMoveCollider.SetActive(false);
             southMoveCollider.SetActive(false);
@@ -50,8 +50,6 @@ public class ObjectInteractionColliderSetup : MonoBehaviour
             objectInteraction.canMove = false;
 
         }
-
-
 
     }
 

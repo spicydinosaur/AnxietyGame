@@ -249,7 +249,6 @@ GameObject:
   - component: {fileID: 7998743178252001316}
   - component: {fileID: 7998743178252001318}
   - component: {fileID: 7998743178252001313}
-  - component: {fileID: 7998743178252001317}
   - component: {fileID: 7998743178252001323}
   - component: {fileID: 7998743178252001319}
   - component: {fileID: 7998743178252001322}
@@ -274,7 +273,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1736020069105011936}
-  - {fileID: 5510342120032535065}
   - {fileID: 7998743179526028084}
   - {fileID: 7998743178438606350}
   - {fileID: 1180520974360742480}
@@ -350,13 +348,19 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!95 &7998743178252001313
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -373,21 +377,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7998743178252001317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7998743178252001309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a02bbb21bdf6f94193236f5bda4fbd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentChaseObject: {fileID: 0}
-  controller: {fileID: 7998743178252001323}
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &7998743178252001323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,30 +392,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  currentMovementType: 1
-  isChasing: 0
   canSeeTarget: 0
-  targetToChase: {fileID: 0}
-  dialogBox: {fileID: 7998743179051859526}
   animator: {fileID: 7998743178252001313}
   lookDirection: {x: 0, y: -1}
-  isMoving: 0
-  pauseTime: 0
-  delayTime: 0
-  prevMovementType: 0
-  startingMovementType: 0
-  nextMove: {x: 0, y: 0}
-  velocity: {x: 0, y: 0}
   gameManager: {fileID: 0}
   hero: {fileID: 0}
+  target: {fileID: 0}
+  advancedPatrolScript: {fileID: 0}
+  preinterrupt: []
+  interrupt: []
+  postinterrupt: []
+  player_preinterrupt: []
+  player_interrupt: []
+  player_postinterrupt: []
+  attack_preinterrupt: []
+  attack_interrupt: []
+  attack_postinterrupt: []
+  dropTable: {fileID: 0}
   numberOfBlinks: 4
   currentBlink: 0
   textDisplayTime: 0
   currentTextDisplayTime: 0
-  dropTable: {fileID: 0}
   textMeshProUGUI: {fileID: 0}
   secondsPerHalfBlink: 0
-  route: {fileID: 0}
+  maxAggroDistance: 0
 --- !u!58 &7998743178252001319
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -435,6 +426,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -532,7 +542,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 1231766705
   m_SortingOrder: 999
   m_TargetDisplay: 0
@@ -722,7 +734,6 @@ GameObject:
   - component: {fileID: 7998743179526028084}
   - component: {fileID: 7998743179526028085}
   - component: {fileID: 7998743179526028090}
-  - component: {fileID: 7998743179526028091}
   - component: {fileID: 5135612803885758659}
   m_Layer: 7
   m_Name: ViewCone
@@ -762,6 +773,25 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -795,6 +825,7 @@ PolygonCollider2D:
       - {x: 0.9679928, y: -0.4840541}
       - {x: 0.43522453, y: -0.99027777}
       - {x: 1.3468456, y: -4.1148753}
+  m_UseDelaunayMesh: 0
 --- !u!114 &7998743179526028090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,21 +838,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1b316425645ce429c6b099fa63e1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
---- !u!114 &7998743179526028091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7998743179526028087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a6cbb0b4ae4ef543b3767b68c802d29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  portalAnimation: {fileID: 0}
+  advancedPatrolScript: {fileID: 0}
+  movementOption:
+    movementOption: 0
+    movementPosition: {x: 0, y: 0}
+    duration: 0
+    distanceFromTarget: 0
+    text: 
+    target: {fileID: 0}
+  canseetarget_preinterrupt: []
+  canseetarget_interrupt: []
+  canseetarget_postinterrupt: []
+  canNOTseetarget_preinterrupt: []
+  canNOTseetarget_interrupt: []
+  canNOTseetarget_postinterrupt: []
+  canSeeTarget: 0
 --- !u!222 &5135612803885758659
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -888,7 +919,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: -325706449
   m_SortingOrder: 998
   m_TargetDisplay: 0
@@ -934,7 +967,7 @@ MonoBehaviour:
     m_Bits: 0
 --- !u!95 &8169627217396531852
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -951,80 +984,14 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &8992953385227496641
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5510342120032535065}
-  - component: {fileID: 8330396666395996535}
-  - component: {fileID: 6355878855205874097}
-  m_Layer: 7
-  m_Name: AttackCircle
-  m_TagString: Misc Colliders
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5510342120032535065
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8992953385227496641}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7998743178252001314}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8330396666395996535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8992953385227496641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71c25748fd24d2144a047d1982eb0dba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 7998743178252001323}
-  player: {fileID: 0}
-  animator: {fileID: 7998743178252001313}
-  maxTimeInvincible: 4
-  isInvincible: 0
-  invincibilityCountdownTimer: 0
-  healthDamage: 0
---- !u!58 &6355878855205874097
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8992953385227496641}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.006214142, y: -0.0044882298}
-  serializedVersion: 2
-  m_Radius: 0.58803964
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &7193113722763773474
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7998743178252001314}
     m_Modifications:
     - target: {fileID: 910552009803358747, guid: 5eb9f5627ba693447a38c0d0fec8a1f3,
@@ -1108,6 +1075,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eb9f5627ba693447a38c0d0fec8a1f3, type: 3}
 --- !u!4 &1736020069105011936 stripped
 Transform:

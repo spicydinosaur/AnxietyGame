@@ -40,7 +40,7 @@ public class BrightSpellTemplate : SpellTemplate
             instantiatedLightInProcessing.name = new string("LightPool" + i);
             instantiatedPools.Add(instantiatedLightInProcessing);
 
-            Debug.Log("lightpool instantiating For loop on start is firing");
+            //Debug.Log("lightpool instantiating For loop on start is firing");
 
         }
     }
@@ -55,7 +55,7 @@ public class BrightSpellTemplate : SpellTemplate
             instantiatedLightInProcessing.name = new string("LightPool" + i);
             instantiatedPools.Add(instantiatedLightInProcessing);
 
-            Debug.Log("For loop on start is firing");
+            //Debug.Log("For loop on start is firing");
 
         }
 
@@ -67,9 +67,9 @@ public class BrightSpellTemplate : SpellTemplate
         //rawDirection = new Vector3(mousePos.x, mousePos.y, 0f) - tempHeroTransformValues;
         casterTransform = hero.transform.position;
         direction = (mousePos - casterTransform).normalized;
-        Debug.Log("hero transform position = " + hero.transform.position);
-        Debug.Log("Camera.main.ScreenToWorldPoint(hero.transform.position) = " + Camera.main.ScreenToWorldPoint(hero.transform.position));
-        Debug.Log("heroTransform = " + casterTransform + ", direction = " + direction + ", mousePos = " + mousePos + ".");        
+        //Debug.Log("hero transform position = " + hero.transform.position);
+        //Debug.Log("Camera.main.ScreenToWorldPoint(hero.transform.position) = " + Camera.main.ScreenToWorldPoint(hero.transform.position));
+        //Debug.Log("heroTransform = " + casterTransform + ", direction = " + direction + ", mousePos = " + mousePos + ".");        
 
 
         RaycastHit2D hit = Physics2D.Raycast(casterTransform, direction, rayCastDistance, layerMask);
@@ -112,9 +112,6 @@ public class BrightSpellTemplate : SpellTemplate
                 Debug.Log("hit.name because something weird happened : " + hit.collider.name + ".");
             }
 
-            currentCastDownTime = castDownTime;
-            spellTimer.currentCastDownTime = currentCastDownTime;
-            spellTimer.globalCastDownTime = globalCastDownTime;
             //spellIconMask.fillAmount = 1f;
             Debug.Log("hit Something : " + hit.collider.name + " spell should be " + player.currentSpell + ". Collision occurred at " + hit.transform.position);
             Debug.Log("hit tag  : " + hit.collider.tag);
@@ -177,29 +174,26 @@ public class BrightSpellTemplate : SpellTemplate
             instantiatedPoolsTemp.Clear();
 
             mouseDistance = Vector2.Distance(casterTransform, mousePos);
-            Debug.Log("mouseDistance = " + mouseDistance + ", calculated using heroTransform (" + casterTransform + ") and mousePos (" + mousePos + ")");
+            //Debug.Log("mouseDistance = " + mouseDistance + ", calculated using heroTransform (" + casterTransform + ") and mousePos (" + mousePos + ")");
 
             if (mouseDistance < rayCastDistance)
             {
                 point = new Vector3(mousePos.x, mousePos.y, 0f);
-                Debug.Log("point now converted to mousePos with 0f for z axis and located at " + point + ".");
+                //Debug.Log("point now converted to mousePos with 0f for z axis and located at " + point + ".");
 
             }
             else
             {
                 point = new Vector3(casterTransform.x + (direction.x * rayCastDistance), casterTransform.y + (direction.y * rayCastDistance), 0f);
-                Debug.Log("point now converted to heroTransform + direction * rayCastDistance and located at " + point + ".");
+                //Debug.Log("point now converted to heroTransform + direction * rayCastDistance and located at " + point + ".");
             }
 
-            //I need to figure out a way to drop the lightpools closer to the hero than the raycastdistance if the mouse clicks somewhere closer than it.
-            //Consulting Donut for math tutoring!           
             activeLightPool.transform.position = point;
             activeLightPool.SetActive(true);
 
-            Debug.Log("Pool of light should be at point " + point + ". It reads at " + activeLightPool.transform.position + ".");
+            //Debug.Log("Pool of light should be at point " + point + ". It reads at " + activeLightPool.transform.position + ".");
 
-            spellTimer.globalCastDownTime = globalCastDownTime;
-            spellTimer.currentCastDownTime = castDownTime;
+
             currentCastDownTime = castDownTime;
 
 
