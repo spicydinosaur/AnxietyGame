@@ -95,6 +95,7 @@ public class NPCSortingLayerSwap : MonoBehaviour
             totalCollisions--;
             if (totalCollisions == 0)
             {
+
                 MasterCollisionList._instance.RemoveCollision(mclPosition);
                 mclPosition = -1;
             }

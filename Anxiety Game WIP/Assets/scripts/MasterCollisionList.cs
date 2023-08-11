@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MasterCollisionList : PersistentSingleton<MasterCollisionList>
@@ -24,6 +25,13 @@ public class MasterCollisionList : PersistentSingleton<MasterCollisionList>
 
     public bool RemoveCollision(int removeCollisionAtPosition)
     {
+        if (collidingTransforms.Count < removeCollisionAtPosition)
+        {
+
+            Debug.LogWarning($"collidingTransforms.Count is {collidingTransforms.Count}./nremoveCollisionAtPosition is {removeCollisionAtPosition}.");
+            return false;
+        
+        } 
         collidingTransforms[removeCollisionAtPosition] = null;
         totalNulls++;
         if (totalNulls > 10 && totalNulls >= (int)(collidingTransforms.Count * 0.1))
