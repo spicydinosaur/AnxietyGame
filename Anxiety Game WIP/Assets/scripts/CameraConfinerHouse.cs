@@ -102,7 +102,7 @@ public class CameraConfinerHouse : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("Player") && collider.GetComponent<Player>().transitioningToScene == false)
+        if (collider.gameObject.CompareTag("Player") && collider.GetComponent<Player>() && collider.GetComponent<Player>().transitioningToScene == false)
         {
             if (clockTick.isPlaying)
             {

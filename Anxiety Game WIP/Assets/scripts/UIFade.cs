@@ -11,7 +11,7 @@ public class UIFade : MonoBehaviour
     //[SerializeField] Color fadeOutColor;
     //[SerializeField] Color fadeInColor;
 
-    public float lerpTime = 0f;
+    public float lerpTime= 0f;
 
     public Color fadeOutColor;
     public Color fadeInColor;

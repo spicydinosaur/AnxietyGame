@@ -6,14 +6,18 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using NaughtyAttributes;
 
 public class GameManager : PersistentSingleton<GameManager>
 
 
 {
     public static GameObject gameManagerObject;
-    public static bool tutorialComplete; 
-    public static bool breakdownComplete;
+    [ShowNonSerializedField]
+    public static bool tutorialComplete = true;
+    [ShowNonSerializedField]
+    public static bool breakdownComplete = true;
+
 
     public List<GameObject> LightsOnPuzzleObjects = new List<GameObject>();
 
@@ -33,6 +37,21 @@ public class GameManager : PersistentSingleton<GameManager>
     public GameObject eyesPreBreakdown;
     public GameObject eyesPostBreakdown;
 
+    public Vector3 preTutorialVector = new Vector3(-68.28f, 93.21f, 0f);
+    public Vector3 preBreakdownVector = new Vector3(19.36f, 64.29f, 0f);
+    public Vector3 postBreakdownVector = new Vector3(-64.21f, 93.13f, 0f);
+
+    public Vector3 heroScaleAdult = new Vector3(.75f, .75f, 0.75f);
+    public Vector3 heroScaleChild = new Vector3(.5f, .5f, 0.5f);
+
+    public GameObject deathSceneBedPretutorial;
+    public GameObject deathSceneBedPreBreakdown;
+    public GameObject deathSceneBedPostBreakdown;
+
+    public GameObject deathScenePillowsPretutorial;
+    public GameObject deathScenePillowsPreBreakdown;
+    public GameObject deathScenePillowsPostBreakdown;
+
 
     public void Start()
     {
@@ -43,25 +62,28 @@ public class GameManager : PersistentSingleton<GameManager>
             if (breakdownComplete)
             {
 
-                Vector3 pos = new Vector3(-64.92f, 95.15f, 0f);
-                hero.transform.position = pos;
-                hero.transform.localScale = new Vector3(.75f, .75f, 0.75f);
+                hero.transform.position = postBreakdownVector; 
+                hero.transform.localScale = heroScaleAdult;
                 eyesPostBreakdown.SetActive(true);
+                deathSceneBedPostBreakdown.GetComponent<SpriteRenderer>().sortingLayerName = "LitDuringSleepSceneFront";
+                deathScenePillowsPostBreakdown.GetComponent<SpriteRenderer>().sortingLayerName = "LitDuringSleepSceneBehind";
 
             }
             else if (tutorialComplete)
             {
-                Vector3 pos = new Vector3(8.76f, 3.86f, 0f);
-                hero.transform.position = pos;
-                hero.transform.localScale = new Vector3(.75f, .75f, 0.75f);
+                hero.transform.position = preBreakdownVector;
+                hero.transform.localScale = heroScaleAdult;
                 eyesPreBreakdown.SetActive(true);
+                deathSceneBedPreBreakdown.GetComponent<SpriteRenderer>().sortingLayerName = "LitDuringSleepSceneFront";
+                deathScenePillowsPreBreakdown.GetComponent<SpriteRenderer>().sortingLayerName = "LitDuringSleepSceneBehind";
             }
             else
             {
-                Vector3 pos = new Vector3(-68.2f, 93.25f, 0);
-                hero.transform.localPosition = pos;
-                hero.transform.localScale = new Vector3(.5f, .5f, 0.5f);
+                hero.transform.position = preTutorialVector;
+                hero.transform.localScale = heroScaleChild;
                 eyesPreTutorial.SetActive(true);
+                deathSceneBedPretutorial.GetComponent<SpriteRenderer>().sortingLayerName = "LitDuringSleepSceneFront";
+                deathScenePillowsPretutorial.GetComponent<SpriteRenderer>().sortingLayerName = "LitDuringSleepSceneBehind";
             }
         }
     }
@@ -76,25 +98,20 @@ public class GameManager : PersistentSingleton<GameManager>
 
     public void TeleportedSuccessfully()
     {
-
+        //There will have to be checks for what scene to load in the future.
         SceneManager.LoadScene("Scene One Tutorial and Seaside Town");
         player.lookDirection.Set(0f, -.5f);
         if (breakdownComplete)
         {
-
-            Vector3 pos = new Vector3(-64.92f, 95.15f, 0f);
-            hero.transform.position = pos;
-
+            hero.transform.position = postBreakdownVector;
         }
         else if (tutorialComplete)
         {
-            Vector3 pos = new Vector3(8.76f, 3.86f, 0f);
-            hero.transform.position = pos;
+            hero.transform.position = preBreakdownVector;
         }
         else
         {
-            Vector3 pos = new Vector3(-68.46f, 95.21f, 0f);
-            hero.transform.position = pos;
+            hero.transform.position = preTutorialVector;
         }
 
         player.PlayerHealth(player.maxHealth);

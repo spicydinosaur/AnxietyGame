@@ -29,15 +29,17 @@ public class DeathCutsceneScript : MonoBehaviour
             eyeBlinkCountdown = 0;
             foreach (GameObject eyes in eyesThatBlink)
             {
-                randomValue =  Random.Range(1,3);
-                if (randomValue == 1)
-                {
-                    eyes.GetComponent<SpriteRenderer>().color = new Color(eyes.GetComponent<SpriteRenderer>().color.r, eyes.GetComponent<SpriteRenderer>().color.g, eyes.GetComponent<SpriteRenderer>().color.b, 0f);
-                }
-                else
+                randomValue =  Random.Range(1,21);
+                if (eyes.GetComponent<SpriteRenderer>().color.a == 0f)
                 {
                     eyes.GetComponent<SpriteRenderer>().color = new Color(eyes.GetComponent<SpriteRenderer>().color.r, eyes.GetComponent<SpriteRenderer>().color.g, eyes.GetComponent<SpriteRenderer>().color.b, 1f);
                 }
+
+                else if (randomValue == 1)
+                {
+                    eyes.GetComponent<SpriteRenderer>().color = new Color(eyes.GetComponent<SpriteRenderer>().color.r, eyes.GetComponent<SpriteRenderer>().color.g, eyes.GetComponent<SpriteRenderer>().color.b, 0f);
+                }
+
             }
 
         }
