@@ -50,6 +50,7 @@ public class SpellTemplate : MonoBehaviour
 
         currentCastDownTime = 0f;
         player = hero.GetComponent<Player>();
+        mainCam = Camera.main;
 
 
     }

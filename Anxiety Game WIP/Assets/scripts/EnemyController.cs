@@ -32,20 +32,21 @@ public class EnemyController : NPCController
         animator.SetFloat("Speed", 0f);
         if (maxAggroDistance <= 0f )
         {
-            maxAggroDistance = 15f;
+            maxAggroDistance = 6f;
         }       
 
     }
 
     // Update is called once per frame
 
-    public override void OnDeath()
+    override public void OnDeath()
     {
 
 
         animator.SetBool("isAttacking", false);
         animator.SetBool("isDead", true);
         animator.SetFloat("Speed", 0f);
+        advancedPatrolScript.Interrupt(death_preinterrupt, death_interrupt, death_postinterrupt);
         EventBroadcaster.HeroDeath.RemoveListener(HeroDied);
         currentTextDisplayTime = 0f;
         textMeshProUGUI.enabled= false;
@@ -56,7 +57,8 @@ public class EnemyController : NPCController
     }
 
 
-    public void DeathCloudDeactivate()
+
+    public override void DeathCloudDeactivate()
     {
 
         gameObject.SetActive(false);

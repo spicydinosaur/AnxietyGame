@@ -4,7 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Scene One Tutorial and Seaside Town.unity
+    guid: 6f3086728759b7c4187603eab9585676
+  - enabled: 1
+    path: Assets/Scenes/Scene Two City and Forest .unity
+    guid: cf6a7f7722182c244a00df87e0823d7a
+  - enabled: 1
+    path: Assets/Scenes/DeathCutscene.unity
+    guid: 84c5cf59718663742b567b6e9b6fdace
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: eca839b36fa4e13439b5e799d3781342,
       type: 2}

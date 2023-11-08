@@ -5,16 +5,21 @@ using UnityEngine.Rendering.Universal;
 
 public class LPSeasideRuins : LightPillars
 {
-
+    public Animator animator;
     public void Awake()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 1f);
-        gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
+        animator = GetComponent<Animator>();
+        if (GameManager.tutorialRuinsEntranceRevealed) 
+        {
+            animator.SetTrigger("isLit");
+        }
+
     }
     public override void HitByBright()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(198f, 198f, 198f, 1f);
+        animator.SetTrigger("isLit");
         gameObject.GetComponent<Collider2D>().enabled = false;
+        GameManager.tutorialRuinsEntranceRevealed = true;
     }
 
   }

@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class CameraConfinerAmbientSound : MonoBehaviour
 {
+    //This script is not currently being worked on until I get ambient sounds that aren't looping for whatever reason I need them for. It is out of date and needs to be redone
+    //by running things through the AudioMixer and fading things out and then new things in.
+
     // Start is called before the first frame update
     public AudioSource audioSource;
     public AudioClip[] audioClips;
@@ -21,9 +24,13 @@ public class CameraConfinerAmbientSound : MonoBehaviour
 
     public AudioSource[] allAudioSources;
     private AudioListener listener;
+    public GameManager gameManager;
 
 
-
+    public void Awake()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -54,6 +61,14 @@ public class CameraConfinerAmbientSound : MonoBehaviour
         }
     }
 
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            gameManager.StopAllAudio();
+        }
+
+    }
 
 }
 

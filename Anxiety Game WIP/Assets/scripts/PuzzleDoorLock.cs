@@ -10,7 +10,7 @@ public class PuzzleDoorLock : PuzzleLock
         base.CheckLocks();
         if (lockCheck == LockCheck.unlocked)
         {
-            GetComponent<Animator>().SetBool("DoorOpening", true);
+            GetComponent<Animator>().SetTrigger("DoorOpening");
         }
     } 
 }

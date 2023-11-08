@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1195744465605630027}
   - component: {fileID: 2339879787394561324}
   - component: {fileID: 925450673915307156}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: ChaseText
   m_TagString: Text
   m_Icon: {fileID: 0}
@@ -493,7 +493,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 1
   m_BaseOffset: 0.5
-  m_WalkableMask: 3
+  m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
 --- !u!114 &5516911740245900216
 MonoBehaviour:
@@ -873,7 +873,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4454512193263149751}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2.21, z: 0}
   m_LocalScale: {x: 1, y: 1.2276562, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -943,7 +943,7 @@ GameObject:
   - component: {fileID: 1503905102385079882}
   - component: {fileID: 1485264404734329462}
   - component: {fileID: 2290138592606705430}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Text (TMP)
   m_TagString: Text
   m_Icon: {fileID: 0}

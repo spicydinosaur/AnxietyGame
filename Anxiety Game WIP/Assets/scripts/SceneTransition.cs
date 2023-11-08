@@ -3,80 +3,56 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering.Universal;
+using Unity.VisualScripting;
 
 public class SceneTransition : MonoBehaviour
 {
 
     public GameObject destination;
-    public Transform destinationTransform;
-    public GameObject collidingObject;
     public Vector2 lookDirectionOnEntry;
-    public Player playerScript;
-    //public UIFade uiFade;
+    public Player player;
 
-    /*public AudioMixer audioMixer;
+    public GameManager gameManager;
+    public GameObject collidingObject;
 
-    public string exposedParameter;
+    public Camera mainCam;
 
-    public float durationFadeOut;
-    public float targetVolumeFadeOut;
-    */
+    public float lightIntensity;
+    public GameObject hero;
+    public Canvas bossHUDElements;
+    public TutorialBossPixie pixieScript;
 
-    public virtual void Awake()
+
+    public void Start()
     {
-        //uiFade = GameManager.gameManagerObject.GetComponent<UIFade>();
-        destinationTransform = destination.GetComponent<Transform>();
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        mainCam = Camera.main;
+        hero = GameObject.Find("Hero");
+
+
     }
 
-    public virtual void OnTriggerEnter2D(Collider2D collider)
+    public void OnTriggerEnter2D(Collider2D collider)
     {
-        
+        if (collider.gameObject.CompareTag("Player"))
+        {
+            collidingObject = collider.gameObject;
+            player = collidingObject.GetComponent<Player>();
 
-        if (collider.gameObject.CompareTag("Player") && collider.GetComponent<Player>().transitioningToScene == false)
-           {
+            if (!gameManager.hasTransitioned)
+            {
+                gameManager.hasTransitioned = true;
+                gameManager.LoadInternalLevel(destination.transform.position, collidingObject);
+                player.lookDirection = new Vector2(lookDirectionOnEntry.x, lookDirectionOnEntry.y);
+         
+            }
+            else
+            {
+                gameManager.hasTransitioned = false;
 
-                //Debug.Log("Scene transition attempted. the variable collidingObject value is " + collider.gameObject.name + ". collision.gameObject value is " + collider.gameObject);
-                collidingObject = collider.gameObject;
-                playerScript = collidingObject.GetComponent<Player>();
-                Debug.Log("transporting should commence!");
-
-                playerScript.transitioningToScene = true;
-
-                playerScript.lookDirection.Set(lookDirectionOnEntry.x, lookDirectionOnEntry.y);
-                GameManager.gameManagerObject.GetComponent<UIFade>().callingTransition = gameObject.GetComponent<SceneTransition>();
-                GameManager.gameManagerObject.GetComponent<UIFade>().fadingIn = false;
-                GameManager.gameManagerObject.GetComponent<UIFade>().fadingOut = true;
-                //StartCoroutine(FadeMixerGroup.StartFade(audioMixer, exposedParameter, durationFadeOut, targetVolumeFadeOut));
-                Debug.Log("transition occured from: " + name + "?");
-            //wait for UIFade to say it is done then move target!!!
+            }
         }
-
     }
-
-
-
-    public virtual void fadeOutFinished()
-    {
-        collidingObject.transform.position = destinationTransform.position;
-        Debug.Log("fade out finished!");
-        GameManager.gameManagerObject.GetComponent<UIFade>().fadingOut = false;
-        GameManager.gameManagerObject.GetComponent<UIFade>().fadingIn = true;
-        GameManager.gameManagerObject.GetComponent<UIFade>().lerpTime = 0f;
-        Debug.Log("transition occured to: " + destination);
-
-    }
-
-
-    public virtual void fadeInFinished()
-    {
-        Debug.Log("fade in finished!");
-        GameManager.gameManagerObject.GetComponent<UIFade>().fadingOut = false;
-        GameManager.gameManagerObject.GetComponent<UIFade>().fadingIn = false;
-        GameManager.gameManagerObject.GetComponent<UIFade>().lerpTime = 0f;
-        playerScript.transitioningToScene = false;
-
-    }
-
-    
-
 }

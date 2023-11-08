@@ -11,7 +11,6 @@ public class VillageGateObjectInteraction : ObjectInteraction
     public GameObject canInteract;
     public GameObject cantInteract;
 
-    public bool hasKey;
     public bool playerTouchingObject;
 
     public Animator animator;
@@ -53,7 +52,7 @@ public class VillageGateObjectInteraction : ObjectInteraction
     {
         if (playerTouchingObject)
         {
-            if (hasKey && !animator.GetBool("moving"))
+            if (GameManager.tutorialHasRuinsKey && !animator.GetBool("moving"))
             {
                 if (animator.GetBool("closed"))
                 {

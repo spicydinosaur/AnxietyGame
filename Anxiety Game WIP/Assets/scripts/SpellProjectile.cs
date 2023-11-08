@@ -54,6 +54,7 @@ public class SpellProjectile : MonoBehaviour
         mousePos = spellTemplate.mousePos;
         maxDistance = spellTemplate.distance;
         directionToTarget = mousePos - transform.position;
+        spellStartPoint = transform.position;
 
         // Calculate the angle of the rotation for the projectile and convert from radians to degrees
         angle = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
@@ -76,20 +77,17 @@ public class SpellProjectile : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         var collidingObject = collision.gameObject;
-        string collidingObjectString = collidingObject.layer.ToString();
+        string collidingObjectString = collidingObject.tag.ToString();
 
         string completeList = string.Join(", ", combinedLayerString.ToArray());
-        //Debug.Log("This debug is firing in the OnTriggerEnter2D function collidingObject.name = " + collidingObject + ". the tag of the collidingObject =  " + collidingObject.tag + " positionInLayerList");
-        //Debug.Log("This debug is firing in the OnTriggerEnter2D function. The variable completeList = " + completeList + ".");
-        //Debug.Log("collidingObjectString = " + collidingObjectString);
-        
-        foreach (string layer in combinedLayerString)
+
+
+        foreach (string checkLayer in combinedLayerString)
         {
 
-            if (collidingObject.CompareTag(layer))
+            if (collidingObject.CompareTag(checkLayer))
             {
-                //Debug.Log("collidingObject.CompareTag(layer) = " + collidingObject.CompareTag(layer));
-                speed = 0f;
+                //Debug.Log("collidingObject.CompareTag(checkLayer) = " + collidingObject.CompareTag(checkLayer));
                 if (collidingObjectString == "Enemy")
                 {
                     if (healthAmount != 0f)

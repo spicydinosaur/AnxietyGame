@@ -19,11 +19,13 @@ TagManager:
   - passive scenery
   - copingmechanisms
   - effects
-  - PlayerSorting
   - interactable object
   - boundary box
   - Spell Interaction
   - loot
+  - VirtualCamera
+  - Sorting
+  - PlayerSorting
   layers:
   - Default
   - TransparentFX
@@ -97,6 +99,9 @@ TagManager:
   - name: Roofs
     uniqueID: 756746245
     locked: 0
+  - name: SleepSceneEyes
+    uniqueID: 4183576879
+    locked: 0
   - name: special effects
     uniqueID: 3969260847
     locked: 0
@@ -108,7 +113,4 @@ TagManager:
     locked: 0
   - name: Camera
     uniqueID: 2419717017
-    locked: 0
-  - name: SleepSceneEyes
-    uniqueID: 4183576879
     locked: 0

@@ -12,7 +12,7 @@ public class BrightSpellTemplate : SpellTemplate
     public GameObject hitObject;
     public Vector3 point;
     //don't forget to make the below variable a negative!
-    public float damageAmount;
+    public float healthAmount;
 
     public GameObject seasideRuinsEntrance;
     public GameObject monsterStone;
@@ -97,7 +97,7 @@ public class BrightSpellTemplate : SpellTemplate
             else if (hitObject.CompareTag("Enemy"))
             {
 
-                hitObject.GetComponent<NPCHealth>().ChangeNPCHealth(damageAmount);
+                hitObject.GetComponent<NPCHealth>().ChangeNPCHealth(healthAmount);
 
             }
 

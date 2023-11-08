@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using UnityEngine.Rendering.Universal;
 
 
 public class Player : MonoBehaviour
@@ -53,7 +54,7 @@ public class Player : MonoBehaviour
     public Vector2 lookDirection = new Vector2(0, -1);
 
     public InputAction move;
-    public PlayerControls playerControls { get; private set; }
+    public PlayerControls playerControls; 
     public ObjectInteraction objectInteraction;
 
     //The scrollwheel is used to flip through the spells the Hero currently possesses.
@@ -101,23 +102,19 @@ public class Player : MonoBehaviour
 
 
 
-    public void Awake()
-    {
-
-        playerControls = new PlayerControls();
-        //below is temporary until things start being stored in saved games.
-        currentCoins = 0;
-
-    }
-
     public void OnEnable()
     {
 
+        playerControls = new PlayerControls();
+        SceneControlsEnabled();
+        mainCam = Camera.main;
+
         playerControls.Enable();
-        playerControls.PlayerActions.Enable();
         playerControls.UIControl.Disable();
-
-
+        move = playerControls.Movement.Movement;
+        playerControls.PlayerActions.SpellSelectMouseScrollWheel.performed += ctx => spellSelectMouseScrollWheel = ctx.ReadValue<float>();
+        playerControls.PlayerActions.SpellCast.performed += OnSpellCast;
+        playerControls.PlayerActions.Interact.performed += OnInteract;
     }
 
     public void OnDisable()
@@ -141,9 +138,21 @@ public class Player : MonoBehaviour
 
     public void SwitchMapUIInput()
     {
+        playerControls.PlayerActions.SpellCast.performed -= OnSpellCast;
+        playerControls.PlayerActions.Interact.performed -= OnInteract;
         playerControls.PlayerActions.Disable();
         playerControls.UIControl.Enable();
 
+    }
+
+    public void PlayerControlsEnable()
+    {
+        playerControls.Enable();
+    }
+
+    public void PlayerControlsDisable()
+    {
+        playerControls.Disable();
     }
 
     public void Start()
@@ -153,12 +162,6 @@ public class Player : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
         audioSource = gameObject.GetComponent<AudioSource>();
-
-        move = playerControls.Movement.Movement;
-        playerControls.PlayerActions.SpellSelectMouseScrollWheel.performed += ctx => spellSelectMouseScrollWheel = ctx.ReadValue<float>();
-        playerControls.PlayerActions.SpellCast.performed += OnSpellCast;
-        playerControls.PlayerActions.Interact.performed += OnInteract;
-        //move.performed += ctx3 => movement = ctx3.ReadValue<float>();
 
         currentHealth = maxHealth;
         currentMana = maxMana;
@@ -175,6 +178,16 @@ public class Player : MonoBehaviour
 
     }
 
+    public void SceneControlsEnabled()
+    {
+        playerControls.Enable();
+        playerControls.PlayerActions.Enable();
+        playerControls.UIControl.Disable();
+        move = playerControls.Movement.Movement;
+        playerControls.PlayerActions.SpellSelectMouseScrollWheel.performed += ctx => spellSelectMouseScrollWheel = ctx.ReadValue<float>();
+        playerControls.PlayerActions.SpellCast.performed += OnSpellCast;
+        playerControls.PlayerActions.Interact.performed += OnInteract;
+    }
 
     public void FixedUpdate()
     {
@@ -190,7 +203,15 @@ public class Player : MonoBehaviour
         animator.SetFloat("Look X", lookDirection.x);
         animator.SetFloat("Look Y", lookDirection.y);
         animator.SetFloat("Speed", moveInput.magnitude);
-
+        
+        if (mainCam.GetComponent<Light2D>().intensity < 1f)
+        {
+            GetComponentInChildren<Light2D>().enabled = true;
+        }
+        else
+        {
+            GetComponentInChildren<Light2D>().enabled = false;
+        }
 
         //below is the code for the scroll wheel to cycle through spells
         if (spellSelectMouseScrollWheel != 0)
@@ -288,7 +309,6 @@ public class Player : MonoBehaviour
                     //This spell has no range and requires no values other than being at 0 on currentCastDownTime.
                     //Debug.Log("mouse click registered for spell casting. Spell available to cast, no cooldown in place. " + currentSpellScript.name + " is the current instantiated template.");
                     currentSpellScript.castSpell();
-                    spellTimer.globalCastDownTime = currentSpellScript.globalCastDownTime;
 
                 }
             }

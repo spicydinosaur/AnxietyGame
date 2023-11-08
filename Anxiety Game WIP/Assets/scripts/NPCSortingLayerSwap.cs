@@ -48,7 +48,7 @@ public class NPCSortingLayerSwap : MonoBehaviour
 
         }
 
-        else if (collider.gameObject.CompareTag("PlayerSorting"))
+        else if (collider.gameObject.CompareTag("Sorting"))
         {
 
             GetComponentInParent<SpriteRenderer>().sortingLayerName = "Hero";

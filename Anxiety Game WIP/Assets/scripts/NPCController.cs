@@ -43,11 +43,19 @@ public class NPCController : MonoBehaviour
     [SerializeField]
     public MovementOption[] attack_postinterrupt;
 
+    [SerializeField]
+    public MovementOption[] death_preinterrupt;
+    [SerializeField]
+    public MovementOption[] death_interrupt;
+    [SerializeField]
+    public MovementOption[] death_postinterrupt;
+
 
 
     // Start is called before the first frame update
     public virtual void OnEnable()
     {
+        hero = GameObject.Find("Hero");
         animator = GetComponent<Animator>();
         EventBroadcaster.HeroDeath.AddListener(HeroDied);
         advancedPatrolScript = GetComponent<AdvancedPatrolScript>();
@@ -71,11 +79,16 @@ public class NPCController : MonoBehaviour
 
     public virtual void OnDeath()
     {
-
+        advancedPatrolScript.Interrupt(death_preinterrupt, death_interrupt, death_postinterrupt);
         EventBroadcaster.HeroDeath.RemoveListener(HeroDied);
-        gameObject.SetActive(false);
 
     }
 
+    public virtual void DeathCloudDeactivate()
+    {
+
+        gameObject.SetActive(false);
+
+    }
 
 }

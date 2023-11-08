@@ -58,7 +58,7 @@ MonoBehaviour:
   transformDirection: {x: 0, y: 0, z: 0}
   casterTransform: {x: 0, y: 0, z: 0}
   spellStartPoint: {x: 0, y: 0, z: 0}
-  distance: 0
+  distance: 6
   mouseDistance: 0
   mainCam: {fileID: 0}
   projectilePrefab: {fileID: 1966081449583841403}
@@ -396,7 +396,7 @@ MonoBehaviour:
   fizzleSound: {fileID: 1134033527685386722}
   layerMasksToHit: 0000000001000000
   combinedLayerString: []
-  healthAmount: 0
+  healthAmount: -3
   manaAmount: 0
   directionToTarget: {x: 0, y: 0, z: 0}
   angle: 0
@@ -521,7 +521,7 @@ MonoBehaviour:
   transformDirection: {x: 0, y: 0, z: 0}
   casterTransform: {x: 0, y: 0, z: 0}
   spellStartPoint: {x: 0, y: 0, z: 0}
-  distance: 4
+  distance: 6
   mouseDistance: 0
   mainCam: {fileID: 0}
   projectilePrefab: {fileID: 6482137670951077966}
@@ -988,7 +988,7 @@ MonoBehaviour:
   fizzleSound: {fileID: 1134033527685386722}
   layerMasksToHit: 0000000001000000
   combinedLayerString: []
-  healthAmount: 0
+  healthAmount: -4
   manaAmount: 0
   directionToTarget: {x: 0, y: 0, z: 0}
   angle: 0
@@ -1080,20 +1080,20 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7123496300955310676}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -67.04, y: 15.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7730238258433086333}
+  - {fileID: 60098938404397266}
   - {fileID: 7540708430622170678}
   - {fileID: 6791384804866853110}
-  - {fileID: 60098938404397266}
   - {fileID: 6144314043464866121}
   - {fileID: 8690057727813104132}
   - {fileID: 4763683380682412201}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9145317635046187494
 MonoBehaviour:
@@ -1219,9 +1219,10 @@ GameObject:
   m_Component:
   - component: {fileID: 60098938404397266}
   - component: {fileID: 8308915085299733029}
-  - component: {fileID: 5341462147569449059}
   - component: {fileID: 6730886009852903778}
   - component: {fileID: 6940243051940409691}
+  - component: {fileID: 3790620795540479885}
+  - component: {fileID: 6967453729678100663}
   m_Layer: 8
   m_Name: Slice
   m_TagString: Spell Interaction
@@ -1290,47 +1291,12 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.625, y: 1.75}
+  m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &5341462147569449059
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7319737005630773795}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.015352649, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.0372237
 --- !u!95 &6730886009852903778
 Animator:
   serializedVersion: 5
@@ -1449,6 +1415,82 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3790620795540479885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7319737005630773795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1360002727782a846b0fb2372b6e5588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaCost: 3
+  castDownTime: 3
+  globalCastDownTime: 2
+  currentCastDownTime: 0
+  hero: {fileID: 0}
+  player: {fileID: 0}
+  mousePos: {x: 0, y: 0, z: 0}
+  worldPos: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 0, z: 0}
+  directionNormalized: {x: 0, y: 0, z: 0}
+  transformDirection: {x: 0, y: 0, z: 0}
+  casterTransform: {x: 0, y: 0, z: 0}
+  spellStartPoint: {x: 0, y: 0, z: 0}
+  distance: 0
+  mouseDistance: 0
+  mainCam: {fileID: 0}
+  projectilePrefab: {fileID: 0}
+  currentProjectile: {fileID: 0}
+  spellCaster: {fileID: 0}
+  spellTimer: {fileID: 9145317635046187494}
+  animator: {fileID: 0}
+  spellCollider2D: {fileID: 0}
+  heroAnim: {fileID: 0}
+  spellSound: {fileID: 6940243051940409691}
+  layerMasksToHit: 0000000001000000
+  combinedLayerString: []
+  healthAmount: -3
+  manaAmount: 0
+  spawnDirectionModifier: 0
+--- !u!70 &6967453729678100663
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7319737005630773795}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.625, y: 1.5625}
+  m_Direction: 0
 --- !u!1 &8102532146564774860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,7 +1582,7 @@ MonoBehaviour:
   rayCastDistance: 4
   hitObject: {fileID: 0}
   point: {x: 0, y: 0, z: 0}
-  damageAmount: 2
+  healthAmount: -2
   seasideRuinsEntrance: {fileID: 0}
   monsterStone: {fileID: 0}
   summonedSlime: {fileID: 0}

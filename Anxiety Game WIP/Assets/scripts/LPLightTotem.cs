@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class LPLightTotem : LightPillars
 {
@@ -9,19 +11,55 @@ public class LPLightTotem : LightPillars
 
     public GameObject pixieBoss;
 
+    public TutorialPixieBossTimeline pixieTimeline;
+
+    public float playerLightIntensity;
+
+    public GameObject hero;
+
+    public Camera mainCam;
+
+    /*public void LightBallChange()
     public override void HitByBright()
     {
 
-        gameObject.GetComponentInChildren<Light2D>().enabled = true;
-        gameObject.GetComponent<Animator>().SetBool("pillarActivated", true);
+        objectToLight.GetComponent<Light2D>().enabled = true;
+        pixieTimeline.DirectorPlayed(pixieTimeline.directorIntro);
+        
+        //gameObject.GetComponent<Animator>().SetBool("pillarActivated", true);
 
     }
 
-    public void PixieSpawn()
     {
-        pixieBoss.transform.position = new Vector3(-63f, 12.76f, 0f);
-        gameObject.GetComponent<Light2D>().enabled = false;
-        gameObject.GetComponentInParent<GameObject>().SetActive(false);
+        if (objectToLight)
+        {
+            objectToLight.SetActive(false);
+            //gameObject.GetComponentInParent<GameObject>().SetActive(false);
+            //timeline should start here, though we can probably make this entire function into part of the timeline
+            //pixie rises up above the pillar, glowing in the darkness. there's an audible high pitched laugh and she blinks several times before disappearing. 
+            //she spawns at the back center of the room and the fight commences.
+        }
+        else
+        {
+            objectToLight.SetActive(true);
+        }
+    }*/
+
+    public void Start()
+    {
+        hero = GameObject.Find("Hero");
+        mainCam = Camera.main;
     }
 
+    public void PixieFightBegin()
+    {
+        pixieBoss.GetComponent<SpriteRenderer>().sortingLayerName = "Enemy";
+    }
+
+
+
+    public void PanCameraDone()
+    {
+        GetComponentInChildren<Image>().fillAmount = 0;
+    }
 }

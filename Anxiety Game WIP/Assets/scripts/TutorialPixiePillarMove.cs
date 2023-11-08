@@ -9,7 +9,7 @@ public class TutorialPixiePillarMove : MonoBehaviour
     [SerializeField]
     private Vector2 totalMovement;
     public AudioSource pillarGrindSound;
-    public TutorialBossFairy bossFairy;
+    public TutorialBossPixie bossPixie;
    
 
 /*
@@ -37,8 +37,6 @@ public class TutorialPixiePillarMove : MonoBehaviour
             elapsedTime += waitForSecondsCoroutine;
 
             yield return new WaitForSeconds(waitForSecondsCoroutine);
-
-
 
         }
 

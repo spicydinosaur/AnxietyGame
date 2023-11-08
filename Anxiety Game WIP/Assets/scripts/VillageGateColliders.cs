@@ -23,7 +23,7 @@ public class VillageGateColliders : MonoBehaviour
 
         if (collider.gameObject.CompareTag("Player"))
         {
-            if (objectInteraction.hasKey)
+            if (GameManager.tutorialHasRuinsKey)
             {
                 objectInteraction.canInteract.SetActive(true);
                 objectInteraction.player.objectInteraction = gameObject.GetComponentInParent<ObjectInteraction>();

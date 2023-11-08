@@ -23,6 +23,10 @@ public class NPCHealth : MonoBehaviour
         healthBar.SetActive(true);
         spriteRenderer = GetComponent<SpriteRenderer>();
         NPCColor = spriteRenderer.color;
+        if (damageBlinkTime == 0)
+        {
+            damageBlinkTime = .5f;
+        }
 
     }
 
@@ -44,11 +48,9 @@ public class NPCHealth : MonoBehaviour
         if (currentHealth > 0)
         {
 
+            //amount must be a negative or it will heal the enemy!
             currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
             healthBarImage.fillAmount = Mathf.Clamp(currentHealth/maxHealth, 0, 1f);
-
-            //Debug.Log("hit enemy. current health: " + currentHealth);
-            //Debug.Log("hit enemy. damage amount: " + dmgAmount);
 
             if (damageBlinkTime <= 0)
             {

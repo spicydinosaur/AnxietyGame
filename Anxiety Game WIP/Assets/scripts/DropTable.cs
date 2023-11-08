@@ -15,7 +15,7 @@ public class DropTable : MonoBehaviour
 
     public void rollOnTable()
     {
-        randomDropResult = Random.Range(0, 100);
+        randomDropResult = Random.Range(0, 101);
         Debug.Log("Random Drop Result: " + randomDropResult);
         for (int i = 0; i < itemsInDropTable.Length; i++)
         {
