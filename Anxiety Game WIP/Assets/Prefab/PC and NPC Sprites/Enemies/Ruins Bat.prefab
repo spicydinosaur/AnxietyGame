@@ -354,6 +354,9 @@ MonoBehaviour:
   attack_preinterrupt: []
   attack_interrupt: []
   attack_postinterrupt: []
+  death_preinterrupt: []
+  death_interrupt: []
+  death_postinterrupt: []
   dropTable: {fileID: 4480447118804930093}
   numberOfBlinks: 4
   currentBlink: 0
@@ -458,8 +461,8 @@ MonoBehaviour:
   dontLoopPatrol: 0
   dontLoopInterrupt: 0
   startOnLoad: 0
-  controller: {fileID: 0}
-  animator: {fileID: 0}
+  controller: {fileID: 3925210647939697339}
+  animator: {fileID: 3925210647939697329}
   meleeHealthDamage: 0
   meleeManaDamage: 0
   rangedHealthDamage: 0
@@ -467,7 +470,7 @@ MonoBehaviour:
   defaultHealthDamage: 0
   defaultManaDamage: 0
   hasRangedAttack: 0
-  agent: {fileID: 0}
+  agent: {fileID: 2162496593005512216}
   hasBestVector2Changed: 0
   destinationToken: {fileID: 0}
   isRunningBackwards: 0
@@ -507,7 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d94be5dd2cf45b147abbd92a82d91591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
+  agent: {fileID: 2162496593005512216}
 --- !u!1 &3925210648230168942
 GameObject:
   m_ObjectHideFlags: 0

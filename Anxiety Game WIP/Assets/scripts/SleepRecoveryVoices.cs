@@ -12,12 +12,21 @@ public class SleepRecoveryVoices : MonoBehaviour
     public List<Vector2> barkPositions;
     public SleepRecoveryEyes deathScript;
     public float waitTime = 1f;
-    public int eyeListRandomChoice;
-    public float yValueShift = 1f;
-    public List<Vector2> tempVectorPositionList;
+    private int eyeListRandomChoice;
+
+    [HideInInspector]
+    public float yValueShift = .5f;
+    private List<Vector2> tempVectorPositionList;
     public int currentMaxBarkObjectInList = 5;
+    public int barksToIncrementMaxBark = 10;
+    private int barksSinceMaxIncrement = 0;
+
+    [HideInInspector]
     public int chimeTime = 8;
+
+    [HideInInspector]
     public int loops = 0;
+    public float waitTimeMultiplier = 0.1f;
 
 
     public IEnumerator BarkCycle() 
@@ -32,7 +41,13 @@ public class SleepRecoveryVoices : MonoBehaviour
         for (int i = 0; i < currentMaxBarkObjectInList; i++)
         {
             loops++;
-            Debug.Log("i = " + i + ". loops = " + loops);
+            barksSinceMaxIncrement++;
+            if (barksSinceMaxIncrement >= barksToIncrementMaxBark)
+            {
+                barksSinceMaxIncrement = 0;
+                currentMaxBarkObjectInList++;
+            }
+            //Debug.Log("i = " + i + ". loops = " + loops);
             if (i >= barkObjects.Count)
             {
                 GameManager.Instance.ClockChimeForRecoveryScene();
@@ -46,17 +61,17 @@ public class SleepRecoveryVoices : MonoBehaviour
 
                 Debug.Log("if statement fired, i =" + i);
                 tempVectorPositionList = new List<Vector2>(barkPositions);
-                currentMaxBarkObjectInList++;
+                
 
             }
             //barkObjects[i].transform.position = barkPositions[(int)Mathf.Floor(UnityEngine.Random.Range(0, barkPositions.Count))];
             eyeListRandomChoice = UnityEngine.Random.Range(0, tempVectorPositionList.Count);
             barkObjects[i].transform.position = new Vector2(tempVectorPositionList[eyeListRandomChoice].x, tempVectorPositionList[eyeListRandomChoice].y + yValueShift);
-            Debug.Log("eyelistrandomchoice = " + eyeListRandomChoice);
+            //Debug.Log("eyelistrandomchoice = " + eyeListRandomChoice);
             tempVectorPositionList.Remove(tempVectorPositionList[eyeListRandomChoice]);
             //barkObjects[i].SetActive(true);
             
-            yield return new WaitForSeconds(waitTime/(1+loops*0.1f));
+            yield return new WaitForSeconds(waitTime/(1+loops*waitTimeMultiplier));
             //modify waitTime in script to speed up the recovery sequence.
             barkObjects[i].SetActive(true);
             if (i == currentMaxBarkObjectInList - 1) //|| tempVectorPositionList.Count > 0)
@@ -84,7 +99,7 @@ public class SleepRecoveryVoices : MonoBehaviour
         //if (currentMaxBarkObjectInList == 0) { currentMaxBarkObjectInList = 5; }
         foreach (GameObject darkthought in barkObjects)
         {
-            darkthought.GetComponent<StandardBarkUI>().duration = waitTime/ (1 + loops * 0.1f);
+            darkthought.GetComponent<StandardBarkUI>().duration = waitTime/ (1 + loops * waitTimeMultiplier);
         }
         StartCoroutine(BarkCycle());
     }

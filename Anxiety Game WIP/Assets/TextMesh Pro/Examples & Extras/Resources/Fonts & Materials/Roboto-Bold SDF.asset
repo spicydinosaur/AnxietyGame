@@ -13,7 +13,8 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - OUTLINE_ON
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - RATIOS_OFF
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -73,9 +74,9 @@ Material:
     - _OutlineWidth: 0.285
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 0.9
+    - _ScaleRatioA: 1
     - _ScaleRatioB: 0.73125
-    - _ScaleRatioC: 0.70425
+    - _ScaleRatioC: 1
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0

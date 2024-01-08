@@ -178,6 +178,7 @@ public class GameManager : PersistentSingleton<GameManager>
         hero = GameObject.Find("Hero");
         fadeObject = GameObject.Find("CameraFadeImage");
         cameraFadeAnim = fadeObject.GetComponent<Animator>();
+        player = hero.GetComponent<Player>();
 
         if (scene.buildIndex == 2)
         {
@@ -233,6 +234,7 @@ public class GameManager : PersistentSingleton<GameManager>
             }
             else
             {
+                Debug.Log("on load of scene 0 in GameManager script, preTotorialPlayVector = " + preTutorialPlayVector);
                 hero.transform.position = preTutorialPlayVector;
                 hero.transform.localScale = heroScaleChild;
             }

@@ -37304,12 +37304,12 @@ MonoBehaviour:
   barkPositions: []
   deathScript: {fileID: 399709318}
   waitTime: 1
-  eyeListRandomChoice: 0
   yValueShift: 0.5
-  tempVectorPositionList: []
-  currentMaxBarkObjectInList: 5
+  currentMaxBarkObjectInList: 15
+  barksToIncrementMaxBark: 5
   chimeTime: 8
   loops: 0
+  waitTimeMultiplier: 0.05
 --- !u!1 &1434994906
 GameObject:
   m_ObjectHideFlags: 3
@@ -37496,12 +37496,12 @@ MonoBehaviour:
   barkPositions: []
   deathScript: {fileID: 207809651}
   waitTime: 0
-  eyeListRandomChoice: 0
   yValueShift: 0.5
-  tempVectorPositionList: []
   currentMaxBarkObjectInList: 0
+  barksToIncrementMaxBark: 10
   chimeTime: 0
   loops: 0
+  waitTimeMultiplier: 0.1
 --- !u!1 &1443008176
 GameObject:
   m_ObjectHideFlags: 0
@@ -41400,12 +41400,12 @@ MonoBehaviour:
   barkPositions: []
   deathScript: {fileID: 1890425078}
   waitTime: 0
-  eyeListRandomChoice: 0
   yValueShift: 0.5
-  tempVectorPositionList: []
   currentMaxBarkObjectInList: 0
+  barksToIncrementMaxBark: 10
   chimeTime: 0
   loops: 0
+  waitTimeMultiplier: 0.1
 --- !u!1 &1583186966
 GameObject:
   m_ObjectHideFlags: 3

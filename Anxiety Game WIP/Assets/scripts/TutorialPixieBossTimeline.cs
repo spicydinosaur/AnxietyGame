@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,7 @@ public class TutorialPixieBossTimeline : MonoBehaviour
     public List<PlayableDirector> directors;
     public int cutsceneCount;
     public bool panCutscenePlayed;
+    public GameObject panCamera;
 
     public void Start()
     {
@@ -45,7 +47,7 @@ public class TutorialPixieBossTimeline : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-
+            panCamera.GetComponent<CinemachineVirtualCamera>().Priority = 20;
             DirectorPlayed();
         }
     }

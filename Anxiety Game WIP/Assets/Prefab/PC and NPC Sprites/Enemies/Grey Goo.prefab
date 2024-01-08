@@ -639,7 +639,7 @@ Transform:
   - {fileID: 1930579660078175186}
   - {fileID: 7325659909973813132}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1930579659862216184
 SpriteRenderer:
@@ -770,6 +770,9 @@ MonoBehaviour:
   attack_preinterrupt: []
   attack_interrupt: []
   attack_postinterrupt: []
+  death_preinterrupt: []
+  death_interrupt: []
+  death_postinterrupt: []
   dropTable: {fileID: 1930579659780325848}
   numberOfBlinks: 4
   currentBlink: 0
@@ -899,7 +902,7 @@ MonoBehaviour:
   dontLoopInterrupt: 0
   startOnLoad: 0
   controller: {fileID: 1930579659862216183}
-  animator: {fileID: 0}
+  animator: {fileID: 1930579659862216189}
   meleeHealthDamage: 0
   meleeManaDamage: 0
   rangedHealthDamage: 0
@@ -907,7 +910,7 @@ MonoBehaviour:
   defaultHealthDamage: 0
   defaultManaDamage: 0
   hasRangedAttack: 0
-  agent: {fileID: 0}
+  agent: {fileID: 839571168987909712}
   hasBestVector2Changed: 0
   destinationToken: {fileID: 0}
   isRunningBackwards: 0
@@ -947,7 +950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d94be5dd2cf45b147abbd92a82d91591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
+  agent: {fileID: 839571168987909712}
 --- !u!1 &1930579660078175189
 GameObject:
   m_ObjectHideFlags: 0

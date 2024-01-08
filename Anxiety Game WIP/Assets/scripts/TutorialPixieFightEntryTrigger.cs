@@ -11,7 +11,7 @@ public class TutorialPixieFightEntryTrigger : MonoBehaviour
     public float lightIntensity;
     public GameObject hero;
     public TutorialPixieBossTimeline timelineScript;
-    public CinemachineTrackedDolly dollyTrack;
+    //public CinemachineTrackedDolly dollyTrack;
 
     public void Start()
     {
