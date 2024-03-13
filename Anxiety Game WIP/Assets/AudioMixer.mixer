@@ -10,7 +10,7 @@ AudioMixerGroupController:
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: ca0fb47e9b596b242bf58e67803175ec
   m_Children:
-  - {fileID: 5020800854483701636}
+  - {fileID: 4801026115938142833}
   - {fileID: 5805699440069391927}
   m_Volume: a82f8f0d63b5d6d41abe9a701ec6d857
   m_Pitch: 009eaade399e06c45b7c690d200ac332
@@ -164,8 +164,6 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
-  - guid: 571fd0aa33d3ef544b7d3a4ec030bd7b
-    name: AceOfWandsRuins
   - guid: fb6983031f285e541824c4a0ad03df17
     name: ExposedBirdsong
   - guid: db397c6c8cdee33409581dbc0f6c303c
@@ -192,7 +190,6 @@ AudioMixerController:
     - ca0fb47e9b596b242bf58e67803175ec
     - 2ace713989211e5418820aa6f8743fdd
     - 5f5f7061d450f0340a8fdab82a3a44e3
-    - bf5037b90ae0be440821138fc9ed7fff
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -206,7 +203,6 @@ AudioMixerGroupController:
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 4bcadd29c93ae95409f40704216f5ddd
   m_Children:
-  - {fileID: 4801026115938142833}
   - {fileID: -2079412980581534548}
   - {fileID: 5573514995304073433}
   - {fileID: -3991621693256062769}
@@ -248,7 +244,6 @@ AudioMixerSnapshotController:
     07e996f0eed0327438604a128fdc07c6: -9.833286
     fb6983031f285e541824c4a0ad03df17: -10.345207
     c513b827d43055f458b475b70eee6f1f: -0.0837491
-    f55d63a8758b0a048a14f7fea05b3d81: -9.833286
     65d17b5a509de0b419f61972cdf3743b: -10.345207
     571fd0aa33d3ef544b7d3a4ec030bd7b: -10.345207
     db397c6c8cdee33409581dbc0f6c303c: -10.345207
@@ -286,39 +281,6 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: -6412801363838472055}
-  m_UserColorIndex: 0
-  m_Mute: 0
-  m_Solo: 0
-  m_BypassEffects: 0
---- !u!244 &4825313319257610968
-AudioMixerEffectController:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_EffectID: 5c77291c45fde1247a157b0f00aed4c2
-  m_EffectName: Attenuation
-  m_MixLevel: 4e082b2efd7bca84ebab3893d08d494c
-  m_Parameters: []
-  m_SendTarget: {fileID: 0}
-  m_EnableWetMix: 0
-  m_Bypass: 0
---- !u!243 &5020800854483701636
-AudioMixerGroupController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: BasicThemeNoIntro
-  m_AudioMixer: {fileID: 24100000}
-  m_GroupID: bf5037b90ae0be440821138fc9ed7fff
-  m_Children: []
-  m_Volume: f55d63a8758b0a048a14f7fea05b3d81
-  m_Pitch: 670f894d2a48d404ca5f268ad4035338
-  m_Send: 00000000000000000000000000000000
-  m_Effects:
-  - {fileID: 4825313319257610968}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
